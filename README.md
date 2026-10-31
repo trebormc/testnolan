@@ -72,21 +72,24 @@ El test **no recomienda votar a nadie**. Muestra afinidad con las posiciones est
 Existe un prototipo funcional en un único archivo, `index.html`, con todo el CSS y el JavaScript incrustados, más `og-image.png` (imagen fija para Open Graph). Incluye:
 
 - Rombo de Nolan dibujado en SVG con las cinco zonas, la línea media discontinua y los ejes rotulados.
-- **33 afirmaciones** (16 de economía y 17 de libertades) con escala de 5 puntos.
+- **43 afirmaciones** (20 de economía y 23 de libertades) con escala de 5 puntos. Cada una lleva una etiqueta corta de tema (`k`) y un **contexto en lenguaje llano** (`c`) que se despliega con «¿Qué significa?».
 - Posición de cada partido calculada a partir de sus respuestas, con el mismo cálculo que el usuario.
 - Punto **"Tú"** que se mueve en el rombo según se responde.
-- Ranking de **afinidad por respuestas** con cada partido.
+- Ranking de **afinidad por respuestas** con cada partido, y un bloque **«En qué coincides y en qué no»** con los tres partidos más cercanos (ampliable a todos): temas en los que has dado la misma respuesta (sin contar el neutral) y temas en los que estás a tres o más pasos de distancia.
 - En cada pregunta, un desplegable para ver **qué responde cada partido**.
 - Leyenda para mostrar u ocultar partidos.
 - Filtros por bloque (todas, economía, libertades), contador de progreso y botón para borrar respuestas (con confirmación en dos pulsaciones).
+- Dos modos de presentación: **«Una a una»** (una pregunta por pantalla con «Pregunta 7 de 43», Anterior, Saltar/Siguiente, avance automático al responder y pantalla final con «Ver mi posición») y **«Lista»** (todas las tarjetas seguidas). Por defecto, «Una a una» en pantallas de menos de 700 px y «Lista» en el resto; la elección se recuerda.
+- **Atajos de teclado**: `1`–`5` responden la pregunta activa (y en modo lista pasan a la siguiente); flechas o `j`/`k` cambian de pregunta. La pista solo se muestra en dispositivos con puntero.
+- **Nombre opcional para tu punto**: sustituye a «Tú» en el rombo, viaja en el enlace de comparación (`&n=`) y aparece en la imagen compartida («A Marta le sale…»).
 - Sección de metodología con tabla de puntuaciones y fuentes.
 - Tema claro y oscuro, diseño adaptado a móvil.
 - Persistencia de respuestas solo en el navegador del usuario (`localStorage`, clave `testnolan-es-2026`, con `try/catch`). Nada sale del dispositivo.
 - Esqueleto HTML completo (`lang="es"`, `charset`, `viewport`), título y descripción orientados a buscar «test de Nolan elecciones generales España 29N», etiquetas Open Graph y Twitter Card, `canonical` a `https://testnolan.com/es/` y datos estructurados JSON-LD.
 - Botón **«Compartir mi resultado»**: genera en un `<canvas>` una imagen de 1200 × 630 con el rombo, los partidos, el punto del usuario, su zona, sus dos puntuaciones, el partido más afín y la URL testnolan.com. En móvil usa la Web Share API con archivo; si no está disponible, descarga el PNG y muestra enlaces a X, Facebook, WhatsApp y Telegram con el texto ya escrito. La constante `SHARE_SHOW_TOP_PARTY` permite ocultar el partido más afín de la imagen durante el periodo de prohibición de encuestas.
-- **Enlace para comparar** (`#r=…`): codifica las respuestas en el *hash* de la URL, que nunca llega al servidor. Quien lo abre ve el punto de la otra persona como «Amigo» junto al suyo, con su zona y puntuaciones, y puede quitarlo. Formato: `1` (versión) + una cifra por pregunta en el orden de `QUESTIONS` (`0`–`4` para −2…+2, `_` si no se respondió).
+- **Enlace para comparar** (`#r=…&n=…`): codifica las respuestas (y el nombre, si lo hay) en el *hash* de la URL, que nunca llega al servidor. Quien lo abre ve el punto de la otra persona con su nombre (o «Amigo») junto al suyo, con su zona y puntuaciones, y puede quitarlo. Formato de `r`: `1` (versión) + una cifra por pregunta en el orden de `QUESTIONS` (`0`–`4` para −2…+2, `_` si no se respondió). Si cambia el número o el orden de preguntas hay que subir la versión.
 - Modo `?og=1` que muestra solo la imagen genérica de 1200 × 630 (sin usuario, tema claro) para capturarla como `og-image.png`, y `?og=user` para previsualizar la imagen del resultado propio.
-- Metodología ampliada: nota de circunscripciones (D21 + Cs solo en Madrid y Barcelona; SALF solo en algunas provincias), críticas al modelo de Nolan y soporte para enlazar la **fuente** de cada respuesta de cada partido (campo opcional `src` por pregunta; aún sin datos).
+- Metodología ampliada: versión y fecha de los datos visibles (`DATA_VERSION`, `DATA_DATE`), nota de circunscripciones (D21 + Cs solo en Madrid y Barcelona; SALF solo en algunas provincias), críticas al modelo de Nolan y soporte para enlazar la **fuente** de cada respuesta de cada partido (campo opcional `src` por pregunta; aún sin datos).
 - Pie de página con la política de datos (no hay servidor, cookies ni analítica; todo queda en el navegador), aviso de que las posiciones son estimaciones y de que el test no recomienda votar a nadie, autoría con enlace a menetray.com y contacto para correcciones.
 - Accesibilidad: descripción del SVG que se actualiza con la posición del usuario, mensajes de estado con `aria-live`, etiquetas en los botones de la leyenda y de compartir, foco visible en todos los controles y `prefers-reduced-motion` respetado.
 
@@ -185,22 +188,23 @@ Estas reglas se acordaron para que **todos los partidos se midan con la misma va
 
 ## Partidos incluidos y posiciones resultantes
 
-Posiciones calculadas con el cuestionario actual (33 preguntas). Escala de 0 a 100.
+Posiciones calculadas con el cuestionario actual (43 preguntas, versión de datos 1.1). Escala de 0 a 100.
 
 | Partido | Candidatura y cabeza de lista | Economía | Libertades | Zona |
 |---|---|---:|---:|---|
-| PP | Partido Popular · Alberto Núñez Feijóo | 63 | 54 | Centro |
-| PSOE | PSOE / PSC · Pedro Sánchez | 22 | 56 | Izquierda |
-| Vox | Vox · Santiago Abascal | 78 | 38 | Derecha |
-| Frente Amplio | Frente Amplio (antes Sumar) · Ada Colau | 6 | 65 | Izquierda |
-| Podemos | Podemos · Irene Montero | 5 | 71 | Izquierda |
-| SALF | Se Acabó La Fiesta · Alvise Pérez | 80 | 46 | Derecha |
-| D21 + Cs | Democracia para el Siglo 21 (Democracia 21 + Ciudadanos + UCIN) · Miriam González | 55 | 76 | Libertario |
-| Milei *(referencia)* | La Libertad Avanza (Argentina) · Javier Milei | 91 | 53 | Libertario |
-| Bukele *(referencia)* | Nuevas Ideas (El Salvador) · Nayib Bukele | 48 | 15 | Autoritario |
+| PP | Partido Popular · Alberto Núñez Feijóo | 66 | 54 | Libertario (en el borde del centro) |
+| PSOE | PSOE / PSC · Pedro Sánchez | 20 | 59 | Izquierda |
+| Vox | Vox · Santiago Abascal | 80 | 37 | Derecha |
+| Frente Amplio | Frente Amplio (antes Sumar) · Ada Colau | 5 | 66 | Izquierda |
+| Podemos | Podemos · Irene Montero | 4 | 72 | Izquierda |
+| SALF | Se Acabó La Fiesta · Alvise Pérez | 81 | 47 | Derecha |
+| D21 + Cs | Democracia para el Siglo 21 (Democracia 21 + Ciudadanos + UCIN) · Miriam González | 56 | 74 | Libertario |
+| Milei *(referencia)* | La Libertad Avanza (Argentina) · Javier Milei | 93 | 54 | Libertario |
+| Bukele *(referencia)* | Nuevas Ideas (El Salvador) · Nayib Bukele | 55 | 15 | Derecha (en el borde de autoritario) |
 
 Notas:
 
+- Con las 10 preguntas añadidas en la versión 1.1, el **PP** pasa de 63 a 66 en economía y cruza por un punto la frontera del centro (65) hacia la zona libertaria, y **Bukele** sube de 48 a 55 en economía (despidos, desalojos, menos regulación ambiental) y cruza a la zona derecha. Las dos zonas son fronterizas; conviene revisarlas cuando los partidos publiquen sus programas.
 - **D21 + Cs** solo se presenta en las circunscripciones de **Madrid y Barcelona**. **SALF** solo en algunas provincias. Conviene indicarlo en la web.
 - **Milei y Bukele** son referencias para comparar, no se votan en España. Varias preguntas son específicas de España y sus respuestas se estiman por analogía. Se muestran en otro color (naranja y rosa).
 - Otros partidos que se presentan pero no están en el test porque solo concurren en sus comunidades: ERC, Junts, PNV, EH Bildu, BNG, Coalición Canaria (UPN va integrada en la lista del PP en Navarra). Ver tareas pendientes.
@@ -221,7 +225,7 @@ Respuestas de los partidos en el orden: PP, PSOE, Vox, Frente Amplio, Podemos, S
 
 Las afirmaciones se redactan de la forma más general posible, para que el mismo cuestionario sirva en cualquier país; lo que cambia en cada elección es la respuesta de los partidos.
 
-### Economía (16)
+### Economía (20)
 
 | id | Afirmación | dir | Respuestas |
 |---|---|:-:|---|
@@ -241,8 +245,12 @@ Las afirmaciones se redactan de la forma más general posible, para que el mismo
 | e_gasto | El gasto público debería reducirse de forma significativa. | +1 | 0, −1, 1, −2, −2, 2, 0, 2, 0 |
 | e_smi | El Gobierno debe seguir subiendo el salario mínimo por ley. | −1 | 1, 2, 0, 2, 2, −1, 1, −1, 1 |
 | e_aran | Hay que proteger al campo y a la industria nacional con aranceles o límites a las importaciones. | −1 | −1, 0, 2, 1, 1, 1, −2, −2, 0 |
+| e_desp | Hay que facilitar a las empresas contratar y despedir, con menos restricciones e indemnizaciones más bajas. | +1 | 1, −2, 1, −2, −2, 1, 1, 2, 1 |
+| e_jorn | La jornada laboral debe reducirse por ley sin bajar el sueldo. | −1 | −1, 2, −1, 2, 2, −1, 0, −2, −1 |
+| e_ecol | Hay que imponer impuestos y normas ambientales estrictas a empresas y consumidores aunque frenen la economía. | −1 | −1, 1, −2, 2, 2, −2, 0, −2, −1 |
+| e_okupa | Hay que poder desalojar en pocos días a quien ocupa una vivienda sin permiso. | +1 | 2, −1, 2, −2, −2, 2, 1, 2, 2 |
 
-### Libertades (17)
+### Libertades (23)
 
 | id | Afirmación | dir | Respuestas |
 |---|---|:-:|---|
@@ -263,6 +271,14 @@ Las afirmaciones se redactan de la forma más general posible, para que el mismo
 | p_burka | Debería prohibirse el burka y el niqab en los espacios públicos. | −1 | 0, −1, 2, −2, −2, 2, −1, 0, 0 |
 | p_ileg | Habría que ilegalizar los partidos que defienden la independencia de una región. | −1 | −1, −2, 2, −2, −2, 1, −2, 0, 1 |
 | p_decr | El Gobierno debería poder legislar por decreto cuando el Parlamento bloquea sus reformas. | −1 | −1, 1, −1, 0, 0, 1, −2, 2, 2 |
+| p_vigil | El Estado debería poder acceder a las comunicaciones privadas sin orden judicial para prevenir delitos. | −1 | −2, −2, −1, −2, −2, −1, −2, −1, 2 |
+| p_trans | Las personas deben poder cambiar su sexo legal sin informes médicos. | +1 | −1, 2, −2, 2, 2, −2, 0, −2, −2 |
+| p_mili | Debería recuperarse el servicio militar obligatorio. | −1 | −1, −2, 1, −2, −2, 0, −1, −1, 1 |
+| p_relig | La religión debería tener más presencia en la escuela y en la vida pública. | −1 | 0, −2, 2, −2, −2, 1, −1, 1, 2 |
+| p_menores | Hay que prohibir por ley que los menores de 16 años tengan cuentas en redes sociales. | −1 | 1, 2, 1, 1, 0, −1, 0, −1, 1 |
+| p_apuestas | Hay que prohibir la publicidad de las apuestas y del juego online. | −1 | 0, 2, −1, 2, 2, −1, 0, −2, 0 |
+
+Las diez últimas (e_desp, e_jorn, e_ecol, e_okupa, p_vigil, p_trans, p_mili, p_relig, p_menores, p_apuestas) se añadieron en la versión 1.1 tras revisar los cuestionarios de politica.cc y graficnolan.cat. Cubren dos clásicos del test de Nolan que faltaban (flexibilidad laboral y vigilancia sin orden judicial) y temas que dividen con claridad a los partidos españoles. Sus respuestas tienen el mismo nivel de certeza que las demás: estimaciones a partir de posiciones públicas, pendientes de contrastar con los programas. Las de menor certeza son p_mili (Vox ha coqueteado con un servicio nacional, pero no es una propuesta cerrada) y p_menores (los partidos se han pronunciado sobre la propuesta del Gobierno, no en programas). En el eje personal, p_vigil y p_mili son restricciones que pueden venir de cualquier lado, p_trans y p_relig las plantea la derecha y p_menores y p_apuestas la izquierda, para mantener el equilibrio del criterio 5.
 
 ### Contexto que justifica algunas respuestas
 
@@ -370,11 +386,12 @@ La viralidad se busca con una **imagen generada en el navegador** que el usuario
   google-chrome --headless=new --window-size=1200,630 --hide-scrollbars --virtual-time-budget=8000 --screenshot=og-image.png "http://localhost:8000/index.html?og=1"
   ```
 - [ ] Probar la descarga y la Web Share API en móviles reales; en el visor de Claude están bloqueadas.
+- [ ] Probar el modo «Una a una» y los atajos de teclado con lector de pantalla.
 
 ### Contenido y transparencia
 
 - [ ] Añadir a cada respuesta de cada partido una **fuente** (enlace a programa, votación o declaración). El desplegable ya la muestra si existe: basta con añadir a la pregunta un campo `src:{pp:'https://…', psoe:'https://…'}`.
-- [ ] Revisar las respuestas cuando los partidos publiquen sus programas completos (a 31 de octubre de 2026 ninguno lo había hecho).
+- [ ] Revisar las respuestas cuando los partidos publiquen sus programas completos (a 31 de octubre de 2026 ninguno lo había hecho). Prioridad: las diez preguntas añadidas en la 1.1 y las zonas fronterizas de PP y Bukele.
 - [x] Indicar en la web en qué circunscripciones se presentan D21 + Cs (solo Madrid y Barcelona) y SALF (algunas provincias).
 - [ ] Valorar añadir los partidos territoriales (ERC, Junts, PNV, EH Bildu, BNG, Coalición Canaria) con un filtro por comunidad.
 - [x] Mencionar en la metodología las críticas al modelo de Nolan.
@@ -397,6 +414,15 @@ La viralidad se busca con una **imagen generada en el navegador** que el usuario
 - [ ] Sugerencia de test por idioma del navegador o país (nunca redirección automática).
 - [ ] Traducciones (castellano, catalán, inglés).
 - [ ] Artículo en menetray.com contando cómo se hizo y qué tráfico aguantó con coste cero.
+
+---
+
+## Registro de cambios de los datos
+
+La versión y la fecha se muestran en la metodología de la web (`DATA_VERSION` y `DATA_DATE` en `index.html`). Cualquier cambio en preguntas o respuestas de partidos debe subir la versión y anotarse aquí.
+
+- **1.1 (31-10-2026)**: 10 afirmaciones nuevas (4 de economía, 6 de libertades); contexto y etiqueta corta en todas; cuatro afirmaciones redactadas de forma más genérica (impuesto sobre la renta, inflación, gasto público sin la cifra del PIB, «ciudadanos del país»). Posiciones recalculadas: PP 66/54, PSOE 20/59, Vox 80/37, Frente Amplio 5/66, Podemos 4/72, SALF 81/47, D21 + Cs 56/74, Milei 93/54, Bukele 55/15.
+- **1.0 (31-10-2026)**: primera versión con 33 afirmaciones (16 de economía y 17 de libertades) y 7 partidos más 2 referencias.
 
 ---
 

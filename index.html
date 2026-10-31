@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Test de Nolan · Elecciones generales de España 29N 2026</title>
-<meta name="description" content="Test político gratuito basado en el diagrama de Nolan para las elecciones generales de España del 29 de noviembre de 2026. Responde 33 afirmaciones y descubre en qué zona del rombo caes y con qué partidos coincides más: PP, PSOE, Vox, Frente Amplio, Podemos, SALF y D21 + Cs. Sin registro y sin guardar ningún dato.">
+<meta name="description" content="Test político gratuito basado en el diagrama de Nolan para las elecciones generales de España del 29 de noviembre de 2026. Responde 43 afirmaciones y descubre en qué zona del rombo caes, con qué partidos coincides más y en qué: PP, PSOE, Vox, Frente Amplio, Podemos, SALF y D21 + Cs. Sin registro y sin guardar ningún dato.">
 <link rel="canonical" href="https://testnolan.com/es/">
 <meta name="theme-color" content="#eef1f4" media="(prefers-color-scheme: light)">
 <meta name="theme-color" content="#0e1419" media="(prefers-color-scheme: dark)">
@@ -13,7 +13,7 @@
 <meta property="og:locale" content="es_ES">
 <meta property="og:site_name" content="Test Nolan">
 <meta property="og:title" content="Test de Nolan para las elecciones generales de España del 29N">
-<meta property="og:description" content="¿Dónde caes tú en el rombo? 33 afirmaciones sobre economía y libertades te sitúan junto a los partidos del 29 de noviembre de 2026. Sin registro y sin guardar nada.">
+<meta property="og:description" content="¿Dónde caes tú en el rombo? 43 afirmaciones sobre economía y libertades te sitúan junto a los partidos del 29 de noviembre de 2026 y te dicen en qué coincides con cada uno. Sin registro y sin guardar nada.">
 <meta property="og:url" content="https://testnolan.com/es/">
 <meta property="og:image" content="https://testnolan.com/og-image.png">
 <meta property="og:image:width" content="1200">
@@ -21,7 +21,7 @@
 <meta property="og:image:alt" content="Rombo de Nolan con la posición de los partidos españoles para las elecciones del 29 de noviembre de 2026">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Test de Nolan para las elecciones generales de España del 29N">
-<meta name="twitter:description" content="¿Dónde caes tú en el rombo? 33 afirmaciones te sitúan junto a los partidos del 29N. Sin registro y sin guardar nada.">
+<meta name="twitter:description" content="¿Dónde caes tú en el rombo? 43 afirmaciones te sitúan junto a los partidos del 29N. Sin registro y sin guardar nada.">
 <meta name="twitter:image" content="https://testnolan.com/og-image.png">
 <meta name="twitter:image:alt" content="Rombo de Nolan con la posición de los partidos españoles para las elecciones del 29 de noviembre de 2026">
 
@@ -52,6 +52,7 @@
   --accent:#0b7680; --accent-ink:#ffffff;
   --z-lib:#e0a03a; --z-der:#3a7ccc; --z-izq:#d4524d; --z-aut:#7a69d2; --z-cen:#2e9a6c;
   --ref-milei:#d9861f; --ref-bukele:#c94f7c; --friend:#7c3aed; --friend-ink:#ffffff;
+  --ok:#1f7a4d; --ko:#b4432f;
   --f-display:"Bricolage Grotesque", "Avenir Next", "Segoe UI", system-ui, sans-serif;
   --f-body:"Source Sans 3", "Segoe UI", system-ui, -apple-system, sans-serif;
   --f-mono:"IBM Plex Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
@@ -62,14 +63,14 @@
     --bg:#0e1419; --surface:#161e25; --ink:#e4eaf0; --muted:#94a2ae; --line:#2a3540; --soft:#1e2830;
     --accent:#3cc0c9; --accent-ink:#06282b;
     --z-lib:#f0b04c; --z-der:#5b98e3; --z-izq:#e8706a; --z-aut:#9787ea; --z-cen:#46b685;
-    --ref-milei:#f0a142; --ref-bukele:#e2729c; --friend:#a78bfa; --friend-ink:#1e1038; --zone-op:.26; color-scheme:dark;
+    --ref-milei:#f0a142; --ref-bukele:#e2729c; --friend:#a78bfa; --friend-ink:#1e1038; --ok:#4fc08d; --ko:#f0816c; --zone-op:.26; color-scheme:dark;
   }
 }
 :root[data-theme="dark"]{
   --bg:#0e1419; --surface:#161e25; --ink:#e4eaf0; --muted:#94a2ae; --line:#2a3540; --soft:#1e2830;
   --accent:#3cc0c9; --accent-ink:#06282b;
   --z-lib:#f0b04c; --z-der:#5b98e3; --z-izq:#e8706a; --z-aut:#9787ea; --z-cen:#46b685;
-  --ref-milei:#f0a142; --ref-bukele:#e2729c; --friend:#a78bfa; --friend-ink:#1e1038; --zone-op:.26; color-scheme:dark;
+  --ref-milei:#f0a142; --ref-bukele:#e2729c; --friend:#a78bfa; --friend-ink:#1e1038; --ok:#4fc08d; --ko:#f0816c; --zone-op:.26; color-scheme:dark;
 }
 *{box-sizing:border-box}
 [hidden]{display:none!important}
@@ -85,10 +86,11 @@ p{margin:0}
 a{color:var(--accent)}
 a:focus-visible{outline:2px solid var(--accent);outline-offset:2px;border-radius:3px}
 .lede{max-width:64ch;color:var(--muted);font-size:17px}
+.lede strong{color:var(--ink)}
 .eyebrow{font-family:var(--f-mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--accent)}
 header{display:flex;flex-direction:column;gap:12px}
 .grid{display:grid;grid-template-columns:1fr;gap:28px;align-items:start}
-@media (min-width:960px){.grid{grid-template-columns:minmax(0,500px) minmax(0,1fr)}.side{position:sticky;top:calc(16px + env(safe-area-inset-top, 0px))}}
+@media (min-width:960px){.grid{grid-template-columns:minmax(0,500px) minmax(0,1fr)}.side{position:sticky;top:calc(16px + env(safe-area-inset-top, 0px));max-height:calc(100vh - 32px);overflow-y:auto;scrollbar-width:thin}}
 .side{display:flex;flex-direction:column;gap:16px;min-width:0}
 .panel{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:18px}
 .chart-wrap{padding:10px}
@@ -103,7 +105,7 @@ svg{display:block;width:100%;height:auto}
   border-radius:999px;padding:4px 10px;font-size:13px;font-family:var(--f-body);cursor:pointer}
 .chip[aria-pressed="false"]{opacity:.55;text-decoration:line-through}
 .chip .dot{width:9px;height:9px;border-radius:50%;background:var(--ink)}
-.chip:focus-visible,.opt input:focus-visible+span,button:focus-visible,summary:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.chip:focus-visible,.opt input:focus-visible+span,button:focus-visible,summary:focus-visible,input:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
 .result-head{display:flex;justify-content:space-between;align-items:baseline;gap:12px;flex-wrap:wrap}
 .scores{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:12px}
 .score{background:var(--soft);border-radius:10px;padding:10px 12px}
@@ -118,24 +120,46 @@ svg{display:block;width:100%;height:auto}
 .rank .pct{font-family:var(--f-mono);font-variant-numeric:tabular-nums;text-align:right;font-size:13px}
 .rank .ref{color:var(--muted)}
 .empty{color:var(--muted);font-size:14px;margin-top:8px}
-.share{display:flex;gap:8px;flex-wrap:wrap;margin-top:14px}
+.matches{display:flex;flex-direction:column;gap:8px;margin-top:10px}
+.match{background:var(--soft);border-radius:10px;padding:10px 12px;font-size:14px;display:flex;flex-direction:column;gap:4px}
+.match-h{display:flex;justify-content:space-between;align-items:baseline;gap:8px}
+.match-h .pct{font-family:var(--f-mono);font-size:13px;color:var(--muted)}
+.match .ok{color:var(--ok);font-weight:600}
+.match .ko{color:var(--ko);font-weight:600}
+.name-row{display:flex;flex-direction:column;gap:4px;margin-top:14px}
+.name-row input{font:inherit;font-size:15px;border:1px solid var(--line);background:var(--bg);color:var(--ink);border-radius:8px;padding:7px 10px;max-width:260px}
+.share{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}
 .share-row{display:flex;gap:8px;flex-wrap:wrap;margin-top:8px}
 .share-row .btn{text-decoration:none;display:inline-flex;align-items:center}
 .qhead{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap}
+.qhead-l{display:flex;gap:14px;align-items:center;flex-wrap:wrap}
 .progress{font-family:var(--f-mono);font-size:13px;color:var(--muted)}
 .btn{font:inherit;font-size:14px;border:1px solid var(--line);background:var(--surface);color:var(--ink);border-radius:8px;padding:6px 12px;cursor:pointer}
 .btn:hover{border-color:var(--muted)}
+.btn:disabled{opacity:.5;cursor:default}
 .btn.primary{background:var(--accent);color:var(--accent-ink);border-color:var(--accent);font-weight:600}
 .btn.primary:hover{filter:brightness(1.08)}
 .tabs{display:flex;gap:6px;flex-wrap:wrap}
 .tab{font:inherit;font-size:14px;border:1px solid var(--line);background:transparent;color:var(--ink);border-radius:999px;padding:5px 12px;cursor:pointer}
-.tab[aria-selected="true"]{background:var(--ink);color:var(--surface);border-color:var(--ink)}
+.tab[aria-selected="true"],.tab[aria-pressed="true"]{background:var(--ink);color:var(--surface);border-color:var(--ink)}
+.kbd-hint{margin-top:8px}
+@media (hover:none){.kbd-hint{display:none}}
+kbd{font-family:var(--f-mono);font-size:12px;border:1px solid var(--line);border-bottom-width:2px;border-radius:4px;padding:0 5px;background:var(--surface)}
 .qlist{display:flex;flex-direction:column;gap:12px;margin-top:14px}
-.q{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:16px;display:flex;flex-direction:column;gap:12px}
+.gnav{display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap}
+.gbtns{display:flex;gap:8px}
+.q{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:16px;display:flex;flex-direction:column;gap:12px;outline:none}
 .q.answered{border-color:color-mix(in srgb, var(--accent) 45%, var(--line))}
+.q.active{box-shadow:0 0 0 2px color-mix(in srgb, var(--accent) 35%, transparent)}
 .q-top{display:flex;gap:10px;align-items:flex-start}
 .axis-tag{flex:none;font-family:var(--f-mono);font-size:11px;letter-spacing:.06em;text-transform:uppercase;padding:2px 7px;border-radius:5px;border:1px solid var(--line);color:var(--muted);margin-top:3px}
 .q-text{font-size:16.5px;font-weight:600;min-width:0}
+details.ctx{margin-top:-4px}
+details.ctx summary{cursor:pointer;font-size:13.5px;color:var(--muted);list-style:none;display:inline-flex;align-items:center;gap:6px}
+details.ctx summary::-webkit-details-marker{display:none}
+details.ctx summary::before{content:"?";display:inline-flex;align-items:center;justify-content:center;width:17px;height:17px;border-radius:50%;border:1px solid var(--line);font-family:var(--f-mono);font-size:11px}
+details.ctx[open] summary{color:var(--ink)}
+details.ctx p{font-size:14px;color:var(--muted);margin-top:6px;max-width:70ch}
 .scale{display:grid;grid-template-columns:repeat(5,1fr);gap:6px}
 .opt{position:relative}
 .opt input{position:absolute;opacity:0;inset:0;margin:0;cursor:pointer}
@@ -146,11 +170,13 @@ svg{display:block;width:100%;height:auto}
 .q-foot{display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;align-items:center}
 .linkbtn{font:inherit;font-size:13.5px;color:var(--accent);background:none;border:0;padding:0;cursor:pointer;text-decoration:underline;text-underline-offset:3px}
 .parties-ans{display:grid;grid-template-columns:repeat(5,1fr);gap:6px;font-size:12.5px}
-.parties-ans .col{background:var(--soft);border-radius:8px;padding:8px;display:flex;flex-direction:column;gap:4px;min-width:0}
+.parties-ans .col{background:var(--soft);border-radius:8px;padding:8px;display:flex;flex-direction:column;gap:4px;min-width:0;border:1px solid transparent}
+.parties-ans .col.mine{border-color:var(--accent)}
 .parties-ans .h{font-family:var(--f-mono);font-size:10.5px;color:var(--muted);text-transform:uppercase;letter-spacing:.05em}
 .parties-ans .n{font-weight:600}
 .parties-ans .n.ref{color:var(--muted);font-weight:400}
 .parties-ans .src{font-size:11px;font-weight:400;color:var(--accent);margin-left:4px}
+.done{align-items:flex-start}
 @media (max-width:560px){
   .opt span{font-size:11.5px;min-height:52px}
   .parties-ans{grid-template-columns:1fr 1fr}
@@ -183,8 +209,9 @@ body.og #shareCanvas{display:block;width:1200px;height:630px}
   <header>
     <span class="eyebrow">Test de Nolan · Elecciones generales de España · 29 de noviembre de 2026</span>
     <h1>¿Dónde caes tú en el rombo de Nolan?</h1>
-    <p class="lede">Test político para las <strong>elecciones generales de España del 29N</strong>. Responde las afirmaciones que quieras con tu grado de acuerdo: cada respuesta te mueve en dos ejes, libertad económica y libertad personal, y el rombo te sitúa junto a PP, PSOE, Vox, Frente Amplio, Podemos, SALF y D21 + Cs, que se colocan con exactamente las mismas preguntas.</p>
+    <p class="lede">Test político para las <strong>elecciones generales de España del 29N</strong>. Responde las afirmaciones que quieras con tu grado de acuerdo: cada respuesta te mueve en dos ejes, libertad económica y libertad personal, y el rombo te sitúa junto a PP, PSOE, Vox, Frente Amplio, Podemos, SALF y D21 + Cs, que se colocan con exactamente las mismas preguntas. Al final verás con qué partidos coincides más y en qué temas.</p>
     <p class="lede">Las afirmaciones siguen el espíritu del test de Nolan: son generales, sobre economía y libertades, y valdrían para cualquier país. Lo que cambia en cada elección es qué responde cada partido.</p>
+    <p class="lede"><strong>Sin registro, sin cookies y sin servidor.</strong> Tus respuestas no salen de tu navegador.</p>
   </header>
 
   <div class="grid">
@@ -200,6 +227,7 @@ body.og #shareCanvas{display:block;width:1200px;height:630px}
       <div class="panel">
         <div id="result" aria-live="polite"></div>
         <div id="shareBox" hidden>
+          <label class="name-row"><span class="note">Ponle nombre a tu punto (opcional; sale en el rombo, en el enlace y en la imagen)</span><input id="nameInput" maxlength="24" autocomplete="off" placeholder="Tu nombre"></label>
           <div class="share">
             <button class="btn primary" id="shareBtn" type="button">Compartir mi resultado</button>
             <button class="btn" id="copyLink" type="button" aria-label="Copiar un enlace con tu resultado para comparar con otra persona">Copiar enlace para comparar</button>
@@ -212,16 +240,23 @@ body.og #shareCanvas{display:block;width:1200px;height:630px}
 
     <main>
       <div class="qhead">
-        <div class="tabs" role="tablist" aria-label="Filtrar preguntas">
-          <button class="tab" role="tab" aria-selected="true" data-f="all" id="tab-all">Todas</button>
-          <button class="tab" role="tab" aria-selected="false" data-f="E" id="tab-e">Economía</button>
-          <button class="tab" role="tab" aria-selected="false" data-f="P" id="tab-p">Libertades</button>
+        <div class="qhead-l">
+          <div class="tabs" role="tablist" aria-label="Filtrar preguntas">
+            <button class="tab" role="tab" aria-selected="true" data-f="all" id="tab-all">Todas</button>
+            <button class="tab" role="tab" aria-selected="false" data-f="E" id="tab-e">Economía</button>
+            <button class="tab" role="tab" aria-selected="false" data-f="P" id="tab-p">Libertades</button>
+          </div>
+          <div class="tabs" role="group" aria-label="Cómo mostrar las preguntas">
+            <button class="tab" id="modeOne" type="button" aria-pressed="false">Una a una</button>
+            <button class="tab" id="modeAll" type="button" aria-pressed="true">Lista</button>
+          </div>
         </div>
         <div style="display:flex;gap:10px;align-items:center">
           <span class="progress" id="progress" aria-live="polite"></span>
           <button class="btn" id="reset" type="button">Borrar respuestas</button>
         </div>
       </div>
+      <p class="note kbd-hint">Teclas <kbd>1</kbd>–<kbd>5</kbd> para responder · <kbd>↑</kbd> <kbd>↓</kbd> para moverte entre preguntas</p>
       <p class="note" id="resetConfirm" role="status" hidden></p>
       <div class="qlist" id="qlist"></div>
     </main>
@@ -231,11 +266,12 @@ body.og #shareCanvas{display:block;width:1200px;height:630px}
     <summary>Cómo se calcula y de dónde salen las posiciones</summary>
     <div class="meth-body">
       <p>Cada afirmación pertenece a un eje. Las de economía miden impuestos, gasto, regulación y propiedad; las de libertades miden cuánto controla el Estado la conducta pacífica de la gente: expresión, protesta, migración, estilo de vida y garantías ante la policía. Endurecer penas por delitos violentos tras un juicio no cuenta en ninguno de los dos ejes.</p>
-      <p>Tu respuesta va de −2 (muy en contra) a +2 (muy a favor). Si estar de acuerdo implica menos intervención del Estado, suma libertad; si implica más, resta. La puntuación de cada eje es 50 + 25 × la media de tus respuestas en ese eje, de 0 a 100. Las preguntas que no respondes no cuentan.</p>
-      <p>La afinidad con cada partido compara respuesta a respuesta: 100 % si coincidís en todas, 0 % si estáis en extremos opuestos en todas.</p>
+      <p>Tu respuesta va de −2 (muy en contra) a +2 (muy a favor). Si estar de acuerdo implica menos intervención del Estado, suma libertad; si implica más, resta. La puntuación de cada eje es 50 + 25 × la media de tus respuestas en ese eje, de 0 a 100. Las preguntas que no respondes no cuentan, ni te empujan al centro.</p>
+      <p>La afinidad con cada partido compara respuesta a respuesta: 100 % si coincidís en todas, 0 % si estáis en extremos opuestos en todas. «Coincidís» en un tema es haber dado exactamente la misma respuesta, sin contar el neutral; «discrepáis» es estar a tres o más pasos de distancia en la escala.</p>
       <p><strong>Las respuestas de los partidos son una estimación</strong> hecha a partir de programas, votaciones en el Congreso y declaraciones públicas hasta el 31 de octubre de 2026. A esa fecha ningún partido había publicado su programa completo para el 29N, así que conviene contrastarlas. Cuando se publiquen, cada respuesta llevará su fuente enlazada en el desplegable «qué responde cada partido». Milei y Bukele aparecen como referencia internacional: sus respuestas se estiman por analogía con lo que han aplicado en sus países, y varias preguntas son específicas de España.</p>
       <p><strong>No todos los partidos están en todas las papeletas.</strong> D21 + Cs solo se presenta en Madrid y Barcelona, y SALF solo en algunas provincias. Según dónde votes, puede que no los tengas como opción. Los partidos territoriales (ERC, Junts, PNV, EH Bildu, BNG, Coalición Canaria) no están incluidos por ahora.</p>
       <div class="table-wrap"><table id="ptable"><thead><tr><th>Partido</th><th>Candidatura</th><th style="text-align:right">Economía</th><th style="text-align:right">Libertades</th></tr></thead><tbody></tbody></table></div>
+      <p class="note" id="dataVersion"></p>
       <h3>Límites del modelo</h3>
       <p>El diagrama de Nolan lo creó en 1969 el activista libertario estadounidense David Nolan, y sus críticos señalan que el modelo favorece esa esquina: presenta la «libertad» como el valor que ordena todo el mapa y trata como equivalentes cosas muy distintas, como bajar impuestos y despenalizar el cannabis. Reduce la política a dos ejes y deja fuera otros que en España pesan mucho: el territorial, el europeo, el ecológico o el de la calidad institucional. Y la frontera entre «económico» y «personal» tampoco es nítida: la inmigración o la prostitución tienen las dos caras. Úsalo como lo que es, una foto aproximada, no un veredicto.</p>
       <p class="note">Fuentes consultadas:
@@ -250,7 +286,7 @@ body.og #shareCanvas{display:block;width:1200px;height:630px}
   </details>
 
   <footer class="foot">
-    <p><strong>Tus datos: ninguno.</strong> Este test no tiene cuentas, ni cookies, ni analítica, ni ningún servidor que reciba tus respuestas. Lo que marcas se guarda únicamente en el almacenamiento local de tu propio navegador, para que no lo pierdas si recargas la página o vuelves otro día. Puedes cambiarlo o borrarlo cuando quieras con el botón «Borrar respuestas». Nadie más que tú puede verlo. Si compartes un enlace con tu resultado, tus respuestas van codificadas en la propia dirección, detrás de la almohadilla, que nunca llega a ningún servidor.</p>
+    <p><strong>Tus datos: ninguno.</strong> Este test no tiene cuentas, ni cookies, ni analítica, ni ningún servidor que reciba tus respuestas. Lo que marcas se guarda únicamente en el almacenamiento local de tu propio navegador, para que no lo pierdas si recargas la página o vuelves otro día. Puedes cambiarlo o borrarlo cuando quieras con el botón «Borrar respuestas». Nadie más que tú puede verlo. Si compartes un enlace con tu resultado, tus respuestas y el nombre que hayas puesto van codificados en la propia dirección, detrás de la almohadilla, que nunca llega a ningún servidor.</p>
     <p>Las posiciones de los partidos son <strong>estimaciones</strong> a partir de fuentes públicas y pueden contener errores. Este test <strong>no recomienda votar a ningún partido</strong> ni es una encuesta: solo compara tus respuestas con las de las candidaturas.</p>
     <p>Hecho por <a href="https://menetray.com">Robert Menetray</a>. ¿Ves algún error en las posiciones? <a href="https://menetray.com">Escríbeme</a> indicando la fuente. <!-- TODO: sustituir el enlace de «Escríbeme» por la URL de issues del repositorio cuando sea público --> Código abierto bajo licencia MIT; datos de partidos y preguntas bajo CC BY 4.0.</p>
   </footer>
@@ -261,6 +297,8 @@ body.og #shareCanvas{display:block;width:1200px;height:630px}
 <script>
 const SITE_URL = 'https://testnolan.com/es/';
 const SITE_SHORT = 'testnolan.com';
+const DATA_VERSION = '1.1';
+const DATA_DATE = '31 de octubre de 2026';
 // Durante el periodo de prohibición de encuestas (24–28 de noviembre) puede ponerse a false para que la imagen compartida no muestre el partido más afín.
 const SHARE_SHOW_TOP_PARTY = true;
 
@@ -277,54 +315,118 @@ const PARTIES = [
 ];
 // dir +1: estar a favor = más libertad en ese eje; -1: a favor = más intervención del Estado
 // a: respuestas en orden pp, psoe, vox, fa, pod, salf, d21, milei, bukele (de -2 a +2)
+// k: etiqueta corta del tema (para las listas de coincidencias); c: contexto en lenguaje llano
 // src (opcional): {pp:'https://...', psoe:'https://...'} con la fuente de la respuesta de cada partido
 const QUESTIONS = [
- {id:'e_irpf',  ax:'E', dir:+1, t:'Hay que bajar el impuesto sobre la renta aunque el Estado recaude menos.', a:[2,-1,2,-2,-2,2,1,1,0]},
- {id:'e_suc',   ax:'E', dir:+1, t:'Deberían suprimirse los impuestos de sucesiones y de patrimonio.', a:[1,-2,2,-2,-2,2,0,1,0]},
- {id:'e_alq',   ax:'E', dir:-1, t:'El Estado debe poner topes al precio del alquiler.', a:[-2,2,-2,2,2,-2,0,-2,0]},
- {id:'e_empv',  ax:'E', dir:-1, t:'Hay que crear una gran empresa pública estatal de vivienda y suelo.', a:[-1,2,-2,2,2,-2,0,-2,0]},
- {id:'e_acum',  ax:'E', dir:-1, t:'Quien acumula muchas viviendas debería pagar cada año un impuesto especial alto.', a:[-2,1,-2,2,2,-2,-1,-2,-1]},
- {id:'e_suelo', ax:'E', dir:+1, t:'Hay que liberalizar suelo y reducir trámites para que se construya más.', a:[2,1,2,-1,-2,2,1,2,1]},
- {id:'e_pens',  ax:'E', dir:-1, t:'Las pensiones deben subir cada año con la inflación, por ley y pase lo que pase.', a:[2,2,-1,2,2,0,1,-1,0]},
- {id:'e_mixto', ax:'E', dir:+1, t:'El sistema de pensiones debería ser mixto, con una parte de capitalización privada.', a:[0,-1,2,-2,-2,1,0,1,-1]},
- {id:'e_func',  ax:'E', dir:+1, t:'Hay que reducir ministerios, organismos y empleo público.', a:[1,-1,2,-2,-2,2,1,2,1]},
- {id:'e_fort',  ax:'E', dir:-1, t:'Las grandes fortunas y las grandes empresas deberían pagar más impuestos.', a:[-1,2,-2,2,2,-2,0,-2,0]},
- {id:'e_expr',  ax:'E', dir:-1, t:'El Estado debería poder expropiar viviendas o nacionalizar empresas estratégicas.', a:[-2,-2,-2,1,2,-2,-2,-2,0]},
- {id:'e_sani',  ax:'E', dir:-1, t:'Sanidad y educación deben ser públicas y gratuitas para todos, pagadas con impuestos.', a:[2,2,1,2,2,1,2,-1,1]},
- {id:'e_aval',  ax:'E', dir:-1, t:'El Estado debe avalar con dinero público las hipotecas de los jóvenes.', a:[2,2,1,1,0,1,1,-2,1]},
- {id:'e_gasto', ax:'E', dir:+1, t:'El gasto público debería reducirse de forma significativa.', a:[0,-1,1,-2,-2,2,0,2,0]},
- {id:'e_smi',   ax:'E', dir:-1, t:'El Gobierno debe seguir subiendo el salario mínimo por ley.', a:[1,2,0,2,2,-1,1,-1,1]},
- {id:'e_aran',  ax:'E', dir:-1, t:'Hay que proteger al campo y a la industria nacional con aranceles o límites a las importaciones.', a:[-1,0,2,1,1,1,-2,-2,0]},
- {id:'p_expul', ax:'P', dir:-1, t:'Hay que expulsar de forma masiva a los inmigrantes en situación irregular.', a:[0,-2,2,-2,-2,2,-2,1,2]},
- {id:'p_prior', ax:'P', dir:-1, t:'Las ayudas públicas deben dar prioridad a los ciudadanos del país frente a los extranjeros con residencia legal.', a:[0,-2,2,-2,-2,2,-2,0,1]},
- {id:'p_deten', ax:'P', dir:-1, t:'En situaciones graves de seguridad, la policía debería poder detener sin orden judicial.', a:[-2,-2,-1,-2,-2,0,-2,-2,2]},
- {id:'p_odio',  ax:'P', dir:-1, t:'El Estado debe poder sancionar o expulsar a quien difunda discursos de odio, aunque no inciten a la violencia.', a:[-1,1,-2,2,2,-2,0,2,2]},
- {id:'p_prot',  ax:'P', dir:-1, t:'Hay que limitar más las protestas que cortan calles o carreteras.', a:[1,-1,1,-2,-2,1,0,2,2]},
- {id:'p_euta',  ax:'P', dir:+1, t:'La eutanasia debe seguir siendo legal.', a:[0,2,-2,2,2,-1,2,0,-1]},
- {id:'p_matr',  ax:'P', dir:+1, t:'El matrimonio entre personas del mismo sexo debe seguir siendo legal.', a:[1,2,-1,2,2,0,2,1,-2]},
- {id:'p_abor',  ax:'P', dir:+1, t:'El aborto debe seguir siendo legal en los plazos actuales.', a:[0,2,-2,2,2,-1,2,-1,-2]},
- {id:'p_cann',  ax:'P', dir:+1, t:'El cannabis para adultos debería ser legal y estar regulado.', a:[-2,-1,-2,1,2,-1,0,0,-2]},
- {id:'p_prost', ax:'P', dir:-1, t:'Hay que prohibir la prostitución y castigar también al cliente.', a:[0,2,1,1,0,0,-1,-1,1]},
- {id:'p_medio', ax:'P', dir:-1, t:'El Gobierno debe poder regular a los medios de comunicación para combatir la desinformación.', a:[-1,1,-2,2,2,-2,-1,-1,2]},
- {id:'p_ident', ax:'P', dir:-1, t:'Para entrar en webs de contenido adulto debería exigirse verificar la identidad.', a:[1,2,1,1,1,-1,0,-1,1]},
- {id:'p_taba',  ax:'P', dir:-1, t:'Hay que ampliar la prohibición de fumar y vapear a terrazas y espacios abiertos.', a:[0,2,-2,2,1,-2,1,-2,0]},
- {id:'p_anon',  ax:'P', dir:-1, t:'Habría que acabar con el anonimato en las redes sociales.', a:[0,2,-2,1,0,-2,0,-2,1]},
- {id:'p_burka', ax:'P', dir:-1, t:'Debería prohibirse el burka y el niqab en los espacios públicos.', a:[0,-1,2,-2,-2,2,-1,0,0]},
- {id:'p_ileg',  ax:'P', dir:-1, t:'Habría que ilegalizar los partidos que defienden la independencia de una región.', a:[-1,-2,2,-2,-2,1,-2,0,1]},
- {id:'p_decr',  ax:'P', dir:-1, t:'El Gobierno debería poder legislar por decreto cuando el Parlamento bloquea sus reformas.', a:[-1,1,-1,0,0,1,-2,2,2]}
+ {id:'e_irpf',  ax:'E', dir:+1, k:'impuesto sobre la renta', t:'Hay que bajar el impuesto sobre la renta aunque el Estado recaude menos.', a:[2,-1,2,-2,-2,2,1,1,0],
+  c:'El impuesto sobre la renta (IRPF en España) grava lo que gana cada persona y es la principal fuente de ingresos del Estado. Bajarlo deja más dinero en el bolsillo, pero reduce lo que hay para servicios públicos.'},
+ {id:'e_suc',   ax:'E', dir:+1, k:'sucesiones y patrimonio', t:'Deberían suprimirse los impuestos de sucesiones y de patrimonio.', a:[1,-2,2,-2,-2,2,0,1,0],
+  c:'Sucesiones grava lo que se hereda; patrimonio, lo que se posee por encima de cierto umbral. En España dependen de cada comunidad autónoma, y varias los han reducido casi a cero.'},
+ {id:'e_alq',   ax:'E', dir:-1, k:'topes al alquiler', t:'El Estado debe poner topes al precio del alquiler.', a:[-2,2,-2,2,2,-2,0,-2,0],
+  c:'Un tope limita por ley cuánto puede costar o subir un alquiler en zonas con precios altos. Sus defensores dicen que protege al inquilino; sus críticos, que reduce la oferta de pisos.'},
+ {id:'e_empv',  ax:'E', dir:-1, k:'empresa pública de vivienda', t:'Hay que crear una gran empresa pública estatal de vivienda y suelo.', a:[-1,2,-2,2,2,-2,0,-2,0],
+  c:'Una empresa pública que construya, compre y gestione viviendas y suelo para alquilarlas por debajo del precio de mercado, como las que existen en Viena o en algunos países nórdicos.'},
+ {id:'e_acum',  ax:'E', dir:-1, k:'impuesto a grandes tenedores', t:'Quien acumula muchas viviendas debería pagar cada año un impuesto especial alto.', a:[-2,1,-2,2,2,-2,-1,-2,-1],
+  c:'Un impuesto anual específico para quien posee muchas viviendas (los llamados grandes tenedores), con la intención de que las vendan o las alquilen.'},
+ {id:'e_suelo', ax:'E', dir:+1, k:'liberalizar suelo', t:'Hay que liberalizar suelo y reducir trámites para que se construya más.', a:[2,1,2,-1,-2,2,1,2,1],
+  c:'Liberalizar suelo es permitir construir en más terrenos; reducir trámites es acortar los permisos, que hoy pueden tardar años. La idea es que más oferta baje los precios.'},
+ {id:'e_pens',  ax:'E', dir:-1, k:'pensiones con la inflación', t:'Las pensiones deben subir cada año con la inflación, por ley y pase lo que pase.', a:[2,2,-1,2,2,0,1,-1,0],
+  c:'Revalorizar con la inflación garantiza que las pensiones no pierdan poder adquisitivo, pero encarece el sistema en años de precios altos y obliga a buscar el dinero por otra vía.'},
+ {id:'e_mixto', ax:'E', dir:+1, k:'pensiones mixtas', t:'El sistema de pensiones debería ser mixto, con una parte de capitalización privada.', a:[0,-1,2,-2,-2,1,0,1,-1],
+  c:'En un sistema mixto, parte de la pensión viene del Estado (reparto) y parte de un fondo que cada trabajador acumula durante su vida laboral (capitalización), como en Suecia o Chile.'},
+ {id:'e_func',  ax:'E', dir:+1, k:'reducir la administración', t:'Hay que reducir ministerios, organismos y empleo público.', a:[1,-1,2,-2,-2,2,1,2,1],
+  c:'Reducir el tamaño de la administración: menos ministerios, menos organismos públicos y menos personal, con el argumento de ahorrar y simplificar.'},
+ {id:'e_fort',  ax:'E', dir:-1, k:'impuestos a grandes fortunas', t:'Las grandes fortunas y las grandes empresas deberían pagar más impuestos.', a:[-1,2,-2,2,2,-2,0,-2,0],
+  c:'Subir impuestos a los patrimonios y beneficios más altos, por ejemplo con tipos más altos en el impuesto de sociedades o un impuesto a las grandes fortunas.'},
+ {id:'e_expr',  ax:'E', dir:-1, k:'expropiar y nacionalizar', t:'El Estado debería poder expropiar viviendas o nacionalizar empresas estratégicas.', a:[-2,-2,-2,1,2,-2,-2,-2,0],
+  c:'Expropiar es que el Estado se quede con un bien privado pagando una compensación; nacionalizar es que pase a ser público un sector o una empresa (energía, banca, telecomunicaciones).'},
+ {id:'e_sani',  ax:'E', dir:-1, k:'sanidad y educación públicas', t:'Sanidad y educación deben ser públicas y gratuitas para todos, pagadas con impuestos.', a:[2,2,1,2,2,1,2,-1,1],
+  c:'Gratuitas en el momento de usarlas y financiadas con impuestos, sin copagos ni cuotas, frente a modelos con más peso de seguros o centros privados.'},
+ {id:'e_aval',  ax:'E', dir:-1, k:'avales a hipotecas', t:'El Estado debe avalar con dinero público las hipotecas de los jóvenes.', a:[2,2,1,1,0,1,1,-2,1],
+  c:'El Estado garantiza al banco una parte de la hipoteca para que los jóvenes puedan comprar sin ahorrar toda la entrada. Si el comprador no paga, lo asume el Estado.'},
+ {id:'e_gasto', ax:'E', dir:+1, k:'reducir el gasto público', t:'El gasto público debería reducirse de forma significativa.', a:[0,-1,1,-2,-2,2,0,2,0],
+  c:'El gasto público es todo lo que gastan las administraciones: pensiones, sanidad, educación, sueldos públicos, inversiones. Reducirlo de forma significativa implica recortar alguna de esas partidas.'},
+ {id:'e_smi',   ax:'E', dir:-1, k:'salario mínimo', t:'El Gobierno debe seguir subiendo el salario mínimo por ley.', a:[1,2,0,2,2,-1,1,-1,1],
+  c:'El salario mínimo es el sueldo más bajo que se puede pagar por ley. Subirlo mejora los sueldos más bajos; sus críticos dicen que puede destruir empleo en sectores poco productivos.'},
+ {id:'e_aran',  ax:'E', dir:-1, k:'aranceles', t:'Hay que proteger al campo y a la industria nacional con aranceles o límites a las importaciones.', a:[-1,0,2,1,1,1,-2,-2,0],
+  c:'Un arancel es un impuesto a los productos importados para que los nacionales compitan mejor. Protege a productores locales, pero encarece los productos y puede provocar represalias.'},
+ {id:'e_desp',  ax:'E', dir:+1, k:'flexibilidad del despido', t:'Hay que facilitar a las empresas contratar y despedir, con menos restricciones e indemnizaciones más bajas.', a:[1,-2,1,-2,-2,1,1,2,1],
+  c:'Se refiere a cuánto cuesta y cuánto tarda despedir (indemnización, causas que hay que justificar) y a los límites a los contratos temporales. Más flexibilidad facilita contratar; menos protege a quien ya tiene empleo.'},
+ {id:'e_jorn',  ax:'E', dir:-1, k:'reducir la jornada por ley', t:'La jornada laboral debe reducirse por ley sin bajar el sueldo.', a:[-1,2,-1,2,2,-1,0,-2,-1],
+  c:'Reducir por ley la jornada máxima legal manteniendo el salario. Mejora el tiempo libre del trabajador y encarece la hora trabajada para la empresa.'},
+ {id:'e_ecol',  ax:'E', dir:-1, k:'regulación ambiental', t:'Hay que imponer impuestos y normas ambientales estrictas a empresas y consumidores aunque frenen la economía.', a:[-1,1,-2,2,2,-2,0,-2,-1],
+  c:'Impuestos a las emisiones, límites a determinadas actividades o prohibiciones (por ejemplo, de coches de combustión) para frenar el cambio climático, aunque supongan costes a empresas y consumidores.'},
+ {id:'e_okupa', ax:'E', dir:+1, k:'desalojos exprés', t:'Hay que poder desalojar en pocos días a quien ocupa una vivienda sin permiso.', a:[2,-1,2,-2,-2,2,1,2,2],
+  c:'Acelerar por ley los desalojos de quien ocupa una vivienda sin título (okupación), incluidas las segundas residencias, frente a los procesos judiciales actuales, que pueden durar meses.'},
+ {id:'p_expul', ax:'P', dir:-1, k:'expulsiones masivas', t:'Hay que expulsar de forma masiva a los inmigrantes en situación irregular.', a:[0,-2,2,-2,-2,2,-2,1,2],
+  c:'Expulsar a las personas que viven en el país sin permiso de residencia mediante operaciones a gran escala, en lugar de regularizarlas o tramitar los casos uno a uno.'},
+ {id:'p_prior', ax:'P', dir:-1, k:'prioridad nacional en ayudas', t:'Las ayudas públicas deben dar prioridad a los ciudadanos del país frente a los extranjeros con residencia legal.', a:[0,-2,2,-2,-2,2,-2,0,1],
+  c:'Que en ayudas sociales, vivienda pública o plazas escolares los nacionales vayan por delante de los extranjeros que residen legalmente y pagan impuestos.'},
+ {id:'p_deten', ax:'P', dir:-1, k:'detener sin orden judicial', t:'En situaciones graves de seguridad, la policía debería poder detener sin orden judicial.', a:[-2,-2,-1,-2,-2,0,-2,-2,2],
+  c:'Hoy la policía solo puede detener si hay indicios de delito y con garantías (plazos, abogado, juez). La afirmación plantea ampliar sus facultades en situaciones excepcionales de seguridad.'},
+ {id:'p_odio',  ax:'P', dir:-1, k:'discursos de odio', t:'El Estado debe poder sancionar o expulsar a quien difunda discursos de odio, aunque no inciten a la violencia.', a:[-1,1,-2,2,2,-2,0,2,2],
+  c:'Castigar expresiones que desprecian a colectivos por su origen, religión, orientación u otras características, aunque no llamen a la violencia. El debate es dónde acaba la libertad de expresión.'},
+ {id:'p_prot',  ax:'P', dir:-1, k:'limitar las protestas', t:'Hay que limitar más las protestas que cortan calles o carreteras.', a:[1,-1,1,-2,-2,1,0,2,2],
+  c:'Restringir las manifestaciones o protestas que bloquean el tráfico o las infraestructuras, con más multas o autorizaciones previas.'},
+ {id:'p_euta',  ax:'P', dir:+1, k:'eutanasia', t:'La eutanasia debe seguir siendo legal.', a:[0,2,-2,2,2,-1,2,0,-1],
+  c:'La ley de eutanasia (2021) permite a una persona con una enfermedad grave e incurable o un padecimiento insoportable pedir ayuda médica para morir, con varios controles.'},
+ {id:'p_matr',  ax:'P', dir:+1, k:'matrimonio igualitario', t:'El matrimonio entre personas del mismo sexo debe seguir siendo legal.', a:[1,2,-1,2,2,0,2,1,-2],
+  c:'Legal en España desde 2005. La afirmación plantea si debe mantenerse con los mismos derechos que el matrimonio entre personas de distinto sexo, incluida la adopción.'},
+ {id:'p_abor',  ax:'P', dir:+1, k:'aborto', t:'El aborto debe seguir siendo legal en los plazos actuales.', a:[0,2,-2,2,2,-1,2,-1,-2],
+  c:'La ley actual permite abortar libremente hasta la semana 14 y hasta la 22 por causas médicas. La afirmación plantea si mantener esos plazos.'},
+ {id:'p_cann',  ax:'P', dir:+1, k:'cannabis', t:'El cannabis para adultos debería ser legal y estar regulado.', a:[-2,-1,-2,1,2,-1,0,0,-2],
+  c:'Legal y regulado significa venta controlada a adultos, con impuestos y requisitos de calidad, como en Canadá, Alemania o Uruguay, en lugar de la prohibición actual.'},
+ {id:'p_prost', ax:'P', dir:-1, k:'prostitución', t:'Hay que prohibir la prostitución y castigar también al cliente.', a:[0,2,1,1,0,0,-1,-1,1],
+  c:'Modelo abolicionista: prohibir la prostitución y multar o castigar a quien paga por sexo (como en Suecia o Francia), frente a regularla como una actividad laboral o dejarla como está.'},
+ {id:'p_medio', ax:'P', dir:-1, k:'regular los medios', t:'El Gobierno debe poder regular a los medios de comunicación para combatir la desinformación.', a:[-1,1,-2,2,2,-2,-1,-1,2],
+  c:'Que el Gobierno pueda imponer normas a periódicos, televisiones o webs (registro, sanciones, retirada de contenidos) para frenar bulos. El riesgo es quién decide qué es desinformación.'},
+ {id:'p_ident', ax:'P', dir:-1, k:'verificar la identidad en webs para adultos', t:'Para entrar en webs de contenido adulto debería exigirse verificar la identidad.', a:[1,2,1,1,1,-1,0,-1,1],
+  c:'Exigir una verificación de edad e identidad (DNI digital, cartera de identidad) para acceder a pornografía en internet, con el fin de proteger a los menores.'},
+ {id:'p_taba',  ax:'P', dir:-1, k:'prohibición de fumar en terrazas', t:'Hay que ampliar la prohibición de fumar y vapear a terrazas y espacios abiertos.', a:[0,2,-2,2,1,-2,1,-2,0],
+  c:'Ampliar los espacios sin humo a terrazas de bares, playas, paradas de autobús o estadios, incluidos los cigarrillos electrónicos.'},
+ {id:'p_anon',  ax:'P', dir:-1, k:'anonimato en redes', t:'Habría que acabar con el anonimato en las redes sociales.', a:[0,2,-2,1,0,-2,0,-2,1],
+  c:'Obligar a identificarse con nombre real o documento para tener una cuenta en redes sociales, para perseguir el acoso y los bulos. Se pierde el anonimato que protege a denunciantes o disidentes.'},
+ {id:'p_burka', ax:'P', dir:-1, k:'burka y niqab', t:'Debería prohibirse el burka y el niqab en los espacios públicos.', a:[0,-1,2,-2,-2,2,-1,0,0],
+  c:'Prohibir las prendas que cubren toda la cara en la calle y en los edificios públicos, como ya hacen Francia o Bélgica.'},
+ {id:'p_ileg',  ax:'P', dir:-1, k:'ilegalizar partidos independentistas', t:'Habría que ilegalizar los partidos que defienden la independencia de una región.', a:[-1,-2,2,-2,-2,1,-2,0,1],
+  c:'Prohibir por ley partidos que defienden pacíficamente la independencia de una parte del país. Hoy solo se pueden ilegalizar los que apoyan la violencia.'},
+ {id:'p_decr',  ax:'P', dir:-1, k:'legislar por decreto', t:'El Gobierno debería poder legislar por decreto cuando el Parlamento bloquea sus reformas.', a:[-1,1,-1,0,0,1,-2,2,2],
+  c:'Legislar por decreto es aprobar normas sin pasar antes por el Parlamento. La afirmación plantea usarlo como vía habitual cuando no hay mayoría, no solo en casos urgentes.'},
+ {id:'p_vigil', ax:'P', dir:-1, k:'vigilar comunicaciones sin juez', t:'El Estado debería poder acceder a las comunicaciones privadas sin orden judicial para prevenir delitos.', a:[-2,-2,-1,-2,-2,-1,-2,-1,2],
+  c:'Permitir a la policía o a los servicios de inteligencia leer mensajes, correos o llamadas sin que un juez lo autorice antes, con el argumento de prevenir delitos o terrorismo.'},
+ {id:'p_trans', ax:'P', dir:+1, k:'autodeterminación de género', t:'Las personas deben poder cambiar su sexo legal sin informes médicos.', a:[-1,2,-2,2,2,-2,0,-2,-2],
+  c:'La ley trans (2023) permite cambiar el sexo en el DNI desde los 16 años con una declaración, sin informes médicos ni tratamientos. La afirmación plantea si mantener esa autodeterminación.'},
+ {id:'p_mili',  ax:'P', dir:-1, k:'servicio militar obligatorio', t:'Debería recuperarse el servicio militar obligatorio.', a:[-1,-2,1,-2,-2,0,-1,-1,1],
+  c:'España suprimió el servicio militar obligatorio en 2001. Con el rearme europeo, varios países han vuelto a debatir una mili obligatoria o un servicio nacional.'},
+ {id:'p_relig', ax:'P', dir:-1, k:'religión en la vida pública', t:'La religión debería tener más presencia en la escuela y en la vida pública.', a:[0,-2,2,-2,-2,1,-1,1,2],
+  c:'Más presencia de la religión en la escuela pública (asignatura, símbolos) y en los actos institucionales, frente a un Estado más neutral en materia religiosa.'},
+ {id:'p_menores', ax:'P', dir:-1, k:'menores en redes sociales', t:'Hay que prohibir por ley que los menores de 16 años tengan cuentas en redes sociales.', a:[1,2,1,1,0,-1,0,-1,1],
+  c:'Prohibir por ley que los menores de cierta edad (16 años en la propuesta española, 15 en Francia, 16 en Australia) abran cuentas en redes sociales, con verificación de edad.'},
+ {id:'p_apuestas', ax:'P', dir:-1, k:'publicidad de apuestas', t:'Hay que prohibir la publicidad de las apuestas y del juego online.', a:[0,2,-1,2,2,-1,0,-2,0],
+  c:'Prohibir anuncios de casas de apuestas y juego online en televisión, deporte e internet, como ya se limitó en España en 2020, para reducir la ludopatía, sobre todo entre jóvenes.'}
 ];
 const LABELS = ['Muy en contra','En contra','Neutral','A favor','Muy a favor'];
 const STORE_KEY = 'testnolan-es-2026';
 const HASH_VERSION = '1';
+const NAME_MAX = 24;
 
 let answers = {};
 let hidden = new Set();
 let filter = 'all';
 let openAns = new Set();
-let friend = null; // respuestas de otra persona recibidas por el enlace #r=
+let name = '';
+let mode = null;      // 'one' (una a una) | 'all' (lista)
+let cur = 0;          // índice de la pregunta actual en modo 'one'
+let activeCard = null;// tarjeta activa en modo 'all' (para el teclado)
+let showAllMatches = false;
+let friend = null;    // {answers, name} recibido por el enlace #r=
 
-try{ const s = JSON.parse(localStorage.getItem(STORE_KEY)||'null'); if(s){ answers = s.answers||{}; hidden = new Set(s.hidden||[]); } }catch(e){}
-function save(){ try{ localStorage.setItem(STORE_KEY, JSON.stringify({answers, hidden:[...hidden]})); }catch(e){} }
+function cleanName(s){ return String(s||'').replace(/[<>"'&]/g,'').trim().slice(0,NAME_MAX); }
+function esc(s){ return String(s).replace(/[&<>"']/g, c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c])); }
+
+try{ const s = JSON.parse(localStorage.getItem(STORE_KEY)||'null'); if(s){ answers = s.answers||{}; hidden = new Set(s.hidden||[]); name = cleanName(s.name); mode = s.mode==='one'||s.mode==='all' ? s.mode : null; } }catch(e){}
+if(!mode) mode = window.matchMedia('(max-width:700px)').matches ? 'one' : 'all';
+function save(){ try{ localStorage.setItem(STORE_KEY, JSON.stringify({answers, hidden:[...hidden], name, mode})); }catch(e){} }
 
 function cssVar(n){ return getComputedStyle(document.documentElement).getPropertyValue(n).trim(); }
 
@@ -349,7 +451,7 @@ function zoneOf(E,P){
   return 'Autoritario';
 }
 
-// Enlace con resultado: #r=<versión><una cifra por pregunta: 0..4, o _ si no se respondió>, en el orden de QUESTIONS. Nunca llega al servidor.
+// Enlace con resultado: #r=<versión><una cifra por pregunta: 0..4, o _ si no se respondió>&n=<nombre>, en el orden de QUESTIONS. Nunca llega al servidor.
 function encodeAnswers(src){ return HASH_VERSION + QUESTIONS.map(q=> src[q.id]===undefined ? '_' : String(src[q.id]+2)).join(''); }
 function decodeAnswers(s){
   if(!s || s[0]!==HASH_VERSION || s.length!==QUESTIONS.length+1) return null;
@@ -357,10 +459,12 @@ function decodeAnswers(s){
   QUESTIONS.forEach((q,i)=>{ const c = s[i+1]; if(c>='0' && c<='4'){ out[q.id] = parseInt(c,10)-2; n++; } });
   return n ? out : null;
 }
-function readFriend(){ try{ return decodeAnswers(new URLSearchParams(location.hash.replace(/^#/,'')).get('r')); }catch(e){ return null; } }
+function readFriend(){
+  try{ const p = new URLSearchParams(location.hash.replace(/^#/,'')); const a = decodeAnswers(p.get('r')); return a ? {answers:a, name:cleanName(p.get('n'))} : null; }catch(e){ return null; }
+}
 friend = readFriend();
 function baseUrl(){ return (location.origin && location.origin!=='null') ? location.origin + location.pathname : SITE_URL; }
-function compareUrl(){ return baseUrl() + '#r=' + encodeAnswers(answers); }
+function compareUrl(){ return baseUrl() + '#r=' + encodeAnswers(answers) + (name ? '&n=' + encodeURIComponent(name) : ''); }
 
 // Geometría del rombo: E y P de 0 a 100. Centro (280,280), semidiagonal 240
 const C = 280, K = 2.4;
@@ -375,12 +479,12 @@ const ZONES = [
 const CENTER_SQ = [[65,65],[65,35],[35,35],[35,65]];
 const ZONE_LABELS = [['Libertario','Libertad en todo',88,88],['Derecha','Conservador',90,22],['Izquierda','Progresista',22,90],['Autoritario','Totalitarismo',10,10]];
 
-// Marcas de personas (tú y, si llega por enlace, un amigo)
+// Marcas de personas (tú y, si llega por enlace, otra persona)
 function personMarks(){
   const marks = [];
-  if(friend){ const fs = axisScore(q=>friend[q.id]); marks.push({id:'friend', label:'Amigo', E:fs.E ?? 50, P:fs.P ?? 50, color:'--friend', ink:'--friend-ink'}); }
+  if(friend){ const fs = axisScore(q=>friend.answers[q.id]); marks.push({id:'friend', label:friend.name||'Amigo', E:fs.E ?? 50, P:fs.P ?? 50, color:'--friend', ink:'--friend-ink'}); }
   const user = axisScore(q=>answers[q.id]);
-  if(user.E!==null || user.P!==null) marks.push({id:'you', label:'Tú', E:user.E ?? 50, P:user.P ?? 50, color:'--accent', ink:'--accent-ink'});
+  if(user.E!==null || user.P!==null) marks.push({id:'you', label:name||'Tú', E:user.E ?? 50, P:user.P ?? 50, color:'--accent', ink:'--accent-ink'});
   return marks;
 }
 
@@ -445,7 +549,7 @@ function drawChart(){
   const you = marks.find(m=>m.id==='you');
   let desc = 'Rombo dividido en zonas libertaria, derecha, izquierda, autoritaria y centro, con un punto por partido calculado a partir de sus respuestas.';
   if(you) desc += ` Tu posición: zona ${zoneOf(you.E,you.P)}, libertad económica ${Math.round(you.E)} y libertad personal ${Math.round(you.P)} sobre 100.`;
-  if(friend){ const f = marks.find(m=>m.id==='friend'); desc += ` Resultado recibido por enlace: zona ${zoneOf(f.E,f.P)}, economía ${Math.round(f.E)}, libertades ${Math.round(f.P)}.`; }
+  if(friend){ const f = marks.find(m=>m.id==='friend'); desc += ` Resultado recibido por enlace (${f.label}): zona ${zoneOf(f.E,f.P)}, economía ${Math.round(f.E)}, libertades ${Math.round(f.P)}.`; }
   document.getElementById('chartDesc').textContent = desc;
 }
 
@@ -468,6 +572,19 @@ function affinity(i, src=answers){
   for(const q of QUESTIONS){ if(src[q.id]===undefined) continue; diff += Math.abs(src[q.id]-q.a[i]); n++; }
   return 100 - diff/(4*n)*100;
 }
+// Temas en los que coincides (misma respuesta, sin contar el neutral) y en los que discrepas (3 o más pasos de distancia) con el partido i
+function matchLists(i){
+  const ag=[], dg=[];
+  for(const q of QUESTIONS){
+    const v = answers[q.id]; if(v===undefined) continue;
+    const d = Math.abs(v-q.a[i]);
+    if(d===0 && v!==0) ag.push({q, w:Math.abs(v)});
+    else if(d>=3) dg.push({q, w:d});
+  }
+  ag.sort((x,y)=>y.w-x.w); dg.sort((x,y)=>y.w-x.w);
+  return {ag, dg};
+}
+function listTopics(arr, max){ const names = arr.slice(0,max).map(x=>x.q.k); const rest = arr.length-names.length; return names.join(', ') + (rest>0 ? ` y ${rest} más` : ''); }
 
 function drawResult(){
   const r = document.getElementById('result');
@@ -476,12 +593,17 @@ function drawResult(){
   document.getElementById('shareBox').hidden = !n;
   if(!n){
     r.innerHTML = `<div class="result-head"><h2>Tu posición</h2></div>
-      <p class="empty">Aún no has respondido nada. Con unas pocas respuestas en cada bloque aparecerás en el rombo como «Tú», y aquí verás con qué partidos coincides más.</p>`;
+      <p class="empty">Aún no has respondido nada. Con unas pocas respuestas en cada bloque aparecerás en el rombo como «Tú», y aquí verás con qué partidos coincides más y en qué temas.</p>`;
     return;
   }
   const E = u.E ?? 50, P = u.P ?? 50;
-  const rows = PARTIES.map((p,i)=>({p, a:affinity(i)})).sort((x,y)=>y.a-x.a);
+  const rows = PARTIES.map((p,i)=>({p, i, a:affinity(i)})).sort((x,y)=>y.a-x.a);
   const warn = (u.nE<4 || u.nP<4) ? `<p class="note" style="margin-top:10px">Responde al menos 4 preguntas de cada bloque para que la posición sea fiable${u.E===null?' (en economía aún no hay ninguna)':''}${u.P===null?' (en libertades aún no hay ninguna)':''}.</p>` : '';
+  const real = rows.filter(x=>!x.p.ref);
+  const shown = showAllMatches ? real : real.slice(0,3);
+  const matches = shown.map(({p,i,a})=>{ const m = matchLists(i); return `<div class="match"><div class="match-h"><strong>${p.name}</strong><span class="pct">${a.toFixed(0)} % de afinidad</span></div>
+      <p><span class="ok">Coincidís en:</span> ${m.ag.length ? listTopics(m.ag,4) : 'nada claro todavía'}.</p>
+      <p><span class="ko">Discrepáis en:</span> ${m.dg.length ? listTopics(m.dg,4) : 'nada de momento'}.</p></div>`; }).join('');
   r.innerHTML = `<div class="result-head"><h2>Tu posición</h2><span class="zone-pill">${zoneOf(E,P)}</span></div>
     <div class="scores">
       <div class="score"><div class="k">Libertad económica</div><div class="v">${u.E===null?'—':Math.round(u.E)}<span class="note"> /100</span></div></div>
@@ -489,18 +611,23 @@ function drawResult(){
     </div>
     ${warn}
     <h3 style="margin-top:16px">Afinidad por respuestas</h3>
-    <ul class="rank">${rows.map(({p,a})=>`<li><span class="${p.ref?'ref':''}">${p.name}</span><span class="bar"><i style="width:${a.toFixed(0)}%;${p.ref?`background:var(${p.color})`:''}"></i></span><span class="pct">${a.toFixed(0)} %</span></li>`).join('')}</ul>`;
+    <ul class="rank">${rows.map(({p,a})=>`<li><span class="${p.ref?'ref':''}">${p.name}</span><span class="bar"><i style="width:${a.toFixed(0)}%;${p.ref?`background:var(${p.color})`:''}"></i></span><span class="pct">${a.toFixed(0)} %</span></li>`).join('')}</ul>
+    <h3 style="margin-top:16px">En qué coincides y en qué no</h3>
+    <div class="matches">${matches}</div>
+    ${real.length>3 ? `<p style="margin-top:8px"><button type="button" class="linkbtn" id="moreMatches">${showAllMatches?'Ver solo los tres más cercanos':'Ver los demás partidos'}</button></p>` : ''}`;
+  const mm = document.getElementById('moreMatches'); if(mm) mm.addEventListener('click',()=>{ showAllMatches=!showAllMatches; drawResult(); });
 }
 
 function drawFriend(){
   const box = document.getElementById('friendBox');
   if(!friend){ box.hidden = true; box.innerHTML=''; return; }
-  const fs = axisScore(q=>friend[q.id]);
+  const fs = axisScore(q=>friend.answers[q.id]);
   const E = fs.E ?? 50, P = fs.P ?? 50;
-  const n = Object.keys(friend).length;
+  const n = Object.keys(friend.answers).length;
+  const who = friend.name ? esc(friend.name) : null;
   box.hidden = false;
-  box.innerHTML = `<div class="result-head"><h2>Te han enviado un resultado</h2><span class="zone-pill friend-pill">${zoneOf(E,P)}</span></div>
-    <p class="note" style="margin-top:8px">Aparece en el rombo como «Amigo»: libertad económica ${fs.E===null?'—':Math.round(fs.E)}, libertad personal ${fs.P===null?'—':Math.round(fs.P)} (${n} ${n===1?'respuesta':'respuestas'}). Responde tú para ver tu punto junto al suyo. <button type="button" class="linkbtn" id="friendOff">Quitar del rombo</button></p>`;
+  box.innerHTML = `<div class="result-head"><h2>${who ? `${who} te ha enviado su resultado` : 'Te han enviado un resultado'}</h2><span class="zone-pill friend-pill">${zoneOf(E,P)}</span></div>
+    <p class="note" style="margin-top:8px">Aparece en el rombo como «${who||'Amigo'}»: libertad económica ${fs.E===null?'—':Math.round(fs.E)}, libertad personal ${fs.P===null?'—':Math.round(fs.P)} (${n} ${n===1?'respuesta':'respuestas'}). Responde tú para ver tu punto junto al suyo. <button type="button" class="linkbtn" id="friendOff">Quitar del rombo</button></p>`;
   document.getElementById('friendOff').addEventListener('click',()=>{ friend=null; history.replaceState(null,'',location.pathname+location.search); refresh(false); });
 }
 
@@ -509,49 +636,116 @@ function answerGroups(q){
   PARTIES.forEach((p,i)=>g[q.a[i]].push(p));
   return g;
 }
+function visibleQuestions(){ return QUESTIONS.filter(q=>filter==='all'||q.ax===filter); }
+function firstPending(qs){ const i = qs.findIndex(q=>answers[q.id]===undefined); return i<0 ? qs.length : i; }
+
+function buildCard(q){
+  const card = document.createElement('div'); card.className='q'+(answers[q.id]!==undefined?' answered':''); card.id='q-'+q.id; card.tabIndex=-1;
+  const name_ = 'r-'+q.id;
+  card.innerHTML = `<div class="q-top"><span class="axis-tag">${q.ax==='E'?'Economía':'Libertades'}</span><p class="q-text" id="t-${q.id}">${q.t}</p></div>
+    ${q.c?`<details class="ctx"><summary>¿Qué significa?</summary><p>${q.c}</p></details>`:''}
+    <div class="scale" role="radiogroup" aria-labelledby="t-${q.id}">
+      ${[-2,-1,0,1,2].map((v,k)=>`<label class="opt"><input type="radio" name="${name_}" id="${name_}-${k}" value="${v}" ${answers[q.id]===v?'checked':''}><span>${LABELS[k]}</span></label>`).join('')}
+    </div>
+    <div class="q-foot">
+      <button type="button" class="linkbtn" data-toggle="${q.id}" aria-expanded="${openAns.has(q.id)}" aria-controls="pa-${q.id}">${openAns.has(q.id)?'Ocultar':'Ver'} qué responde cada partido</button>
+      ${answers[q.id]!==undefined?`<button type="button" class="linkbtn" data-clear="${q.id}">Quitar mi respuesta</button>`:''}
+    </div>
+    <div class="parties-ans" ${openAns.has(q.id)?'':'hidden'} id="pa-${q.id}"></div>`;
+  const pa = card.querySelector('.parties-ans');
+  const g = answerGroups(q);
+  [-2,-1,0,1,2].forEach((v,k)=>{
+    const col = document.createElement('div'); col.className='col'+(answers[q.id]===v?' mine':'');
+    col.innerHTML = `<span class="h">${LABELS[k]}</span>` + (g[v].length ? g[v].map(p=>`<span class="n ${p.ref?'ref':''}">${p.name}${q.src&&q.src[p.id]?`<a class="src" href="${q.src[p.id]}" target="_blank" rel="noopener" aria-label="Fuente de la respuesta de ${p.full}">fuente</a>`:''}</span>`).join('') : '<span class="note">—</span>');
+    pa.appendChild(col);
+  });
+  const markMine = ()=> pa.querySelectorAll('.col').forEach((c,k)=>c.classList.toggle('mine', answers[q.id]===[-2,-1,0,1,2][k]));
+  card.querySelectorAll('input').forEach(inp=>inp.addEventListener('change',()=>{
+    answers[q.id] = parseInt(inp.value,10); save(); card.classList.add('answered'); markMine(); refresh(false);
+    const foot = card.querySelector('.q-foot');
+    if(!foot.querySelector('[data-clear]')){ const b=document.createElement('button'); b.type='button'; b.className='linkbtn'; b.dataset.clear=q.id; b.textContent='Quitar mi respuesta'; foot.appendChild(b); bindClear(b, markMine); }
+    if(mode==='one' && !openAns.has(q.id)) setTimeout(()=>{ if(mode==='one' && visibleQuestions()[cur]===q){ cur++; drawQuestions(); focusCurrent(); } }, 380);
+    else if(mode==='one'){ const nx=document.getElementById('gNext'); if(nx) nx.textContent='Siguiente'; }
+  }));
+  bindToggle(card.querySelector('[data-toggle]'));
+  const c = card.querySelector('[data-clear]'); if(c) bindClear(c, markMine);
+  card.addEventListener('focusin',()=>setActive(card));
+  card.addEventListener('pointerdown',()=>setActive(card));
+  return card;
+}
+function setActive(card){ if(activeCard===card) return; if(activeCard) activeCard.classList.remove('active'); activeCard=card; if(card) card.classList.add('active'); }
 
 function drawQuestions(){
-  const list = document.getElementById('qlist'); list.innerHTML='';
-  QUESTIONS.filter(q=>filter==='all'||q.ax===filter).forEach((q,idx)=>{
-    const card = document.createElement('div'); card.className='q'+(answers[q.id]!==undefined?' answered':''); card.id='q-'+q.id;
-    const name = 'r-'+q.id;
-    card.innerHTML = `<div class="q-top"><span class="axis-tag">${q.ax==='E'?'Economía':'Libertades'}</span><p class="q-text" id="t-${q.id}">${q.t}</p></div>
-      <div class="scale" role="radiogroup" aria-labelledby="t-${q.id}">
-        ${[-2,-1,0,1,2].map((v,k)=>`<label class="opt"><input type="radio" name="${name}" id="${name}-${k}" value="${v}" ${answers[q.id]===v?'checked':''}><span>${LABELS[k]}</span></label>`).join('')}
-      </div>
-      <div class="q-foot">
-        <button type="button" class="linkbtn" data-toggle="${q.id}" aria-expanded="${openAns.has(q.id)}" aria-controls="pa-${q.id}">${openAns.has(q.id)?'Ocultar':'Ver'} qué responde cada partido</button>
-        ${answers[q.id]!==undefined?`<button type="button" class="linkbtn" data-clear="${q.id}">Quitar mi respuesta</button>`:''}
-      </div>
-      <div class="parties-ans" ${openAns.has(q.id)?'':'hidden'} id="pa-${q.id}"></div>`;
-    list.appendChild(card);
-    const pa = card.querySelector('.parties-ans');
-    const g = answerGroups(q);
-    [-2,-1,0,1,2].forEach((v,k)=>{
-      const col = document.createElement('div'); col.className='col';
-      col.innerHTML = `<span class="h">${LABELS[k]}</span>` + (g[v].length ? g[v].map(p=>`<span class="n ${p.ref?'ref':''}">${p.name}${q.src&&q.src[p.id]?`<a class="src" href="${q.src[p.id]}" target="_blank" rel="noopener" aria-label="Fuente de la respuesta de ${p.full}">fuente</a>`:''}</span>`).join('') : '<span class="note">—</span>');
-      pa.appendChild(col);
-    });
-    card.querySelectorAll('input').forEach(inp=>inp.addEventListener('change',()=>{
-      answers[q.id] = parseInt(inp.value,10); save(); card.classList.add('answered'); refresh(false);
-      const foot = card.querySelector('.q-foot');
-      if(!foot.querySelector('[data-clear]')){ const b=document.createElement('button'); b.type='button'; b.className='linkbtn'; b.dataset.clear=q.id; b.textContent='Quitar mi respuesta'; foot.appendChild(b); bindClear(b); }
-    }));
-    bindToggle(card.querySelector('[data-toggle]'));
-    const c = card.querySelector('[data-clear]'); if(c) bindClear(c);
-  });
+  const list = document.getElementById('qlist'); list.innerHTML=''; activeCard=null;
+  const qs = visibleQuestions();
+  document.getElementById('modeOne').setAttribute('aria-pressed', mode==='one');
+  document.getElementById('modeAll').setAttribute('aria-pressed', mode==='all');
+  if(mode==='all'){ qs.forEach(q=>list.appendChild(buildCard(q))); return; }
+  if(cur<0) cur=0; if(cur>qs.length) cur=qs.length;
+  if(cur===qs.length){
+    const n = Object.keys(answers).length;
+    const pend = qs.filter(q=>answers[q.id]===undefined).length;
+    const d = document.createElement('div'); d.className='q done';
+    d.innerHTML = `<h3>${pend ? 'Has llegado al final' : 'Has terminado'}</h3>
+      <p class="note">Has respondido ${n} de ${QUESTIONS.length} afirmaciones${pend ? ` (${pend} sin responder en este bloque)` : ''}${filter!=='all' ? '. Hay más en el otro bloque' : ''}.</p>
+      <div class="share-row"><button type="button" class="btn primary" id="gResult">Ver mi posición</button><button type="button" class="btn" id="gReview">Revisar mis respuestas</button>${cur>0?'<button type="button" class="btn" id="gPrev">Anterior</button>':''}</div>`;
+    list.appendChild(d);
+    document.getElementById('gResult').addEventListener('click',()=>{ document.getElementById('result').scrollIntoView({behavior:'smooth', block:'start'}); });
+    document.getElementById('gReview').addEventListener('click',()=>{ mode='all'; save(); drawQuestions(); });
+    const pv = document.getElementById('gPrev'); if(pv) pv.addEventListener('click',()=>{ cur--; drawQuestions(); focusCurrent(); });
+    return;
+  }
+  const q = qs[cur];
+  const nav = document.createElement('div'); nav.className='gnav';
+  nav.innerHTML = `<span class="progress">Pregunta ${cur+1} de ${qs.length}</span><div class="gbtns"><button type="button" class="btn" id="gPrev" ${cur===0?'disabled':''}>Anterior</button><button type="button" class="btn" id="gNext">${answers[q.id]===undefined?'Saltar':'Siguiente'}</button></div>`;
+  list.appendChild(nav);
+  list.appendChild(buildCard(q));
+  document.getElementById('gPrev').addEventListener('click',()=>{ cur--; drawQuestions(); focusCurrent(); });
+  document.getElementById('gNext').addEventListener('click',()=>{ cur++; drawQuestions(); focusCurrent(); });
 }
+function focusCurrent(){ const c = document.querySelector('#qlist .q'); if(c){ c.focus({preventScroll:true}); setActive(c); const top=c.getBoundingClientRect().top; if(top<0||top>window.innerHeight*0.6) c.scrollIntoView({block:'start', behavior:'smooth'}); } }
 function bindToggle(b){ b.addEventListener('click',()=>{ const id=b.dataset.toggle; const pa=document.getElementById('pa-'+id); const open=!openAns.has(id); open?openAns.add(id):openAns.delete(id); pa.hidden=!open; b.setAttribute('aria-expanded',open); b.textContent=(open?'Ocultar':'Ver')+' qué responde cada partido'; }); }
-function bindClear(b){ b.addEventListener('click',()=>{ const id=b.dataset.clear; delete answers[id]; save(); const card=document.getElementById('q-'+id); card.classList.remove('answered'); card.querySelectorAll('input').forEach(i=>i.checked=false); b.remove(); refresh(false); }); }
+function bindClear(b, after){ b.addEventListener('click',()=>{ const id=b.dataset.clear; delete answers[id]; save(); const card=document.getElementById('q-'+id); card.classList.remove('answered'); card.querySelectorAll('input').forEach(i=>i.checked=false); b.remove(); if(after) after(); const nx=document.getElementById('gNext'); if(nx) nx.textContent='Saltar'; refresh(false); }); }
 
 function drawProgress(){ document.getElementById('progress').textContent = `${Object.keys(answers).length} de ${QUESTIONS.length} respondidas`; }
 
 function drawTable(){
   const tb = document.querySelector('#ptable tbody');
   tb.innerHTML = PARTIES.map(p=>{ const s=partyScores[p.id]; return `<tr><td>${p.name}</td><td>${p.full} · ${p.lead}${p.note?`<br><span class="note">${p.note}</span>`:''}</td><td class="num">${Math.round(s.E)}</td><td class="num">${Math.round(s.P)}</td></tr>`; }).join('');
+  document.getElementById('dataVersion').textContent = `Datos de partidos y preguntas: versión ${DATA_VERSION}, actualizada el ${DATA_DATE}. ${QUESTIONS.filter(q=>q.ax==='E').length} afirmaciones de economía y ${QUESTIONS.filter(q=>q.ax==='P').length} de libertades. El registro de cambios está en el repositorio.`;
 }
 
 function refresh(full=true){ if(full) drawQuestions(); drawChart(); drawResult(); drawFriend(); drawProgress(); }
+
+/* ---------- Teclado: 1–5 responde la pregunta activa, flechas cambian de pregunta ---------- */
+function currentCard(){
+  if(mode==='one') return document.querySelector('#qlist .q:not(.done)');
+  if(activeCard && document.contains(activeCard)) return activeCard;
+  const cards=[...document.querySelectorAll('#qlist .q')]; return cards.find(c=>!c.classList.contains('answered')) || cards[0] || null;
+}
+function moveCard(d){
+  if(mode==='one'){ const qs=visibleQuestions(); const nx=cur+d; if(nx<0||nx>qs.length) return; cur=nx; drawQuestions(); focusCurrent(); return; }
+  const cards=[...document.querySelectorAll('#qlist .q')]; if(!cards.length) return;
+  const c = currentCard(); let i = cards.indexOf(c); i = Math.min(cards.length-1, Math.max(0, i+d));
+  const t = cards[i]; setActive(t); t.focus({preventScroll:true}); t.scrollIntoView({block:'center', behavior:'smooth'});
+}
+document.addEventListener('keydown',(e)=>{
+  if(e.metaKey||e.ctrlKey||e.altKey) return;
+  const tg = e.target;
+  if(tg.matches('input:not([type=radio]), textarea, select')) return;
+  if(/^[1-5]$/.test(e.key)){
+    const card = currentCard(); if(!card) return;
+    const inp = card.querySelector(`input[value="${parseInt(e.key,10)-3}"]`); if(!inp) return;
+    e.preventDefault(); setActive(card);
+    if(!inp.checked){ inp.checked=true; inp.dispatchEvent(new Event('change',{bubbles:true})); }
+    if(mode==='all') setTimeout(()=>moveCard(1),180);
+    return;
+  }
+  const onRadio = tg.matches('input[type=radio]');
+  if(onRadio) return; // las flechas en un grupo de radios cambian la selección (comportamiento nativo)
+  if(e.key==='ArrowDown'||e.key==='ArrowRight'||e.key==='j'){ e.preventDefault(); moveCard(1); }
+  else if(e.key==='ArrowUp'||e.key==='ArrowLeft'||e.key==='k'){ e.preventDefault(); moveCard(-1); }
+});
 
 /* ---------- Imagen para compartir (canvas 1200 × 630) ---------- */
 function rr(ctx,x,y,w,h,r){ ctx.beginPath(); ctx.moveTo(x+r,y); ctx.arcTo(x+w,y,x+w,y+h,r); ctx.arcTo(x+w,y+h,x,y+h,r); ctx.arcTo(x,y+h,x,y,r); ctx.arcTo(x,y,x+w,y,r); ctx.closePath(); }
@@ -601,25 +795,25 @@ function wrapText(ctx, text, x, y, maxW, lineH){
   for(const w of words){ const test=line?line+' '+w:w; if(ctx.measureText(test).width>maxW && line){ ctx.fillText(line,x,yy); line=w; yy+=lineH; } else line=test; }
   if(line) ctx.fillText(line,x,yy); return yy;
 }
-// mode: 'user' (resultado del usuario) u 'og' (imagen genérica para Open Graph)
-async function renderShareImage(mode){
+// imgMode: 'user' (resultado del usuario) u 'og' (imagen genérica para Open Graph)
+async function renderShareImage(imgMode){
   const W=1200, H=630, cv=document.getElementById('shareCanvas'); cv.width=W; cv.height=H;
   const ctx=cv.getContext('2d');
   await loadFonts();
   const bg=cssVar('--bg'), ink=cssVar('--ink'), muted=cssVar('--muted'), accent=cssVar('--accent'), surface=cssVar('--surface'), soft=cssVar('--soft'), line=cssVar('--line');
   ctx.fillStyle=bg; ctx.fillRect(0,0,W,H);
   ctx.fillStyle=surface; rr(ctx,32,35,560,560,20); ctx.fill(); ctx.strokeStyle=line; ctx.lineWidth=1.5; ctx.stroke();
-  paintChart(ctx, 32, 35, 560, {showUser: mode==='user', showFriend:false});
+  paintChart(ctx, 32, 35, 560, {showUser: imgMode==='user', showFriend:false});
   const X=640, COLW=520;
   const t=(s,x,y,font,color,align='left')=>{ ctx.font=font; ctx.fillStyle=color; ctx.textAlign=align; ctx.textBaseline='alphabetic'; ctx.fillText(s,x,y); };
   try{ ctx.letterSpacing='0.08em'; }catch(e){}
   t('TEST DE NOLAN · GENERALES DE ESPAÑA · 29N 2026', X, 86, '500 17px "IBM Plex Mono", ui-monospace, monospace', accent);
   try{ ctx.letterSpacing='0px'; }catch(e){}
-  if(mode==='user'){
+  if(imgMode==='user'){
     const u=axisScore(q=>answers[q.id]); const E=u.E ?? 50, P=u.P ?? 50;
-    t('Me sale', X, 148, '400 26px "Source Sans 3", system-ui, sans-serif', muted);
+    t(name ? `A ${name} le sale` : 'Me sale', X, 148, '400 26px "Source Sans 3", system-ui, sans-serif', muted);
     t(zoneOf(E,P), X, 232, '700 84px "Bricolage Grotesque", system-ui, sans-serif', ink);
-    const tile=(x,y,w,h,label,val)=>{ ctx.fillStyle=soft; rr(ctx,x,y,w,h,14); ctx.fill(); t(label,x+20,y+36,'400 18px "Source Sans 3", system-ui, sans-serif',muted); t(val===null?'—':String(Math.round(val)),x+20,y+92,'500 50px "IBM Plex Mono", ui-monospace, monospace',ink); ctx.font='400 18px "Source Sans 3", system-ui, sans-serif'; const vw=ctx.measureText(val===null?'—':String(Math.round(val))).width; ctx.font='500 50px "IBM Plex Mono", ui-monospace, monospace'; const vw2=ctx.measureText(val===null?'—':String(Math.round(val))).width; t('/100',x+20+vw2+8,y+92,'400 18px "Source Sans 3", system-ui, sans-serif',muted); };
+    const tile=(x,y,w,h,label,val)=>{ ctx.fillStyle=soft; rr(ctx,x,y,w,h,14); ctx.fill(); t(label,x+20,y+36,'400 18px "Source Sans 3", system-ui, sans-serif',muted); const vs=val===null?'—':String(Math.round(val)); t(vs,x+20,y+92,'500 50px "IBM Plex Mono", ui-monospace, monospace',ink); ctx.font='500 50px "IBM Plex Mono", ui-monospace, monospace'; const vw=ctx.measureText(vs).width; t('/100',x+20+vw+8,y+92,'400 18px "Source Sans 3", system-ui, sans-serif',muted); };
     tile(X,268,250,116,'Libertad económica',u.E); tile(X+270,268,250,116,'Libertad personal',u.P);
     if(SHARE_SHOW_TOP_PARTY){
       const top=PARTIES.map((p,i)=>({p,a:affinity(i)})).filter(r=>!r.p.ref).sort((a,b)=>b.a-a.a)[0];
@@ -630,7 +824,7 @@ async function renderShareImage(mode){
     t('¿Dónde caes tú', X, 178, '700 68px "Bricolage Grotesque", system-ui, sans-serif', ink);
     t('en el rombo?', X, 250, '700 68px "Bricolage Grotesque", system-ui, sans-serif', ink);
     ctx.font='400 26px "Source Sans 3", system-ui, sans-serif'; ctx.fillStyle=muted; ctx.textAlign='left';
-    wrapText(ctx, 'Test político basado en el diagrama de Nolan para las elecciones generales de España del 29 de noviembre de 2026. 33 afirmaciones, dos ejes y los partidos situados con las mismas preguntas.', X, 312, COLW, 36);
+    wrapText(ctx, `Test político basado en el diagrama de Nolan para las elecciones generales de España del 29 de noviembre de 2026. ${QUESTIONS.length} afirmaciones, dos ejes y los partidos situados con las mismas preguntas.`, X, 312, COLW, 36);
     t('Gratis, sin registro y sin guardar nada.', X, 536, '400 28px "Source Sans 3", system-ui, sans-serif', muted);
   }
   t(SITE_SHORT, X, 588, '700 46px "Bricolage Grotesque", system-ui, sans-serif', accent);
@@ -640,7 +834,7 @@ function shareText(){
   const u=axisScore(q=>answers[q.id]); const E=u.E ?? 50, P=u.P ?? 50;
   return `Me sale ${zoneOf(E,P)} (${u.E===null?'—':Math.round(u.E)}/${u.P===null?'—':Math.round(u.P)}) en el test de Nolan para las generales del 29N. ¿Dónde caes tú?`;
 }
-function downloadBlob(blob,name){ const a=document.createElement('a'); a.href=URL.createObjectURL(blob); a.download=name; document.body.appendChild(a); a.click(); setTimeout(()=>{ URL.revokeObjectURL(a.href); a.remove(); },1500); }
+function downloadBlob(blob,fname){ const a=document.createElement('a'); a.href=URL.createObjectURL(blob); a.download=fname; document.body.appendChild(a); a.click(); setTimeout(()=>{ URL.revokeObjectURL(a.href); a.remove(); },1500); }
 function setShareMsg(s){ document.getElementById('shareMsg').textContent = s; }
 function showShareLinks(text,url){
   const box=document.getElementById('shareLinks'); const enc=encodeURIComponent;
@@ -676,18 +870,22 @@ async function shareResult(){
 }
 document.getElementById('shareBtn').addEventListener('click',shareResult);
 document.getElementById('copyLink').addEventListener('click',()=>copyToClipboard(compareUrl(),'Enlace copiado. Quien lo abra verá tu punto en el rombo junto al suyo.'));
+const nameInput = document.getElementById('nameInput'); nameInput.value = name;
+nameInput.addEventListener('input',()=>{ name = cleanName(nameInput.value); save(); drawChart(); });
 
 /* ---------- Interacción general ---------- */
-document.querySelectorAll('.tab').forEach(t=>t.addEventListener('click',()=>{
-  filter=t.dataset.f; document.querySelectorAll('.tab').forEach(x=>x.setAttribute('aria-selected', x===t?'true':'false')); drawQuestions();
+document.querySelectorAll('.tab[role=tab]').forEach(t=>t.addEventListener('click',()=>{
+  filter=t.dataset.f; document.querySelectorAll('.tab[role=tab]').forEach(x=>x.setAttribute('aria-selected', x===t?'true':'false')); cur=firstPending(visibleQuestions()); drawQuestions();
 }));
+document.getElementById('modeOne').addEventListener('click',()=>{ if(mode==='one') return; mode='one'; cur=firstPending(visibleQuestions()); save(); drawQuestions(); });
+document.getElementById('modeAll').addEventListener('click',()=>{ if(mode==='all') return; mode='all'; save(); drawQuestions(); });
 let resetArmed=false, resetTimer;
 document.getElementById('reset').addEventListener('click',(e)=>{
   const btn=e.currentTarget, note=document.getElementById('resetConfirm');
   if(!Object.keys(answers).length){ note.hidden=false; note.textContent='No hay respuestas que borrar.'; clearTimeout(resetTimer); resetTimer=setTimeout(()=>note.hidden=true,2500); return; }
   if(!resetArmed){ resetArmed=true; btn.textContent='Pulsa otra vez para borrar'; resetTimer=setTimeout(()=>{resetArmed=false; btn.textContent='Borrar respuestas';},4000); return; }
   clearTimeout(resetTimer); resetArmed=false; btn.textContent='Borrar respuestas';
-  answers={}; save(); note.hidden=false; note.textContent='Respuestas borradas de este navegador.'; setTimeout(()=>note.hidden=true,2500); refresh();
+  answers={}; cur=0; save(); note.hidden=false; note.textContent='Respuestas borradas de este navegador.'; setTimeout(()=>note.hidden=true,2500); refresh();
 });
 window.addEventListener('hashchange',()=>{ friend=readFriend(); refresh(false); });
 const mq = window.matchMedia('(prefers-color-scheme: dark)');
@@ -701,6 +899,7 @@ if(ogMode!==null){
   if(ogMode!=='user') document.documentElement.setAttribute('data-theme','light');
   renderShareImage(ogMode==='user'?'user':'og').then(()=>{ document.body.dataset.ogReady='1'; });
 } else {
+  cur = firstPending(visibleQuestions());
   drawLegend(); drawTable(); refresh();
 }
 </script>
