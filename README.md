@@ -69,7 +69,7 @@ El test **no recomienda votar a nadie**. Muestra afinidad con las posiciones est
 
 ## Estado actual
 
-Existe un prototipo funcional en un único archivo, `rombo-29n.html`, con todo el CSS y el JavaScript incrustados. Incluye:
+Existe un prototipo funcional en un único archivo, `index.html`, con todo el CSS y el JavaScript incrustados, más `og-image.png` (imagen fija para Open Graph). Incluye:
 
 - Rombo de Nolan dibujado en SVG con las cinco zonas, la línea media discontinua y los ejes rotulados.
 - **33 afirmaciones** (16 de economía y 17 de libertades) con escala de 5 puntos.
@@ -81,7 +81,14 @@ Existe un prototipo funcional en un único archivo, `rombo-29n.html`, con todo e
 - Filtros por bloque (todas, economía, libertades), contador de progreso y botón para borrar respuestas (con confirmación en dos pulsaciones).
 - Sección de metodología con tabla de puntuaciones y fuentes.
 - Tema claro y oscuro, diseño adaptado a móvil.
-- Persistencia de respuestas solo en el navegador del usuario (`localStorage`, con `try/catch`). Nada sale del dispositivo.
+- Persistencia de respuestas solo en el navegador del usuario (`localStorage`, clave `testnolan-es-2026`, con `try/catch`). Nada sale del dispositivo.
+- Esqueleto HTML completo (`lang="es"`, `charset`, `viewport`), título y descripción orientados a buscar «test de Nolan elecciones generales España 29N», etiquetas Open Graph y Twitter Card, `canonical` a `https://testnolan.com/es/` y datos estructurados JSON-LD.
+- Botón **«Compartir mi resultado»**: genera en un `<canvas>` una imagen de 1200 × 630 con el rombo, los partidos, el punto del usuario, su zona, sus dos puntuaciones, el partido más afín y la URL testnolan.com. En móvil usa la Web Share API con archivo; si no está disponible, descarga el PNG y muestra enlaces a X, Facebook, WhatsApp y Telegram con el texto ya escrito. La constante `SHARE_SHOW_TOP_PARTY` permite ocultar el partido más afín de la imagen durante el periodo de prohibición de encuestas.
+- **Enlace para comparar** (`#r=…`): codifica las respuestas en el *hash* de la URL, que nunca llega al servidor. Quien lo abre ve el punto de la otra persona como «Amigo» junto al suyo, con su zona y puntuaciones, y puede quitarlo. Formato: `1` (versión) + una cifra por pregunta en el orden de `QUESTIONS` (`0`–`4` para −2…+2, `_` si no se respondió).
+- Modo `?og=1` que muestra solo la imagen genérica de 1200 × 630 (sin usuario, tema claro) para capturarla como `og-image.png`, y `?og=user` para previsualizar la imagen del resultado propio.
+- Metodología ampliada: nota de circunscripciones (D21 + Cs solo en Madrid y Barcelona; SALF solo en algunas provincias), críticas al modelo de Nolan y soporte para enlazar la **fuente** de cada respuesta de cada partido (campo opcional `src` por pregunta; aún sin datos).
+- Pie de página con la política de datos (no hay servidor, cookies ni analítica; todo queda en el navegador), aviso de que las posiciones son estimaciones y de que el test no recomienda votar a nadie, autoría con enlace a menetray.com y contacto para correcciones.
+- Accesibilidad: descripción del SVG que se actualiza con la posición del usuario, mensajes de estado con `aria-live`, etiquetas en los botones de la leyenda y de compartir, foco visible en todos los controles y `prefers-reduced-motion` respetado.
 
 Lo que **todavía no existe** está en [Tareas pendientes](#tareas-pendientes).
 
@@ -212,24 +219,26 @@ Notas:
 
 Respuestas de los partidos en el orden: PP, PSOE, Vox, Frente Amplio, Podemos, SALF, D21 + Cs, Milei, Bukele. Valores de −2 a +2.
 
+Las afirmaciones se redactan de la forma más general posible, para que el mismo cuestionario sirva en cualquier país; lo que cambia en cada elección es la respuesta de los partidos.
+
 ### Economía (16)
 
 | id | Afirmación | dir | Respuestas |
 |---|---|:-:|---|
-| e_irpf | Hay que bajar el IRPF aunque el Estado recaude menos. | +1 | 2, −1, 2, −2, −2, 2, 1, 1, 0 |
+| e_irpf | Hay que bajar el impuesto sobre la renta aunque el Estado recaude menos. | +1 | 2, −1, 2, −2, −2, 2, 1, 1, 0 |
 | e_suc | Deberían suprimirse los impuestos de sucesiones y de patrimonio. | +1 | 1, −2, 2, −2, −2, 2, 0, 1, 0 |
 | e_alq | El Estado debe poner topes al precio del alquiler. | −1 | −2, 2, −2, 2, 2, −2, 0, −2, 0 |
 | e_empv | Hay que crear una gran empresa pública estatal de vivienda y suelo. | −1 | −1, 2, −2, 2, 2, −2, 0, −2, 0 |
 | e_acum | Quien acumula muchas viviendas debería pagar cada año un impuesto especial alto. | −1 | −2, 1, −2, 2, 2, −2, −1, −2, −1 |
 | e_suelo | Hay que liberalizar suelo y reducir trámites para que se construya más. | +1 | 2, 1, 2, −1, −2, 2, 1, 2, 1 |
-| e_pens | Las pensiones deben subir cada año con el IPC, por ley y pase lo que pase. | −1 | 2, 2, −1, 2, 2, 0, 1, −1, 0 |
+| e_pens | Las pensiones deben subir cada año con la inflación, por ley y pase lo que pase. | −1 | 2, 2, −1, 2, 2, 0, 1, −1, 0 |
 | e_mixto | El sistema de pensiones debería ser mixto, con una parte de capitalización privada. | +1 | 0, −1, 2, −2, −2, 1, 0, 1, −1 |
 | e_func | Hay que reducir ministerios, organismos y empleo público. | +1 | 1, −1, 2, −2, −2, 2, 1, 2, 1 |
 | e_fort | Las grandes fortunas y las grandes empresas deberían pagar más impuestos. | −1 | −1, 2, −2, 2, 2, −2, 0, −2, 0 |
 | e_expr | El Estado debería poder expropiar viviendas o nacionalizar empresas estratégicas. | −1 | −2, −2, −2, 1, 2, −2, −2, −2, 0 |
 | e_sani | Sanidad y educación deben ser públicas y gratuitas para todos, pagadas con impuestos. | −1 | 2, 2, 1, 2, 2, 1, 2, −1, 1 |
 | e_aval | El Estado debe avalar con dinero público las hipotecas de los jóvenes. | −1 | 2, 2, 1, 1, 0, 1, 1, −2, 1 |
-| e_gasto | El gasto público, cerca del 44 % del PIB, debería reducirse de forma significativa. | +1 | 0, −1, 1, −2, −2, 2, 0, 2, 0 |
+| e_gasto | El gasto público debería reducirse de forma significativa. | +1 | 0, −1, 1, −2, −2, 2, 0, 2, 0 |
 | e_smi | El Gobierno debe seguir subiendo el salario mínimo por ley. | −1 | 1, 2, 0, 2, 2, −1, 1, −1, 1 |
 | e_aran | Hay que proteger al campo y a la industria nacional con aranceles o límites a las importaciones. | −1 | −1, 0, 2, 1, 1, 1, −2, −2, 0 |
 
@@ -238,7 +247,7 @@ Respuestas de los partidos en el orden: PP, PSOE, Vox, Frente Amplio, Podemos, S
 | id | Afirmación | dir | Respuestas |
 |---|---|:-:|---|
 | p_expul | Hay que expulsar de forma masiva a los inmigrantes en situación irregular. | −1 | 0, −2, 2, −2, −2, 2, −2, 1, 2 |
-| p_prior | Las ayudas públicas deben dar prioridad a los españoles frente a los extranjeros con residencia legal. | −1 | 0, −2, 2, −2, −2, 2, −2, 0, 1 |
+| p_prior | Las ayudas públicas deben dar prioridad a los ciudadanos del país frente a los extranjeros con residencia legal. | −1 | 0, −2, 2, −2, −2, 2, −2, 0, 1 |
 | p_deten | En situaciones graves de seguridad, la policía debería poder detener sin orden judicial. | −1 | −2, −2, −1, −2, −2, 0, −2, −2, 2 |
 | p_odio | El Estado debe poder sancionar o expulsar a quien difunda discursos de odio, aunque no inciten a la violencia. | −1 | −1, 1, −2, 2, 2, −2, 0, 2, 2 |
 | p_prot | Hay que limitar más las protestas que cortan calles o carreteras. | −1 | 1, −1, 1, −2, −2, 1, 0, 2, 2 |
@@ -348,36 +357,39 @@ La viralidad se busca con una **imagen generada en el navegador** que el usuario
 - [ ] Definir el esquema del fichero de datos (elección, fecha, partidos, preguntas, textos) para que añadir otro país sea solo cargar un JSON nuevo.
 - [ ] Validación del fichero de datos al cargar o en CI: cada array de respuestas tiene tantos valores como partidos, todos los valores están entre −2 y +2, `dir` es +1 o −1, los `id` son únicos, cada eje tiene al menos 10 preguntas.
 - [ ] Tests unitarios deterministas para las funciones puras: puntuación por eje, afinidad, zona y conversión a coordenadas del rombo. Deben reproducir la tabla de posiciones de este README.
-- [ ] Cambiar la clave de `localStorage` por una por elección (`testnolan-es-2026`) para no mezclar respuestas entre tests.
+- [x] Cambiar la clave de `localStorage` por una por elección (`testnolan-es-2026`) para no mezclar respuestas entre tests.
 
 ### Compartir en redes (prioridad alta para la viralidad)
 
-- [ ] Botón **"Compartir mi resultado"** que genere en un `<canvas>` una imagen de **1200 × 630** con: el rombo, los partidos, el punto del usuario destacado, su zona, sus dos puntuaciones, el partido con mayor afinidad (opcional, ver advertencia legal) y la URL **testnolan.com** bien visible.
-- [ ] En móvil, usar la **Web Share API** con archivo (`navigator.share({ files, text, url })`) para enviar la imagen directamente a WhatsApp, Instagram, X, etc. Texto sugerido: "Me sale Libertario (69/81). ¿Dónde caes tú? testnolan.com".
-- [ ] En escritorio, descargar el PNG y abrir la ventana de publicación de X (`https://twitter.com/intent/tweet?text=…&url=…`) y de Facebook con el texto y la URL ya escritos.
-- [ ] **Enlace con resultado**: codificar las respuestas del usuario en el *hash* de la URL (por ejemplo `#r=<base64>`), que nunca llega al servidor, para que quien lo abra vea el punto del amigo junto al suyo ("compárate conmigo").
-- [ ] Etiquetas **Open Graph y Twitter Card** con una imagen estática del rombo, título y descripción, para que el enlace se vea bien al pegarlo.
-- [ ] Nota: dentro del visor de Claude las descargas y la API de compartir están bloqueadas; esta parte solo se puede probar en el dominio real.
+- [x] Botón **"Compartir mi resultado"** que genere en un `<canvas>` una imagen de **1200 × 630** con: el rombo, los partidos, el punto del usuario destacado, su zona, sus dos puntuaciones, el partido con mayor afinidad (opcional, ver advertencia legal) y la URL **testnolan.com** bien visible.
+- [x] En móvil, usar la **Web Share API** con archivo (`navigator.share({ files, text, url })`) para enviar la imagen directamente a WhatsApp, Instagram, X, etc. Texto sugerido: "Me sale Libertario (69/81). ¿Dónde caes tú? testnolan.com".
+- [x] En escritorio, descargar el PNG y abrir la ventana de publicación de X (`https://twitter.com/intent/tweet?text=…&url=…`) y de Facebook con el texto y la URL ya escritos.
+- [x] **Enlace con resultado**: codificar las respuestas del usuario en el *hash* de la URL (por ejemplo `#r=<base64>`), que nunca llega al servidor, para que quien lo abra vea el punto del amigo junto al suyo ("compárate conmigo").
+- [x] Etiquetas **Open Graph y Twitter Card** con una imagen estática del rombo, título y descripción, para que el enlace se vea bien al pegarlo. La imagen se regenera con Chrome headless:
+  ```
+  google-chrome --headless=new --window-size=1200,630 --hide-scrollbars --virtual-time-budget=8000 --screenshot=og-image.png "http://localhost:8000/index.html?og=1"
+  ```
+- [ ] Probar la descarga y la Web Share API en móviles reales; en el visor de Claude están bloqueadas.
 
 ### Contenido y transparencia
 
-- [ ] Añadir a cada respuesta de cada partido una **fuente** (enlace a programa, votación o declaración) y mostrarla en el desplegable de "qué responde cada partido".
+- [ ] Añadir a cada respuesta de cada partido una **fuente** (enlace a programa, votación o declaración). El desplegable ya la muestra si existe: basta con añadir a la pregunta un campo `src:{pp:'https://…', psoe:'https://…'}`.
 - [ ] Revisar las respuestas cuando los partidos publiquen sus programas completos (a 31 de octubre de 2026 ninguno lo había hecho).
-- [ ] Indicar en la web en qué circunscripciones se presentan D21 + Cs (solo Madrid y Barcelona) y SALF (algunas provincias).
+- [x] Indicar en la web en qué circunscripciones se presentan D21 + Cs (solo Madrid y Barcelona) y SALF (algunas provincias).
 - [ ] Valorar añadir los partidos territoriales (ERC, Junts, PNV, EH Bildu, BNG, Coalición Canaria) con un filtro por comunidad.
-- [ ] Mencionar en la metodología las críticas al modelo de Nolan.
-- [ ] En el pie: "Hecho por Robert Menetray" con enlace a menetray.com y "¿Ves algún error en las posiciones? Escríbeme" (enlace a issues de GitHub o correo visible como texto).
-- [ ] Textos legales mínimos: aviso de que no se guardan datos, de que las posiciones son estimaciones y de que el test no recomienda votar a ningún partido.
+- [x] Mencionar en la metodología las críticas al modelo de Nolan.
+- [x] En el pie: "Hecho por Robert Menetray" con enlace a menetray.com y "¿Ves algún error en las posiciones? Escríbeme". Pendiente: cambiar el enlace de «Escríbeme» por la URL de issues cuando el repositorio sea público.
+- [x] Textos legales mínimos: aviso de que no se guardan datos, de que las posiciones son estimaciones y de que el test no recomienda votar a ningún partido.
 
 ### Periodo de prohibición de encuestas (24–28 de noviembre)
 
-- [ ] Revisar si la imagen para compartir debe omitir el "partido con mayor afinidad" esos días, o mostrar solo la zona y las puntuaciones. Consultarlo con alguien con conocimientos legales; no hay criterio cerrado.
+- [ ] Revisar si la imagen para compartir debe omitir el "partido con mayor afinidad" esos días, o mostrar solo la zona y las puntuaciones. Consultarlo con alguien con conocimientos legales; no hay criterio cerrado. Para omitirlo basta con poner `SHARE_SHOW_TOP_PARTY = false` en `index.html`.
 
 ### Accesibilidad y calidad
 
-- [ ] Revisar contraste en ambos temas, navegación con teclado en la escala de respuestas y textos alternativos del SVG.
+- [x] Revisar contraste en ambos temas, navegación con teclado en la escala de respuestas y textos alternativos del SVG (la descripción del SVG se actualiza con la posición del usuario).
 - [ ] Probar en móviles reales (Safari iOS y Chrome Android), sobre todo la Web Share API.
-- [ ] Respetar `prefers-reduced-motion` en cualquier animación nueva.
+- [x] Respetar `prefers-reduced-motion` en cualquier animación nueva.
 
 ### Futuro (no prioritario)
 
