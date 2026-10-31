@@ -1,0 +1,441 @@
+<title>Rombo de Nolan 29N</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=Source+Sans+3:wght@400;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: test cívico de dos columnas — rombo fijo a la izquierda como "brújula", preguntas a la derecha; en móvil, rombo arriba y preguntas debajo */
+:root{
+  --bg:#eef1f4; --surface:#ffffff; --ink:#15202b; --muted:#5a6774; --line:#d6dde4; --soft:#e4e9ee;
+  --accent:#0b7680; --accent-ink:#ffffff;
+  --z-lib:#e0a03a; --z-der:#3a7ccc; --z-izq:#d4524d; --z-aut:#7a69d2; --z-cen:#2e9a6c;
+  --ref-milei:#d9861f; --ref-bukele:#c94f7c;
+  --f-display:"Bricolage Grotesque", "Avenir Next", "Segoe UI", system-ui, sans-serif;
+  --f-body:"Source Sans 3", "Segoe UI", system-ui, -apple-system, sans-serif;
+  --f-mono:"IBM Plex Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
+  --zone-op:.30;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#0e1419; --surface:#161e25; --ink:#e4eaf0; --muted:#94a2ae; --line:#2a3540; --soft:#1e2830;
+    --accent:#3cc0c9; --accent-ink:#06282b;
+    --z-lib:#f0b04c; --z-der:#5b98e3; --z-izq:#e8706a; --z-aut:#9787ea; --z-cen:#46b685;
+    --ref-milei:#f0a142; --ref-bukele:#e2729c; --zone-op:.26; color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#0e1419; --surface:#161e25; --ink:#e4eaf0; --muted:#94a2ae; --line:#2a3540; --soft:#1e2830;
+  --accent:#3cc0c9; --accent-ink:#06282b;
+  --z-lib:#f0b04c; --z-der:#5b98e3; --z-izq:#e8706a; --z-aut:#9787ea; --z-cen:#46b685;
+  --ref-milei:#f0a142; --ref-bukele:#e2729c; --zone-op:.26; color-scheme:dark;
+}
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+body{background:var(--bg);color:var(--ink);font-family:var(--f-body);font-size:16px;line-height:1.55;
+  padding-left:max(16px, env(safe-area-inset-left, 0px));padding-right:max(16px, env(safe-area-inset-right, 0px));padding-block:28px 48px}
+.wrap{max-width:1180px;margin:0 auto;display:flex;flex-direction:column;gap:28px}
+h1,h2,h3{font-family:var(--f-display);font-weight:700;margin:0;text-wrap:balance;letter-spacing:-.01em}
+h1{font-size:clamp(28px,4.4vw,44px);line-height:1.05}
+h2{font-size:22px}
+h3{font-size:17px;font-weight:500}
+p{margin:0}
+.lede{max-width:64ch;color:var(--muted);font-size:17px}
+.eyebrow{font-family:var(--f-mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--accent)}
+header{display:flex;flex-direction:column;gap:12px}
+.grid{display:grid;grid-template-columns:1fr;gap:28px;align-items:start}
+@media (min-width:960px){.grid{grid-template-columns:minmax(0,500px) minmax(0,1fr)}.side{position:sticky;top:calc(16px + env(safe-area-inset-top, 0px))}}
+.side{display:flex;flex-direction:column;gap:16px;min-width:0}
+.panel{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:18px}
+.chart-wrap{padding:10px}
+svg{display:block;width:100%;height:auto}
+.zone-label{font-family:var(--f-display);font-size:15px;font-weight:700;fill:var(--ink)}
+.zone-sub{font-family:var(--f-body);font-size:11.5px;fill:var(--muted)}
+.axis-label{font-family:var(--f-mono);font-size:10.5px;fill:var(--muted);letter-spacing:.04em}
+.p-label{font-family:var(--f-body);font-size:12.5px;font-weight:600;fill:var(--ink)}
+.p-label-bg{fill:var(--surface);opacity:.85}
+.legend{display:flex;flex-wrap:wrap;gap:6px}
+.chip{display:inline-flex;align-items:center;gap:6px;border:1px solid var(--line);background:var(--surface);color:var(--ink);
+  border-radius:999px;padding:4px 10px;font-size:13px;font-family:var(--f-body);cursor:pointer}
+.chip[aria-pressed="false"]{opacity:.45;text-decoration:line-through}
+.chip .dot{width:9px;height:9px;border-radius:50%;background:var(--ink)}
+.chip:focus-visible,.opt input:focus-visible+span,button:focus-visible,summary:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.result-head{display:flex;justify-content:space-between;align-items:baseline;gap:12px;flex-wrap:wrap}
+.scores{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:12px}
+.score{background:var(--soft);border-radius:10px;padding:10px 12px}
+.score .k{font-size:12px;color:var(--muted)}
+.score .v{font-family:var(--f-mono);font-size:22px;font-variant-numeric:tabular-nums}
+.zone-pill{display:inline-block;font-family:var(--f-mono);font-size:12px;padding:3px 9px;border-radius:999px;background:var(--soft);color:var(--ink)}
+.rank{list-style:none;margin:12px 0 0;padding:0;display:flex;flex-direction:column;gap:6px}
+.rank li{display:grid;grid-template-columns:110px 1fr 46px;gap:10px;align-items:center;font-size:14px}
+.bar{height:8px;border-radius:4px;background:var(--soft);overflow:hidden}
+.bar i{display:block;height:100%;background:var(--accent);border-radius:4px}
+.rank .pct{font-family:var(--f-mono);font-variant-numeric:tabular-nums;text-align:right;font-size:13px}
+.rank .ref{color:var(--muted)}
+.empty{color:var(--muted);font-size:14px;margin-top:8px}
+.qhead{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap}
+.progress{font-family:var(--f-mono);font-size:13px;color:var(--muted)}
+.btn{font:inherit;font-size:14px;border:1px solid var(--line);background:var(--surface);color:var(--ink);border-radius:8px;padding:6px 12px;cursor:pointer}
+.btn:hover{border-color:var(--muted)}
+.tabs{display:flex;gap:6px;flex-wrap:wrap}
+.tab{font:inherit;font-size:14px;border:1px solid var(--line);background:transparent;color:var(--ink);border-radius:999px;padding:5px 12px;cursor:pointer}
+.tab[aria-selected="true"]{background:var(--ink);color:var(--surface);border-color:var(--ink)}
+.qlist{display:flex;flex-direction:column;gap:12px;margin-top:14px}
+.q{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:16px;display:flex;flex-direction:column;gap:12px}
+.q.answered{border-color:color-mix(in srgb, var(--accent) 45%, var(--line))}
+.q-top{display:flex;gap:10px;align-items:flex-start}
+.axis-tag{flex:none;font-family:var(--f-mono);font-size:11px;letter-spacing:.06em;text-transform:uppercase;padding:2px 7px;border-radius:5px;border:1px solid var(--line);color:var(--muted);margin-top:3px}
+.q-text{font-size:16.5px;font-weight:600;min-width:0}
+.scale{display:grid;grid-template-columns:repeat(5,1fr);gap:6px}
+.opt{position:relative}
+.opt input{position:absolute;opacity:0;inset:0;margin:0;cursor:pointer}
+.opt span{display:flex;align-items:center;justify-content:center;text-align:center;min-height:44px;padding:6px 4px;font-size:13px;line-height:1.2;
+  border:1px solid var(--line);border-radius:8px;background:var(--bg);color:var(--ink);cursor:pointer}
+.opt input:checked+span{background:var(--accent);color:var(--accent-ink);border-color:var(--accent);font-weight:600}
+.opt input:hover+span{border-color:var(--muted)}
+.q-foot{display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;align-items:center}
+.linkbtn{font:inherit;font-size:13.5px;color:var(--accent);background:none;border:0;padding:0;cursor:pointer;text-decoration:underline;text-underline-offset:3px}
+.parties-ans{display:grid;grid-template-columns:repeat(5,1fr);gap:6px;font-size:12.5px}
+.parties-ans .col{background:var(--soft);border-radius:8px;padding:8px;display:flex;flex-direction:column;gap:4px;min-width:0}
+.parties-ans .h{font-family:var(--f-mono);font-size:10.5px;color:var(--muted);text-transform:uppercase;letter-spacing:.05em}
+.parties-ans .n{font-weight:600}
+.parties-ans .n.ref{color:var(--muted);font-weight:400}
+@media (max-width:560px){
+  .opt span{font-size:11.5px;min-height:52px}
+  .parties-ans{grid-template-columns:1fr 1fr}
+  .rank li{grid-template-columns:92px 1fr 42px}
+}
+details.meth{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:14px 18px}
+details.meth summary{cursor:pointer;font-family:var(--f-display);font-weight:700;font-size:18px}
+.meth-body{display:flex;flex-direction:column;gap:12px;margin-top:12px;max-width:72ch}
+.meth-body ul{margin:0;padding-left:20px;display:flex;flex-direction:column;gap:6px}
+.meth-body a{color:var(--accent)}
+.table-wrap{overflow-x:auto}
+table{border-collapse:collapse;font-size:14px;min-width:420px}
+th,td{text-align:left;padding:6px 10px;border-bottom:1px solid var(--line)}
+td.num{font-family:var(--f-mono);font-variant-numeric:tabular-nums;text-align:right}
+.note{font-size:13.5px;color:var(--muted)}
+@media (prefers-reduced-motion: no-preference){
+  .you-dot{transition:transform .35s ease}
+}
+</style>
+
+<div class="wrap">
+  <header>
+    <span class="eyebrow">Generales del 29 de noviembre de 2026 · Diagrama de Nolan</span>
+    <h1>¿Dónde caes tú en el rombo?</h1>
+    <p class="lede">Responde las afirmaciones que quieras con tu grado de acuerdo. Cada respuesta te mueve en dos ejes, libertad económica y libertad personal, y el rombo te sitúa junto a los partidos, que se colocan con exactamente las mismas preguntas.</p>
+  </header>
+
+  <div class="grid">
+    <aside class="side">
+      <div class="panel chart-wrap">
+        <svg id="chart" viewBox="0 0 560 560" role="img" aria-labelledby="chartTitle chartDesc">
+          <title id="chartTitle">Diagrama de Nolan con partidos y tu posición</title>
+          <desc id="chartDesc">Rombo dividido en zonas libertaria, derecha, izquierda, autoritaria y centro, con un punto por partido calculado a partir de sus respuestas.</desc>
+        </svg>
+      </div>
+      <div class="legend" id="legend" aria-label="Mostrar u ocultar partidos"></div>
+      <div class="panel" id="result" aria-live="polite"></div>
+    </aside>
+
+    <main>
+      <div class="qhead">
+        <div class="tabs" role="tablist" aria-label="Filtrar preguntas">
+          <button class="tab" role="tab" aria-selected="true" data-f="all" id="tab-all">Todas</button>
+          <button class="tab" role="tab" aria-selected="false" data-f="E" id="tab-e">Economía</button>
+          <button class="tab" role="tab" aria-selected="false" data-f="P" id="tab-p">Libertades</button>
+        </div>
+        <div style="display:flex;gap:10px;align-items:center">
+          <span class="progress" id="progress"></span>
+          <button class="btn" id="reset" type="button">Borrar respuestas</button>
+        </div>
+      </div>
+      <p class="note" id="resetConfirm" hidden></p>
+      <div class="qlist" id="qlist"></div>
+    </main>
+  </div>
+
+  <details class="meth" id="meth">
+    <summary>Cómo se calcula y de dónde salen las posiciones</summary>
+    <div class="meth-body">
+      <p>Cada afirmación pertenece a un eje. Las de economía miden impuestos, gasto, regulación y propiedad; las de libertades miden cuánto controla el Estado la conducta pacífica de la gente: expresión, protesta, migración, estilo de vida y garantías ante la policía. Endurecer penas por delitos violentos tras un juicio no cuenta en ninguno de los dos ejes.</p>
+      <p>Tu respuesta va de −2 (muy en contra) a +2 (muy a favor). Si estar de acuerdo implica menos intervención del Estado, suma libertad; si implica más, resta. La puntuación de cada eje es 50 + 25 × la media de tus respuestas en ese eje, de 0 a 100. Las preguntas que no respondes no cuentan.</p>
+      <p>La afinidad con cada partido compara respuesta a respuesta: 100 % si coincidís en todas, 0 % si estáis en extremos opuestos en todas.</p>
+      <p><strong>Las respuestas de los partidos son una estimación</strong> hecha a partir de programas, votaciones en el Congreso y declaraciones públicas hasta el 31 de octubre de 2026. A esa fecha ningún partido había publicado su programa completo para el 29N, así que conviene contrastarlas. Milei y Bukele aparecen como referencia internacional: sus respuestas se estiman por analogía con lo que han aplicado en sus países, y varias preguntas son específicas de España.</p>
+      <div class="table-wrap"><table id="ptable"><thead><tr><th>Partido</th><th>Candidatura</th><th style="text-align:right">Economía</th><th style="text-align:right">Libertades</th></tr></thead><tbody></tbody></table></div>
+      <p class="note">Fuentes consultadas:
+        <a href="https://queproponen.es/" target="_blank" rel="noopener">Qué Proponen</a> ·
+        <a href="https://www.datosclaros.es/comparador-de-programas-29n/" target="_blank" rel="noopener">DatosClaros</a> ·
+        <a href="https://www.politicaelectoral.com/es/espana/generales-2026/nacional" target="_blank" rel="noopener">Política Electoral</a> ·
+        <a href="https://xn--eleccionesespaa-crb.com/partidos" target="_blank" rel="noopener">eleccionesEspaña.com</a> ·
+        <a href="https://www.afinidadpolitica.es/elecciones-generales-29n" target="_blank" rel="noopener">Afinidad Política</a> ·
+        <a href="https://es.wikipedia.org/wiki/Elecciones_generales_de_Espa%C3%B1a_de_2026" target="_blank" rel="noopener">Wikipedia</a>
+      </p>
+    </div>
+  </details>
+</div>
+
+<script>
+const PARTIES = [
+  {id:'pp',    name:'PP',            full:'Partido Popular',           lead:'Alberto Núñez Feijóo', ref:false},
+  {id:'psoe',  name:'PSOE',          full:'PSOE / PSC',                lead:'Pedro Sánchez',        ref:false},
+  {id:'vox',   name:'Vox',           full:'Vox',                       lead:'Santiago Abascal',     ref:false},
+  {id:'fa',    name:'Frente Amplio', full:'Frente Amplio (ex-Sumar)',  lead:'Ada Colau',            ref:false},
+  {id:'pod',   name:'Podemos',       full:'Podemos',                   lead:'Irene Montero',        ref:false},
+  {id:'salf',  name:'SALF',          full:'Se Acabó La Fiesta',        lead:'Alvise Pérez',         ref:false},
+  {id:'d21',   name:'D21 + Cs',      full:'Democracia para el Siglo 21', lead:'Miriam González',    ref:false},
+  {id:'milei', name:'Milei',         full:'La Libertad Avanza (Argentina)', lead:'Javier Milei',    ref:true, color:'--ref-milei'},
+  {id:'bukele',name:'Bukele',        full:'Nuevas Ideas (El Salvador)', lead:'Nayib Bukele',        ref:true, color:'--ref-bukele'}
+];
+const ORDER = PARTIES.map(p=>p.id);
+// dir +1: estar a favor = más libertad en ese eje; -1: a favor = más intervención del Estado
+// a: respuestas en orden pp, psoe, vox, fa, pod, salf, d21, milei, bukele (de -2 a +2)
+const QUESTIONS = [
+ {id:'e_irpf',  ax:'E', dir:+1, t:'Hay que bajar el IRPF aunque el Estado recaude menos.', a:[2,-1,2,-2,-2,2,1,1,0]},
+ {id:'e_suc',   ax:'E', dir:+1, t:'Deberían suprimirse los impuestos de sucesiones y de patrimonio.', a:[1,-2,2,-2,-2,2,0,1,0]},
+ {id:'e_alq',   ax:'E', dir:-1, t:'El Estado debe poner topes al precio del alquiler.', a:[-2,2,-2,2,2,-2,0,-2,0]},
+ {id:'e_empv',  ax:'E', dir:-1, t:'Hay que crear una gran empresa pública estatal de vivienda y suelo.', a:[-1,2,-2,2,2,-2,0,-2,0]},
+ {id:'e_acum',  ax:'E', dir:-1, t:'Quien acumula muchas viviendas debería pagar cada año un impuesto especial alto.', a:[-2,1,-2,2,2,-2,-1,-2,-1]},
+ {id:'e_suelo', ax:'E', dir:+1, t:'Hay que liberalizar suelo y reducir trámites para que se construya más.', a:[2,1,2,-1,-2,2,1,2,1]},
+ {id:'e_pens',  ax:'E', dir:-1, t:'Las pensiones deben subir cada año con el IPC, por ley y pase lo que pase.', a:[2,2,-1,2,2,0,1,-1,0]},
+ {id:'e_mixto', ax:'E', dir:+1, t:'El sistema de pensiones debería ser mixto, con una parte de capitalización privada.', a:[0,-1,2,-2,-2,1,0,1,-1]},
+ {id:'e_func',  ax:'E', dir:+1, t:'Hay que reducir ministerios, organismos y empleo público.', a:[1,-1,2,-2,-2,2,1,2,1]},
+ {id:'e_fort',  ax:'E', dir:-1, t:'Las grandes fortunas y las grandes empresas deberían pagar más impuestos.', a:[-1,2,-2,2,2,-2,0,-2,0]},
+ {id:'e_expr',  ax:'E', dir:-1, t:'El Estado debería poder expropiar viviendas o nacionalizar empresas estratégicas.', a:[-2,-2,-2,1,2,-2,-2,-2,0]},
+ {id:'e_sani',  ax:'E', dir:-1, t:'Sanidad y educación deben ser públicas y gratuitas para todos, pagadas con impuestos.', a:[2,2,1,2,2,1,2,-1,1]},
+ {id:'e_aval',  ax:'E', dir:-1, t:'El Estado debe avalar con dinero público las hipotecas de los jóvenes.', a:[2,2,1,1,0,1,1,-2,1]},
+ {id:'e_gasto', ax:'E', dir:+1, t:'El gasto público, cerca del 44 % del PIB, debería reducirse de forma significativa.', a:[0,-1,1,-2,-2,2,0,2,0]},
+ {id:'e_smi',   ax:'E', dir:-1, t:'El Gobierno debe seguir subiendo el salario mínimo por ley.', a:[1,2,0,2,2,-1,1,-1,1]},
+ {id:'e_aran',  ax:'E', dir:-1, t:'Hay que proteger al campo y a la industria nacional con aranceles o límites a las importaciones.', a:[-1,0,2,1,1,1,-2,-2,0]},
+ {id:'p_expul', ax:'P', dir:-1, t:'Hay que expulsar de forma masiva a los inmigrantes en situación irregular.', a:[0,-2,2,-2,-2,2,-2,1,2]},
+ {id:'p_prior', ax:'P', dir:-1, t:'Las ayudas públicas deben dar prioridad a los españoles frente a los extranjeros con residencia legal.', a:[0,-2,2,-2,-2,2,-2,0,1]},
+ {id:'p_deten', ax:'P', dir:-1, t:'En situaciones graves de seguridad, la policía debería poder detener sin orden judicial.', a:[-2,-2,-1,-2,-2,0,-2,-2,2]},
+ {id:'p_odio',  ax:'P', dir:-1, t:'El Estado debe poder sancionar o expulsar a quien difunda discursos de odio, aunque no inciten a la violencia.', a:[-1,1,-2,2,2,-2,0,2,2]},
+ {id:'p_prot',  ax:'P', dir:-1, t:'Hay que limitar más las protestas que cortan calles o carreteras.', a:[1,-1,1,-2,-2,1,0,2,2]},
+ {id:'p_euta',  ax:'P', dir:+1, t:'La eutanasia debe seguir siendo legal.', a:[0,2,-2,2,2,-1,2,0,-1]},
+ {id:'p_matr',  ax:'P', dir:+1, t:'El matrimonio entre personas del mismo sexo debe seguir siendo legal.', a:[1,2,-1,2,2,0,2,1,-2]},
+ {id:'p_abor',  ax:'P', dir:+1, t:'El aborto debe seguir siendo legal en los plazos actuales.', a:[0,2,-2,2,2,-1,2,-1,-2]},
+ {id:'p_cann',  ax:'P', dir:+1, t:'El cannabis para adultos debería ser legal y estar regulado.', a:[-2,-1,-2,1,2,-1,0,0,-2]},
+ {id:'p_prost', ax:'P', dir:-1, t:'Hay que prohibir la prostitución y castigar también al cliente.', a:[0,2,1,1,0,0,-1,-1,1]},
+ {id:'p_medio', ax:'P', dir:-1, t:'El Gobierno debe poder regular a los medios de comunicación para combatir la desinformación.', a:[-1,1,-2,2,2,-2,-1,-1,2]},
+ {id:'p_ident', ax:'P', dir:-1, t:'Para entrar en webs de contenido adulto debería exigirse verificar la identidad.', a:[1,2,1,1,1,-1,0,-1,1]},
+ {id:'p_taba',  ax:'P', dir:-1, t:'Hay que ampliar la prohibición de fumar y vapear a terrazas y espacios abiertos.', a:[0,2,-2,2,1,-2,1,-2,0]},
+ {id:'p_anon',  ax:'P', dir:-1, t:'Habría que acabar con el anonimato en las redes sociales.', a:[0,2,-2,1,0,-2,0,-2,1]},
+ {id:'p_burka', ax:'P', dir:-1, t:'Debería prohibirse el burka y el niqab en los espacios públicos.', a:[0,-1,2,-2,-2,2,-1,0,0]},
+ {id:'p_ileg',  ax:'P', dir:-1, t:'Habría que ilegalizar los partidos que defienden la independencia de una región.', a:[-1,-2,2,-2,-2,1,-2,0,1]},
+ {id:'p_decr',  ax:'P', dir:-1, t:'El Gobierno debería poder legislar por decreto cuando el Parlamento bloquea sus reformas.', a:[-1,1,-1,0,0,1,-2,2,2]}
+];
+const LABELS = ['Muy en contra','En contra','Neutral','A favor','Muy a favor'];
+const STORE_KEY = 'rombo29n-v1';
+
+let answers = {};
+let hidden = new Set();
+let filter = 'all';
+let openAns = new Set();
+
+try{ const s = JSON.parse(localStorage.getItem(STORE_KEY)||'null'); if(s){ answers = s.answers||{}; hidden = new Set(s.hidden||[]); } }catch(e){}
+function save(){ try{ localStorage.setItem(STORE_KEY, JSON.stringify({answers, hidden:[...hidden]})); }catch(e){} }
+
+function cssVar(n){ return getComputedStyle(document.documentElement).getPropertyValue(n).trim(); }
+
+function axisScore(getVal){
+  const out = {};
+  for(const ax of ['E','P']){
+    const vals = [];
+    for(const q of QUESTIONS){ if(q.ax!==ax) continue; const v = getVal(q); if(v===null||v===undefined) continue; vals.push(v*q.dir); }
+    out[ax] = vals.length ? 50 + 25*vals.reduce((a,b)=>a+b,0)/vals.length : null;
+    out['n'+ax] = vals.length;
+  }
+  return out;
+}
+const partyScores = {};
+PARTIES.forEach((p,i)=>{ partyScores[p.id] = axisScore(q=>q.a[i]); });
+
+function zoneOf(E,P){
+  if(Math.abs(E-50)<=15 && Math.abs(P-50)<=15) return 'Centro';
+  if(E>=50 && P>=50) return 'Libertario';
+  if(E>=50 && P<50) return 'Derecha';
+  if(E<50 && P>=50) return 'Izquierda';
+  return 'Autoritario';
+}
+
+// Geometría del rombo: E y P de 0 a 100. Centro (280,280), semidiagonal 240
+const C = 280, K = 2.4;
+function xy(E,P){ return [C + (E-P)*K, C - (E+P-100)*K]; }
+function pts(arr){ return arr.map(([E,P])=>xy(E,P).join(',')).join(' '); }
+
+const svgNS = 'http://www.w3.org/2000/svg';
+function el(tag, attrs={}, text){ const n=document.createElementNS(svgNS,tag); for(const k in attrs) n.setAttribute(k,attrs[k]); if(text!==undefined) n.textContent=text; return n; }
+
+function drawChart(){
+  const svg = document.getElementById('chart');
+  [...svg.querySelectorAll(':scope > :not(title):not(desc)')].forEach(n=>n.remove());
+  const zones = [
+    {c:'--z-lib', p:[[100,100],[100,50],[50,50],[50,100]]},
+    {c:'--z-der', p:[[100,0],[50,0],[50,50],[100,50]]},
+    {c:'--z-aut', p:[[0,0],[50,0],[50,50],[0,50]]},
+    {c:'--z-izq', p:[[0,100],[0,50],[50,50],[50,100]]},
+  ];
+  const line = cssVar('--line'), muted = cssVar('--muted');
+  zones.forEach(z=>svg.appendChild(el('polygon',{points:pts(z.p), fill:cssVar(z.c), 'fill-opacity':cssVar('--zone-op'), stroke:muted, 'stroke-width':'0.6'})));
+  svg.appendChild(el('polygon',{points:pts([[65,65],[65,35],[35,35],[35,65]]), fill:cssVar('--z-cen'), 'fill-opacity':(parseFloat(cssVar('--zone-op'))+.12).toFixed(2), stroke:muted, 'stroke-width':'0.6'}));
+  svg.appendChild(el('line',{x1:xy(0,100)[0], y1:280, x2:xy(100,0)[0], y2:280, stroke:muted, 'stroke-width':'0.8', 'stroke-dasharray':'4 4'}));
+  const placed = [];
+  const zl = (txt, sub, E, P) => { const [x,y]=xy(E,P); svg.appendChild(el('text',{x, y, 'text-anchor':'middle', class:'zone-label'}, txt)); if(sub) svg.appendChild(el('text',{x, y:y+16, 'text-anchor':'middle', class:'zone-sub'}, sub));
+    const w=Math.max(txt.length*8.6, (sub||'').length*6.4); placed.push({x:x-w/2,y:y-14,w,h:34}); };
+  zl('Libertario','Libertad en todo',88,88);
+  zl('Derecha','Conservador',90,22);
+  zl('Izquierda','Progresista',22,90);
+  zl('Autoritario','Totalitarismo',10,10);
+  const [cx0,cy0]=xy(50,50); svg.appendChild(el('text',{x:cx0, y:cy0+30, 'text-anchor':'middle', class:'zone-sub'}, 'Centro')); placed.push({x:cx0-22,y:cy0+19,w:44,h:14});
+  // ejes en los bordes
+  const ax = (txt,x,y,rot) => { const t=el('text',{x,y,'text-anchor':'middle',class:'axis-label',transform:`rotate(${rot} ${x} ${y})`},txt); svg.appendChild(t); };
+  ax('LIBERTAD ECONÓMICA →', 150, 152, -45);
+  ax('← LIBERTAD PERSONAL', 410, 152, 45);
+  // puntos
+  const fits = (b) => b.x>=4 && b.x+b.w<=556 && b.y>=4 && b.y+b.h<=556 && !placed.some(o=> b.x < o.x+o.w && b.x+b.w > o.x && b.y < o.y+o.h && b.y+b.h > o.y);
+  const items = PARTIES.filter(p=>!hidden.has(p.id)).map(p=>({p, s:partyScores[p.id]}));
+  const user = axisScore(q=> answers[q.id]);
+  const hasUser = user.E!==null || user.P!==null;
+  // reservar huecos de los puntos
+  items.forEach(({s})=>{ const [x,y]=xy(s.E,s.P); placed.push({x:x-7,y:y-7,w:14,h:14}); });
+  let ux, uy;
+  if(hasUser){ [ux,uy] = xy(user.E ?? 50, user.P ?? 50); placed.push({x:ux-11,y:uy-11,w:22,h:22}); }
+  const labelOf = (txt, x, y) => {
+    const w = txt.length*7.4+6, h=16;
+    const cands = [[10,-8],[-10-w,-8],[-w/2,-24],[-w/2,10],[10,-20],[10,4],[-10-w,-20],[-10-w,4]];
+    for(const [dx,dy] of cands){ const b={x:x+dx,y:y+dy,w,h}; if(fits(b)){ placed.push(b); return b; } }
+    const b={x:x+10,y:y-8,w,h}; placed.push(b); return b;
+  };
+  items.forEach(({p,s})=>{
+    const [x,y]=xy(s.E,s.P);
+    const g = el('g');
+    const fill = p.ref ? cssVar(p.color) : cssVar('--ink');
+    g.appendChild(el('circle',{cx:x, cy:y, r:p.ref?6.5:5.5, fill, stroke:cssVar('--surface'), 'stroke-width':'1.5'}));
+    g.appendChild(el('title',{}, `${p.full}: economía ${Math.round(s.E)}, libertades ${Math.round(s.P)}`));
+    svg.appendChild(g);
+  });
+  // etiquetas después para que queden encima
+  items.forEach(({p,s})=>{
+    const [x,y]=xy(s.E,s.P); const b = labelOf(p.name, x, y);
+    svg.appendChild(el('rect',{x:b.x, y:b.y, width:b.w, height:b.h, rx:3, class:'p-label-bg'}));
+    const t = el('text',{x:b.x+3, y:b.y+12, class:'p-label'}, p.name); if(p.ref) t.style.fill = cssVar(p.color); svg.appendChild(t);
+  });
+  if(hasUser){
+    const g = el('g',{class:'you-dot'});
+    g.appendChild(el('circle',{cx:ux, cy:uy, r:11, fill:cssVar('--accent'), 'fill-opacity':'0.18', stroke:cssVar('--accent'), 'stroke-width':'2'}));
+    g.appendChild(el('circle',{cx:ux, cy:uy, r:4.5, fill:cssVar('--accent')}));
+    svg.appendChild(g);
+    const b = labelOf('Tú', ux, uy);
+    svg.appendChild(el('rect',{x:b.x, y:b.y, width:b.w, height:b.h, rx:3, fill:cssVar('--accent')}));
+    const yt = el('text',{x:b.x+3, y:b.y+12, class:'p-label'}, 'Tú'); yt.style.fill = cssVar('--accent-ink'); svg.appendChild(yt);
+  }
+}
+
+function drawLegend(){
+  const lg = document.getElementById('legend'); lg.innerHTML='';
+  PARTIES.forEach(p=>{
+    const b = document.createElement('button'); b.type='button'; b.className='chip'; b.id='chip-'+p.id;
+    b.setAttribute('aria-pressed', hidden.has(p.id)?'false':'true');
+    b.innerHTML = `<span class="dot" style="background:${p.ref?`var(${p.color})`:'var(--ink)'}"></span>${p.name}`;
+    b.title = `${p.full} · ${p.lead}`;
+    b.addEventListener('click',()=>{ hidden.has(p.id)?hidden.delete(p.id):hidden.add(p.id); save(); drawLegend(); drawChart(); });
+    lg.appendChild(b);
+  });
+}
+
+function affinity(i){
+  const ids = Object.keys(answers); if(!ids.length) return null;
+  let diff=0, n=0;
+  for(const q of QUESTIONS){ if(answers[q.id]===undefined) continue; diff += Math.abs(answers[q.id]-q.a[i]); n++; }
+  return 100 - diff/(4*n)*100;
+}
+
+function drawResult(){
+  const r = document.getElementById('result');
+  const u = axisScore(q=>answers[q.id]);
+  const n = Object.keys(answers).length;
+  if(!n){
+    r.innerHTML = `<div class="result-head"><h2>Tu posición</h2></div>
+      <p class="empty">Aún no has respondido nada. Con unas pocas respuestas en cada bloque aparecerás en el rombo como «Tú», y aquí verás con qué partidos coincides más.</p>`;
+    return;
+  }
+  const E = u.E ?? 50, P = u.P ?? 50;
+  const rows = PARTIES.map((p,i)=>({p, a:affinity(i)})).sort((x,y)=>y.a-x.a);
+  const warn = (u.nE<4 || u.nP<4) ? `<p class="note" style="margin-top:10px">Responde al menos 4 preguntas de cada bloque para que la posición sea fiable${u.E===null?' (en economía aún no hay ninguna)':''}${u.P===null?' (en libertades aún no hay ninguna)':''}.</p>` : '';
+  r.innerHTML = `<div class="result-head"><h2>Tu posición</h2><span class="zone-pill">${zoneOf(E,P)}</span></div>
+    <div class="scores">
+      <div class="score"><div class="k">Libertad económica</div><div class="v">${u.E===null?'—':Math.round(u.E)}<span class="note"> /100</span></div></div>
+      <div class="score"><div class="k">Libertad personal</div><div class="v">${u.P===null?'—':Math.round(u.P)}<span class="note"> /100</span></div></div>
+    </div>
+    ${warn}
+    <h3 style="margin-top:16px">Afinidad por respuestas</h3>
+    <ul class="rank">${rows.map(({p,a})=>`<li><span class="${p.ref?'ref':''}">${p.name}</span><span class="bar"><i style="width:${a.toFixed(0)}%;${p.ref?`background:var(${p.color})`:''}"></i></span><span class="pct">${a.toFixed(0)} %</span></li>`).join('')}</ul>`;
+}
+
+function answerGroups(q){
+  const g = {2:[],1:[],0:[],'-1':[],'-2':[]};
+  PARTIES.forEach((p,i)=>g[q.a[i]].push(p));
+  return g;
+}
+
+function drawQuestions(){
+  const list = document.getElementById('qlist'); list.innerHTML='';
+  QUESTIONS.filter(q=>filter==='all'||q.ax===filter).forEach((q,idx)=>{
+    const card = document.createElement('div'); card.className='q'+(answers[q.id]!==undefined?' answered':''); card.id='q-'+q.id;
+    const name = 'r-'+q.id;
+    card.innerHTML = `<div class="q-top"><span class="axis-tag">${q.ax==='E'?'Economía':'Libertades'}</span><p class="q-text" id="t-${q.id}">${q.t}</p></div>
+      <div class="scale" role="radiogroup" aria-labelledby="t-${q.id}">
+        ${[-2,-1,0,1,2].map((v,k)=>`<label class="opt"><input type="radio" name="${name}" id="${name}-${k}" value="${v}" ${answers[q.id]===v?'checked':''}><span>${LABELS[k]}</span></label>`).join('')}
+      </div>
+      <div class="q-foot">
+        <button type="button" class="linkbtn" data-toggle="${q.id}" aria-expanded="${openAns.has(q.id)}">${openAns.has(q.id)?'Ocultar':'Ver'} qué responde cada partido</button>
+        ${answers[q.id]!==undefined?`<button type="button" class="linkbtn" data-clear="${q.id}">Quitar mi respuesta</button>`:''}
+      </div>
+      <div class="parties-ans" ${openAns.has(q.id)?'':'hidden'} id="pa-${q.id}"></div>`;
+    list.appendChild(card);
+    const pa = card.querySelector('.parties-ans');
+    const g = answerGroups(q);
+    [-2,-1,0,1,2].forEach((v,k)=>{
+      const col = document.createElement('div'); col.className='col';
+      col.innerHTML = `<span class="h">${LABELS[k]}</span>` + (g[v].length ? g[v].map(p=>`<span class="n ${p.ref?'ref':''}">${p.name}</span>`).join('') : '<span class="note">—</span>');
+      pa.appendChild(col);
+    });
+    card.querySelectorAll('input').forEach(inp=>inp.addEventListener('change',()=>{
+      answers[q.id] = parseInt(inp.value,10); save(); card.classList.add('answered'); refresh(false);
+      const foot = card.querySelector('.q-foot');
+      if(!foot.querySelector('[data-clear]')){ const b=document.createElement('button'); b.type='button'; b.className='linkbtn'; b.dataset.clear=q.id; b.textContent='Quitar mi respuesta'; foot.appendChild(b); bindClear(b); }
+    }));
+    bindToggle(card.querySelector('[data-toggle]'));
+    const c = card.querySelector('[data-clear]'); if(c) bindClear(c);
+  });
+}
+function bindToggle(b){ b.addEventListener('click',()=>{ const id=b.dataset.toggle; const pa=document.getElementById('pa-'+id); const open=!openAns.has(id); open?openAns.add(id):openAns.delete(id); pa.hidden=!open; b.setAttribute('aria-expanded',open); b.textContent=(open?'Ocultar':'Ver')+' qué responde cada partido'; }); }
+function bindClear(b){ b.addEventListener('click',()=>{ const id=b.dataset.clear; delete answers[id]; save(); const card=document.getElementById('q-'+id); card.classList.remove('answered'); card.querySelectorAll('input').forEach(i=>i.checked=false); b.remove(); refresh(false); }); }
+
+function drawProgress(){ document.getElementById('progress').textContent = `${Object.keys(answers).length} de ${QUESTIONS.length} respondidas`; }
+
+function drawTable(){
+  const tb = document.querySelector('#ptable tbody');
+  tb.innerHTML = PARTIES.map(p=>{ const s=partyScores[p.id]; return `<tr><td>${p.name}</td><td>${p.full} · ${p.lead}</td><td class="num">${Math.round(s.E)}</td><td class="num">${Math.round(s.P)}</td></tr>`; }).join('');
+}
+
+function refresh(full=true){ if(full) drawQuestions(); drawChart(); drawResult(); drawProgress(); }
+
+document.querySelectorAll('.tab').forEach(t=>t.addEventListener('click',()=>{
+  filter=t.dataset.f; document.querySelectorAll('.tab').forEach(x=>x.setAttribute('aria-selected', x===t?'true':'false')); drawQuestions();
+}));
+let resetArmed=false, resetTimer;
+document.getElementById('reset').addEventListener('click',(e)=>{
+  const btn=e.currentTarget, note=document.getElementById('resetConfirm');
+  if(!Object.keys(answers).length){ note.hidden=false; note.textContent='No hay respuestas que borrar.'; clearTimeout(resetTimer); resetTimer=setTimeout(()=>note.hidden=true,2500); return; }
+  if(!resetArmed){ resetArmed=true; btn.textContent='Pulsa otra vez para borrar'; resetTimer=setTimeout(()=>{resetArmed=false; btn.textContent='Borrar respuestas';},4000); return; }
+  clearTimeout(resetTimer); resetArmed=false; btn.textContent='Borrar respuestas';
+  answers={}; save(); note.hidden=false; note.textContent='Respuestas borradas.'; setTimeout(()=>note.hidden=true,2500); refresh();
+});
+const mq = window.matchMedia('(prefers-color-scheme: dark)');
+if(mq.addEventListener) mq.addEventListener('change',()=>drawChart());
+new MutationObserver(()=>drawChart()).observe(document.documentElement,{attributes:true,attributeFilter:['data-theme']});
+
+drawLegend(); drawTable(); refresh();
+</script>
