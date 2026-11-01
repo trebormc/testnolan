@@ -501,12 +501,12 @@ body.og #shareCanvas{display:block;width:1200px;height:630px}
       <div class="table-wrap"><table id="ptable"><thead><tr><th>Partido</th><th>Candidatura</th><th class="num">Economía</th><th class="num">Libertades</th></tr></thead><tbody></tbody></table></div>
       <p class="note" id="dataVersion"></p>
       <p class="note">Fuentes consultadas:
-        <a href="https://queproponen.es/" target="_blank" rel="noopener">Qué Proponen</a> ·
-        <a href="https://www.datosclaros.es/comparador-de-programas-29n/" target="_blank" rel="noopener">DatosClaros</a> ·
-        <a href="https://www.politicaelectoral.com/es/espana/generales-2026/nacional" target="_blank" rel="noopener">Política Electoral</a> ·
-        <a href="https://xn--eleccionesespaa-crb.com/partidos" target="_blank" rel="noopener">eleccionesEspaña.com</a> ·
-        <a href="https://www.afinidadpolitica.es/elecciones-generales-29n" target="_blank" rel="noopener">Afinidad Política</a> ·
-        <a href="https://es.wikipedia.org/wiki/Elecciones_generales_de_Espa%C3%B1a_de_2026" target="_blank" rel="noopener">Wikipedia</a>
+        <a href="https://queproponen.es/" target="_blank" rel="nofollow noopener noreferrer">Qué Proponen</a> ·
+        <a href="https://www.datosclaros.es/comparador-de-programas-29n/" target="_blank" rel="nofollow noopener noreferrer">DatosClaros</a> ·
+        <a href="https://www.politicaelectoral.com/es/espana/generales-2026/nacional" target="_blank" rel="nofollow noopener noreferrer">Política Electoral</a> ·
+        <a href="https://xn--eleccionesespaa-crb.com/partidos" target="_blank" rel="nofollow noopener noreferrer">eleccionesEspaña.com</a> ·
+        <a href="https://www.afinidadpolitica.es/elecciones-generales-29n" target="_blank" rel="nofollow noopener noreferrer">Afinidad Política</a> ·
+        <a href="https://es.wikipedia.org/wiki/Elecciones_generales_de_Espa%C3%B1a_de_2026" target="_blank" rel="nofollow noopener noreferrer">Wikipedia</a>
       </p>
     </div>
   </details>
@@ -949,7 +949,7 @@ function whyBox(q){
   d.addEventListener('toggle',()=>{
     if(!d.open || filled) return; filled = true;
     const box = d.querySelector('.why-box');
-    const rows = PARTIES.map((p,i)=>{ const v = q.a[i]; const w = (WHY[p.id]||{})[q.id]; const txt = w && w[0] ? esc(w[0]) : 'Pendiente de documentar.'; const url = w && w[1] ? `<a href="${esc(w[1])}" target="_blank" rel="noopener" aria-label="Fuente de la posición de ${esc(p.name)}">fuente</a>` : '';
+    const rows = PARTIES.map((p,i)=>{ const v = q.a[i]; const w = (WHY[p.id]||{})[q.id]; const txt = w && w[0] ? esc(w[0]) : 'Pendiente de documentar.'; const url = w && w[1] ? `<a href="${esc(w[1])}" target="_blank" rel="nofollow noopener noreferrer" aria-label="Fuente de la posición de ${esc(p.name)}">fuente</a>` : '';
       return `<div class="why-row${p.ref?' ref':''}"><span class="why-name">${p.name}</span><span class="why-pos">${v===null?'Sin dato':POS_LABEL[v]}</span><p>${txt} ${url}</p></div>`; });
     box.innerHTML = rows.join('') + '<p class="note why-foot">Las posiciones se asignan con programas, votos y declaraciones, y en las referencias internacionales solo con lo hecho gobernando. Si ves un error, <a href="https://github.com/trebormc/testnolan/issues" target="_blank" rel="noopener">abre un aviso en GitHub</a> con la fuente.</p>';
   });
@@ -980,7 +980,7 @@ function buildCard(q){
   card.appendChild(whyBox(q));
   [-2,-1,0,1,2].forEach((v,k)=>{
     const col = document.createElement('div'); col.className='col'+(answers[q.id]===v?' mine':'');
-    col.innerHTML = g[v].length ? g[v].map(p=>`<span class="n ${p.ref?'ref':''}">${p.name}${q.src&&q.src[p.id]?`<a class="src" href="${q.src[p.id]}" target="_blank" rel="noopener" aria-label="Fuente de la respuesta de ${p.full}">fuente</a>`:''}</span>`).join('') : '<span class="none">—</span>';
+    col.innerHTML = g[v].length ? g[v].map(p=>`<span class="n ${p.ref?'ref':''}">${p.name}${q.src&&q.src[p.id]?`<a class="src" href="${q.src[p.id]}" target="_blank" rel="nofollow noopener noreferrer" aria-label="Fuente de la respuesta de ${p.full}">fuente</a>`:''}</span>`).join('') : '<span class="none">—</span>';
     pa.appendChild(col);
   });
   const markMine = ()=> pa.querySelectorAll('.col').forEach((c,k)=>c.classList.toggle('mine', answers[q.id]===[-2,-1,0,1,2][k]));
