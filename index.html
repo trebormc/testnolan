@@ -4,24 +4,23 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Test de Nolan · Elecciones generales de España 29N 2026</title>
-<meta name="description" content="Test político gratuito basado en el diagrama de Nolan para las elecciones generales de España del 29 de noviembre de 2026. Responde 43 afirmaciones y descubre en qué zona del rombo caes, con qué partidos coincides más y en qué: PP, PSOE, Vox, Frente Amplio, Podemos, SALF y D21 + Cs. Sin registro y sin guardar ningún dato.">
+<meta name="description" content="¿No sabes a quién votar el 29N? Test de Nolan para las elecciones generales de España 2026: 43 afirmaciones, 5 minutos, y ves qué partido te representa de verdad y en qué no coincides con él. PP, PSOE, Vox, Frente Amplio, Podemos, SALF y D21 + Cs. Sin registro y sin guardar nada.">
 <link rel="canonical" href="https://testnolan.com/es/">
-<meta name="theme-color" content="#eef1f4" media="(prefers-color-scheme: light)">
-<meta name="theme-color" content="#0e1419" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#1e1f22">
 
 <meta property="og:type" content="website">
 <meta property="og:locale" content="es_ES">
 <meta property="og:site_name" content="Test Nolan">
-<meta property="og:title" content="Test de Nolan para las elecciones generales de España del 29N">
-<meta property="og:description" content="¿Dónde caes tú en el rombo? 43 afirmaciones sobre economía y libertades te sitúan junto a los partidos del 29 de noviembre de 2026 y te dicen en qué coincides con cada uno. Sin registro y sin guardar nada.">
+<meta property="og:title" content="¿Qué partido te representa de verdad? Test de Nolan · 29N 2026">
+<meta property="og:description" content="Si no sabes a quién votar el 29N, 43 afirmaciones y 5 minutos te dicen con qué partido coincides de verdad, y en qué no. Sin registro y sin guardar nada.">
 <meta property="og:url" content="https://testnolan.com/es/">
 <meta property="og:image" content="https://testnolan.com/og-image.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta property="og:image:alt" content="Rombo de Nolan con la posición de los partidos españoles para las elecciones del 29 de noviembre de 2026">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Test de Nolan para las elecciones generales de España del 29N">
-<meta name="twitter:description" content="¿Dónde caes tú en el rombo? 43 afirmaciones te sitúan junto a los partidos del 29N. Sin registro y sin guardar nada.">
+<meta name="twitter:title" content="¿Qué partido te representa de verdad? Test de Nolan · 29N 2026">
+<meta name="twitter:description" content="Si no sabes a quién votar el 29N, 43 afirmaciones y 5 minutos te dicen con qué partido coincides de verdad, y en qué no.">
 <meta name="twitter:image" content="https://testnolan.com/og-image.png">
 <meta name="twitter:image:alt" content="Rombo de Nolan con la posición de los partidos españoles para las elecciones del 29 de noviembre de 2026">
 
@@ -44,236 +43,373 @@
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=Source+Sans+3:wght@400;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,600;12..96,700&family=Source+Sans+3:wght@400;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap">
 <style>
-/* Layout: test cívico de dos columnas: rombo fijo a la izquierda como brújula, preguntas a la derecha; en móvil, rombo arriba y preguntas debajo */
+/* Tema oscuro único, grafito medio y blanco papel. Sin degradados ni sombras: filetes de 1 px, numerales en mono. */
 :root{
-  --bg:#eef1f4; --surface:#ffffff; --ink:#15202b; --muted:#5a6774; --line:#d6dde4; --soft:#e4e9ee;
-  --accent:#0b7680; --accent-ink:#ffffff;
-  --z-lib:#e0a03a; --z-der:#3a7ccc; --z-izq:#d4524d; --z-aut:#7a69d2; --z-cen:#2e9a6c;
-  --ref-milei:#d9861f; --ref-bukele:#c94f7c; --friend:#7c3aed; --friend-ink:#ffffff;
-  --ok:#1f7a4d; --ko:#b4432f;
+  --bg:#1e1f22; --surface:#26272b; --soft:#2e2f34;
+  --line:rgba(255,255,255,.13); --line-strong:rgba(255,255,255,.28);
+  --ink:#f4f3ef; --ink-2:#d6d4cd; --muted:#a9a7a0; --faint:#7a7872;
+  --accent:#f4f3ef; --accent-ink:#1e1f22;
+  --z-lib:#ecb858; --z-der:#6a9fe0; --z-izq:#e8746a; --z-aut:#a493ea; --z-cen:#5cc092;
+  --ref-milei:#f0a142; --ref-bukele:#e57a9e; --friend:#b9a0f5; --friend-ink:#1a1030;
+  --ok:#8fd6ad; --ko:#f0a08c;
   --f-display:"Bricolage Grotesque", "Avenir Next", "Segoe UI", system-ui, sans-serif;
   --f-body:"Source Sans 3", "Segoe UI", system-ui, -apple-system, sans-serif;
   --f-mono:"IBM Plex Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
-  --zone-op:.30;
-}
-@media (prefers-color-scheme: dark){
-  :root:not([data-theme="light"]){
-    --bg:#0e1419; --surface:#161e25; --ink:#e4eaf0; --muted:#94a2ae; --line:#2a3540; --soft:#1e2830;
-    --accent:#3cc0c9; --accent-ink:#06282b;
-    --z-lib:#f0b04c; --z-der:#5b98e3; --z-izq:#e8706a; --z-aut:#9787ea; --z-cen:#46b685;
-    --ref-milei:#f0a142; --ref-bukele:#e2729c; --friend:#a78bfa; --friend-ink:#1e1038; --ok:#4fc08d; --ko:#f0816c; --zone-op:.26; color-scheme:dark;
-  }
-}
-:root[data-theme="dark"]{
-  --bg:#0e1419; --surface:#161e25; --ink:#e4eaf0; --muted:#94a2ae; --line:#2a3540; --soft:#1e2830;
-  --accent:#3cc0c9; --accent-ink:#06282b;
-  --z-lib:#f0b04c; --z-der:#5b98e3; --z-izq:#e8706a; --z-aut:#9787ea; --z-cen:#46b685;
-  --ref-milei:#f0a142; --ref-bukele:#e2729c; --friend:#a78bfa; --friend-ink:#1e1038; --ok:#4fc08d; --ko:#f0816c; --zone-op:.26; color-scheme:dark;
+  --zone-op:.24; --r:6px; --gutter:clamp(16px, 4vw, 40px);
+  color-scheme:dark;
 }
 *{box-sizing:border-box}
 [hidden]{display:none!important}
-html{-webkit-text-size-adjust:100%}
-body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--f-body);font-size:16px;line-height:1.55;
-  padding-left:max(16px, env(safe-area-inset-left, 0px));padding-right:max(16px, env(safe-area-inset-right, 0px));padding-block:28px 48px}
-.wrap{max-width:1180px;margin:0 auto;display:flex;flex-direction:column;gap:28px}
-h1,h2,h3{font-family:var(--f-display);font-weight:700;margin:0;text-wrap:balance;letter-spacing:-.01em}
-h1{font-size:clamp(28px,4.4vw,44px);line-height:1.05}
-h2{font-size:22px}
-h3{font-size:17px;font-weight:500}
+html{-webkit-text-size-adjust:100%;scroll-behavior:smooth;scrollbar-color:var(--line-strong) transparent}
+@media (prefers-reduced-motion: reduce){html{scroll-behavior:auto}}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--f-body);font-size:16.5px;line-height:1.5;
+  padding:0 max(var(--gutter), env(safe-area-inset-right, 0px)) 56px max(var(--gutter), env(safe-area-inset-left, 0px));
+  font-feature-settings:"kern","liga"}
+::selection{background:var(--ink);color:var(--bg)}
+.wrap{max-width:1180px;margin:0 auto}
+h1,h2,h3{font-family:var(--f-display);font-weight:700;margin:0;letter-spacing:-.015em;text-wrap:balance}
+h2{font-size:21px}
+h3{font-size:15.5px;font-weight:600;letter-spacing:0}
 p{margin:0}
-a{color:var(--accent)}
-a:focus-visible{outline:2px solid var(--accent);outline-offset:2px;border-radius:3px}
-.lede{max-width:64ch;color:var(--muted);font-size:17px}
-.lede strong{color:var(--ink)}
-.eyebrow{font-family:var(--f-mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--accent)}
-header{display:flex;flex-direction:column;gap:12px}
-.grid{display:grid;grid-template-columns:1fr;gap:28px;align-items:start}
-@media (min-width:960px){.grid{grid-template-columns:minmax(0,500px) minmax(0,1fr)}.side{position:sticky;top:calc(16px + env(safe-area-inset-top, 0px));max-height:calc(100vh - 32px);overflow-y:auto;scrollbar-width:thin}}
-.side{display:flex;flex-direction:column;gap:16px;min-width:0}
-.panel{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:18px}
-.chart-wrap{padding:10px}
+a{color:var(--ink);text-decoration:underline;text-decoration-color:var(--line-strong);text-underline-offset:3px;text-decoration-thickness:1px;transition:text-decoration-color .12s}
+a:hover{text-decoration-color:var(--ink)}
+:is(a,button,input,summary,[tabindex]):focus-visible{outline:2px solid var(--ink);outline-offset:2px;border-radius:3px}
+.label{font-family:var(--f-mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.note{font-size:14px;color:var(--ink-2);line-height:1.5}
+kbd{font-family:var(--f-mono);font-size:11px;border:1px solid var(--line-strong);border-radius:4px;padding:1px 5px;color:var(--ink)}
+
+/* Barra superior */
+.top{display:flex;align-items:center;justify-content:space-between;gap:16px;height:56px;border-bottom:1px solid var(--line)}
+.brand{font-family:var(--f-display);font-weight:700;font-size:17px;letter-spacing:-.01em;text-decoration:none}
+.brand span{color:var(--muted);font-weight:500}
+.top-meta{font-family:var(--f-mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin-right:auto;padding-left:16px;border-left:1px solid var(--line);line-height:1;padding-block:2px}
+.top-link{font-size:14px;color:var(--ink-2);text-decoration:none}
+.top-link:hover{color:var(--ink)}
+@media (max-width:560px){.top-meta{display:none}}
+
+/* Portada, a todo el ancho */
+.hero{padding:clamp(36px,6vw,64px) 0 clamp(24px,3.5vw,36px);display:flex;flex-direction:column;gap:20px}
+.eyebrow{font-family:var(--f-mono);font-size:11.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+h1{font-size:clamp(36px,6.4vw,76px);line-height:.98;letter-spacing:-.03em}
+.ledes{display:grid;grid-template-columns:1fr;gap:14px 48px}
+@media (min-width:860px){.ledes{grid-template-columns:1.25fr 1fr}}
+.lede{color:var(--ink-2);font-size:clamp(16.5px,1.5vw,19px);line-height:1.5}
+.lede strong{color:var(--ink);font-weight:600}
+.facts{list-style:none;margin:8px 0 0;padding:0;display:flex;flex-wrap:wrap;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.facts li{display:flex;align-items:baseline;gap:10px;padding:12px 24px 12px 0;margin-right:24px;border-right:1px solid var(--line)}
+.facts li:last-child{border-right:0;margin-right:0;padding-right:0}
+.facts .num{font-family:var(--f-mono);font-size:20px;color:var(--ink);font-variant-numeric:tabular-nums;line-height:1}
+.facts .lbl{font-family:var(--f-mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+@media (max-width:640px){.facts{display:grid;grid-template-columns:1fr 1fr;border-bottom:0}.facts li{padding:12px 12px 12px 0;margin-right:0;border-right:0;border-bottom:1px solid var(--line)}.facts li:nth-child(odd){border-right:1px solid var(--line);padding-right:12px;margin-right:12px}.facts .num{font-size:17px}}
+
+/* Tablero compacto: rombo y leyenda · tu posición · compartir */
+.dash{display:grid;grid-template-columns:1fr;gap:14px;margin-top:12px}
+@media (min-width:640px) and (max-width:959px){.dash{grid-template-columns:1fr 1fr}.dash-col{grid-column:1 / -1}}
+@media (min-width:960px){.dash{grid-template-columns:minmax(0,380px) minmax(0,1fr) minmax(0,1fr);gap:18px;align-items:stretch}}
+.dash-col{display:flex;flex-direction:column;gap:10px;min-width:0}
+.dash .panel{min-width:0}
+.panel{border:1px solid var(--line);border-radius:10px;padding:18px 20px;background:var(--surface)}
+.chart-wrap{padding:6px}
+.share-panel{display:flex;flex-direction:column;gap:12px}
+.share-panel .name-row{margin:0;padding:0;border:0}
+.share-panel .share{margin:0}
+.share-panel .share .btn{flex:1 1 auto}
+.share-panel .hint{font-size:13.5px;color:var(--muted)}
+
+/* Zona de trabajo: columna fija con rombo en miniatura y coincidencias · preguntas */
+.work{display:grid;grid-template-columns:1fr;gap:28px;margin-top:40px}
+@media (min-width:960px){
+  .work{grid-template-columns:minmax(0,330px) minmax(0,1fr);gap:40px;align-items:start}
+  .live{position:sticky;top:12px;max-height:calc(100vh - 24px);overflow-y:auto;scrollbar-width:thin}
+}
+.live{display:flex;flex-direction:column;gap:12px;min-width:0}
+.live-head{display:flex;align-items:center;gap:14px}
+.live-head svg{width:96px;height:96px;flex:none}
+.live-head .z{font-family:var(--f-display);font-weight:700;font-size:19px;letter-spacing:-.01em;line-height:1.1}
+.live-head .s{font-family:var(--f-mono);font-size:11.5px;color:var(--muted);margin-top:4px}
+.live-head .btn{margin-top:8px;padding:6px 10px;font-size:12.5px}
+@media (max-width:959px){.live{order:1}.live .live-head{display:none}}
+main{min-width:0}
 svg{display:block;width:100%;height:auto}
-.zone-label{font-family:var(--f-display);font-size:15px;font-weight:700;fill:var(--ink)}
-.zone-sub{font-family:var(--f-body);font-size:11.5px;fill:var(--muted)}
-.axis-label{font-family:var(--f-mono);font-size:10.5px;fill:var(--muted);letter-spacing:.04em}
+.zone-label{font-family:var(--f-display);font-size:14.5px;font-weight:700;fill:var(--ink)}
+.zone-sub{font-family:var(--f-body);font-size:11px;fill:var(--muted)}
+.axis-label{font-family:var(--f-mono);font-size:10px;fill:var(--muted);letter-spacing:.08em}
 .p-label{font-family:var(--f-body);font-size:12.5px;font-weight:600;fill:var(--ink)}
-.p-label-bg{fill:var(--surface);opacity:.85}
-.legend{display:flex;flex-wrap:wrap;gap:6px}
-.chip{display:inline-flex;align-items:center;gap:6px;border:1px solid var(--line);background:var(--surface);color:var(--ink);
-  border-radius:999px;padding:4px 10px;font-size:13px;font-family:var(--f-body);cursor:pointer}
-.chip[aria-pressed="false"]{opacity:.55;text-decoration:line-through}
-.chip .dot{width:9px;height:9px;border-radius:50%;background:var(--ink)}
-.chip:focus-visible,.opt input:focus-visible+span,button:focus-visible,summary:focus-visible,input:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.p-label-bg{fill:var(--surface);opacity:.9}
+.legend{display:flex;flex-wrap:wrap;gap:6px;padding:0 2px}
+.chip{display:inline-flex;align-items:center;gap:7px;border:1px solid var(--line-strong);background:transparent;color:var(--ink);
+  border-radius:999px;padding:4px 10px 4px 8px;font-size:12.5px;font-family:var(--f-body);cursor:pointer;transition:border-color .12s,color .12s}
+.chip:hover{border-color:var(--ink)}
+.chip[aria-pressed="false"]{opacity:.45;text-decoration:line-through}
+.chip .dot{width:8px;height:8px;border-radius:50%;background:var(--ink)}
+
+/* Resultado */
 .result-head{display:flex;justify-content:space-between;align-items:baseline;gap:12px;flex-wrap:wrap}
-.scores{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:12px}
-.score{background:var(--soft);border-radius:10px;padding:10px 12px}
-.score .k{font-size:12px;color:var(--muted)}
-.score .v{font-family:var(--f-mono);font-size:22px;font-variant-numeric:tabular-nums}
-.zone-pill{display:inline-block;font-family:var(--f-mono);font-size:12px;padding:3px 9px;border-radius:999px;background:var(--soft);color:var(--ink)}
-.zone-pill.friend-pill{background:var(--friend);color:var(--friend-ink)}
-.rank{list-style:none;margin:12px 0 0;padding:0;display:flex;flex-direction:column;gap:6px}
-.rank li{display:grid;grid-template-columns:110px 1fr 46px;gap:10px;align-items:center;font-size:14px}
-.bar{height:8px;border-radius:4px;background:var(--soft);overflow:hidden}
-.bar i{display:block;height:100%;background:var(--accent);border-radius:4px}
-.rank .pct{font-family:var(--f-mono);font-variant-numeric:tabular-nums;text-align:right;font-size:13px}
+.zone-pill{display:inline-block;font-family:var(--f-mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;padding:4px 8px;border-radius:4px;border:1px solid var(--line-strong);color:var(--ink)}
+.zone-pill.friend-pill{border-color:var(--friend);color:var(--friend)}
+.scores{display:grid;grid-template-columns:1fr 1fr;gap:0 20px;margin-top:14px}
+.score{padding:12px 0 10px;border-top:1px solid var(--line)}
+.score .k{font-family:var(--f-mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.score .v{font-family:var(--f-mono);font-size:30px;font-variant-numeric:tabular-nums;line-height:1.15;margin-top:4px}
+.score .v .note{font-size:12px;color:var(--muted)}
+.empty{color:var(--ink-2);font-size:14.5px;margin-top:8px;max-width:40ch}
+.verdict{margin-top:14px;padding:12px 14px;border:1px solid var(--line-strong);border-radius:var(--r)}
+.verdict.full{border-color:var(--ink)}
+.verdict.none{border-style:dashed}
+.verdict .v-h{font-family:var(--f-display);font-weight:700;font-size:18px;line-height:1.2;letter-spacing:-.01em;margin-top:4px}
+.verdict .v-s{font-size:13.5px;color:var(--ink-2);margin-top:4px}
+.rank{list-style:none;margin:10px 0 0;padding:0;display:flex;flex-direction:column;gap:9px}
+.rank li{display:grid;grid-template-columns:104px 1fr 44px;gap:12px;align-items:center;font-size:14.5px}
+.bar{height:2px;background:var(--line-strong);overflow:hidden}
+.bar i{display:block;height:100%;background:var(--ink);transition:width .35s ease}
+.rank .pct{font-family:var(--f-mono);font-variant-numeric:tabular-nums;text-align:right;font-size:12.5px;color:var(--ink-2)}
 .rank .ref{color:var(--muted)}
-.empty{color:var(--muted);font-size:14px;margin-top:8px}
-.matches{display:flex;flex-direction:column;gap:8px;margin-top:10px}
-.match{background:var(--soft);border-radius:10px;padding:10px 12px;font-size:14px;display:flex;flex-direction:column;gap:4px}
-.match-h{display:flex;justify-content:space-between;align-items:baseline;gap:8px}
-.match-h .pct{font-family:var(--f-mono);font-size:13px;color:var(--muted)}
+.matches{display:flex;flex-direction:column;margin-top:6px}
+.match{padding:12px 0;border-top:1px solid var(--line);font-size:14.5px;display:flex;flex-direction:column;gap:3px;color:var(--ink-2)}
+.match:last-child{border-bottom:1px solid var(--line)}
+.match-h{display:flex;justify-content:space-between;align-items:baseline;gap:8px;color:var(--ink)}
+.match-h .pct{font-family:var(--f-mono);font-size:12px;color:var(--muted)}
 .match .ok{color:var(--ok);font-weight:600}
 .match .ko{color:var(--ko);font-weight:600}
-.name-row{display:flex;flex-direction:column;gap:4px;margin-top:14px}
-.name-row input{font:inherit;font-size:15px;border:1px solid var(--line);background:var(--bg);color:var(--ink);border-radius:8px;padding:7px 10px;max-width:260px}
+.name-row{display:flex;flex-direction:column;gap:6px;margin-top:18px;padding-top:16px;border-top:1px solid var(--line)}
+.name-row input{font:inherit;font-size:15px;border:1px solid var(--line-strong);background:var(--bg);color:var(--ink);border-radius:var(--r);padding:8px 10px;max-width:280px;transition:border-color .12s}
+.name-row input:hover{border-color:var(--ink-2)}
+.name-row input::placeholder{color:var(--faint)}
 .share{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}
 .share-row{display:flex;gap:8px;flex-wrap:wrap;margin-top:8px}
 .share-row .btn{text-decoration:none;display:inline-flex;align-items:center}
-.qhead{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap}
-.qhead-l{display:flex;gap:14px;align-items:center;flex-wrap:wrap}
-.progress{font-family:var(--f-mono);font-size:13px;color:var(--muted)}
-.btn{font:inherit;font-size:14px;border:1px solid var(--line);background:var(--surface);color:var(--ink);border-radius:8px;padding:6px 12px;cursor:pointer}
-.btn:hover{border-color:var(--muted)}
-.btn:disabled{opacity:.5;cursor:default}
-.btn.primary{background:var(--accent);color:var(--accent-ink);border-color:var(--accent);font-weight:600}
-.btn.primary:hover{filter:brightness(1.08)}
-.tabs{display:flex;gap:6px;flex-wrap:wrap}
-.tab{font:inherit;font-size:14px;border:1px solid var(--line);background:transparent;color:var(--ink);border-radius:999px;padding:5px 12px;cursor:pointer}
-.tab[aria-selected="true"],.tab[aria-pressed="true"]{background:var(--ink);color:var(--surface);border-color:var(--ink)}
-.kbd-hint{margin-top:8px}
+
+/* Botones */
+.btn{font:inherit;font-size:14px;font-weight:600;border:1px solid var(--line-strong);background:transparent;color:var(--ink);border-radius:var(--r);padding:9px 14px;cursor:pointer;transition:border-color .12s,background .12s,color .12s;line-height:1.2}
+.btn:hover{border-color:var(--ink)}
+.btn:disabled{opacity:.4;cursor:default;border-color:var(--line-strong)}
+.btn.primary{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+.btn.primary:hover{background:#fff;border-color:#fff}
+.linkbtn{font:inherit;font-size:13.5px;color:var(--ink-2);background:none;border:0;padding:0;cursor:pointer;text-decoration:underline;text-decoration-color:var(--line-strong);text-underline-offset:3px;transition:color .12s}
+.linkbtn:hover{color:var(--ink);text-decoration-color:var(--ink)}
+
+/* Pasos (ámbitos) */
+.steps{display:flex;gap:4px;overflow-x:auto;scrollbar-width:none;margin:0 calc(-1 * var(--gutter));padding:0 var(--gutter);scroll-snap-type:x proximity}
+.steps::-webkit-scrollbar{display:none}
+@media (min-width:960px){.steps{margin:0;padding:0;flex-wrap:wrap;gap:4px 6px}}
+.step{flex:none;scroll-snap-align:start;display:flex;flex-direction:column;gap:7px;min-width:112px;padding:8px 10px 10px;border:1px solid transparent;border-radius:var(--r);background:none;color:var(--muted);font:inherit;text-align:left;cursor:pointer;transition:color .12s,border-color .12s}
+.step:hover{color:var(--ink)}
+.step .s-n{font-family:var(--f-mono);font-size:10.5px;letter-spacing:.08em;text-transform:uppercase}
+.step .s-t{font-size:13.5px;font-weight:600;line-height:1.15;color:inherit}
+.step .s-b{height:2px;background:var(--line-strong);position:relative;overflow:hidden}
+.step .s-b i{position:absolute;inset:0 auto 0 0;background:var(--ink);width:0;transition:width .3s}
+.step.done{color:var(--ink-2)}
+.step[aria-current="step"]{color:var(--ink);border-color:var(--line-strong);background:var(--surface)}
+.pbar{height:2px;background:var(--line);margin-top:12px}
+.pbar i{display:block;height:100%;width:0;background:var(--ink);transition:width .35s ease}
+
+/* Cabecera de la página de preguntas */
+.pager-head{display:flex;justify-content:space-between;align-items:flex-end;gap:12px;flex-wrap:wrap;margin-top:22px;padding-bottom:14px;border-bottom:1px solid var(--line)}
+.pager-head h2{font-size:clamp(22px,2.4vw,28px);letter-spacing:-.02em;margin-top:6px}
+.pager-sub{font-family:var(--f-mono);font-size:12px;color:var(--muted);font-variant-numeric:tabular-nums}
+.kbd-hint{margin-top:10px;color:var(--muted);font-size:13px}
 @media (hover:none){.kbd-hint{display:none}}
-kbd{font-family:var(--f-mono);font-size:12px;border:1px solid var(--line);border-bottom-width:2px;border-radius:4px;padding:0 5px;background:var(--surface)}
-.qlist{display:flex;flex-direction:column;gap:12px;margin-top:14px}
-.gnav{display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap}
-.gbtns{display:flex;gap:8px}
-.q{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:16px;display:flex;flex-direction:column;gap:12px;outline:none}
-.q.answered{border-color:color-mix(in srgb, var(--accent) 45%, var(--line))}
-.q.active{box-shadow:0 0 0 2px color-mix(in srgb, var(--accent) 35%, transparent)}
-.q-top{display:flex;gap:10px;align-items:flex-start}
-.axis-tag{flex:none;font-family:var(--f-mono);font-size:11px;letter-spacing:.06em;text-transform:uppercase;padding:2px 7px;border-radius:5px;border:1px solid var(--line);color:var(--muted);margin-top:3px}
-.q-text{font-size:16.5px;font-weight:600;min-width:0}
-details.ctx{margin-top:-4px}
-details.ctx summary{cursor:pointer;font-size:13.5px;color:var(--muted);list-style:none;display:inline-flex;align-items:center;gap:6px}
-details.ctx summary::-webkit-details-marker{display:none}
-details.ctx summary::before{content:"?";display:inline-flex;align-items:center;justify-content:center;width:17px;height:17px;border-radius:50%;border:1px solid var(--line);font-family:var(--f-mono);font-size:11px}
-details.ctx[open] summary{color:var(--ink)}
-details.ctx p{font-size:14px;color:var(--muted);margin-top:6px;max-width:70ch}
-.scale{display:grid;grid-template-columns:repeat(5,1fr);gap:6px}
+
+/* Filas de preguntas */
+.qlist{display:flex;flex-direction:column}
+.q{padding:22px 0 24px;border-bottom:1px solid var(--line);display:flex;flex-direction:column;gap:12px;outline:none;position:relative}
+.q:focus-visible{outline:none}
+.q.active .qnum{color:var(--ink)}
+.q-meta{display:flex;gap:14px;align-items:center;font-family:var(--f-mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.qnum{color:var(--faint);font-variant-numeric:tabular-nums;transition:color .12s}
+.q-text{font-family:var(--f-display);font-size:clamp(17.5px,1.6vw,20px);font-weight:600;line-height:1.3;letter-spacing:-.01em;max-width:62ch;color:var(--ink)}
+.scale{display:grid;grid-template-columns:repeat(5,1fr);border:1px solid var(--line-strong);border-radius:var(--r);overflow:hidden;max-width:640px}
 .opt{position:relative}
 .opt input{position:absolute;opacity:0;inset:0;margin:0;cursor:pointer}
-.opt span{display:flex;align-items:center;justify-content:center;text-align:center;min-height:44px;padding:6px 4px;font-size:13px;line-height:1.2;
-  border:1px solid var(--line);border-radius:8px;background:var(--bg);color:var(--ink);cursor:pointer}
-.opt input:checked+span{background:var(--accent);color:var(--accent-ink);border-color:var(--accent);font-weight:600}
-.opt input:hover+span{border-color:var(--muted)}
-.q-foot{display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;align-items:center}
-.linkbtn{font:inherit;font-size:13.5px;color:var(--accent);background:none;border:0;padding:0;cursor:pointer;text-decoration:underline;text-underline-offset:3px}
-.parties-ans{display:grid;grid-template-columns:repeat(5,1fr);gap:6px;font-size:12.5px}
-.parties-ans .col{background:var(--soft);border-radius:8px;padding:8px;display:flex;flex-direction:column;gap:4px;min-width:0;border:1px solid transparent}
-.parties-ans .col.mine{border-color:var(--accent)}
-.parties-ans .h{font-family:var(--f-mono);font-size:10.5px;color:var(--muted);text-transform:uppercase;letter-spacing:.05em}
-.parties-ans .n{font-weight:600}
+.opt span{display:flex;align-items:center;justify-content:center;text-align:center;min-height:46px;padding:6px 6px;font-size:13.5px;font-weight:600;line-height:1.2;
+  border-left:1px solid var(--line-strong);background:transparent;color:var(--ink);cursor:pointer;transition:background .12s,color .12s}
+.opt:first-child span{border-left:0}
+.opt input:hover+span{background:var(--soft)}
+.opt input:checked+span{background:var(--ink);color:var(--bg)}
+.opt input:focus-visible+span{box-shadow:inset 0 0 0 2px var(--ink)}
+details.ctx{display:block;max-width:640px}
+details.ctx summary{cursor:pointer;font-size:13.5px;color:var(--ink-2);list-style:none;display:inline-flex;align-items:center;gap:8px;text-decoration:underline dotted;text-decoration-color:var(--line-strong);text-underline-offset:3px}
+details.ctx summary::-webkit-details-marker{display:none}
+details.ctx summary:hover{color:var(--ink)}
+details.ctx p{margin-top:10px;font-size:14.5px;color:var(--ink-2);padding:10px 14px;border-left:2px solid var(--line-strong);background:var(--surface);border-radius:0 var(--r) var(--r) 0}
+.parties-ans{display:grid;grid-template-columns:repeat(5,1fr);gap:6px;max-width:640px;margin-top:-2px}
+.parties-ans .col{border-top:2px solid var(--line-strong);padding:7px 2px 0;display:flex;flex-direction:column;gap:2px;min-width:0;align-items:center;text-align:center;font-size:12.5px;line-height:1.25}
+.parties-ans .col.mine{border-top-color:var(--ink)}
+.parties-ans .n{font-weight:600;color:var(--ink);overflow-wrap:anywhere}
 .parties-ans .n.ref{color:var(--muted);font-weight:400}
-.parties-ans .src{font-size:11px;font-weight:400;color:var(--accent);margin-left:4px}
-.done{align-items:flex-start}
+.parties-ans .none{color:var(--faint)}
+.parties-ans .src{font-size:11px;font-weight:400;color:var(--muted);margin-left:3px}
+.pager-nav{display:flex;justify-content:space-between;align-items:center;gap:10px;padding:18px 0 0;flex-wrap:wrap}
+.pager-nav .hint{font-size:13.5px;color:var(--muted)}
 @media (max-width:560px){
-  .opt span{font-size:11.5px;min-height:52px}
-  .parties-ans{grid-template-columns:1fr 1fr}
-  .rank li{grid-template-columns:92px 1fr 42px}
+  .opt span{font-size:11.5px;min-height:50px;padding:4px 3px}
+  .parties-ans .col{font-size:10.5px;padding-top:6px}
+  .rank li{grid-template-columns:90px 1fr 40px}
+  .scores{gap:0 14px}
+  .score .v{font-size:26px}
 }
-details.meth{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:14px 18px}
-details.meth summary{cursor:pointer;font-family:var(--f-display);font-weight:700;font-size:18px}
-.meth-body{display:flex;flex-direction:column;gap:12px;margin-top:12px;max-width:72ch}
-.meth-body ul{margin:0;padding-left:20px;display:flex;flex-direction:column;gap:6px}
-.meth-body h3{margin-top:6px}
-.table-wrap{overflow-x:auto}
-table{border-collapse:collapse;font-size:14px;min-width:420px}
-th,td{text-align:left;padding:6px 10px;border-bottom:1px solid var(--line)}
-td.num{font-family:var(--f-mono);font-variant-numeric:tabular-nums;text-align:right}
-.note{font-size:13.5px;color:var(--muted)}
-footer.foot{border-top:1px solid var(--line);padding-top:22px;display:flex;flex-direction:column;gap:10px;color:var(--muted);font-size:14px;max-width:84ch}
+
+/* Franja fija en móvil con el rombo en miniatura: se pega arriba al llegar a las preguntas */
+.strip{display:none}
+@media (max-width:959px){.strip{display:flex}}
+.strip{position:sticky;top:0;z-index:20;align-items:center;gap:14px;background:var(--bg);border-bottom:1px solid var(--line-strong);
+  margin:0 calc(-1 * var(--gutter));padding:8px var(--gutter)}
+.strip svg{width:72px;height:72px;flex:none}
+.strip-txt{display:flex;flex-direction:column;gap:2px;min-width:0;flex:1}
+.strip .z{font-family:var(--f-display);font-weight:700;font-size:17px;letter-spacing:-.01em;line-height:1.1;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.strip .s{font-family:var(--f-mono);font-size:11.5px;color:var(--muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.strip .btn{flex:none;padding:7px 10px;font-size:13px}
+
+/* Secciones informativas plegadas: solo el título; al abrir, el texto ocupa todo el ancho (en dos columnas de lectura en pantallas anchas) */
+details.info{border-top:1px solid var(--line);margin-top:0;padding:0}
+details.info:first-of-type{margin-top:48px}
+details.info summary{list-style:none;cursor:pointer;display:flex;align-items:baseline;justify-content:space-between;gap:20px;padding:26px 0}
+details.info summary::-webkit-details-marker{display:none}
+details.info summary h2{font-size:clamp(22px,2.4vw,30px);letter-spacing:-.02em;line-height:1.15}
+details.info summary > span:first-child{flex:1 1 auto;min-width:0}
+details.info summary .kicker{display:block;margin-top:6px;color:var(--muted);font-size:15px;font-family:var(--f-body);font-weight:400;letter-spacing:0}
+details.info summary .plus{flex:none;font-family:var(--f-mono);font-size:22px;color:var(--muted);line-height:1;transition:transform .15s}
+details.info[open] summary .plus{transform:rotate(45deg)}
+details.info summary:hover .plus{color:var(--ink)}
+.info-body{padding:0 0 32px;color:var(--ink-2);font-size:16.5px;line-height:1.55}
+@media (min-width:960px){.info-body{columns:2;column-gap:56px}}
+.info-body p,.info-body h3,.info-body .note{break-inside:avoid;margin:0 0 14px}
+.info-body .blk{break-inside:avoid}
+.info-body .blk h3{margin-bottom:8px}
+.info-body strong{color:var(--ink)}
+.info-body h3{margin-top:12px;color:var(--ink);font-family:var(--f-display);font-size:19px;letter-spacing:-.01em}
+.info-body ul{margin:0 0 14px;padding-left:20px;display:flex;flex-direction:column;gap:6px}
+.info-body .table-wrap{column-span:all;margin:6px 0 18px}
+.table-wrap{overflow-x:auto;margin:6px 0}
+table{border-collapse:collapse;font-size:14.5px;min-width:460px;width:100%}
+th{font-family:var(--f-mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);font-weight:500}
+th,td{text-align:left;padding:8px 10px 8px 0;border-bottom:1px solid var(--line);vertical-align:top}
+td{color:var(--ink)}
+td.num,th.num{font-family:var(--f-mono);font-variant-numeric:tabular-nums;text-align:right}
+
+/* Pie */
+footer.foot{border-top:1px solid var(--line);margin-top:48px;padding-top:28px;display:grid;grid-template-columns:1fr;gap:18px;color:var(--ink-2);font-size:14.5px}
+@media (min-width:860px){footer.foot{grid-template-columns:1.3fr 1fr 1fr;gap:40px}}
 footer.foot strong{color:var(--ink)}
+footer.foot .label{margin-bottom:6px;display:block}
+
 #shareCanvas{display:none}
 body.og{padding:0;margin:0;background:transparent;overflow:hidden}
 body.og .wrap{display:none}
 body.og #shareCanvas{display:block;width:1200px;height:630px}
-@media (prefers-reduced-motion: no-preference){
-  .you-dot{transition:transform .35s ease}
-}
+@media (prefers-reduced-motion: no-preference){.you-dot{transition:transform .35s ease}}
+@media (prefers-reduced-motion: reduce){*,*::before,*::after{transition:none!important}}
 </style>
 </head>
 <body>
 
 <div class="wrap">
-  <header>
+  <nav class="top" aria-label="Principal">
+    <a class="brand" href="#top">testnolan<span>.com</span></a>
+    <span class="top-meta">España · Generales 29N 2026</span>
+    <span style="display:flex;gap:18px"><a class="top-link" href="#nolan">Qué es el test de Nolan</a><a class="top-link" href="#meth">Cómo se calcula</a></span>
+  </nav>
+
+  <header class="hero" id="top">
     <span class="eyebrow">Test de Nolan · Elecciones generales de España · 29 de noviembre de 2026</span>
-    <h1>¿Dónde caes tú en el rombo de Nolan?</h1>
-    <p class="lede">Test político para las <strong>elecciones generales de España del 29N</strong>. Responde las afirmaciones que quieras con tu grado de acuerdo: cada respuesta te mueve en dos ejes, libertad económica y libertad personal, y el rombo te sitúa junto a PP, PSOE, Vox, Frente Amplio, Podemos, SALF y D21 + Cs, que se colocan con exactamente las mismas preguntas. Al final verás con qué partidos coincides más y en qué temas.</p>
-    <p class="lede">Las afirmaciones siguen el espíritu del test de Nolan: son generales, sobre economía y libertades, y valdrían para cualquier país. Lo que cambia en cada elección es qué responde cada partido.</p>
-    <p class="lede"><strong>Sin registro, sin cookies y sin servidor.</strong> Tus respuestas no salen de tu navegador.</p>
+    <h1>¿Qué partido te representa de verdad?</h1>
+    <div class="ledes">
+      <p class="lede">Si no tienes claro a quién votar el <strong>29N</strong>, o vas a votar «al menos malo» sin saber muy bien en qué se diferencian, esto es para ti. Son 43 afirmaciones sobre impuestos, vivienda, libertades y cosas así, de las que estás de acuerdo o no. En <strong>5 minutos</strong> tienes tu punto en el rombo de Nolan junto a PP, PSOE, Vox, Frente Amplio, Podemos, SALF y D21 + Cs, que responden exactamente las mismas preguntas. Y ves en qué coincides con cada uno y en qué no.</p>
+      <p class="lede">Aviso: la gente se sorprende. Lo normal es descubrir que el partido al que pensabas votar no opina como tú en unas cuantas cosas, y que el «bando contrario» no está tan lejos en otras. Esto <strong>no lo ha hecho ningún partido</strong>, no te va a decir a quién votar y <strong>no guarda nada</strong> de lo que respondes: ni cookies, ni cuentas, ni servidor. Cuando acabes, compártelo con tus amigos o con los del trabajo, a ver quién se lleva la sorpresa.</p>
+    </div>
+    <ul class="facts" aria-label="Datos del test">
+      <li><span class="num" id="factQ">43</span><span class="lbl">afirmaciones</span></li>
+      <li><span class="num" id="factT">8</span><span class="lbl">ámbitos</span></li>
+      <li><span class="num">7</span><span class="lbl">partidos del 29N</span></li>
+      <li><span class="num">5</span><span class="lbl">minutos</span></li>
+      <li><span class="num">0</span><span class="lbl">datos guardados</span></li>
+    </ul>
   </header>
 
-  <div class="grid">
-    <aside class="side">
+  <div class="panel" id="friendBox" hidden></div>
+
+  <section class="dash" id="dash" aria-label="Tu resultado">
+    <div class="dash-col">
       <div class="panel chart-wrap">
         <svg id="chart" viewBox="0 0 560 560" role="img" aria-labelledby="chartTitle chartDesc">
           <title id="chartTitle">Diagrama de Nolan con los partidos de las generales del 29N y tu posición</title>
           <desc id="chartDesc">Rombo dividido en zonas libertaria, derecha, izquierda, autoritaria y centro, con un punto por partido calculado a partir de sus respuestas.</desc>
+          <g id="chartG"></g>
         </svg>
       </div>
       <div class="legend" id="legend" role="group" aria-label="Mostrar u ocultar partidos"></div>
-      <div class="panel" id="friendBox" hidden></div>
-      <div class="panel">
-        <div id="result" aria-live="polite"></div>
-        <div id="shareBox" hidden>
-          <label class="name-row"><span class="note">Ponle nombre a tu punto (opcional; sale en el rombo, en el enlace y en la imagen)</span><input id="nameInput" maxlength="24" autocomplete="off" placeholder="Tu nombre"></label>
-          <div class="share">
-            <button class="btn primary" id="shareBtn" type="button">Compartir mi resultado</button>
-            <button class="btn" id="copyLink" type="button" aria-label="Copiar un enlace con tu resultado para comparar con otra persona">Copiar enlace para comparar</button>
-          </div>
-          <p class="note" id="shareMsg" role="status" aria-live="polite" style="margin-top:8px"></p>
-          <div id="shareLinks" hidden></div>
-        </div>
+      <p class="note" id="refNote" style="padding:0 2px"></p>
+    </div>
+    <div class="panel" id="resultPanel"><div id="result" aria-live="polite"></div></div>
+    <section class="panel share-panel" id="shareBox" aria-label="Compartir">
+      <div class="result-head"><h2>Compártelo y compara</h2></div>
+      <label class="name-row"><span class="note">Ponle tu nombre al punto si quieres (sale en el rombo, en el enlace y en la imagen)</span><input id="nameInput" maxlength="24" autocomplete="off" placeholder="Tu nombre"></label>
+      <div class="share">
+        <button class="btn primary" id="shareBtn" type="button">Compartir mi resultado</button>
+        <button class="btn" id="copyLink" type="button" aria-label="Copiar un enlace con tu resultado para comparar con otra persona">Copiar enlace para comparar</button>
       </div>
-    </aside>
+      <p class="hint" id="shareHint">Responde unas cuantas afirmaciones y podrás compartir tu punto en el rombo y retar a alguien a hacer lo mismo.</p>
+      <p class="note" id="shareMsg" role="status" aria-live="polite"></p>
+      <div id="shareLinks" hidden></div>
+    </section>
+  </section>
 
-    <main>
-      <div class="qhead">
-        <div class="qhead-l">
-          <div class="tabs" role="tablist" aria-label="Filtrar preguntas">
-            <button class="tab" role="tab" aria-selected="true" data-f="all" id="tab-all">Todas</button>
-            <button class="tab" role="tab" aria-selected="false" data-f="E" id="tab-e">Economía</button>
-            <button class="tab" role="tab" aria-selected="false" data-f="P" id="tab-p">Libertades</button>
-          </div>
-          <div class="tabs" role="group" aria-label="Cómo mostrar las preguntas">
-            <button class="tab" id="modeOne" type="button" aria-pressed="false">Una a una</button>
-            <button class="tab" id="modeAll" type="button" aria-pressed="true">Lista</button>
-          </div>
-        </div>
-        <div style="display:flex;gap:10px;align-items:center">
-          <span class="progress" id="progress" aria-live="polite"></span>
-          <button class="btn" id="reset" type="button">Borrar respuestas</button>
-        </div>
-      </div>
-      <p class="note kbd-hint">Teclas <kbd>1</kbd>–<kbd>5</kbd> para responder · <kbd>↑</kbd> <kbd>↓</kbd> para moverte entre preguntas</p>
-      <p class="note" id="resetConfirm" role="status" hidden></p>
-      <div class="qlist" id="qlist"></div>
-    </main>
+  <div class="work">
+  <aside class="live" aria-label="Tu resultado en vivo">
+    <div class="panel live-head">
+      <svg viewBox="0 0 560 560" aria-hidden="true"><use href="#chartG"/></svg>
+      <div><div class="z" id="liveZ">Tu posición</div><div class="s" id="liveS">Responde para aparecer</div><button class="btn" type="button" id="liveTop">Ver el rombo grande</button></div>
+    </div>
+    <div class="panel" id="matchPanel"><div id="matches"></div></div>
+  </aside>
+  <main id="test">
+    <div class="strip" id="strip" aria-hidden="true">
+      <svg viewBox="0 0 560 560"><use href="#chartG"/></svg>
+      <div class="strip-txt"><span class="z" id="stripZ">Tu posición</span><span class="s" id="stripS">Responde para aparecer en el rombo</span></div>
+      <button class="btn" type="button" id="stripResult">Ver resultado</button>
+    </div>
+    <nav class="steps" id="steps" aria-label="Ámbitos del test"></nav>
+    <div class="pbar" aria-hidden="true"><i id="pbar"></i></div>
+    <div class="pager-head" id="pagerHead"></div>
+    <div class="qlist" id="qlist"></div>
+    <div class="pager-nav" id="pagerNav"></div>
+    <p class="note kbd-hint">Teclas <kbd>1</kbd>–<kbd>5</kbd> para responder (la misma tecla quita la respuesta) · <kbd>↑</kbd> <kbd>↓</kbd> para moverte entre preguntas</p>
+    <p class="note" id="resetConfirm" role="status" hidden></p>
+  </main>
   </div>
 
-  <details class="meth" id="meth">
-    <summary>Cómo se calcula y de dónde salen las posiciones</summary>
-    <div class="meth-body">
-      <p>Cada afirmación pertenece a un eje. Las de economía miden impuestos, gasto, regulación y propiedad; las de libertades miden cuánto controla el Estado la conducta pacífica de la gente: expresión, protesta, migración, estilo de vida y garantías ante la policía. Endurecer penas por delitos violentos tras un juicio no cuenta en ninguno de los dos ejes.</p>
+  <details class="info" id="nolan">
+    <summary><span><h2>Qué es el test de Nolan y por qué sirve</h2><span class="kicker">Un mapa con dos ejes en lugar de la línea de izquierda a derecha: separa lo que piensas de la economía de lo que piensas de las libertades personales.</span></span><span class="plus" aria-hidden="true">+</span></summary>
+    <div class="info-body">
+      <p>Casi todo el mundo habla de política con una sola regla: izquierda a un lado, derecha al otro, y tú en algún punto de la línea. El problema es que esa línea mezcla dos cosas que no tienen por qué ir juntas. Puedes querer impuestos bajos y, a la vez, que el Estado no se meta en con quién te casas o qué fumas. O querer una sanidad pública fuerte y, a la vez, mano dura con la inmigración. En la línea de siempre esas dos personas no caben; en el rombo, sí.</p>
+      <p><strong>David Nolan</strong>, un activista estadounidense que en 1971 fundó con otros el Partido Libertario de su país, lo planteó así a finales de los años sesenta y lo publicó en 1971 en un artículo titulado «Classifying and Analyzing Politico-Economic Systems». Su idea era sencilla: medir por separado la <strong>libertad económica</strong> (cuánto decide el Estado sobre tu dinero, tu empresa, tu casa o tu salario) y la <strong>libertad personal</strong> (cuánto decide el Estado sobre tu vida privada, lo que dices, cómo protestas o quién puede entrar en el país). Con dos ejes, la izquierda clásica queda en la esquina que defiende las libertades personales pero no las económicas; la derecha clásica, en la contraria; arriba quedan quienes defienden las dos, y abajo quienes limitan las dos.</p>
+      <p>El gráfico se hizo popular en 1987, cuando Marshall Fritz lo giró 45 grados hasta convertirlo en el rombo de ahora y lo acompañó de un cuestionario de diez preguntas, el «World's Smallest Political Quiz», que se ha hecho millones de veces. La <em>brújula política</em> que circula por internet desde 2001 es una variante de la misma idea con otros nombres en los ejes.</p>
+      <div class="blk">
+      <h3>Para qué te sirve a ti</h3>
+      <p>Para votar sabiendo lo que compras. Cuando respondes afirmaciones concretas, en vez de preguntarte «¿de izquierdas o de derechas?», pasan dos cosas. La primera: descubres que tus opiniones no son un paquete cerrado, y que coincides con partidos distintos en temas distintos. La segunda: ves de golpe en qué <em>no</em> coincides con el partido al que pensabas votar, que es justo lo que los programas y los mítines no te cuentan. Esto no te dice a quién votar. Te dice en qué te estarías tragando algo con lo que no estás de acuerdo, y eso ya es más de lo que suele saber un votante.</p>
+      </div>
+      <p>Aquí lo hemos aplicado a las <strong>elecciones generales de España del 29 de noviembre de 2026</strong>: los siete partidos principales responden las mismas 43 afirmaciones que tú, con lo que dicen sus programas, lo que han votado en el Congreso y lo que declaran sus dirigentes.</p>
+      <p><strong>¿Y qué pintan Milei y Bukele?</strong> Están de referencia, y a propósito. Se les mete muchas veces en el mismo saco, «la nueva derecha», y a mucha gente le cuesta entender que, siendo los dos de derechas, estén tan lejos. En el rombo se ve por qué: Milei está arriba, en la esquina libertaria, y Bukele abajo, en la autoritaria, a <span id="refGap">39</span> puntos en libertades personales. Es casi la misma distancia que separa al PP del PSOE (<span id="refCmp">54 puntos de distancia en el rombo, frente a 46 entre el PP y el PSOE</span>), solo que en el otro eje: PP y PSOE discrepan en economía y se parecen bastante en libertades; Milei y Bukele coinciden en economía y chocan en libertades. Comparten lado, no valores. Esa es la gracia del gráfico: no mide solo la línea de izquierda a derecha, mide también cuánto quiere cada uno que el Estado se meta en tu vida. Y de paso sirven para situar a la derecha española, que tampoco se parece tanto a ninguno de los dos: PP, Vox y SALF quedan bastante lejos de ambos.</p>
+      <div class="blk">
+      <h3>Límites del modelo</h3>
+      <p>Lo creó un libertario, y sus críticos señalan con razón que el modelo favorece esa esquina: presenta la «libertad» como el valor que ordena todo el mapa y trata como equivalentes cosas muy distintas, como bajar impuestos y despenalizar el cannabis. Reduce la política a dos ejes y deja fuera otros que en España pesan mucho: el territorial, el europeo, el ecológico o el de la calidad institucional. Y la frontera entre «económico» y «personal» tampoco es nítida: la inmigración o la prostitución tienen las dos caras. Úsalo como lo que es, una foto aproximada que te hace pensar, no un veredicto definitivo.</p>
+      </div>
+    </div>
+  </details>
+
+  <details class="info" id="meth">
+    <summary><span><h2>Cómo se calcula y de dónde salen las posiciones</h2><span class="kicker">Todo el cálculo está a la vista y es el mismo para ti que para los partidos. Si ves un error en alguna posición, abajo tienes cómo avisar.</span></span><span class="plus" aria-hidden="true">+</span></summary>
+    <div class="info-body">
+      <p>Cada afirmación pertenece a un eje. Las de economía miden impuestos, gasto, regulación y propiedad; las de libertades miden cuánto controla el Estado la conducta pacífica de la gente: expresión, protesta, migración, estilo de vida y garantías ante la policía. Endurecer penas por delitos violentos tras un juicio no cuenta en ninguno de los dos ejes. Los ocho ámbitos en que se agrupan solo ordenan el cuestionario; no cambian el cálculo.</p>
       <p>Tu respuesta va de −2 (muy en contra) a +2 (muy a favor). Si estar de acuerdo implica menos intervención del Estado, suma libertad; si implica más, resta. La puntuación de cada eje es 50 + 25 × la media de tus respuestas en ese eje, de 0 a 100. Las preguntas que no respondes no cuentan, ni te empujan al centro.</p>
       <p>La afinidad con cada partido compara respuesta a respuesta: 100 % si coincidís en todas, 0 % si estáis en extremos opuestos en todas. «Coincidís» en un tema es haber dado exactamente la misma respuesta, sin contar el neutral; «discrepáis» es estar a tres o más pasos de distancia en la escala.</p>
-      <p><strong>Las respuestas de los partidos son una estimación</strong> hecha a partir de programas, votaciones en el Congreso y declaraciones públicas hasta el 31 de octubre de 2026. A esa fecha ningún partido había publicado su programa completo para el 29N, así que conviene contrastarlas. Cuando se publiquen, cada respuesta llevará su fuente enlazada en el desplegable «qué responde cada partido». Milei y Bukele aparecen como referencia internacional: sus respuestas se estiman por analogía con lo que han aplicado en sus países, y varias preguntas son específicas de España.</p>
+      <p><strong>El veredicto</strong> («te representa», «el que más se parece a ti, con matices» o «ninguno del todo») se basa en la afinidad del partido más cercano: 85 % o más es el nivel de un votante convencido de ese partido, y también el que se dan entre sí dos partidos hermanos (Frente Amplio y Podemos están al 95 %; Vox y SALF, al 88 %). Entre 75 % y 84 % hay acuerdo de fondo con diferencias de grado. Por debajo de 75 % la distancia media supera un paso de la escala por pregunta, que es más o menos lo que se obtiene sin opinar nada. Si dos partidos están a 3 puntos o menos, se declaran empatados, y no hay veredicto hasta tener 4 respuestas en cada eje. Que un partido «te represente» describe tus respuestas, no es una recomendación de voto.</p>
+      <p><strong>Las respuestas de los partidos son una estimación</strong> hecha a partir de programas, votaciones en el Congreso y declaraciones públicas hasta el 31 de octubre de 2026. A esa fecha ningún partido había publicado su programa completo para el 29N, así que conviene contrastarlas. Cuando se publiquen, cada respuesta de cada partido llevará su fuente enlazada junto al nombre, debajo de la escala. Milei y Bukele aparecen como referencia internacional (arriba explicamos por qué): sus respuestas se estiman por analogía con lo que han aplicado en sus países, y varias preguntas son específicas de España. No se votan en España y no entran en el veredicto.</p>
       <p><strong>No todos los partidos están en todas las papeletas.</strong> D21 + Cs solo se presenta en Madrid y Barcelona, y SALF solo en algunas provincias. Según dónde votes, puede que no los tengas como opción. Los partidos territoriales (ERC, Junts, PNV, EH Bildu, BNG, Coalición Canaria) no están incluidos por ahora.</p>
-      <div class="table-wrap"><table id="ptable"><thead><tr><th>Partido</th><th>Candidatura</th><th style="text-align:right">Economía</th><th style="text-align:right">Libertades</th></tr></thead><tbody></tbody></table></div>
+      <div class="table-wrap"><table id="ptable"><thead><tr><th>Partido</th><th>Candidatura</th><th class="num">Economía</th><th class="num">Libertades</th></tr></thead><tbody></tbody></table></div>
       <p class="note" id="dataVersion"></p>
-      <h3>Límites del modelo</h3>
-      <p>El diagrama de Nolan lo creó en 1969 el activista libertario estadounidense David Nolan, y sus críticos señalan que el modelo favorece esa esquina: presenta la «libertad» como el valor que ordena todo el mapa y trata como equivalentes cosas muy distintas, como bajar impuestos y despenalizar el cannabis. Reduce la política a dos ejes y deja fuera otros que en España pesan mucho: el territorial, el europeo, el ecológico o el de la calidad institucional. Y la frontera entre «económico» y «personal» tampoco es nítida: la inmigración o la prostitución tienen las dos caras. Úsalo como lo que es, una foto aproximada, no un veredicto.</p>
       <p class="note">Fuentes consultadas:
         <a href="https://queproponen.es/" target="_blank" rel="noopener">Qué Proponen</a> ·
         <a href="https://www.datosclaros.es/comparador-de-programas-29n/" target="_blank" rel="noopener">DatosClaros</a> ·
@@ -286,9 +422,9 @@ body.og #shareCanvas{display:block;width:1200px;height:630px}
   </details>
 
   <footer class="foot">
-    <p><strong>Tus datos: ninguno.</strong> Este test no tiene cuentas, ni cookies, ni analítica, ni ningún servidor que reciba tus respuestas. Lo que marcas se guarda únicamente en el almacenamiento local de tu propio navegador, para que no lo pierdas si recargas la página o vuelves otro día. Puedes cambiarlo o borrarlo cuando quieras con el botón «Borrar respuestas». Nadie más que tú puede verlo. Si compartes un enlace con tu resultado, tus respuestas y el nombre que hayas puesto van codificados en la propia dirección, detrás de la almohadilla, que nunca llega a ningún servidor.</p>
-    <p>Las posiciones de los partidos son <strong>estimaciones</strong> a partir de fuentes públicas y pueden contener errores. Este test <strong>no recomienda votar a ningún partido</strong> ni es una encuesta: solo compara tus respuestas con las de las candidaturas.</p>
-    <p>Hecho por <a href="https://menetray.com">Robert Menetray</a>. ¿Ves algún error en las posiciones? <a href="https://menetray.com">Escríbeme</a> indicando la fuente. <!-- TODO: sustituir el enlace de «Escríbeme» por la URL de issues del repositorio cuando sea público --> Código abierto bajo licencia MIT; datos de partidos y preguntas bajo CC BY 4.0.</p>
+    <div><span class="label">Tus datos</span><p><strong>Ninguno.</strong> No hay cuentas, ni cookies, ni analítica, ni ningún servidor que reciba tus respuestas. Lo que marcas se queda en tu propio navegador, para que no lo pierdas si recargas o vuelves otro día. Lo cambias o lo borras cuando quieras con «Borrar todas mis respuestas». Nadie más que tú puede verlo. Si compartes un enlace con tu resultado, tus respuestas y el nombre que hayas puesto van codificados en la propia dirección, detrás de la almohadilla, que nunca llega a ningún servidor.</p></div>
+    <div><span class="label">Aviso</span><p>Esto <strong>no lo ha hecho ningún partido</strong> ni nadie que quiera que votes a uno en concreto. Las posiciones de los partidos son <strong>estimaciones</strong> a partir de fuentes públicas y pueden tener errores. El test <strong>no te recomienda a quién votar</strong> ni es una encuesta: solo compara tus respuestas con lo que dicen las candidaturas, para que votes sabiendo en qué coincides y en qué no.</p></div>
+    <div><span class="label">Autoría</span><p>Hecho por <a href="https://menetray.com">Robert Menetray</a>. ¿Ves algún error en las posiciones? <a href="https://menetray.com">Escríbeme</a> indicando la fuente. <!-- TODO: sustituir el enlace de «Escríbeme» por la URL de issues del repositorio cuando sea público --> Código abierto bajo licencia MIT; datos de partidos y preguntas bajo CC BY 4.0.</p></div>
   </footer>
 </div>
 
@@ -301,10 +437,15 @@ const DATA_VERSION = '1.1';
 const DATA_DATE = '31 de octubre de 2026';
 // Durante el periodo de prohibición de encuestas (24–28 de noviembre) puede ponerse a false para que la imagen compartida no muestre el partido más afín.
 const SHARE_SHOW_TOP_PARTY = true;
+// Veredicto «te representa», sobre la afinidad del partido más cercano (en %):
+const REP_FULL = 85;     // desde aquí: «te representa»
+const REP_PARTIAL = 75;  // desde aquí: «es el que más se parece a ti, con matices»; por debajo: «ninguno del todo»
+const REP_TIE = 3;       // si el segundo está a esta distancia o menos, empate
+const REP_MIN_AXIS = 4;  // respuestas mínimas por eje para emitir veredicto
 
 const PARTIES = [
-  {id:'pp',    name:'PP',            full:'Partido Popular',           lead:'Alberto Núñez Feijóo', ref:false},
-  {id:'psoe',  name:'PSOE',          full:'PSOE / PSC',                lead:'Pedro Sánchez',        ref:false},
+  {id:'pp',    name:'PP',            full:'Partido Popular',           lead:'Alberto Núñez Feijóo', ref:false, art:'el'},
+  {id:'psoe',  name:'PSOE',          full:'PSOE / PSC',                lead:'Pedro Sánchez',        ref:false, art:'el'},
   {id:'vox',   name:'Vox',           full:'Vox',                       lead:'Santiago Abascal',     ref:false},
   {id:'fa',    name:'Frente Amplio', full:'Frente Amplio (ex-Sumar)',  lead:'Ada Colau',            ref:false},
   {id:'pod',   name:'Podemos',       full:'Podemos',                   lead:'Irene Montero',        ref:false},
@@ -313,96 +454,107 @@ const PARTIES = [
   {id:'milei', name:'Milei',         full:'La Libertad Avanza (Argentina)', lead:'Javier Milei',    ref:true, color:'--ref-milei', note:'Referencia internacional'},
   {id:'bukele',name:'Bukele',        full:'Nuevas Ideas (El Salvador)', lead:'Nayib Bukele',        ref:true, color:'--ref-bukele', note:'Referencia internacional'}
 ];
+// Ámbitos: agrupan las preguntas en páginas, alternando economía y libertades. No afectan al cálculo.
+const TOPICS = [
+  {id:'imp',  ax:'E', t:'Impuestos y gasto público'},
+  {id:'vida', ax:'P', t:'Vida privada y derechos'},
+  {id:'viv',  ax:'E', t:'Vivienda'},
+  {id:'expr', ax:'P', t:'Expresión, protesta y redes'},
+  {id:'trab', ax:'E', t:'Trabajo y pensiones'},
+  {id:'seg',  ax:'P', t:'Inmigración y seguridad'},
+  {id:'est',  ax:'E', t:'Estado, empresa y medio ambiente'},
+  {id:'cost', ax:'P', t:'Costumbres e instituciones'}
+];
 // dir +1: estar a favor = más libertad en ese eje; -1: a favor = más intervención del Estado
 // a: respuestas en orden pp, psoe, vox, fa, pod, salf, d21, milei, bukele (de -2 a +2)
-// k: etiqueta corta del tema (para las listas de coincidencias); c: contexto en lenguaje llano
+// g: ámbito; k: etiqueta corta del tema (para las listas de coincidencias); c: contexto en lenguaje llano
 // src (opcional): {pp:'https://...', psoe:'https://...'} con la fuente de la respuesta de cada partido
 const QUESTIONS = [
- {id:'e_irpf',  ax:'E', dir:+1, k:'impuesto sobre la renta', t:'Hay que bajar el impuesto sobre la renta aunque el Estado recaude menos.', a:[2,-1,2,-2,-2,2,1,1,0],
+ {id:'e_irpf',  ax:'E', g:'imp', dir:+1, k:'impuesto sobre la renta', t:'Hay que bajar el impuesto sobre la renta aunque el Estado recaude menos.', a:[2,-1,2,-2,-2,2,1,1,0],
   c:'El impuesto sobre la renta (IRPF en España) grava lo que gana cada persona y es la principal fuente de ingresos del Estado. Bajarlo deja más dinero en el bolsillo, pero reduce lo que hay para servicios públicos.'},
- {id:'e_suc',   ax:'E', dir:+1, k:'sucesiones y patrimonio', t:'Deberían suprimirse los impuestos de sucesiones y de patrimonio.', a:[1,-2,2,-2,-2,2,0,1,0],
+ {id:'e_suc',   ax:'E', g:'imp', dir:+1, k:'sucesiones y patrimonio', t:'Deberían suprimirse los impuestos de sucesiones y de patrimonio.', a:[1,-2,2,-2,-2,2,0,1,0],
   c:'Sucesiones grava lo que se hereda; patrimonio, lo que se posee por encima de cierto umbral. En España dependen de cada comunidad autónoma, y varias los han reducido casi a cero.'},
- {id:'e_alq',   ax:'E', dir:-1, k:'topes al alquiler', t:'El Estado debe poner topes al precio del alquiler.', a:[-2,2,-2,2,2,-2,0,-2,0],
+ {id:'e_alq',   ax:'E', g:'viv', dir:-1, k:'topes al alquiler', t:'El Estado debe poner topes al precio del alquiler.', a:[-2,2,-2,2,2,-2,0,-2,0],
   c:'Un tope limita por ley cuánto puede costar o subir un alquiler en zonas con precios altos. Sus defensores dicen que protege al inquilino; sus críticos, que reduce la oferta de pisos.'},
- {id:'e_empv',  ax:'E', dir:-1, k:'empresa pública de vivienda', t:'Hay que crear una gran empresa pública estatal de vivienda y suelo.', a:[-1,2,-2,2,2,-2,0,-2,0],
+ {id:'e_empv',  ax:'E', g:'viv', dir:-1, k:'empresa pública de vivienda', t:'Hay que crear una gran empresa pública estatal de vivienda y suelo.', a:[-1,2,-2,2,2,-2,0,-2,0],
   c:'Una empresa pública que construya, compre y gestione viviendas y suelo para alquilarlas por debajo del precio de mercado, como las que existen en Viena o en algunos países nórdicos.'},
- {id:'e_acum',  ax:'E', dir:-1, k:'impuesto a grandes tenedores', t:'Quien acumula muchas viviendas debería pagar cada año un impuesto especial alto.', a:[-2,1,-2,2,2,-2,-1,-2,-1],
+ {id:'e_acum',  ax:'E', g:'viv', dir:-1, k:'impuesto a grandes tenedores', t:'Quien acumula muchas viviendas debería pagar cada año un impuesto especial alto.', a:[-2,1,-2,2,2,-2,-1,-2,-1],
   c:'Un impuesto anual específico para quien posee muchas viviendas (los llamados grandes tenedores), con la intención de que las vendan o las alquilen.'},
- {id:'e_suelo', ax:'E', dir:+1, k:'liberalizar suelo', t:'Hay que liberalizar suelo y reducir trámites para que se construya más.', a:[2,1,2,-1,-2,2,1,2,1],
+ {id:'e_suelo', ax:'E', g:'viv', dir:+1, k:'liberalizar suelo', t:'Hay que liberalizar suelo y reducir trámites para que se construya más.', a:[2,1,2,-1,-2,2,1,2,1],
   c:'Liberalizar suelo es permitir construir en más terrenos; reducir trámites es acortar los permisos, que hoy pueden tardar años. La idea es que más oferta baje los precios.'},
- {id:'e_pens',  ax:'E', dir:-1, k:'pensiones con la inflación', t:'Las pensiones deben subir cada año con la inflación, por ley y pase lo que pase.', a:[2,2,-1,2,2,0,1,-1,0],
+ {id:'e_pens',  ax:'E', g:'trab', dir:-1, k:'pensiones con la inflación', t:'Las pensiones deben subir cada año con la inflación, por ley y pase lo que pase.', a:[2,2,-1,2,2,0,1,-1,0],
   c:'Revalorizar con la inflación garantiza que las pensiones no pierdan poder adquisitivo, pero encarece el sistema en años de precios altos y obliga a buscar el dinero por otra vía.'},
- {id:'e_mixto', ax:'E', dir:+1, k:'pensiones mixtas', t:'El sistema de pensiones debería ser mixto, con una parte de capitalización privada.', a:[0,-1,2,-2,-2,1,0,1,-1],
+ {id:'e_mixto', ax:'E', g:'trab', dir:+1, k:'pensiones mixtas', t:'El sistema de pensiones debería ser mixto, con una parte de capitalización privada.', a:[0,-1,2,-2,-2,1,0,1,-1],
   c:'En un sistema mixto, parte de la pensión viene del Estado (reparto) y parte de un fondo que cada trabajador acumula durante su vida laboral (capitalización), como en Suecia o Chile.'},
- {id:'e_func',  ax:'E', dir:+1, k:'reducir la administración', t:'Hay que reducir ministerios, organismos y empleo público.', a:[1,-1,2,-2,-2,2,1,2,1],
+ {id:'e_func',  ax:'E', g:'imp', dir:+1, k:'reducir la administración', t:'Hay que reducir ministerios, organismos y empleo público.', a:[1,-1,2,-2,-2,2,1,2,1],
   c:'Reducir el tamaño de la administración: menos ministerios, menos organismos públicos y menos personal, con el argumento de ahorrar y simplificar.'},
- {id:'e_fort',  ax:'E', dir:-1, k:'impuestos a grandes fortunas', t:'Las grandes fortunas y las grandes empresas deberían pagar más impuestos.', a:[-1,2,-2,2,2,-2,0,-2,0],
+ {id:'e_fort',  ax:'E', g:'imp', dir:-1, k:'impuestos a grandes fortunas', t:'Las grandes fortunas y las grandes empresas deberían pagar más impuestos.', a:[-1,2,-2,2,2,-2,0,-2,0],
   c:'Subir impuestos a los patrimonios y beneficios más altos, por ejemplo con tipos más altos en el impuesto de sociedades o un impuesto a las grandes fortunas.'},
- {id:'e_expr',  ax:'E', dir:-1, k:'expropiar y nacionalizar', t:'El Estado debería poder expropiar viviendas o nacionalizar empresas estratégicas.', a:[-2,-2,-2,1,2,-2,-2,-2,0],
+ {id:'e_expr',  ax:'E', g:'est', dir:-1, k:'expropiar y nacionalizar', t:'El Estado debería poder expropiar viviendas o nacionalizar empresas estratégicas.', a:[-2,-2,-2,1,2,-2,-2,-2,0],
   c:'Expropiar es que el Estado se quede con un bien privado pagando una compensación; nacionalizar es que pase a ser público un sector o una empresa (energía, banca, telecomunicaciones).'},
- {id:'e_sani',  ax:'E', dir:-1, k:'sanidad y educación públicas', t:'Sanidad y educación deben ser públicas y gratuitas para todos, pagadas con impuestos.', a:[2,2,1,2,2,1,2,-1,1],
+ {id:'e_sani',  ax:'E', g:'est', dir:-1, k:'sanidad y educación públicas', t:'Sanidad y educación deben ser públicas y gratuitas para todos, pagadas con impuestos.', a:[2,2,1,2,2,1,2,-1,1],
   c:'Gratuitas en el momento de usarlas y financiadas con impuestos, sin copagos ni cuotas, frente a modelos con más peso de seguros o centros privados.'},
- {id:'e_aval',  ax:'E', dir:-1, k:'avales a hipotecas', t:'El Estado debe avalar con dinero público las hipotecas de los jóvenes.', a:[2,2,1,1,0,1,1,-2,1],
+ {id:'e_aval',  ax:'E', g:'viv', dir:-1, k:'avales a hipotecas', t:'El Estado debe avalar con dinero público las hipotecas de los jóvenes.', a:[2,2,1,1,0,1,1,-2,1],
   c:'El Estado garantiza al banco una parte de la hipoteca para que los jóvenes puedan comprar sin ahorrar toda la entrada. Si el comprador no paga, lo asume el Estado.'},
- {id:'e_gasto', ax:'E', dir:+1, k:'reducir el gasto público', t:'El gasto público debería reducirse de forma significativa.', a:[0,-1,1,-2,-2,2,0,2,0],
+ {id:'e_gasto', ax:'E', g:'imp', dir:+1, k:'reducir el gasto público', t:'El gasto público debería reducirse de forma significativa.', a:[0,-1,1,-2,-2,2,0,2,0],
   c:'El gasto público es todo lo que gastan las administraciones: pensiones, sanidad, educación, sueldos públicos, inversiones. Reducirlo de forma significativa implica recortar alguna de esas partidas.'},
- {id:'e_smi',   ax:'E', dir:-1, k:'salario mínimo', t:'El Gobierno debe seguir subiendo el salario mínimo por ley.', a:[1,2,0,2,2,-1,1,-1,1],
+ {id:'e_smi',   ax:'E', g:'trab', dir:-1, k:'salario mínimo', t:'El Gobierno debe seguir subiendo el salario mínimo por ley.', a:[1,2,0,2,2,-1,1,-1,1],
   c:'El salario mínimo es el sueldo más bajo que se puede pagar por ley. Subirlo mejora los sueldos más bajos; sus críticos dicen que puede destruir empleo en sectores poco productivos.'},
- {id:'e_aran',  ax:'E', dir:-1, k:'aranceles', t:'Hay que proteger al campo y a la industria nacional con aranceles o límites a las importaciones.', a:[-1,0,2,1,1,1,-2,-2,0],
+ {id:'e_aran',  ax:'E', g:'est', dir:-1, k:'aranceles', t:'Hay que proteger al campo y a la industria nacional con aranceles o límites a las importaciones.', a:[-1,0,2,1,1,1,-2,-2,0],
   c:'Un arancel es un impuesto a los productos importados para que los nacionales compitan mejor. Protege a productores locales, pero encarece los productos y puede provocar represalias.'},
- {id:'e_desp',  ax:'E', dir:+1, k:'flexibilidad del despido', t:'Hay que facilitar a las empresas contratar y despedir, con menos restricciones e indemnizaciones más bajas.', a:[1,-2,1,-2,-2,1,1,2,1],
+ {id:'e_desp',  ax:'E', g:'trab', dir:+1, k:'flexibilidad del despido', t:'Hay que facilitar a las empresas contratar y despedir, con menos restricciones e indemnizaciones más bajas.', a:[1,-2,1,-2,-2,1,1,2,1],
   c:'Se refiere a cuánto cuesta y cuánto tarda despedir (indemnización, causas que hay que justificar) y a los límites a los contratos temporales. Más flexibilidad facilita contratar; menos protege a quien ya tiene empleo.'},
- {id:'e_jorn',  ax:'E', dir:-1, k:'reducir la jornada por ley', t:'La jornada laboral debe reducirse por ley sin bajar el sueldo.', a:[-1,2,-1,2,2,-1,0,-2,-1],
+ {id:'e_jorn',  ax:'E', g:'trab', dir:-1, k:'reducir la jornada por ley', t:'La jornada laboral debe reducirse por ley sin bajar el sueldo.', a:[-1,2,-1,2,2,-1,0,-2,-1],
   c:'Reducir por ley la jornada máxima legal manteniendo el salario. Mejora el tiempo libre del trabajador y encarece la hora trabajada para la empresa.'},
- {id:'e_ecol',  ax:'E', dir:-1, k:'regulación ambiental', t:'Hay que imponer impuestos y normas ambientales estrictas a empresas y consumidores aunque frenen la economía.', a:[-1,1,-2,2,2,-2,0,-2,-1],
+ {id:'e_ecol',  ax:'E', g:'est', dir:-1, k:'regulación ambiental', t:'Hay que imponer impuestos y normas ambientales estrictas a empresas y consumidores aunque frenen la economía.', a:[-1,1,-2,2,2,-2,0,-2,-1],
   c:'Impuestos a las emisiones, límites a determinadas actividades o prohibiciones (por ejemplo, de coches de combustión) para frenar el cambio climático, aunque supongan costes a empresas y consumidores.'},
- {id:'e_okupa', ax:'E', dir:+1, k:'desalojos exprés', t:'Hay que poder desalojar en pocos días a quien ocupa una vivienda sin permiso.', a:[2,-1,2,-2,-2,2,1,2,2],
+ {id:'e_okupa', ax:'E', g:'viv', dir:+1, k:'desalojos exprés', t:'Hay que poder desalojar en pocos días a quien ocupa una vivienda sin permiso.', a:[2,-1,2,-2,-2,2,1,2,2],
   c:'Acelerar por ley los desalojos de quien ocupa una vivienda sin título (okupación), incluidas las segundas residencias, frente a los procesos judiciales actuales, que pueden durar meses.'},
- {id:'p_expul', ax:'P', dir:-1, k:'expulsiones masivas', t:'Hay que expulsar de forma masiva a los inmigrantes en situación irregular.', a:[0,-2,2,-2,-2,2,-2,1,2],
+ {id:'p_expul', ax:'P', g:'seg', dir:-1, k:'expulsiones masivas', t:'Hay que expulsar de forma masiva a los inmigrantes en situación irregular.', a:[0,-2,2,-2,-2,2,-2,1,2],
   c:'Expulsar a las personas que viven en el país sin permiso de residencia mediante operaciones a gran escala, en lugar de regularizarlas o tramitar los casos uno a uno.'},
- {id:'p_prior', ax:'P', dir:-1, k:'prioridad nacional en ayudas', t:'Las ayudas públicas deben dar prioridad a los ciudadanos del país frente a los extranjeros con residencia legal.', a:[0,-2,2,-2,-2,2,-2,0,1],
+ {id:'p_prior', ax:'P', g:'seg', dir:-1, k:'prioridad nacional en ayudas', t:'Las ayudas públicas deben dar prioridad a los ciudadanos del país frente a los extranjeros con residencia legal.', a:[0,-2,2,-2,-2,2,-2,0,1],
   c:'Que en ayudas sociales, vivienda pública o plazas escolares los nacionales vayan por delante de los extranjeros que residen legalmente y pagan impuestos.'},
- {id:'p_deten', ax:'P', dir:-1, k:'detener sin orden judicial', t:'En situaciones graves de seguridad, la policía debería poder detener sin orden judicial.', a:[-2,-2,-1,-2,-2,0,-2,-2,2],
+ {id:'p_deten', ax:'P', g:'seg', dir:-1, k:'detener sin orden judicial', t:'En situaciones graves de seguridad, la policía debería poder detener sin orden judicial.', a:[-2,-2,-1,-2,-2,0,-2,-2,2],
   c:'Hoy la policía solo puede detener si hay indicios de delito y con garantías (plazos, abogado, juez). La afirmación plantea ampliar sus facultades en situaciones excepcionales de seguridad.'},
- {id:'p_odio',  ax:'P', dir:-1, k:'discursos de odio', t:'El Estado debe poder sancionar o expulsar a quien difunda discursos de odio, aunque no inciten a la violencia.', a:[-1,1,-2,2,2,-2,0,2,2],
+ {id:'p_odio',  ax:'P', g:'expr', dir:-1, k:'discursos de odio', t:'El Estado debe poder sancionar o expulsar a quien difunda discursos de odio, aunque no inciten a la violencia.', a:[-1,1,-2,2,2,-2,0,2,2],
   c:'Castigar expresiones que desprecian a colectivos por su origen, religión, orientación u otras características, aunque no llamen a la violencia. El debate es dónde acaba la libertad de expresión.'},
- {id:'p_prot',  ax:'P', dir:-1, k:'limitar las protestas', t:'Hay que limitar más las protestas que cortan calles o carreteras.', a:[1,-1,1,-2,-2,1,0,2,2],
+ {id:'p_prot',  ax:'P', g:'expr', dir:-1, k:'limitar las protestas', t:'Hay que limitar más las protestas que cortan calles o carreteras.', a:[1,-1,1,-2,-2,1,0,2,2],
   c:'Restringir las manifestaciones o protestas que bloquean el tráfico o las infraestructuras, con más multas o autorizaciones previas.'},
- {id:'p_euta',  ax:'P', dir:+1, k:'eutanasia', t:'La eutanasia debe seguir siendo legal.', a:[0,2,-2,2,2,-1,2,0,-1],
+ {id:'p_euta',  ax:'P', g:'vida', dir:+1, k:'eutanasia', t:'La eutanasia debe seguir siendo legal.', a:[0,2,-2,2,2,-1,2,0,-1],
   c:'La ley de eutanasia (2021) permite a una persona con una enfermedad grave e incurable o un padecimiento insoportable pedir ayuda médica para morir, con varios controles.'},
- {id:'p_matr',  ax:'P', dir:+1, k:'matrimonio igualitario', t:'El matrimonio entre personas del mismo sexo debe seguir siendo legal.', a:[1,2,-1,2,2,0,2,1,-2],
+ {id:'p_matr',  ax:'P', g:'vida', dir:+1, k:'matrimonio igualitario', t:'El matrimonio entre personas del mismo sexo debe seguir siendo legal.', a:[1,2,-1,2,2,0,2,1,-2],
   c:'Legal en España desde 2005. La afirmación plantea si debe mantenerse con los mismos derechos que el matrimonio entre personas de distinto sexo, incluida la adopción.'},
- {id:'p_abor',  ax:'P', dir:+1, k:'aborto', t:'El aborto debe seguir siendo legal en los plazos actuales.', a:[0,2,-2,2,2,-1,2,-1,-2],
+ {id:'p_abor',  ax:'P', g:'vida', dir:+1, k:'aborto', t:'El aborto debe seguir siendo legal en los plazos actuales.', a:[0,2,-2,2,2,-1,2,-1,-2],
   c:'La ley actual permite abortar libremente hasta la semana 14 y hasta la 22 por causas médicas. La afirmación plantea si mantener esos plazos.'},
- {id:'p_cann',  ax:'P', dir:+1, k:'cannabis', t:'El cannabis para adultos debería ser legal y estar regulado.', a:[-2,-1,-2,1,2,-1,0,0,-2],
+ {id:'p_cann',  ax:'P', g:'vida', dir:+1, k:'cannabis', t:'El cannabis para adultos debería ser legal y estar regulado.', a:[-2,-1,-2,1,2,-1,0,0,-2],
   c:'Legal y regulado significa venta controlada a adultos, con impuestos y requisitos de calidad, como en Canadá, Alemania o Uruguay, en lugar de la prohibición actual.'},
- {id:'p_prost', ax:'P', dir:-1, k:'prostitución', t:'Hay que prohibir la prostitución y castigar también al cliente.', a:[0,2,1,1,0,0,-1,-1,1],
+ {id:'p_prost', ax:'P', g:'vida', dir:-1, k:'prostitución', t:'Hay que prohibir la prostitución y castigar también al cliente.', a:[0,2,1,1,0,0,-1,-1,1],
   c:'Modelo abolicionista: prohibir la prostitución y multar o castigar a quien paga por sexo (como en Suecia o Francia), frente a regularla como una actividad laboral o dejarla como está.'},
- {id:'p_medio', ax:'P', dir:-1, k:'regular los medios', t:'El Gobierno debe poder regular a los medios de comunicación para combatir la desinformación.', a:[-1,1,-2,2,2,-2,-1,-1,2],
+ {id:'p_medio', ax:'P', g:'expr', dir:-1, k:'regular los medios', t:'El Gobierno debe poder regular a los medios de comunicación para combatir la desinformación.', a:[-1,1,-2,2,2,-2,-1,-1,2],
   c:'Que el Gobierno pueda imponer normas a periódicos, televisiones o webs (registro, sanciones, retirada de contenidos) para frenar bulos. El riesgo es quién decide qué es desinformación.'},
- {id:'p_ident', ax:'P', dir:-1, k:'verificar la identidad en webs para adultos', t:'Para entrar en webs de contenido adulto debería exigirse verificar la identidad.', a:[1,2,1,1,1,-1,0,-1,1],
+ {id:'p_ident', ax:'P', g:'expr', dir:-1, k:'verificar la identidad en webs para adultos', t:'Para entrar en webs de contenido adulto debería exigirse verificar la identidad.', a:[1,2,1,1,1,-1,0,-1,1],
   c:'Exigir una verificación de edad e identidad (DNI digital, cartera de identidad) para acceder a pornografía en internet, con el fin de proteger a los menores.'},
- {id:'p_taba',  ax:'P', dir:-1, k:'prohibición de fumar en terrazas', t:'Hay que ampliar la prohibición de fumar y vapear a terrazas y espacios abiertos.', a:[0,2,-2,2,1,-2,1,-2,0],
+ {id:'p_taba',  ax:'P', g:'cost', dir:-1, k:'prohibición de fumar en terrazas', t:'Hay que ampliar la prohibición de fumar y vapear a terrazas y espacios abiertos.', a:[0,2,-2,2,1,-2,1,-2,0],
   c:'Ampliar los espacios sin humo a terrazas de bares, playas, paradas de autobús o estadios, incluidos los cigarrillos electrónicos.'},
- {id:'p_anon',  ax:'P', dir:-1, k:'anonimato en redes', t:'Habría que acabar con el anonimato en las redes sociales.', a:[0,2,-2,1,0,-2,0,-2,1],
+ {id:'p_anon',  ax:'P', g:'expr', dir:-1, k:'anonimato en redes', t:'Habría que acabar con el anonimato en las redes sociales.', a:[0,2,-2,1,0,-2,0,-2,1],
   c:'Obligar a identificarse con nombre real o documento para tener una cuenta en redes sociales, para perseguir el acoso y los bulos. Se pierde el anonimato que protege a denunciantes o disidentes.'},
- {id:'p_burka', ax:'P', dir:-1, k:'burka y niqab', t:'Debería prohibirse el burka y el niqab en los espacios públicos.', a:[0,-1,2,-2,-2,2,-1,0,0],
+ {id:'p_burka', ax:'P', g:'cost', dir:-1, k:'burka y niqab', t:'Debería prohibirse el burka y el niqab en los espacios públicos.', a:[0,-1,2,-2,-2,2,-1,0,0],
   c:'Prohibir las prendas que cubren toda la cara en la calle y en los edificios públicos, como ya hacen Francia o Bélgica.'},
- {id:'p_ileg',  ax:'P', dir:-1, k:'ilegalizar partidos independentistas', t:'Habría que ilegalizar los partidos que defienden la independencia de una región.', a:[-1,-2,2,-2,-2,1,-2,0,1],
+ {id:'p_ileg',  ax:'P', g:'cost', dir:-1, k:'ilegalizar partidos independentistas', t:'Habría que ilegalizar los partidos que defienden la independencia de una región.', a:[-1,-2,2,-2,-2,1,-2,0,1],
   c:'Prohibir por ley partidos que defienden pacíficamente la independencia de una parte del país. Hoy solo se pueden ilegalizar los que apoyan la violencia.'},
- {id:'p_decr',  ax:'P', dir:-1, k:'legislar por decreto', t:'El Gobierno debería poder legislar por decreto cuando el Parlamento bloquea sus reformas.', a:[-1,1,-1,0,0,1,-2,2,2],
+ {id:'p_decr',  ax:'P', g:'cost', dir:-1, k:'legislar por decreto', t:'El Gobierno debería poder legislar por decreto cuando el Parlamento bloquea sus reformas.', a:[-1,1,-1,0,0,1,-2,2,2],
   c:'Legislar por decreto es aprobar normas sin pasar antes por el Parlamento. La afirmación plantea usarlo como vía habitual cuando no hay mayoría, no solo en casos urgentes.'},
- {id:'p_vigil', ax:'P', dir:-1, k:'vigilar comunicaciones sin juez', t:'El Estado debería poder acceder a las comunicaciones privadas sin orden judicial para prevenir delitos.', a:[-2,-2,-1,-2,-2,-1,-2,-1,2],
+ {id:'p_vigil', ax:'P', g:'seg', dir:-1, k:'vigilar comunicaciones sin juez', t:'El Estado debería poder acceder a las comunicaciones privadas sin orden judicial para prevenir delitos.', a:[-2,-2,-1,-2,-2,-1,-2,-1,2],
   c:'Permitir a la policía o a los servicios de inteligencia leer mensajes, correos o llamadas sin que un juez lo autorice antes, con el argumento de prevenir delitos o terrorismo.'},
- {id:'p_trans', ax:'P', dir:+1, k:'autodeterminación de género', t:'Las personas deben poder cambiar su sexo legal sin informes médicos.', a:[-1,2,-2,2,2,-2,0,-2,-2],
+ {id:'p_trans', ax:'P', g:'vida', dir:+1, k:'autodeterminación de género', t:'Las personas deben poder cambiar su sexo legal sin informes médicos.', a:[-1,2,-2,2,2,-2,0,-2,-2],
   c:'La ley trans (2023) permite cambiar el sexo en el DNI desde los 16 años con una declaración, sin informes médicos ni tratamientos. La afirmación plantea si mantener esa autodeterminación.'},
- {id:'p_mili',  ax:'P', dir:-1, k:'servicio militar obligatorio', t:'Debería recuperarse el servicio militar obligatorio.', a:[-1,-2,1,-2,-2,0,-1,-1,1],
+ {id:'p_mili',  ax:'P', g:'seg', dir:-1, k:'servicio militar obligatorio', t:'Debería recuperarse el servicio militar obligatorio.', a:[-1,-2,1,-2,-2,0,-1,-1,1],
   c:'España suprimió el servicio militar obligatorio en 2001. Con el rearme europeo, varios países han vuelto a debatir una mili obligatoria o un servicio nacional.'},
- {id:'p_relig', ax:'P', dir:-1, k:'religión en la vida pública', t:'La religión debería tener más presencia en la escuela y en la vida pública.', a:[0,-2,2,-2,-2,1,-1,1,2],
+ {id:'p_relig', ax:'P', g:'cost', dir:-1, k:'religión en la vida pública', t:'La religión debería tener más presencia en la escuela y en la vida pública.', a:[0,-2,2,-2,-2,1,-1,1,2],
   c:'Más presencia de la religión en la escuela pública (asignatura, símbolos) y en los actos institucionales, frente a un Estado más neutral en materia religiosa.'},
- {id:'p_menores', ax:'P', dir:-1, k:'menores en redes sociales', t:'Hay que prohibir por ley que los menores de 16 años tengan cuentas en redes sociales.', a:[1,2,1,1,0,-1,0,-1,1],
+ {id:'p_menores', ax:'P', g:'expr', dir:-1, k:'menores en redes sociales', t:'Hay que prohibir por ley que los menores de 16 años tengan cuentas en redes sociales.', a:[1,2,1,1,0,-1,0,-1,1],
   c:'Prohibir por ley que los menores de cierta edad (16 años en la propuesta española, 15 en Francia, 16 en Australia) abran cuentas en redes sociales, con verificación de edad.'},
- {id:'p_apuestas', ax:'P', dir:-1, k:'publicidad de apuestas', t:'Hay que prohibir la publicidad de las apuestas y del juego online.', a:[0,2,-1,2,2,-1,0,-2,0],
+ {id:'p_apuestas', ax:'P', g:'cost', dir:-1, k:'publicidad de apuestas', t:'Hay que prohibir la publicidad de las apuestas y del juego online.', a:[0,2,-1,2,2,-1,0,-2,0],
   c:'Prohibir anuncios de casas de apuestas y juego online en televisión, deporte e internet, como ya se limitó en España en 2020, para reducir la ludopatía, sobre todo entre jóvenes.'}
 ];
 const LABELS = ['Muy en contra','En contra','Neutral','A favor','Muy a favor'];
@@ -412,21 +564,17 @@ const NAME_MAX = 24;
 
 let answers = {};
 let hidden = new Set();
-let filter = 'all';
-let openAns = new Set();
 let name = '';
-let mode = null;      // 'one' (una a una) | 'all' (lista)
-let cur = 0;          // índice de la pregunta actual en modo 'one'
-let activeCard = null;// tarjeta activa en modo 'all' (para el teclado)
+let page = 0;          // ámbito actual (índice en TOPICS)
+let activeCard = null; // tarjeta activa (para el teclado)
 let showAllMatches = false;
-let friend = null;    // {answers, name} recibido por el enlace #r=
+let friend = null;     // {answers, name} recibido por el enlace #r=
 
 function cleanName(s){ return String(s||'').replace(/[<>"'&]/g,'').trim().slice(0,NAME_MAX); }
 function esc(s){ return String(s).replace(/[&<>"']/g, c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c])); }
 
-try{ const s = JSON.parse(localStorage.getItem(STORE_KEY)||'null'); if(s){ answers = s.answers||{}; hidden = new Set(s.hidden||[]); name = cleanName(s.name); mode = s.mode==='one'||s.mode==='all' ? s.mode : null; } }catch(e){}
-if(!mode) mode = window.matchMedia('(max-width:700px)').matches ? 'one' : 'all';
-function save(){ try{ localStorage.setItem(STORE_KEY, JSON.stringify({answers, hidden:[...hidden], name, mode})); }catch(e){} }
+try{ const s = JSON.parse(localStorage.getItem(STORE_KEY)||'null'); if(s){ answers = s.answers||{}; hidden = new Set(s.hidden||[]); name = cleanName(s.name); page = Number.isInteger(s.page) ? Math.min(Math.max(0,s.page),TOPICS.length-1) : 0; } }catch(e){}
+function save(){ try{ localStorage.setItem(STORE_KEY, JSON.stringify({answers, hidden:[...hidden], name, page})); }catch(e){} }
 
 function cssVar(n){ return getComputedStyle(document.documentElement).getPropertyValue(n).trim(); }
 
@@ -492,8 +640,8 @@ const svgNS = 'http://www.w3.org/2000/svg';
 function el(tag, attrs={}, text){ const n=document.createElementNS(svgNS,tag); for(const k in attrs) n.setAttribute(k,attrs[k]); if(text!==undefined) n.textContent=text; return n; }
 
 function drawChart(){
-  const svg = document.getElementById('chart');
-  [...svg.querySelectorAll(':scope > :not(title):not(desc)')].forEach(n=>n.remove());
+  const svg = document.getElementById('chartG');
+  svg.innerHTML = '';
   const muted = cssVar('--muted');
   ZONES.forEach(z=>svg.appendChild(el('polygon',{points:pts(z.p), fill:cssVar(z.c), 'fill-opacity':cssVar('--zone-op'), stroke:muted, 'stroke-width':'0.6'})));
   svg.appendChild(el('polygon',{points:pts(CENTER_SQ), fill:cssVar('--z-cen'), 'fill-opacity':(parseFloat(cssVar('--zone-op'))+.12).toFixed(2), stroke:muted, 'stroke-width':'0.6'}));
@@ -584,38 +732,75 @@ function matchLists(i){
   ag.sort((x,y)=>y.w-x.w); dg.sort((x,y)=>y.w-x.w);
   return {ag, dg};
 }
+// Veredicto: ¿te representa algún partido? Se basa en la afinidad del más cercano (sin las referencias internacionales).
+function pname(p, withArt=true){ return (withArt && p.art ? p.art+' ' : '') + p.name; }
+function joinNames(ps, withArt=true){ const n = ps.map(p=>pname(p,withArt)); return n.length>1 ? n.slice(0,-1).join(', ')+' y '+n[n.length-1] : n[0]; }
+function verdict(){
+  const u = axisScore(q=>answers[q.id]);
+  if(u.nE<REP_MIN_AXIS || u.nP<REP_MIN_AXIS) return {level:'insufficient', u};
+  const rows = PARTIES.map((p,i)=>({p,a:affinity(i)})).filter(r=>!r.p.ref).sort((x,y)=>y.a-x.a);
+  const top = rows[0], tied = rows.filter(r=>top.a - r.a <= REP_TIE);
+  const level = top.a>=REP_FULL ? 'full' : top.a>=REP_PARTIAL ? 'partial' : 'none';
+  return {level, u, a:top.a, parties:tied.map(r=>r.p), tie:tied.length>1};
+}
+function verdictTexts(v){
+  if(v.level==='insufficient') return {label:'Veredicto', h:'Aún sin veredicto', s:`Responde al menos ${REP_MIN_AXIS} afirmaciones de cada eje y te digo algo.`, short:'', share:''};
+  const names = joinNames(v.parties), bare = joinNames(v.parties,false), pct = `${v.a.toFixed(0)} % de afinidad`;
+  if(v.level==='full') return {label:'Veredicto', h: v.tie ? `Te representan por igual ${names}` : `Te representa ${names}`, s:`${pct}. Piensas como ${v.tie?'ellos':'él'} en casi todo lo que has respondido.`, short:`te representa: ${bare}`, share:`Me representa${v.tie?'n':''} ${names}`};
+  if(v.level==='partial') return {label:'Veredicto', h: v.tie ? `Los que más se parecen a ti, con matices: ${bare}` : `El que más se parece a ti, con matices: ${bare}`, s:`${pct}. Hay acuerdo de fondo, pero mira en qué no coincidís: ahí está lo interesante.`, short:`se parece: ${bare}`, share:`${v.tie?'Los que más se me parecen':'El que más se me parece'}: ${bare}`};
+  return {label:'Veredicto', h:'Ningún partido te representa del todo', s:`${v.tie?'Los más cercanos son':'El más cercano es'} ${names}, con ${pct}. No eres el único: le pasa a mucha gente.`, short:`ninguno del todo (${bare})`, share:`Ningún partido me representa del todo (más cercano: ${bare})`};
+}
 function listTopics(arr, max){ const names = arr.slice(0,max).map(x=>x.q.k); const rest = arr.length-names.length; return names.join(', ') + (rest>0 ? ` y ${rest} más` : ''); }
 
 function drawResult(){
-  const r = document.getElementById('result');
+  const r = document.getElementById('result'), mBox = document.getElementById('matches');
   const u = axisScore(q=>answers[q.id]);
   const n = Object.keys(answers).length;
-  document.getElementById('shareBox').hidden = !n;
+  document.getElementById('shareBtn').disabled = !n; document.getElementById('copyLink').disabled = !n;
+  document.getElementById('shareHint').textContent = n ? 'La imagen lleva tu punto, tu zona y tus puntuaciones. Con el enlace, quien lo abra verá su punto junto al tuyo.' : 'Responde unas cuantas afirmaciones y podrás compartir tu punto en el rombo y retar a alguien a hacer lo mismo.';
+  drawStrip(u, n);
   if(!n){
     r.innerHTML = `<div class="result-head"><h2>Tu posición</h2></div>
-      <p class="empty">Aún no has respondido nada. Con unas pocas respuestas en cada bloque aparecerás en el rombo como «Tú», y aquí verás con qué partidos coincides más y en qué temas.</p>`;
+      <p class="empty">Todavía no has respondido nada. Con unas pocas respuestas en cada eje ya sales en el rombo, y aquí verás tu puntuación y lo cerca que estás de cada partido.</p>`;
+    mBox.innerHTML = `<div class="result-head"><h2>En qué coincides y en qué no</h2></div>
+      <p class="empty">Aquí irán saliendo los temas en los que piensas igual que cada partido, y los que no. Suele haber sorpresas.</p>`;
     return;
   }
   const E = u.E ?? 50, P = u.P ?? 50;
   const rows = PARTIES.map((p,i)=>({p, i, a:affinity(i)})).sort((x,y)=>y.a-x.a);
-  const warn = (u.nE<4 || u.nP<4) ? `<p class="note" style="margin-top:10px">Responde al menos 4 preguntas de cada bloque para que la posición sea fiable${u.E===null?' (en economía aún no hay ninguna)':''}${u.P===null?' (en libertades aún no hay ninguna)':''}.</p>` : '';
+  const warn = (u.nE<4 || u.nP<4) ? `<p class="note" style="margin-top:10px">Responde al menos 4 preguntas de cada eje para que la posición sea fiable${u.E===null?' (en economía aún no hay ninguna)':''}${u.P===null?' (en libertades aún no hay ninguna)':''}.</p>` : '';
   const real = rows.filter(x=>!x.p.ref);
   const shown = showAllMatches ? real : real.slice(0,3);
   const matches = shown.map(({p,i,a})=>{ const m = matchLists(i); return `<div class="match"><div class="match-h"><strong>${p.name}</strong><span class="pct">${a.toFixed(0)} % de afinidad</span></div>
       <p><span class="ok">Coincidís en:</span> ${m.ag.length ? listTopics(m.ag,4) : 'nada claro todavía'}.</p>
       <p><span class="ko">Discrepáis en:</span> ${m.dg.length ? listTopics(m.dg,4) : 'nada de momento'}.</p></div>`; }).join('');
+  const vt = verdictTexts(verdict()), vl = verdict().level;
   r.innerHTML = `<div class="result-head"><h2>Tu posición</h2><span class="zone-pill">${zoneOf(E,P)}</span></div>
+    <div class="verdict ${vl}"><span class="label">${vt.label}</span><div class="v-h">${vt.h}</div><div class="v-s">${vt.s}</div></div>
     <div class="scores">
       <div class="score"><div class="k">Libertad económica</div><div class="v">${u.E===null?'—':Math.round(u.E)}<span class="note"> /100</span></div></div>
       <div class="score"><div class="k">Libertad personal</div><div class="v">${u.P===null?'—':Math.round(u.P)}<span class="note"> /100</span></div></div>
     </div>
     ${warn}
     <h3 style="margin-top:16px">Afinidad por respuestas</h3>
-    <ul class="rank">${rows.map(({p,a})=>`<li><span class="${p.ref?'ref':''}">${p.name}</span><span class="bar"><i style="width:${a.toFixed(0)}%;${p.ref?`background:var(${p.color})`:''}"></i></span><span class="pct">${a.toFixed(0)} %</span></li>`).join('')}</ul>
-    <h3 style="margin-top:16px">En qué coincides y en qué no</h3>
+    <ul class="rank">${rows.map(({p,a})=>`<li><span class="${p.ref?'ref':''}">${p.name}</span><span class="bar"><i style="width:${a.toFixed(0)}%;${p.ref?`background:var(${p.color})`:''}"></i></span><span class="pct">${a.toFixed(0)} %</span></li>`).join('')}</ul>`;
+  mBox.innerHTML = `<div class="result-head"><h2>En qué coincides y en qué no</h2></div>
     <div class="matches">${matches}</div>
     ${real.length>3 ? `<p style="margin-top:8px"><button type="button" class="linkbtn" id="moreMatches">${showAllMatches?'Ver solo los tres más cercanos':'Ver los demás partidos'}</button></p>` : ''}`;
   const mm = document.getElementById('moreMatches'); if(mm) mm.addEventListener('click',()=>{ showAllMatches=!showAllMatches; drawResult(); });
+}
+
+// Franja superior en móvil: zona, puntuaciones y partido más afín
+function drawStrip(u, n){
+  let z, sm;
+  if(!n){ z = 'Tu posición'; sm = `0 de ${QUESTIONS.length} · responde y aparecerás aquí`; }
+  else {
+    const E = u.E ?? 50, P = u.P ?? 50;
+    const vt = verdictTexts(verdict());
+    z = zoneOf(E,P);
+    sm = `${u.E===null?'—':Math.round(u.E)} · ${u.P===null?'—':Math.round(u.P)}${vt.short?` · ${vt.short}`:''} · ${n}/${QUESTIONS.length}`;
+  }
+  for(const [a,b] of [['stripZ','stripS'],['liveZ','liveS']]){ document.getElementById(a).textContent = z; document.getElementById(b).textContent = sm; }
 }
 
 function drawFriend(){
@@ -636,98 +821,105 @@ function answerGroups(q){
   PARTIES.forEach((p,i)=>g[q.a[i]].push(p));
   return g;
 }
-function visibleQuestions(){ return QUESTIONS.filter(q=>filter==='all'||q.ax===filter); }
-function firstPending(qs){ const i = qs.findIndex(q=>answers[q.id]===undefined); return i<0 ? qs.length : i; }
+function topicQuestions(i){ return QUESTIONS.filter(q=>q.g===TOPICS[i].id); }
+function answeredIn(qs){ return qs.filter(q=>answers[q.id]!==undefined).length; }
 
 function buildCard(q){
   const card = document.createElement('div'); card.className='q'+(answers[q.id]!==undefined?' answered':''); card.id='q-'+q.id; card.tabIndex=-1;
   const name_ = 'r-'+q.id;
-  card.innerHTML = `<div class="q-top"><span class="axis-tag">${q.ax==='E'?'Economía':'Libertades'}</span><p class="q-text" id="t-${q.id}">${q.t}</p></div>
+  const num = String(QUESTIONS.indexOf(q)+1).padStart(2,'0');
+  card.innerHTML = `<div class="q-meta"><span class="qnum">${num} / ${QUESTIONS.length}</span><span class="axis-tag">${q.ax==='E'?'Economía':'Libertades'}</span></div>
+    <p class="q-text" id="t-${q.id}">${q.t}</p>
     ${q.c?`<details class="ctx"><summary>¿Qué significa?</summary><p>${q.c}</p></details>`:''}
     <div class="scale" role="radiogroup" aria-labelledby="t-${q.id}">
-      ${[-2,-1,0,1,2].map((v,k)=>`<label class="opt"><input type="radio" name="${name_}" id="${name_}-${k}" value="${v}" ${answers[q.id]===v?'checked':''}><span>${LABELS[k]}</span></label>`).join('')}
+      ${[-2,-1,0,1,2].map((v,k)=>`<label class="opt"><input type="radio" name="${name_}" id="${name_}-${k}" value="${v}" ${answers[q.id]===v?'checked':''} title="Pulsa otra vez para quitar la respuesta"><span>${LABELS[k]}</span></label>`).join('')}
     </div>
-    <div class="q-foot">
-      <button type="button" class="linkbtn" data-toggle="${q.id}" aria-expanded="${openAns.has(q.id)}" aria-controls="pa-${q.id}">${openAns.has(q.id)?'Ocultar':'Ver'} qué responde cada partido</button>
-      ${answers[q.id]!==undefined?`<button type="button" class="linkbtn" data-clear="${q.id}">Quitar mi respuesta</button>`:''}
-    </div>
-    <div class="parties-ans" ${openAns.has(q.id)?'':'hidden'} id="pa-${q.id}"></div>`;
+    <div class="parties-ans" id="pa-${q.id}" aria-label="Qué responde cada partido"></div>`;
   const pa = card.querySelector('.parties-ans');
   const g = answerGroups(q);
   [-2,-1,0,1,2].forEach((v,k)=>{
     const col = document.createElement('div'); col.className='col'+(answers[q.id]===v?' mine':'');
-    col.innerHTML = `<span class="h">${LABELS[k]}</span>` + (g[v].length ? g[v].map(p=>`<span class="n ${p.ref?'ref':''}">${p.name}${q.src&&q.src[p.id]?`<a class="src" href="${q.src[p.id]}" target="_blank" rel="noopener" aria-label="Fuente de la respuesta de ${p.full}">fuente</a>`:''}</span>`).join('') : '<span class="note">—</span>');
+    col.innerHTML = g[v].length ? g[v].map(p=>`<span class="n ${p.ref?'ref':''}">${p.name}${q.src&&q.src[p.id]?`<a class="src" href="${q.src[p.id]}" target="_blank" rel="noopener" aria-label="Fuente de la respuesta de ${p.full}">fuente</a>`:''}</span>`).join('') : '<span class="none">—</span>';
     pa.appendChild(col);
   });
   const markMine = ()=> pa.querySelectorAll('.col').forEach((c,k)=>c.classList.toggle('mine', answers[q.id]===[-2,-1,0,1,2][k]));
-  card.querySelectorAll('input').forEach(inp=>inp.addEventListener('change',()=>{
-    answers[q.id] = parseInt(inp.value,10); save(); card.classList.add('answered'); markMine(); refresh(false);
-    const foot = card.querySelector('.q-foot');
-    if(!foot.querySelector('[data-clear]')){ const b=document.createElement('button'); b.type='button'; b.className='linkbtn'; b.dataset.clear=q.id; b.textContent='Quitar mi respuesta'; foot.appendChild(b); bindClear(b, markMine); }
-    if(mode==='one' && !openAns.has(q.id)) setTimeout(()=>{ if(mode==='one' && visibleQuestions()[cur]===q){ cur++; drawQuestions(); focusCurrent(); } }, 380);
-    else if(mode==='one'){ const nx=document.getElementById('gNext'); if(nx) nx.textContent='Siguiente'; }
-  }));
-  bindToggle(card.querySelector('[data-toggle]'));
-  const c = card.querySelector('[data-clear]'); if(c) bindClear(c, markMine);
+  card.querySelectorAll('input').forEach(inp=>{
+    inp.addEventListener('pointerdown',()=>{ inp.dataset.was = inp.checked ? '1' : '0'; });
+    inp.addEventListener('click',()=>{
+      if(inp.dataset.was==='1'){ inp.checked=false; clearAnswer(q, card, markMine); }
+      else setAnswer(q, parseInt(inp.value,10), card, markMine);
+      inp.dataset.was='0';
+    });
+  });
   card.addEventListener('focusin',()=>setActive(card));
   card.addEventListener('pointerdown',()=>setActive(card));
   return card;
 }
+function setAnswer(q, v, card, markMine){ answers[q.id]=v; save(); card.classList.add('answered'); markMine(); refresh(false); }
+function clearAnswer(q, card, markMine){ delete answers[q.id]; save(); card.classList.remove('answered'); markMine(); refresh(false); }
 function setActive(card){ if(activeCard===card) return; if(activeCard) activeCard.classList.remove('active'); activeCard=card; if(card) card.classList.add('active'); }
+
+function drawSteps(){
+  const nav = document.getElementById('steps'); nav.innerHTML='';
+  TOPICS.forEach((t,i)=>{
+    const qs = topicQuestions(i), done = answeredIn(qs);
+    const b = document.createElement('button'); b.type='button'; b.className='step'+(done===qs.length?' done':'');
+    if(i===page) b.setAttribute('aria-current','step');
+    b.setAttribute('aria-label', `Ámbito ${i+1}, ${t.t}: ${done} de ${qs.length} respondidas`);
+    b.innerHTML = `<span class="s-n">${String(i+1).padStart(2,'0')} · ${done}/${qs.length}</span><span class="s-t">${t.t}</span><span class="s-b"><i style="width:${(100*done/qs.length).toFixed(0)}%"></i></span>`;
+    b.addEventListener('click',()=>goPage(i, true));
+    nav.appendChild(b);
+  });
+  const cur = nav.querySelector('[aria-current]'); if(cur && nav.scrollWidth>nav.clientWidth) nav.scrollTo({left: cur.offsetLeft - (nav.clientWidth - cur.offsetWidth)/2, behavior:'smooth'});
+}
 
 function drawQuestions(){
   const list = document.getElementById('qlist'); list.innerHTML=''; activeCard=null;
-  const qs = visibleQuestions();
-  document.getElementById('modeOne').setAttribute('aria-pressed', mode==='one');
-  document.getElementById('modeAll').setAttribute('aria-pressed', mode==='all');
-  if(mode==='all'){ qs.forEach(q=>list.appendChild(buildCard(q))); return; }
-  if(cur<0) cur=0; if(cur>qs.length) cur=qs.length;
-  if(cur===qs.length){
-    const n = Object.keys(answers).length;
-    const pend = qs.filter(q=>answers[q.id]===undefined).length;
-    const d = document.createElement('div'); d.className='q done';
-    d.innerHTML = `<h3>${pend ? 'Has llegado al final' : 'Has terminado'}</h3>
-      <p class="note">Has respondido ${n} de ${QUESTIONS.length} afirmaciones${pend ? ` (${pend} sin responder en este bloque)` : ''}${filter!=='all' ? '. Hay más en el otro bloque' : ''}.</p>
-      <div class="share-row"><button type="button" class="btn primary" id="gResult">Ver mi posición</button><button type="button" class="btn" id="gReview">Revisar mis respuestas</button>${cur>0?'<button type="button" class="btn" id="gPrev">Anterior</button>':''}</div>`;
-    list.appendChild(d);
-    document.getElementById('gResult').addEventListener('click',()=>{ document.getElementById('result').scrollIntoView({behavior:'smooth', block:'start'}); });
-    document.getElementById('gReview').addEventListener('click',()=>{ mode='all'; save(); drawQuestions(); });
-    const pv = document.getElementById('gPrev'); if(pv) pv.addEventListener('click',()=>{ cur--; drawQuestions(); focusCurrent(); });
-    return;
-  }
-  const q = qs[cur];
-  const nav = document.createElement('div'); nav.className='gnav';
-  nav.innerHTML = `<span class="progress">Pregunta ${cur+1} de ${qs.length}</span><div class="gbtns"><button type="button" class="btn" id="gPrev" ${cur===0?'disabled':''}>Anterior</button><button type="button" class="btn" id="gNext">${answers[q.id]===undefined?'Saltar':'Siguiente'}</button></div>`;
-  list.appendChild(nav);
-  list.appendChild(buildCard(q));
-  document.getElementById('gPrev').addEventListener('click',()=>{ cur--; drawQuestions(); focusCurrent(); });
-  document.getElementById('gNext').addEventListener('click',()=>{ cur++; drawQuestions(); focusCurrent(); });
+  const t = TOPICS[page], qs = topicQuestions(page);
+  document.getElementById('pagerHead').innerHTML = `<div><span class="label">Ámbito ${page+1} de ${TOPICS.length} · ${t.ax==='E'?'Economía':'Libertades'}</span><h2>${t.t}</h2></div><span class="pager-sub" id="pagerSub">${answeredIn(qs)} de ${qs.length} respondidas</span>`;
+  qs.forEach(q=>list.appendChild(buildCard(q)));
+  const nav = document.getElementById('pagerNav');
+  const last = page===TOPICS.length-1;
+  nav.innerHTML = `<button type="button" class="btn" id="pgPrev" ${page===0?'disabled':''}>← Anterior</button>
+    <span class="hint">${last ? 'Último ámbito' : `Siguiente: ${TOPICS[page+1].t}`}</span>
+    ${last ? `<button type="button" class="btn primary" id="pgNext">Ver mi resultado</button>` : `<button type="button" class="btn primary" id="pgNext">Siguiente ámbito →</button>`}`;
+  document.getElementById('pgPrev').addEventListener('click',()=>goPage(page-1, true));
+  document.getElementById('pgNext').addEventListener('click',()=>{ if(last) document.getElementById('dash').scrollIntoView({behavior:'smooth', block:'start'}); else goPage(page+1, true); });
+  drawSteps();
 }
-function focusCurrent(){ const c = document.querySelector('#qlist .q'); if(c){ c.focus({preventScroll:true}); setActive(c); const top=c.getBoundingClientRect().top; if(top<0||top>window.innerHeight*0.6) c.scrollIntoView({block:'start', behavior:'smooth'}); } }
-function bindToggle(b){ b.addEventListener('click',()=>{ const id=b.dataset.toggle; const pa=document.getElementById('pa-'+id); const open=!openAns.has(id); open?openAns.add(id):openAns.delete(id); pa.hidden=!open; b.setAttribute('aria-expanded',open); b.textContent=(open?'Ocultar':'Ver')+' qué responde cada partido'; }); }
-function bindClear(b, after){ b.addEventListener('click',()=>{ const id=b.dataset.clear; delete answers[id]; save(); const card=document.getElementById('q-'+id); card.classList.remove('answered'); card.querySelectorAll('input').forEach(i=>i.checked=false); b.remove(); if(after) after(); const nx=document.getElementById('gNext'); if(nx) nx.textContent='Saltar'; refresh(false); }); }
+function goPage(i, scroll){
+  if(i<0||i>=TOPICS.length) return;
+  page=i; save(); drawQuestions();
+  if(scroll){ const h=document.getElementById('pagerHead'); const top=h.getBoundingClientRect().top; if(top<0 || top>window.innerHeight*0.5) h.scrollIntoView({behavior:'smooth', block:'start'}); }
+}
 
-function drawProgress(){ document.getElementById('progress').textContent = `${Object.keys(answers).length} de ${QUESTIONS.length} respondidas`; }
+function drawProgress(){
+  const n=Object.keys(answers).length;
+  document.getElementById('pbar').style.width = (100*n/QUESTIONS.length).toFixed(1)+'%';
+  const ps = document.getElementById('pagerSub'); if(ps) ps.textContent = `${answeredIn(topicQuestions(page))} de ${topicQuestions(page).length} respondidas`;
+  drawSteps();
+}
 
 function drawTable(){
   const tb = document.querySelector('#ptable tbody');
   tb.innerHTML = PARTIES.map(p=>{ const s=partyScores[p.id]; return `<tr><td>${p.name}</td><td>${p.full} · ${p.lead}${p.note?`<br><span class="note">${p.note}</span>`:''}</td><td class="num">${Math.round(s.E)}</td><td class="num">${Math.round(s.P)}</td></tr>`; }).join('');
-  document.getElementById('dataVersion').textContent = `Datos de partidos y preguntas: versión ${DATA_VERSION}, actualizada el ${DATA_DATE}. ${QUESTIONS.filter(q=>q.ax==='E').length} afirmaciones de economía y ${QUESTIONS.filter(q=>q.ax==='P').length} de libertades. El registro de cambios está en el repositorio.`;
+  document.getElementById('dataVersion').textContent = `Datos de partidos y preguntas: versión ${DATA_VERSION}, actualizada el ${DATA_DATE}. ${QUESTIONS.filter(q=>q.ax==='E').length} afirmaciones de economía y ${QUESTIONS.filter(q=>q.ax==='P').length} de libertades, en ${TOPICS.length} ámbitos. El registro de cambios está en el repositorio.`;
 }
 
 function refresh(full=true){ if(full) drawQuestions(); drawChart(); drawResult(); drawFriend(); drawProgress(); }
 
-/* ---------- Teclado: 1–5 responde la pregunta activa, flechas cambian de pregunta ---------- */
+/* ---------- Teclado: 1–5 responde la pregunta activa, flechas cambian de pregunta (y de ámbito al llegar al borde) ---------- */
 function currentCard(){
-  if(mode==='one') return document.querySelector('#qlist .q:not(.done)');
   if(activeCard && document.contains(activeCard)) return activeCard;
   const cards=[...document.querySelectorAll('#qlist .q')]; return cards.find(c=>!c.classList.contains('answered')) || cards[0] || null;
 }
+function focusCard(t){ setActive(t); t.focus({preventScroll:true}); const r=t.getBoundingClientRect(); if(r.top<80 || r.bottom>window.innerHeight-20) t.scrollIntoView({block:'center', behavior:'smooth'}); }
 function moveCard(d){
-  if(mode==='one'){ const qs=visibleQuestions(); const nx=cur+d; if(nx<0||nx>qs.length) return; cur=nx; drawQuestions(); focusCurrent(); return; }
   const cards=[...document.querySelectorAll('#qlist .q')]; if(!cards.length) return;
-  const c = currentCard(); let i = cards.indexOf(c); i = Math.min(cards.length-1, Math.max(0, i+d));
-  const t = cards[i]; setActive(t); t.focus({preventScroll:true}); t.scrollIntoView({block:'center', behavior:'smooth'});
+  const c = currentCard(); const i = cards.indexOf(c) + d;
+  if(i<0){ if(page>0){ goPage(page-1,false); const cs=[...document.querySelectorAll('#qlist .q')]; focusCard(cs[cs.length-1]); } return; }
+  if(i>=cards.length){ if(page<TOPICS.length-1){ goPage(page+1,false); const cs=[...document.querySelectorAll('#qlist .q')]; focusCard(cs[0]); } return; }
+  focusCard(cards[i]);
 }
 document.addEventListener('keydown',(e)=>{
   if(e.metaKey||e.ctrlKey||e.altKey) return;
@@ -737,12 +929,12 @@ document.addEventListener('keydown',(e)=>{
     const card = currentCard(); if(!card) return;
     const inp = card.querySelector(`input[value="${parseInt(e.key,10)-3}"]`); if(!inp) return;
     e.preventDefault(); setActive(card);
-    if(!inp.checked){ inp.checked=true; inp.dispatchEvent(new Event('change',{bubbles:true})); }
-    if(mode==='all') setTimeout(()=>moveCard(1),180);
+    if(inp.checked){ inp.dataset.was='1'; inp.click(); return; }
+    inp.dataset.was='0'; inp.click();
+    setTimeout(()=>moveCard(1),180);
     return;
   }
-  const onRadio = tg.matches('input[type=radio]');
-  if(onRadio) return; // las flechas en un grupo de radios cambian la selección (comportamiento nativo)
+  if(tg.matches('input[type=radio]')) return; // las flechas en un grupo de radios cambian la selección (comportamiento nativo)
   if(e.key==='ArrowDown'||e.key==='ArrowRight'||e.key==='j'){ e.preventDefault(); moveCard(1); }
   else if(e.key==='ArrowUp'||e.key==='ArrowLeft'||e.key==='k'){ e.preventDefault(); moveCard(-1); }
 });
@@ -782,7 +974,7 @@ function paintChart(ctx, ox, oy, size, opts={}){
     const b={x:x+10*k,y:y-8*k,w,h}; placed.push(b); return b;
   };
   items.forEach(({p,s})=>{ const [x,y]=T(s.E,s.P); ctx.beginPath(); ctx.arc(x,y,(p.ref?6.5:5.5)*k,0,Math.PI*2); ctx.fillStyle=p.ref?cssVar(p.color):ink; ctx.fill(); ctx.strokeStyle=surface; ctx.lineWidth=1.5*k; ctx.stroke(); });
-  items.forEach(({p,s})=>{ const [x,y]=T(s.E,s.P); const b=labelOf(p.name,x,y); ctx.globalAlpha=.85; ctx.fillStyle=surface; rr(ctx,b.x,b.y,b.w,b.h,3*k); ctx.fill(); ctx.globalAlpha=1; txt(p.name,b.x+3*k,b.y+12*k,fB(12.5,600),p.ref?cssVar(p.color):ink,'left'); });
+  items.forEach(({p,s})=>{ const [x,y]=T(s.E,s.P); const b=labelOf(p.name,x,y); ctx.globalAlpha=.9; ctx.fillStyle=surface; rr(ctx,b.x,b.y,b.w,b.h,3*k); ctx.fill(); ctx.globalAlpha=1; txt(p.name,b.x+3*k,b.y+12*k,fB(12.5,600),p.ref?cssVar(p.color):ink,'left'); });
   marks.forEach(m=>{
     const color=cssVar(m.color);
     ctx.beginPath(); ctx.arc(m.x,m.y,11*k,0,Math.PI*2); ctx.globalAlpha=.18; ctx.fillStyle=color; ctx.fill(); ctx.globalAlpha=1; ctx.strokeStyle=color; ctx.lineWidth=2*k; ctx.stroke();
@@ -800,14 +992,14 @@ async function renderShareImage(imgMode){
   const W=1200, H=630, cv=document.getElementById('shareCanvas'); cv.width=W; cv.height=H;
   const ctx=cv.getContext('2d');
   await loadFonts();
-  const bg=cssVar('--bg'), ink=cssVar('--ink'), muted=cssVar('--muted'), accent=cssVar('--accent'), surface=cssVar('--surface'), soft=cssVar('--soft'), line=cssVar('--line');
+  const bg=cssVar('--bg'), ink=cssVar('--ink'), muted=cssVar('--muted'), accent=cssVar('--ink'), surface=cssVar('--surface'), soft=cssVar('--soft'), line=cssVar('--line-strong');
   ctx.fillStyle=bg; ctx.fillRect(0,0,W,H);
   ctx.fillStyle=surface; rr(ctx,32,35,560,560,20); ctx.fill(); ctx.strokeStyle=line; ctx.lineWidth=1.5; ctx.stroke();
   paintChart(ctx, 32, 35, 560, {showUser: imgMode==='user', showFriend:false});
   const X=640, COLW=520;
   const t=(s,x,y,font,color,align='left')=>{ ctx.font=font; ctx.fillStyle=color; ctx.textAlign=align; ctx.textBaseline='alphabetic'; ctx.fillText(s,x,y); };
   try{ ctx.letterSpacing='0.08em'; }catch(e){}
-  t('TEST DE NOLAN · GENERALES DE ESPAÑA · 29N 2026', X, 86, '500 17px "IBM Plex Mono", ui-monospace, monospace', accent);
+  t('TEST DE NOLAN · GENERALES DE ESPAÑA · 29N 2026', X, 86, '500 17px "IBM Plex Mono", ui-monospace, monospace', muted);
   try{ ctx.letterSpacing='0px'; }catch(e){}
   if(imgMode==='user'){
     const u=axisScore(q=>answers[q.id]); const E=u.E ?? 50, P=u.P ?? 50;
@@ -816,15 +1008,16 @@ async function renderShareImage(imgMode){
     const tile=(x,y,w,h,label,val)=>{ ctx.fillStyle=soft; rr(ctx,x,y,w,h,14); ctx.fill(); t(label,x+20,y+36,'400 18px "Source Sans 3", system-ui, sans-serif',muted); const vs=val===null?'—':String(Math.round(val)); t(vs,x+20,y+92,'500 50px "IBM Plex Mono", ui-monospace, monospace',ink); ctx.font='500 50px "IBM Plex Mono", ui-monospace, monospace'; const vw=ctx.measureText(vs).width; t('/100',x+20+vw+8,y+92,'400 18px "Source Sans 3", system-ui, sans-serif',muted); };
     tile(X,268,250,116,'Libertad económica',u.E); tile(X+270,268,250,116,'Libertad personal',u.P);
     if(SHARE_SHOW_TOP_PARTY){
-      const top=PARTIES.map((p,i)=>({p,a:affinity(i)})).filter(r=>!r.p.ref).sort((a,b)=>b.a-a.a)[0];
-      if(top) t(`Partido más afín por respuestas: ${top.p.name} (${top.a.toFixed(0)} %)`, X, 436, '600 24px "Source Sans 3", system-ui, sans-serif', ink);
+      const vt = verdictTexts(verdict());
+      if(vt.share){ ctx.font='600 24px "Source Sans 3", system-ui, sans-serif'; ctx.fillStyle=ink; ctx.textAlign='left'; wrapText(ctx, vt.share, X, 436, COLW, 30); }
     }
-    t('¿Dónde caes tú?', X, 536, '400 28px "Source Sans 3", system-ui, sans-serif', muted);
+    t('¿Y a ti? Son 5 minutos.', X, 536, '400 28px "Source Sans 3", system-ui, sans-serif', muted);
   } else {
-    t('¿Dónde caes tú', X, 178, '700 68px "Bricolage Grotesque", system-ui, sans-serif', ink);
-    t('en el rombo?', X, 250, '700 68px "Bricolage Grotesque", system-ui, sans-serif', ink);
-    ctx.font='400 26px "Source Sans 3", system-ui, sans-serif'; ctx.fillStyle=muted; ctx.textAlign='left';
-    wrapText(ctx, `Test político basado en el diagrama de Nolan para las elecciones generales de España del 29 de noviembre de 2026. ${QUESTIONS.length} afirmaciones, dos ejes y los partidos situados con las mismas preguntas.`, X, 312, COLW, 36);
+    t('¿Qué partido te', X, 170, '700 60px "Bricolage Grotesque", system-ui, sans-serif', ink);
+    t('representa', X, 234, '700 60px "Bricolage Grotesque", system-ui, sans-serif', ink);
+    t('de verdad?', X, 298, '700 60px "Bricolage Grotesque", system-ui, sans-serif', ink);
+    ctx.font='400 25px "Source Sans 3", system-ui, sans-serif'; ctx.fillStyle=muted; ctx.textAlign='left';
+    wrapText(ctx, `Si no sabes a quién votar el 29N: ${QUESTIONS.length} afirmaciones, 5 minutos, y ves con qué partido coincides de verdad. Y con cuál no.`, X, 352, COLW, 34);
     t('Gratis, sin registro y sin guardar nada.', X, 536, '400 28px "Source Sans 3", system-ui, sans-serif', muted);
   }
   t(SITE_SHORT, X, 588, '700 46px "Bricolage Grotesque", system-ui, sans-serif', accent);
@@ -832,7 +1025,8 @@ async function renderShareImage(imgMode){
 }
 function shareText(){
   const u=axisScore(q=>answers[q.id]); const E=u.E ?? 50, P=u.P ?? 50;
-  return `Me sale ${zoneOf(E,P)} (${u.E===null?'—':Math.round(u.E)}/${u.P===null?'—':Math.round(u.P)}) en el test de Nolan para las generales del 29N. ¿Dónde caes tú?`;
+  const vt = verdictTexts(verdict());
+  return `Me sale ${zoneOf(E,P)} (${u.E===null?'—':Math.round(u.E)}/${u.P===null?'—':Math.round(u.P)}) en el test de Nolan para el 29N${vt.share && SHARE_SHOW_TOP_PARTY ? ' y '+vt.share.charAt(0).toLowerCase()+vt.share.slice(1) : ''}. Son 5 minutos. ¿Y a ti?`;
 }
 function downloadBlob(blob,fname){ const a=document.createElement('a'); a.href=URL.createObjectURL(blob); a.download=fname; document.body.appendChild(a); a.click(); setTimeout(()=>{ URL.revokeObjectURL(a.href); a.remove(); },1500); }
 function setShareMsg(s){ document.getElementById('shareMsg').textContent = s; }
@@ -870,36 +1064,44 @@ async function shareResult(){
 }
 document.getElementById('shareBtn').addEventListener('click',shareResult);
 document.getElementById('copyLink').addEventListener('click',()=>copyToClipboard(compareUrl(),'Enlace copiado. Quien lo abra verá tu punto en el rombo junto al suyo.'));
+document.getElementById('stripResult').addEventListener('click',()=>document.getElementById('dash').scrollIntoView({behavior:'smooth', block:'start'}));
+document.getElementById('liveTop').addEventListener('click',()=>document.getElementById('dash').scrollIntoView({behavior:'smooth', block:'start'}));
 const nameInput = document.getElementById('nameInput'); nameInput.value = name;
 nameInput.addEventListener('input',()=>{ name = cleanName(nameInput.value); save(); drawChart(); });
 
 /* ---------- Interacción general ---------- */
-document.querySelectorAll('.tab[role=tab]').forEach(t=>t.addEventListener('click',()=>{
-  filter=t.dataset.f; document.querySelectorAll('.tab[role=tab]').forEach(x=>x.setAttribute('aria-selected', x===t?'true':'false')); cur=firstPending(visibleQuestions()); drawQuestions();
-}));
-document.getElementById('modeOne').addEventListener('click',()=>{ if(mode==='one') return; mode='one'; cur=firstPending(visibleQuestions()); save(); drawQuestions(); });
-document.getElementById('modeAll').addEventListener('click',()=>{ if(mode==='all') return; mode='all'; save(); drawQuestions(); });
-let resetArmed=false, resetTimer;
-document.getElementById('reset').addEventListener('click',(e)=>{
-  const btn=e.currentTarget, note=document.getElementById('resetConfirm');
-  if(!Object.keys(answers).length){ note.hidden=false; note.textContent='No hay respuestas que borrar.'; clearTimeout(resetTimer); resetTimer=setTimeout(()=>note.hidden=true,2500); return; }
-  if(!resetArmed){ resetArmed=true; btn.textContent='Pulsa otra vez para borrar'; resetTimer=setTimeout(()=>{resetArmed=false; btn.textContent='Borrar respuestas';},4000); return; }
-  clearTimeout(resetTimer); resetArmed=false; btn.textContent='Borrar respuestas';
-  answers={}; cur=0; save(); note.hidden=false; note.textContent='Respuestas borradas de este navegador.'; setTimeout(()=>note.hidden=true,2500); refresh();
-});
 window.addEventListener('hashchange',()=>{ friend=readFriend(); refresh(false); });
-const mq = window.matchMedia('(prefers-color-scheme: dark)');
-if(mq.addEventListener) mq.addEventListener('change',()=>drawChart());
-new MutationObserver(()=>drawChart()).observe(document.documentElement,{attributes:true,attributeFilter:['data-theme']});
+// Las secciones informativas solo se abren al pulsar su título o un enlace de la barra superior; nunca por defecto ni al recargar con el hash en la URL.
+document.querySelectorAll('a.top-link[href^="#"]').forEach(a=>a.addEventListener('click',()=>{ const d=document.getElementById(a.getAttribute('href').slice(1)); if(d && d.tagName==='DETAILS') d.open=true; }));
+
+// Botón de borrar: dentro del pie de la página de preguntas para no competir con el flujo principal
+(function(){
+  const nav = document.querySelector('.kbd-hint');
+  const b = document.createElement('button'); b.type='button'; b.className='linkbtn'; b.id='reset'; b.textContent='Borrar todas mis respuestas'; b.style.marginTop='10px'; b.style.display='inline-block';
+  nav.insertAdjacentElement('afterend', b);
+  let armed=false, timer;
+  b.addEventListener('click',()=>{
+    const note=document.getElementById('resetConfirm');
+    if(!Object.keys(answers).length){ note.hidden=false; note.textContent='No hay respuestas que borrar.'; clearTimeout(timer); timer=setTimeout(()=>note.hidden=true,2500); return; }
+    if(!armed){ armed=true; b.textContent='Pulsa otra vez para borrar'; timer=setTimeout(()=>{armed=false; b.textContent='Borrar todas mis respuestas';},4000); return; }
+    clearTimeout(timer); armed=false; b.textContent='Borrar todas mis respuestas';
+    answers={}; page=0; save(); note.hidden=false; note.textContent='Respuestas borradas de este navegador.'; setTimeout(()=>note.hidden=true,2500); refresh();
+  });
+})();
 
 // Modo ?og: muestra solo la imagen de 1200 × 630. Con ?og=1 la genérica (para capturarla como og-image.png); con ?og=user la de tu resultado.
 const ogMode = new URLSearchParams(location.search).get('og');
 if(ogMode!==null){
   document.body.classList.add('og');
-  if(ogMode!=='user') document.documentElement.setAttribute('data-theme','light');
   renderShareImage(ogMode==='user'?'user':'og').then(()=>{ document.body.dataset.ogReady='1'; });
 } else {
-  cur = firstPending(visibleQuestions());
+  document.getElementById('factQ').textContent = QUESTIONS.length;
+  document.getElementById('factT').textContent = TOPICS.length;
+  const S = partyScores, dist = (a,b)=>Math.round(Math.hypot(S[a].E-S[b].E, S[a].P-S[b].P));
+  const gap = Math.round(S.milei.P - S.bukele.P), dMB = dist('milei','bukele'), dPP = dist('pp','psoe');
+  document.getElementById('refGap').textContent = gap;
+  document.getElementById('refCmp').textContent = `${dMB} puntos de distancia en el rombo, frente a ${dPP} entre el PP y el PSOE`;
+  document.getElementById('refNote').innerHTML = `<strong>Milei y Bukele</strong> están de referencia a propósito: se les mete en el mismo saco y en el rombo están tan lejos entre sí como el PP del PSOE (${dMB} y ${dPP} puntos), solo que en el otro eje. PP y PSOE discrepan en economía; Milei y Bukele, en libertades personales (${gap} puntos). La derecha española tampoco se parece tanto a ninguno de los dos.`;
   drawLegend(); drawTable(); refresh();
 }
 </script>
