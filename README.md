@@ -376,60 +376,16 @@ La viralidad se busca con una **imagen generada en el navegador** que el usuario
 
 ## Tareas pendientes
 
-### Repositorio y despliegue
-
-- [ ] Crear el repositorio público y subir el prototipo actual.
-- [ ] Configurar el email de commits con la dirección privada de GitHub (`usuario@users.noreply.github.com`).
-- [ ] Añadir `LICENSE` (MIT) para el código y `LICENSE-DATA` (CC BY 4.0) para los datos de partidos y preguntas. Ver [Licencia](#licencia).
-- [ ] Conectar el repositorio a Cloudflare (Workers con static assets o Pages) con despliegue automático desde `main`.
-- [ ] Configurar el dominio `testnolan.com` en Cloudflare y la redirección 301 de `testnolan.es` a `testnolan.com/es`.
-- [ ] Redirigir la raíz `/` a `/es` mientras solo exista el test español (o mostrar una portada con selector).
-- [ ] Opcional: Cloudflare Web Analytics, que no usa cookies, para medir visitas sin recoger datos personales.
-
 ### Refactorización del código
 
 - [ ] Separar el archivo único en `index.html`, `styles.css`, `app.js` y un fichero de datos (`data/es-2026.json`).
 - [ ] Validación del fichero de datos al cargar o en CI: cada array de respuestas tiene tantos valores como partidos, todos los valores están entre −2 y +2, `dir` es +1 o −1, los `id` son únicos, cada eje tiene al menos 10 preguntas.
 - [ ] Tests unitarios deterministas para las funciones puras: puntuación por eje, afinidad, zona y conversión a coordenadas del rombo. Deben reproducir la tabla de posiciones de este README.
-- [x] Cambiar la clave de `localStorage` por una por elección (`testnolan-es-2026`) para no mezclar respuestas entre tests.
-
-### Compartir en redes (prioridad alta para la viralidad)
-
-- [x] Botón **"Compartir mi resultado"** que genere en un `<canvas>` una imagen de **1200 × 630** con: el rombo, los partidos, el punto del usuario destacado, su zona, sus dos puntuaciones, el partido con mayor afinidad (opcional, ver advertencia legal) y la URL **testnolan.com** bien visible.
-- [x] En móvil, usar la **Web Share API** con archivo (`navigator.share({ files, text, url })`) para enviar la imagen directamente a WhatsApp, Instagram, X, etc. Texto sugerido: "Me sale Libertario (69/81). ¿Dónde caes tú? testnolan.com".
-- [x] En escritorio, descargar el PNG y abrir la ventana de publicación de X (`https://twitter.com/intent/tweet?text=…&url=…`) y de Facebook con el texto y la URL ya escritos.
-- [x] **Enlace del grupo**: nombres y puntuaciones de todo el grupo en el *hash* de la URL (`#g=…`), que nunca llega al servidor. Quien lo abre ve a todos en el rombo y puede sumarse y reenviarlo. Sustituye al enlace de una sola persona con las respuestas codificadas.
-- [x] Etiquetas **Open Graph y Twitter Card** con una imagen estática del rombo, título y descripción, para que el enlace se vea bien al pegarlo. La imagen se regenera con Chrome headless:
-  ```
-  google-chrome --headless=new --window-size=1200,630 --hide-scrollbars --virtual-time-budget=8000 --screenshot=public/og-image.png "http://localhost:8000/es/index.html?og=1"
-  ```
-- [ ] Probar la descarga y la Web Share API en móviles reales; en el visor de Claude están bloqueadas.
-- [ ] Probar la paginación por ámbitos y los atajos de teclado con lector de pantalla.
-
-### Contenido y transparencia
-
-- [ ] Añadir a cada respuesta de cada partido una **fuente** (enlace a programa, votación o declaración). El desplegable ya la muestra si existe: basta con añadir a la pregunta un campo `src:{pp:'https://…', psoe:'https://…'}`.
-- [ ] Revisar las respuestas cuando los partidos publiquen sus programas completos (a 1 de noviembre de 2026 ninguno lo había hecho). Prioridad: las casillas sin evidencia que listan `docs/verificacion-2026-11-01.md` y `docs/revision-libertades-2026-11-01.md` (sobre todo SALF en libertades, que sigue extrapolado, y los votos nominales del Parlamento Europeo sobre Chat Control de julio de 2026). Comprobar en el BOE del 3 de noviembre las candidaturas proclamadas.
-- [x] Indicar en la web en qué circunscripciones se presentan D21 + Cs (solo Madrid y Barcelona) y SALF (algunas provincias).
-- [ ] Valorar añadir los partidos territoriales (ERC, Junts, PNV, EH Bildu, BNG, Coalición Canaria) con un filtro por comunidad.
-- [x] Mencionar las críticas al modelo de Nolan (en la sección «Qué es el test de Nolan», apartado «Límites del modelo»).
-- [x] En el pie: "Hecho por Robert Menetray" con enlace a menetray.com, "¿Ves algún error en las posiciones? Abre un aviso en GitHub" enlazando a los issues del repositorio, y el enlace al código.
-- [x] Textos legales mínimos: aviso de que no se guardan datos, de que las posiciones son estimaciones y de que el test no recomienda votar a ningún partido.
-
-### Periodo de prohibición de encuestas (24–28 de noviembre)
-
-- [ ] Revisar si la imagen para compartir debe omitir el veredicto («me representa X») esos días, o mostrar solo la zona y las puntuaciones. Consultarlo con alguien con conocimientos legales; no hay criterio cerrado. Para omitirlo basta con poner `SHARE_SHOW_TOP_PARTY = false` en `index.html`.
 
 ### Accesibilidad y calidad
 
-- [x] Revisar contraste en ambos temas, navegación con teclado en la escala de respuestas y textos alternativos del SVG (la descripción del SVG se actualiza con la posición del usuario).
-- [ ] Probar en móviles reales (Safari iOS y Chrome Android), sobre todo la Web Share API.
-- [x] Respetar `prefers-reduced-motion` en cualquier animación nueva.
-
-### Futuro (no prioritario)
-
-- [ ] Traducciones (castellano, catalán, inglés).
-- [ ] Artículo en menetray.com contando cómo se hizo y qué tráfico aguantó con coste cero.
+- [ ] Probar en móviles reales (Safari iOS y Chrome Android): la Web Share API con imagen, la descarga del PNG, la copia del enlace y la paginación.
+- [ ] Probar la paginación por ámbitos y los atajos de teclado con lector de pantalla.
 
 ---
 
