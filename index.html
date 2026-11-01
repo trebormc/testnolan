@@ -647,7 +647,8 @@ let activeCard = null; // tarjeta activa (para el teclado)
 let showAllMatches = false;
 let group = [];        // [{name,E,P,src}] personas recibidas por enlace (#g=) o añadidas a mano. Nunca llega al servidor.
 
-function cleanName(s){ return String(s||'').replace(/[<>"'&~|]/g,'').trim().slice(0,NAME_MAX); }
+// Nombre: se permiten tildes, eñes, ces trencadas, apóstrofos y cualquier letra (se envía en UTF-8 codificado). Se quitan solo los caracteres que romperían el HTML o el formato del enlace (~ y | separan campos; % y + confunden al leer el hash).
+function cleanName(s){ return String(s||'').replace(/[<>"&~|%+]/g,'').replace(/\s+/g,' ').trim().slice(0,NAME_MAX); }
 function esc(s){ return String(s).replace(/[&<>"']/g, c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c])); }
 
 try{ const s = JSON.parse(localStorage.getItem(STORE_KEY)||'null'); if(s){ answers = s.answers||{}; hidden = new Set(s.hidden||[]); name = cleanName(s.name); group = Array.isArray(s.group) ? s.group.map(cleanPerson).filter(Boolean) : []; page = Number.isInteger(s.page) ? Math.min(Math.max(0,s.page),TOPICS.length-1) : 0; } }catch(e){}
