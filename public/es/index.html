@@ -37,9 +37,9 @@
   "isAccessibleForFree": true,
   "description": "Test político basado en el diagrama de Nolan que sitúa al usuario y a los partidos de las elecciones generales de España del 29 de noviembre de 2026 a partir del mismo cuestionario.",
   "author": {"@type": "Person", "name": "Robert Menetray", "url": "https://menetray.com"},
-  "about": {"@type": "Event", "name": "Elecciones generales de España 2026", "startDate": "2026-11-29", "location": {"@type": "Country", "name": "España"}}
-}
-</script>
+  "about": {"@type": "Event", "name": "Elecciones generales de España 2026", "startDate": "2026-11-29", "location": {"@type": "Country", "name": "España"}},
+  "sameAs": ["https://github.com/trebormc/testnolan"]
+}</script>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -508,7 +508,7 @@ body.og #shareCanvas{display:block;width:1200px;height:630px}
   <footer class="foot">
     <div><span class="label">Tus datos</span><p><strong>Ninguno.</strong> No hay cuentas, ni cookies, ni analítica, ni ningún servidor que reciba tus respuestas. Lo que marcas se queda en tu propio navegador, para que no lo pierdas si recargas o vuelves otro día. Lo cambias o lo borras cuando quieras con «Borrar todas mis respuestas». Nadie más que tú puede verlo. Si compartes el enlace del grupo, los nombres y las dos puntuaciones de cada persona van en la propia dirección, detrás de la almohadilla, que nunca llega a ningún servidor. Tus respuestas una a una no viajan nunca.</p></div>
     <div><span class="label">Aviso</span><p>Esto <strong>no lo ha hecho ningún partido</strong> ni nadie que quiera que votes a uno en concreto. Las posiciones de los partidos son <strong>estimaciones</strong> a partir de fuentes públicas y pueden tener errores. El test <strong>no te recomienda a quién votar</strong> ni es una encuesta: solo compara tus respuestas con lo que dicen las candidaturas, para que votes sabiendo en qué coincides y en qué no.</p></div>
-    <div><span class="label">Autoría</span><p>Hecho por <a href="https://menetray.com">Robert Menetray</a>. ¿Ves algún error en las posiciones? <a href="https://menetray.com">Escríbeme</a> indicando la fuente. <!-- TODO: sustituir el enlace de «Escríbeme» por la URL de issues del repositorio cuando sea público --> El código es abierto, con licencia MIT, y los datos de partidos y preguntas van con licencia CC BY 4.0.</p></div>
+    <div><span class="label">Autoría</span><p>Hecho por <a href="https://menetray.com">Robert Menetray</a>. ¿Ves algún error en las posiciones? <a href="https://github.com/trebormc/testnolan/issues" target="_blank" rel="noopener">Abre un aviso en GitHub</a> indicando la fuente. El código es abierto en <a href="https://github.com/trebormc/testnolan" target="_blank" rel="noopener">github.com/trebormc/testnolan</a>, con licencia MIT, y los datos de partidos y preguntas van con licencia CC BY 4.0.</p></div>
   </footer>
 </div>
 
@@ -944,7 +944,7 @@ function whyBox(q){
     const box = d.querySelector('.why-box');
     const rows = PARTIES.map((p,i)=>{ const v = q.a[i]; const w = (WHY[p.id]||{})[q.id]; const txt = w && w[0] ? esc(w[0]) : 'Pendiente de documentar.'; const url = w && w[1] ? `<a href="${esc(w[1])}" target="_blank" rel="noopener">fuente</a>` : '';
       return `<div class="why-row${p.ref?' ref':''}"><span class="why-name">${p.name}</span><span class="why-pos">${v===null?'Sin dato':POS_LABEL[v]}</span><p>${txt} ${url}</p></div>`; });
-    box.innerHTML = rows.join('') + '<p class="note why-foot">Las posiciones se asignan con programas, votos y declaraciones, y en las referencias internacionales solo con lo hecho gobernando. Si ves un error, escríbenos desde el pie de la página.</p>';
+    box.innerHTML = rows.join('') + '<p class="note why-foot">Las posiciones se asignan con programas, votos y declaraciones, y en las referencias internacionales solo con lo hecho gobernando. Si ves un error, <a href="https://github.com/trebormc/testnolan/issues" target="_blank" rel="noopener">abre un aviso en GitHub</a> con la fuente.</p>';
   });
   return d;
 }
@@ -1037,7 +1037,7 @@ function drawProgress(){
 function drawTable(){
   const tb = document.querySelector('#ptable tbody');
   tb.innerHTML = PARTIES.map(p=>{ const s=partyScores[p.id]; return `<tr><td>${p.name}</td><td>${p.full} · ${p.lead}${p.note?`<br><span class="note">${p.note}</span>`:''}</td><td class="num">${Math.round(s.E)}</td><td class="num">${Math.round(s.P)}</td></tr>`; }).join('');
-  document.getElementById('dataVersion').textContent = `Datos de partidos y preguntas: versión ${DATA_VERSION}, actualizada el ${DATA_DATE}. ${QUESTIONS.filter(q=>q.ax==='E').length} afirmaciones de economía y ${QUESTIONS.filter(q=>q.ax==='P').length} de libertades, en ${TOPICS.length} ámbitos. El registro de cambios está en el repositorio.`;
+  document.getElementById('dataVersion').textContent = `Datos de partidos y preguntas: versión ${DATA_VERSION}, actualizada el ${DATA_DATE}. ${QUESTIONS.filter(q=>q.ax==='E').length} afirmaciones de economía y ${QUESTIONS.filter(q=>q.ax==='P').length} de libertades, en ${TOPICS.length} ámbitos. El registro de cambios y las fuentes están en el repositorio.`;
 }
 
 function refresh(full=true){ if(full) drawQuestions(); drawChart(); drawResult(); drawGroup(); drawProgress(); }

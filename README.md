@@ -4,6 +4,7 @@ Test político interactivo que sitúa al usuario y a los partidos en el **diagra
 
 - Dominio principal: **testnolan.com** (con **testnolan.es** redirigiendo a la versión española).
 - Tecnología: una página estática (HTML + CSS + JavaScript, sin dependencias ni backend).
+- Código y datos: [github.com/trebormc/testnolan](https://github.com/trebormc/testnolan), público.
 - Hosting: Cloudflare, desplegado automáticamente desde este repositorio.
 - Autor: [Robert Menetray](https://menetray.com).
 
@@ -415,7 +416,7 @@ La viralidad se busca con una **imagen generada en el navegador** que el usuario
 - [x] Indicar en la web en qué circunscripciones se presentan D21 + Cs (solo Madrid y Barcelona) y SALF (algunas provincias).
 - [ ] Valorar añadir los partidos territoriales (ERC, Junts, PNV, EH Bildu, BNG, Coalición Canaria) con un filtro por comunidad.
 - [x] Mencionar las críticas al modelo de Nolan (en la sección «Qué es el test de Nolan», apartado «Límites del modelo»).
-- [x] En el pie: "Hecho por Robert Menetray" con enlace a menetray.com y "¿Ves algún error en las posiciones? Escríbeme". Pendiente: cambiar el enlace de «Escríbeme» por la URL de issues cuando el repositorio sea público.
+- [x] En el pie: "Hecho por Robert Menetray" con enlace a menetray.com, "¿Ves algún error en las posiciones? Abre un aviso en GitHub" enlazando a los issues del repositorio, y el enlace al código.
 - [x] Textos legales mínimos: aviso de que no se guardan datos, de que las posiciones son estimaciones y de que el test no recomienda votar a ningún partido.
 
 ### Periodo de prohibición de encuestas (24–28 de noviembre)
@@ -489,7 +490,7 @@ Previsto para más adelante: `CONTRIBUTING.md`, una plantilla de issue para prop
 
 Las correcciones son bienvenidas, sobre todo en las respuestas de los partidos. Para que se acepten:
 
-1. Abre un issue con la plantilla "Corrección de posición".
+1. Abre un issue en [github.com/trebormc/testnolan/issues](https://github.com/trebormc/testnolan/issues) (la plantilla "Corrección de posición" está prevista, de momento en texto libre).
 2. Indica el partido, la pregunta (`id`), la respuesta actual, la que propones y **al menos una fuente** verificable (programa, votación en el Congreso, declaración pública con fecha).
 3. Los cambios deben respetar los [criterios de clasificación](#criterios-de-clasificación).
 
