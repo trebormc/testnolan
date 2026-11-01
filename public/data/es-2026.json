@@ -1,5 +1,5 @@
 {
- "version": "1.8",
+ "version": "1.9",
  "date": "1 de noviembre de 2026",
  "notes": {
   "a": "Respuestas en el orden de parties, de -2 (muy en contra) a +2 (muy a favor); null = sin dato, no cuenta en la posición ni en la afinidad.",
@@ -664,7 +664,7 @@
     0,
     null,
     -1,
-    null,
+    1,
     1,
     -2,
     null,
@@ -716,7 +716,7 @@
     2,
     2,
     null,
-    null,
+    1,
     null,
     -2,
     null,
@@ -826,7 +826,7 @@
     2,
     2,
     2,
-    null,
+    1,
     -1,
     2,
     0,
@@ -883,7 +883,7 @@
     2,
     null,
     null,
-    null,
+    1,
     0
    ],
    "c": "El Código Penal castiga con multa los ultrajes a España y sus símbolos, las injurias al Rey y las ofensas a los sentimientos religiosos. Son los artículos por los que se condenó a raperos y humoristas. PSOE y Sumar pactaron en junio de 2026 una ley para eliminarlos y el Congreso rechazó en julio las enmiendas del PP y de Vox para mantenerlos o endurecerlos. La ley decayó al disolverse las Cortes, así que el debate vuelve con las elecciones."
@@ -932,7 +932,7 @@
     2,
     -1,
     -2,
-    null,
+    -1,
     -2,
     null,
     null,
@@ -1015,7 +1015,7 @@
     -2,
     0,
     -2,
-    null,
+    -1,
     2,
     -2,
     1,
@@ -1067,7 +1067,7 @@
     1,
     null,
     null,
-    null,
+    -1,
     0,
     null,
     null,
@@ -1200,14 +1200,14 @@
     -2,
     null,
     -1,
-    null,
+    1,
     1,
     2,
     2,
-    null,
+    1,
     -1,
     1,
-    null,
+    -1,
     -2
    ],
    "c": "Más presencia de la religión en la escuela pública (asignatura, símbolos) y en los actos institucionales, frente a un Estado más neutral en materia religiosa."
@@ -1256,11 +1256,11 @@
     null,
     null,
     null,
+    -1,
     null,
     null,
     null,
-    null,
-    null,
+    1,
     1,
     1
    ],
@@ -1346,8 +1346,8 @@
     "https://www.whitehouse.gov/presidential-actions/2025/01/putting-america-first-in-international-environmental-agreements/"
    ],
    "e_okupa": [
-    "No aplica: en Estados Unidos la okupación es competencia de los estados, no del presidente.",
-    ""
+    "Prometió en Green Bay el 2 de abril de 2024 un grupo de trabajo para eliminar toda protección legal a quien invoca derechos de okupa.",
+    "https://www.yahoo.com/news/immigration-2020-false-claims-takeaways-232042962.html"
    ],
    "p_expul": [
     "Firmó la orden del 20 de enero de 2025, lanzó redadas de ICE, envió la Guardia Nacional a Los Ángeles y puso fin al parole.",
@@ -1378,8 +1378,8 @@
     "https://www.whitehouse.gov/presidential-actions/2025/06/department-of-defense-security-for-the-protection-of-department-of-homeland-security-functions/"
    ],
    "p_euta": [
-    "No aplica: en Estados Unidos la eutanasia es competencia de los estados.",
-    ""
+    "Su Departamento de Estado calificó en julio de 2025 la ley británica de muerte asistida de suicidio subvencionado por el Estado y reafirmó la santidad de la vida.",
+    "https://care.org.uk/news/2025/07/white-house-condemns-uk-assisted-dying-bill-as-state-sponsored-suicide"
    ],
    "p_matr": [
     "Dio el matrimonio igualitario por «resuelto» en 2016 y no ha actuado contra la sentencia Obergefell.",
@@ -1398,8 +1398,8 @@
     "https://www.whitehouse.gov/presidential-actions/2025/05/ending-taxpayer-subsidization-of-biased-media/"
    ],
    "p_burka": [
-    "No hay ninguna medida ni declaración de Trump sobre esto.",
-    ""
+    "En octubre de 2015 dijo en New Hampshire que hay que dejar a las mujeres llevar burka si quieren y que no merece la pena pelear por eso.",
+    "https://time.com/4087545/donald-trump-burqas/"
    ],
    "p_ileg": [
     "No hay ninguna medida ni declaración de Trump sobre esto.",
@@ -1426,8 +1426,8 @@
     ""
    ],
    "p_menores": [
-    "La Take It Down Act que firmó no fija ninguna edad mínima.",
-    ""
+    "Su embajada en Londres pidió en junio de 2026 al Reino Unido evitar vetos generales de redes a menores de 16 y preferir reglas focalizadas.",
+    "https://www.lbc.co.uk/article/white-house-starmer-social-media-under-16s-5HjdbHt_2/"
    ]
   },
   "putin": {
@@ -1662,8 +1662,8 @@
     "https://eldiario.com/2022/12/28/el-regimen-de-nicolas-maduro-extendio-la-inamovilidad-laboral-hasta-2024/"
    ],
    "e_jorn": [
-    "La jornada de 40 horas se aprobó en Venezuela en 2012, antes de que Maduro fuera presidente.",
-    ""
+    "Su gobierno aprobó el 30 de abril de 2013 el reglamento que aplicó desde mayo la reducción legal de la jornada de 44 a 40 horas semanales.",
+    "https://littler.com/node/76556"
    ],
    "e_ecol": [
     "Impulsó el Arco Minero del Orinoco sin evaluación ambiental.",
@@ -1686,8 +1686,8 @@
     "https://www.hrw.org/es/world-report/2021/country-chapters/venezuela"
    ],
    "p_perp": [
-    "La pena máxima sigue en 30 años y no ha cambiado.",
-    ""
+    "En abril de 2024 propuso reformar la Constitución para castigar con cadena perpetua la corrupción y la traición a la patria, penas hoy prohibidas en Venezuela.",
+    "https://www.vozdeamerica.com/a/chavismo-propone-carcel-perpetua-corruptos/7571207.html"
    ],
    "p_odio": [
     "La Ley contra el Odio de 2017 castiga con hasta 20 años de prisión.",
@@ -1714,8 +1714,8 @@
     "https://efectococuyo.com/la-humanidad/legislacion-venezolana-sobre-el-aborto-es-una-de-las-mas-restrictivas-de-la-region/"
    ],
    "p_cann": [
-    "No hay ninguna medida ni declaración de Maduro sobre esto.",
-    ""
+    "En rueda de prensa del 15 de septiembre de 2025 dijo que la marihuana seguirá siendo ilegal y que Venezuela no caerá en la tendencia de legalizar drogas.",
+    "https://sechat.com.br/en/noticia/we-will-never-legalize-maduro-rejects-cannabis-in-venezuela-and-criticizes-the-us"
    ],
    "p_medio": [
     "Cerró emisoras, bloqueó 63 webs y bloqueó X en 2024.",
@@ -1742,8 +1742,8 @@
     "https://www.bbc.com/news/world-latin-america-29308509"
    ],
    "p_relig": [
-    "Tiene programas para iglesias evangélicas, pero sin una fuente verificada.",
-    ""
+    "Su gobierno creó en 2023 el programa Mi Iglesia Bien Equipada y en marzo de 2024 amplió a 40.000 pastores evangélicos el Bono El Buen Pastor.",
+    "https://www.christianitytoday.com/news/2024/april/venezuela-maduro-evangelicals.html"
    ],
    "p_toros": [
     "No hay ninguna medida ni declaración de Maduro sobre esto.",
@@ -2074,8 +2074,8 @@
     ""
    ],
    "p_menores": [
-    "Hay proyectos de ley que no se han aprobado.",
-    ""
+    "Dijo el 17 de junio de 2026, tras el G7, que no es contraria al veto de redes a menores de 16 aunque dudó de que baste por sí solo.",
+    "https://www.lapresse.it/video/2026/06/17/social-media-meloni-divieto-non-basta-serve-coinvolgere-piattaforme/"
    ]
   },
   "pp": {
@@ -3362,8 +3362,8 @@
     "https://www.perfil.com/noticias/sociedad/por-decreto-el-gobierno-de-milei-habilito-la-compra-y-tenencia-de-armas-semiautomaticas-para-civiles.phtml"
    ],
    "p_relig": [
-    "No hay medida: su religiosidad es personal, estudia la Torá, y no ha impulsado ninguna norma sobre religión en la escuela o la vida pública.",
-    ""
+    "El borrador oficial de Ley de Libertad Educativa de noviembre de 2025 habilita enseñanza religiosa confesional optativa en escuelas públicas e historia de las religiones como contenido obligatorio.",
+    "https://eleconomista.com.ar/politica/home-schooling-religion-escuelas-control-familiar-gobierno-va-ley-educacion-n90777"
    ],
    "p_toros": [
     "No aplica: las corridas de toros están prohibidas en Argentina desde 1954 por la Ley 14.346 y no hay debate sobre ellas.",
@@ -3638,8 +3638,8 @@
     "https://bidenwhitehouse.archives.gov/briefing-room/statements-releases/2023/05/25/fact-sheet-biden-harris-administration-releases-first-ever-u-s-national-strategy-to-counter-antisemitism/"
    ],
    "p_simb": [
-    "Quemar la bandera está protegido por la Primera Enmienda y no hay delito federal de ofensa religiosa, sin actuación de su Administración",
-    ""
+    "Como senador presentó en julio de 1989 la Flag Protection Act, que castigaba con cárcel quemar o profanar la bandera, y en 2006 votó a favor de penalizar quemarla para intimidar.",
+    "https://www.govinfo.gov/content/pkg/CRPT-104srpt148/html/CRPT-104srpt148.htm"
    ],
    "p_prot": [
     "Los cortes de calles son competencia estatal y local y no tomó medidas federales pese a las protestas universitarias de 2024",
@@ -3686,8 +3686,8 @@
     "https://www.congress.gov/bill/117th-congress/senate-bill/2938"
    ],
    "p_relig": [
-    "Sin medidas sobre religión en la escuela, competencia estatal, solo mantuvo la oficina de alianzas con organizaciones religiosas",
-    ""
+    "Como senador votó no el 20 de marzo de 1984 a la enmienda constitucional de Reagan para permitir la oración en las escuelas públicas.",
+    "https://voteview.com/rollcall/RS0980405"
    ],
    "p_toros": [
     "No aplica, sin tradición ni debate federal sobre tauromaquia",
