@@ -1,4 +1,4 @@
-# La portada lleva al test de España mientras no haya otros países. 302 para poder cambiarlo sin que los navegadores lo cacheen.
+# La portada lleva al test. 302 para poder cambiarlo sin que los navegadores lo cacheen.
 /  /es/  302
 /index.html  /es/  301
 /es/index.html  /es/  301

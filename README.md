@@ -62,7 +62,6 @@ No hay que confundirlo con la *Political Compass* (brújula política), que es u
 - Hacerlo de forma **transparente**: los partidos se colocan con las mismas preguntas y las mismas reglas que el usuario, y sus respuestas se pueden consultar pregunta a pregunta.
 - Que sea **fácil de compartir** en redes (WhatsApp, X, Facebook, Instagram) para que se difunda lo máximo posible durante la campaña.
 - No recoger ni guardar ningún dato del usuario.
-- A medio plazo, poder reutilizar la herramienta en otras elecciones (municipales y autonómicas de 2027, generales andorranas, catalanas) cargando un nuevo conjunto de datos.
 
 El test **no recomienda votar a nadie**. Muestra afinidad con las posiciones estimadas de cada partido y deja la decisión al usuario.
 
@@ -233,7 +232,7 @@ Notas:
 
 Respuestas de los partidos en el orden: PP, PSOE, Vox, Frente Amplio, Podemos, SALF, D21 + Cs, Milei, Bukele, Trump, Putin, Maduro, Mujica, Meloni. Valores de −2 a +2. El punto (·) es «sin dato»: no cuenta en la posición ni en la afinidad.
 
-Las afirmaciones se redactan de la forma más general posible, para que el mismo cuestionario sirva en cualquier país; lo que cambia en cada elección es la respuesta de los partidos.
+Las afirmaciones se redactan de la forma más general posible, como principios y no como medidas concretas de un partido, para que el test mida ideas y no eslóganes.
 
 ### Economía (20)
 
@@ -354,12 +353,12 @@ La viralidad se busca con una **imagen generada en el navegador** que el usuario
 - Si algún día hace falta lógica de servidor, ya está en la plataforma adecuada (Workers) y en el mismo dominio.
 - Se despliega como **Worker con static assets**, que es lo que Cloudflare recomienda hoy para proyectos nuevos en lugar de Pages. La configuración está en `wrangler.jsonc`: sirve la carpeta `public/` sin ningún paso de compilación. Pasos en el panel: Workers & Pages → Create → Import a repository, autorizar GitHub, elegir el repositorio, build command vacío, deploy command `npx wrangler deploy`, root directory vacío, rama `main`. Cada push a `main` despliega. Después, en el Worker, Settings → Domains & Routes para añadir `testnolan.com`.
 - Solo se publica `public/`. El README, la documentación de `docs/` y `commit-message.txt` quedan fuera.
-- `public/_redirects` manda la raíz a `/es/` con un 302 (temporal, por si algún día hay portada con varios países) y `public/_headers` añade cabeceras de seguridad y caché corta para el HTML y larga para la imagen de Open Graph.
+- `public/_redirects` manda la raíz a `/es/` y `public/_headers` añade cabeceras de seguridad y caché corta para el HTML y larga para la imagen de Open Graph.
 - Para probar en local: `cd public && python3 -m http.server 8000 --bind 0.0.0.0` y abrir `http://IP:8000/es/`. Los `_redirects` y `_headers` solo los aplica Cloudflare; en local hay que entrar directamente en `/es/`.
 
 ### 4. Dominio
 
-- **testnolan.com** como dominio principal, porque permite reutilizar el proyecto en varios países con rutas (`/es`, `/cat`, `/ad`…).
+- **testnolan.com** como dominio principal, con el test en la ruta `/es/`.
 - **testnolan.es** comprado también y redirigiendo (301) a `testnolan.com/es`.
 - Se descartaron un subdominio de menetray.com (poco memorable y mezcla la marca profesional con política) y nombres con fecha como "29n" (caducan tras las elecciones). También se valoró *votonolan.es*, descartado porque "voto" sugiere que allí se vota o que es una encuesta.
 - El crédito al autor va en el pie: "Hecho por Robert Menetray" con enlace a https://menetray.com.
@@ -369,10 +368,9 @@ La viralidad se busca con una **imagen generada en el navegador** que el usuario
 - Al ser una web estática, el código y las respuestas de los partidos ya son visibles para cualquiera desde el navegador; hacerlo privado no protege nada.
 - Hacerlo público da **credibilidad** frente a acusaciones de sesgo ("las respuestas están en GitHub, revísalas"), permite recibir correcciones con fuente y sirve como pieza de portafolio.
 
-### 6. País y elección por URL, no por IP
+### 6. Sin redirecciones por IP ni idioma
 
-- La **URL decide** qué test se muestra. Un enlace compartido tiene que abrir siempre el mismo test.
-- La IP o el idioma del navegador solo sirven para **sugerir** otro test ("Parece que estás en Andorra, ¿quieres el test de las elecciones andorranas?"), nunca para redirigir automáticamente.
+- Un enlace compartido tiene que abrir siempre la misma página, sin que la IP o el idioma del navegador cambien nada.
 
 ---
 
@@ -390,8 +388,7 @@ La viralidad se busca con una **imagen generada en el navegador** que el usuario
 
 ### Refactorización del código
 
-- [ ] Separar el archivo único en `index.html`, `styles.css`, `app.js` y un fichero de datos por elección (`data/es-2026.json`).
-- [ ] Definir el esquema del fichero de datos (elección, fecha, partidos, preguntas, textos) para que añadir otro país sea solo cargar un JSON nuevo.
+- [ ] Separar el archivo único en `index.html`, `styles.css`, `app.js` y un fichero de datos (`data/es-2026.json`).
 - [ ] Validación del fichero de datos al cargar o en CI: cada array de respuestas tiene tantos valores como partidos, todos los valores están entre −2 y +2, `dir` es +1 o −1, los `id` son únicos, cada eje tiene al menos 10 preguntas.
 - [ ] Tests unitarios deterministas para las funciones puras: puntuación por eje, afinidad, zona y conversión a coordenadas del rombo. Deben reproducir la tabla de posiciones de este README.
 - [x] Cambiar la clave de `localStorage` por una por elección (`testnolan-es-2026`) para no mezclar respuestas entre tests.
@@ -431,8 +428,6 @@ La viralidad se busca con una **imagen generada en el navegador** que el usuario
 
 ### Futuro (no prioritario)
 
-- [ ] Estructura multipaís con rutas: `/es` (generales España), `/cat` (Cataluña), `/ad` (Andorra), y futuras municipales y autonómicas de 2027.
-- [ ] Sugerencia de test por idioma del navegador o país (nunca redirección automática).
 - [ ] Traducciones (castellano, catalán, inglés).
 - [ ] Artículo en menetray.com contando cómo se hizo y qué tráfico aguantó con coste cero.
 
@@ -472,7 +467,7 @@ La versión y la fecha se muestran en la metodología de la web (`DATA_VERSION` 
         └── index.html       # el test completo, un solo archivo
 ```
 
-Previsto para más adelante: `CONTRIBUTING.md`, una plantilla de issue para proponer correcciones con fuente y, si la web crece a varios países, separar `assets/` y `data/`.
+Previsto para más adelante: `CONTRIBUTING.md`, una plantilla de issue para proponer correcciones con fuente y separar `assets/` y `data/` si el archivo único se divide.
 
 ---
 
