@@ -1,0 +1,11 @@
+{
+  // Cloudflare Workers con static assets: sirve la carpeta public/ tal cual, sin compilación.
+  // Despliegue: conectar el repositorio en Workers & Pages, build command vacío, deploy command «npx wrangler deploy».
+  "name": "testnolan",
+  "compatibility_date": "2026-11-01",
+  "assets": {
+    "directory": "./public",
+    "html_handling": "auto-trailing-slash",
+    "not_found_handling": "404-page"
+  }
+}

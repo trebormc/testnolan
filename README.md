@@ -351,6 +351,10 @@ La viralidad se busca con una **imagen generada en el navegador** que el usuario
 - El repositorio vive en GitHub y **Cloudflare despliega automáticamente** en cada push a `main`.
 - Se prefiere Cloudflare a GitHub Pages porque las peticiones a archivos estáticos son **gratis e ilimitadas**. GitHub Pages tiene un límite blando de 100 GB de tráfico al mes y puede responder con errores 429 o dejar de servir la web si se supera, algo plausible si el test se hace viral.
 - Si algún día hace falta lógica de servidor, ya está en la plataforma adecuada (Workers) y en el mismo dominio.
+- Se despliega como **Worker con static assets**, que es lo que Cloudflare recomienda hoy para proyectos nuevos en lugar de Pages. La configuración está en `wrangler.jsonc`: sirve la carpeta `public/` sin ningún paso de compilación. Pasos en el panel: Workers & Pages → Create → Import a repository, autorizar GitHub, elegir el repositorio, build command vacío, deploy command `npx wrangler deploy`, root directory vacío, rama `main`. Cada push a `main` despliega. Después, en el Worker, Settings → Domains & Routes para añadir `testnolan.com`.
+- Solo se publica `public/`. El README, la documentación de `docs/` y `commit-message.txt` quedan fuera.
+- `public/_redirects` manda la raíz a `/es/` con un 302 (temporal, por si algún día hay portada con varios países) y `public/_headers` añade cabeceras de seguridad y caché corta para el HTML y larga para la imagen de Open Graph.
+- Para probar en local: `cd public && python3 -m http.server 8000 --bind 0.0.0.0` y abrir `http://IP:8000/es/`. Los `_redirects` y `_headers` solo los aplica Cloudflare; en local hay que entrar directamente en `/es/`.
 
 ### 4. Dominio
 
@@ -399,7 +403,7 @@ La viralidad se busca con una **imagen generada en el navegador** que el usuario
 - [x] **Enlace del grupo**: nombres y puntuaciones de todo el grupo en el *hash* de la URL (`#g=…`), que nunca llega al servidor. Quien lo abre ve a todos en el rombo y puede sumarse y reenviarlo. Sustituye al enlace de una sola persona con las respuestas codificadas.
 - [x] Etiquetas **Open Graph y Twitter Card** con una imagen estática del rombo, título y descripción, para que el enlace se vea bien al pegarlo. La imagen se regenera con Chrome headless:
   ```
-  google-chrome --headless=new --window-size=1200,630 --hide-scrollbars --virtual-time-budget=8000 --screenshot=og-image.png "http://localhost:8000/index.html?og=1"
+  google-chrome --headless=new --window-size=1200,630 --hide-scrollbars --virtual-time-budget=8000 --screenshot=public/og-image.png "http://localhost:8000/es/index.html?og=1"
   ```
 - [ ] Probar la descarga y la Web Share API en móviles reales; en el visor de Claude están bloqueadas.
 - [ ] Probar la paginación por ámbitos y los atajos de teclado con lector de pantalla.
@@ -447,30 +451,26 @@ La versión y la fecha se muestran en la metodología de la web (`DATA_VERSION` 
 
 ---
 
-## Estructura de archivos propuesta
+## Estructura de archivos
 
 ```
 /
 ├── README.md
-├── LICENSE                  # MIT (código)
-├── LICENSE-DATA             # CC BY 4.0 (datos de partidos y preguntas)
-├── CONTRIBUTING.md          # cómo proponer correcciones (con fuente)
-├── .github/
-│   └── ISSUE_TEMPLATE/
-│       └── correccion-posicion.yml
-├── public/
-│   ├── index.html           # portada o redirección a /es
-│   ├── es/
-│   │   └── index.html
-│   ├── assets/
-│   │   ├── app.js
-│   │   ├── styles.css
-│   │   └── og-image.png     # imagen fija para Open Graph
-│   └── data/
-│       └── es-2026.json
-└── tests/
-    └── scoring.test.js
+├── commit-message.txt       # borrador del siguiente mensaje de commit (no se despliega)
+├── wrangler.jsonc           # configuración de Cloudflare Workers con static assets
+├── docs/                    # verificaciones de datos con fuentes (no se despliegan)
+└── public/                  # lo único que sirve Cloudflare
+    ├── _redirects           # / → /es/ (302), /index.html y /es/index.html → /es/ (301)
+    ├── _headers             # cabeceras de seguridad y caché
+    ├── 404.html             # página de error
+    ├── robots.txt
+    ├── sitemap.xml
+    ├── og-image.png         # imagen fija para Open Graph (https://testnolan.com/og-image.png)
+    └── es/
+        └── index.html       # el test completo, un solo archivo
 ```
+
+Previsto para más adelante: `LICENSE` (MIT para el código), `LICENSE-DATA` (CC BY 4.0 para los datos), `CONTRIBUTING.md`, una plantilla de issue para proponer correcciones con fuente y, si la web crece a varios países, separar `assets/` y `data/`.
 
 ---
 
