@@ -225,9 +225,11 @@ function drawResult(){
   const E = u.E ?? 50, P = u.P ?? 50;
   const rows = PARTIES.map((p,i)=>({p, i, a:affinity(i)})).filter(r=>!(r.p.ref && hidden.has(r.p.id))).sort((x,y)=>y.a-x.a);
   const warn = (u.nE<4 || u.nP<4) ? `<p class="note" style="margin-top:10px">Responde al menos 4 preguntas de cada eje para que la posición sea fiable${u.E===null?' (en economía aún no hay ninguna)':''}${u.P===null?' (en libertades aún no hay ninguna)':''}.</p>` : '';
-  const real = rows.filter(x=>!x.p.ref);
-  const shown = showAllMatches ? real : real.slice(0,3);
-  const matches = shown.map(({p,i,a})=>{ const m = matchLists(i); return `<div class="match"><div class="match-h"><strong>${p.name}</strong><span class="pct">${a.toFixed(0)} % de afinidad</span></div>
+  // Coincidencias: partidos y referencias visibles, de más a menos afinidad. Tres por defecto; al desplegar, la lista se desplaza dentro de la barra lateral.
+  const expanded = showAllMatches && rows.length>3;
+  const shown = expanded ? rows : rows.slice(0,3);
+  const prevList = mBox.querySelector('.matches'), prevScroll = prevList ? prevList.scrollTop : 0;
+  const matches = shown.map(({p,i,a})=>{ const m = matchLists(i); return `<div class="match${p.ref?' is-ref':''}"><div class="match-h"><strong>${p.name}${p.ref?' <span class="tag-ref">referencia</span>':''}</strong><span class="pct">${a.toFixed(0)} % de afinidad</span></div>
       <p><span class="ok">Coincidís en:</span> ${m.ag.length ? listTopics(m.ag,4) : 'nada claro todavía'}.</p>
       <p><span class="ko">Discrepáis en:</span> ${m.dg.length ? listTopics(m.dg,4) : 'nada de momento'}.</p></div>`; }).join('');
   const vt = verdictTexts(verdict()), vl = verdict().level;
@@ -240,10 +242,12 @@ function drawResult(){
     ${warn}
     <h3 style="margin-top:16px">Afinidad por respuestas</h3>
     <ul class="rank">${rows.map(({p,a})=>`<li><span class="${p.ref?'ref':''}">${p.name}</span><span class="bar"><i style="width:${a.toFixed(0)}%;${p.ref?`background:var(${p.color})`:''}"></i></span><span class="pct">${a.toFixed(0)} %</span></li>`).join('')}</ul>`;
+  const rest = rows.length-3;
   mBox.innerHTML = `<div class="result-head"><h2>En qué coincides y en qué no</h2></div>
-    <div class="matches">${matches}</div>
-    ${real.length>3 ? `<p style="margin-top:8px"><button type="button" class="linkbtn" id="moreMatches">${showAllMatches?'Ver solo los tres más cercanos':'Ver los demás partidos'}</button></p>` : ''}`;
+    <div class="matches-wrap${expanded?' scrolls':''}"><div class="matches"${expanded?' tabindex="0" role="region" aria-label="Coincidencias con todos los partidos y referencias visibles, de más a menos afinidad"':''}>${matches}</div></div>
+    ${rows.length>3 ? `<p class="matches-more"><button type="button" class="linkbtn" id="moreMatches" aria-expanded="${expanded?'true':'false'}" aria-controls="matches">${expanded?'Ver solo los tres más cercanos':`Ver ${rest===1?'el otro':'los otros '+rest}`}</button></p>` : ''}`;
   const mm = document.getElementById('moreMatches'); if(mm) mm.addEventListener('click',()=>{ showAllMatches=!showAllMatches; drawResult(); });
+  if(expanded){ const list = mBox.querySelector('.matches'), wrap = mBox.querySelector('.matches-wrap'); list.scrollTop = prevScroll; const edge = ()=>{ wrap.classList.toggle('at-end', list.scrollTop + list.clientHeight >= list.scrollHeight - 2); wrap.classList.toggle('at-start', list.scrollTop <= 2); }; list.addEventListener('scroll', edge, {passive:true}); edge(); }
 }
 
 // Franja superior en móvil: zona, puntuaciones y partido más afín
