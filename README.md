@@ -72,7 +72,7 @@ El test **no recomienda votar a nadie**. Muestra afinidad con las posiciones est
 Existe un prototipo funcional en un único archivo, `index.html`, con todo el CSS y el JavaScript incrustados, más `og-image.png` (imagen fija para Open Graph). Incluye:
 
 - Rombo de Nolan dibujado en SVG con las cinco zonas, la línea media discontinua y los ejes rotulados.
-- **47 afirmaciones** (20 de economía y 27 de libertades) con escala de 5 puntos. Cada una lleva una etiqueta corta de tema (`k`) y un **contexto en lenguaje llano** (`c`) que se despliega con «¿Qué significa?» justo encima de la escala, a todo el ancho de la pregunta.
+- **47 afirmaciones** (20 de economía y 27 de libertades) con escala de 5 puntos. Cada una lleva una etiqueta corta de tema (`k`) y un **contexto en lenguaje llano** (`c`) que se despliega con «¿Qué significa?» justo encima de la escala, a todo el ancho de la pregunta. Debajo de las respuestas de los partidos, otro desplegable, «¿Por qué responde así cada partido?», muestra para cada partido y referencia su posición, una frase con el hecho que la justifica y el enlace a la fuente. Esas frases están en el bloque `<script type="application/json" id="whyData">` de `index.html`, con la forma `{partido:{pregunta:[frase, url]}}`, y se leen solo al abrir el desplegable.
 - Posición de cada partido calculada a partir de sus respuestas, con el mismo cálculo que el usuario.
 - Punto **"Tú"** que se mueve en el rombo según se responde.
 - **Veredicto** en «Tu posición», basado en la afinidad del partido más cercano (sin las referencias internacionales): 85 % o más, «te representa»; de 75 % a 84 %, «el que más se parece a ti, con matices»; por debajo, «ningún partido te representa del todo» indicando el más cercano. Si el segundo está a 3 puntos o menos se declara empate («te representan por igual X e Y»), y no hay veredicto hasta tener 4 respuestas por eje. Los cuatro umbrales son constantes (`REP_FULL`, `REP_PARTIAL`, `REP_TIE`, `REP_MIN_AXIS`). Calibración: un votante convencido que se desvía un paso en la mitad de las preguntas obtiene ~91 %; responder al azar da ~64 % con el mejor partido; todo neutral da hasta 77 % con los partidos moderados; Frente Amplio y Podemos están al 95 % entre sí, Vox y SALF al 88 %, PSOE y Frente Amplio al 85 %. El veredicto sale también en la franja, en la columna fija, en la imagen compartida y en el texto de compartir.
@@ -192,19 +192,19 @@ Estas reglas se acordaron para que **todos los partidos se midan con la misma va
 
 ## Partidos incluidos y posiciones resultantes
 
-Posiciones calculadas con el cuestionario actual (47 preguntas, versión de datos 1.5). Escala de 0 a 100.
+Posiciones calculadas con el cuestionario actual (47 preguntas, versión de datos 1.6). Escala de 0 a 100.
 
 | Partido | Candidatura y cabeza de lista | Economía | Libertades | Zona |
 |---|---|---:|---:|---|
 | PP | Partido Popular · Alberto Núñez Feijóo | 70 | 37 | Derecha |
 | PSOE | PSOE / PSC · Pedro Sánchez | 19 | 54 | Izquierda |
 | Vox | Vox · Santiago Abascal | 86 | 38 | Derecha |
-| Frente Amplio | Frente Amplio (antes Sumar) · Ada Colau | 6 | 68 | Izquierda |
-| Podemos | Podemos · Irene Montero | 6 | 72 | Izquierda |
-| SALF | Se Acabó La Fiesta · Alvise Pérez | 84 | 55 | Libertario |
-| D21 + Cs | Democracia para el Siglo 21 (Democracia 21 + Ciudadanos + UCIN) · Miriam González | 61 | 54 | Centro |
-| Milei *(referencia)* | La Libertad Avanza (Argentina) · Javier Milei | 93 | 38 | Derecha |
-| Bukele *(referencia)* | Nuevas Ideas (El Salvador) · Nayib Bukele | 61 | 9 | Derecha |
+| Frente Amplio | Frente Amplio (antes Sumar) · Ada Colau | 6 | 69 | Izquierda |
+| Podemos | Podemos · Irene Montero | 8 | 73 | Izquierda |
+| SALF | Se Acabó La Fiesta · Alvise Pérez | 83 | 55 | Libertario |
+| D21 + Cs | Democracia para el Siglo 21 (Democracia 21 + Ciudadanos + UCIN) · Miriam González | 62 | 56 | Centro |
+| Milei *(referencia)* | La Libertad Avanza (Argentina) · Javier Milei | 91 | 32 | Derecha |
+| Bukele *(referencia)* | Nuevas Ideas (El Salvador) · Nayib Bukele | 62 | 11 | Derecha |
 | Trump *(referencia)* | Partido Republicano (Estados Unidos) · Donald Trump | 71 | 20 | Derecha |
 | Putin *(referencia)* | Rusia Unida (Rusia) · Vladímir Putin | 40 | 7 | Autoritario |
 | Maduro *(referencia)* | PSUV (Venezuela) · Nicolás Maduro | 24 | 10 | Autoritario |
@@ -238,26 +238,26 @@ Las afirmaciones se redactan de la forma más general posible, para que el mismo
 
 | id | Afirmación | dir | Respuestas |
 |---|---|:-:|---|
-| e_irpf | Hay que bajar el impuesto sobre la renta aunque el Estado recaude menos. | +1 | 2, −1, 2, −2, −2, 2, 1, 1, 1, 2, 0, −2, −2, 2 |
+| e_irpf | Hay que bajar el impuesto sobre la renta aunque el Estado recaude menos. | +1 | 2, −1, 2, −2, −2, 2, 1, 0, 1, 2, 0, −2, −2, 2 |
 | e_suc | Deberían suprimirse los impuestos de sucesiones y de patrimonio. | +1 | 2, −2, 2, −2, −2, 2, 1, 2, ·, 2, 2, −2, −1, 1 |
 | e_alq | El Estado debe poner topes al precio del alquiler. | −1 | −2, 2, −2, 2, 2, −2, 1, −2, ·, −1, ·, 2, −1, −1 |
-| e_empv | Hay que crear una gran empresa pública estatal de vivienda y suelo. | −1 | −1, 2, −2, 2, 2, −2, 0, −2, 1, −2, 1, 2, 1, −1 |
-| e_acum | Quien acumula muchas viviendas debería pagar cada año un impuesto especial alto. | −1 | −2, 1, −2, 2, 2, −2, −1, −2, ·, 0, ·, 1, 1, −1 |
+| e_empv | Hay que crear una gran empresa pública estatal de vivienda y suelo. | −1 | −1, 2, −1, 2, 1, −1, 0, −2, 1, −2, 1, 2, 1, −1 |
+| e_acum | Quien acumula muchas viviendas debería pagar cada año un impuesto especial alto. | −1 | −2, 1, −2, 2, 2, −1, −1, −2, ·, 0, ·, 1, 1, −1 |
 | e_suelo | Hay que liberalizar suelo y reducir trámites para que se construya más. | +1 | 2, 1, 2, −1, −2, 2, 1, 2, 1, 2, 1, −1, 1, 1 |
 | e_pens | Las pensiones deben subir cada año con la inflación, por ley y pase lo que pase. | −1 | 2, 2, −1, 2, 2, 0, 0, 0, 0, 1, 1, −2, 1, −1 |
 | e_mixto | El sistema de pensiones debería ser mixto, con una parte de capitalización privada. | +1 | 0, −2, 2, −2, −2, ·, 0, 1, 1, −1, 0, −2, 0, 1 |
 | e_func | Hay que reducir ministerios, organismos y empleo público. | +1 | 1, −1, 2, −2, −2, 2, 1, 2, 2, 2, 0, −1, −2, −1 |
 | e_fort | Las grandes fortunas y las grandes empresas deberían pagar más impuestos. | −1 | −2, 2, −2, 2, 2, −2, 0, −2, −1, −2, 1, 2, 2, 0 |
-| e_expr | El Estado debería poder expropiar viviendas o nacionalizar empresas estratégicas. | −1 | −2, −1, −2, 2, 2, −2, −2, −2, 0, 0, 2, 1, 0, 0 |
+| e_expr | El Estado debería poder expropiar viviendas o nacionalizar empresas estratégicas. | −1 | −2, −1, −2, 2, 2, −1, −2, −2, −1, 0, 2, 1, 0, 0 |
 | e_sani | Sanidad y educación deben ser públicas y gratuitas para todos, pagadas con impuestos. | −1 | 1, 2, 1, 2, 2, 0, 1, −1, 1, −2, 1, 1, 2, 0 |
-| e_aval | El Estado debe avalar con dinero público las hipotecas de los jóvenes. | −1 | 2, 2, 0, −1, −2, 1, 0, −2, 1, 1, 1, 1, 1, 2 |
+| e_aval | El Estado debe avalar con dinero público las hipotecas de los jóvenes. | −1 | 2, 2, 0, −1, −2, ·, 0, −2, 1, 1, 1, 1, 1, 2 |
 | e_gasto | El gasto público debería reducirse de forma significativa. | +1 | 0, −1, 2, −2, −2, 2, 0, 2, 1, 0, −2, −2, −2, 0 |
-| e_smi | El Gobierno debe seguir subiendo el salario mínimo por ley. | −1 | 1, 2, 0, 2, 2, ·, 0, −1, 1, −2, 2, 0, 2, −2 |
-| e_aran | Hay que proteger al campo y a la industria nacional con aranceles o límites a las importaciones. | −1 | −1, −1, 1, 1, 1, 1, −2, −2, −1, 2, 2, 0, −1, 0 |
-| e_desp | Hay que facilitar a las empresas contratar y despedir, con menos restricciones e indemnizaciones más bajas. | +1 | 1, −2, 2, −2, −2, ·, 1, 2, 1, 1, 0, −2, −2, 1 |
-| e_jorn | La jornada laboral debe reducirse por ley sin bajar el sueldo. | −1 | −1, 2, −2, 2, 2, ·, 0, −2, 0, ·, −1, ·, 1, −2 |
+| e_smi | El Gobierno debe seguir subiendo el salario mínimo por ley. | −1 | 1, 2, −1, 2, 2, ·, 0, −1, 1, −2, 2, 0, 2, −2 |
+| e_aran | Hay que proteger al campo y a la industria nacional con aranceles o límites a las importaciones. | −1 | −1, −1, 1, 1, 1, 1, −1, −2, −1, 2, 2, 0, −1, 0 |
+| e_desp | Hay que facilitar a las empresas contratar y despedir, con menos restricciones e indemnizaciones más bajas. | +1 | 1, −2, 2, −2, −2, ·, 1, 2, ·, 1, 0, −2, −2, 1 |
+| e_jorn | La jornada laboral debe reducirse por ley sin bajar el sueldo. | −1 | −1, 2, −2, 2, 2, ·, ·, −2, 0, ·, −1, ·, 1, −2 |
 | e_ecol | Hay que imponer impuestos y normas ambientales estrictas a empresas y consumidores aunque frenen la economía. | −1 | −1, 1, −2, 2, 2, −2, 0, −2, −2, −2, −2, −2, 0, −2 |
-| e_okupa | Hay que poder desalojar en pocos días a quien ocupa una vivienda sin permiso. | +1 | 2, −1, 2, −2, −2, 2, 1, 2, ·, ·, ·, −2, ·, 2 |
+| e_okupa | Hay que poder desalojar en pocos días a quien ocupa una vivienda sin permiso. | +1 | 2, −1, 2, −2, −2, 2, 2, 2, ·, ·, ·, −2, ·, 2 |
 
 ### Libertades (27)
 
@@ -267,29 +267,29 @@ Las afirmaciones se redactan de la forma más general posible, para que el mismo
 | p_prior | Las ayudas públicas deben dar prioridad a los ciudadanos del país frente a los extranjeros con residencia legal. | −1 | 0, −2, 2, −2, −2, 1, −1, 2, ·, 2, 2, ·, −1, 1 |
 | p_poli | La policía debería tener más margen para identificar, registrar y multar a personas sin pasar por un juez. | −1 | 2, −1, 2, −2, −2, ·, 1, 2, 2, 2, 2, 2, 0, 2 |
 | p_perp | La prisión permanente revisable debería mantenerse o ampliarse a más delitos. | −1 | 2, −1, 2, −2, −2, 1, 1, 2, 2, 2, 2, ·, −1, 2 |
-| p_odio | El Estado debe poder sancionar o expulsar a quien difunda discursos de odio, aunque no inciten a la violencia. | −1 | 1, 1, −1, 2, 2, −2, 0, 0, 2, 1, 2, 2, ·, −1 |
+| p_odio | El Estado debe poder sancionar o expulsar a quien difunda discursos de odio, aunque no inciten a la violencia. | −1 | 1, 1, −1, 1, 2, −2, 0, 0, 2, 1, 2, 2, ·, −1 |
 | p_simb | Ofender a la bandera, a la Corona o a los sentimientos religiosos debería seguir siendo delito. | −1 | 2, −2, 2, −2, −2, ·, 1, 1, ·, 2, 2, 2, ·, · |
 | p_prot | Hay que limitar más las protestas que cortan calles o carreteras. | −1 | 1, −1, 1, −2, −2, −1, 1, 2, 2, 2, 2, 2, ·, 2 |
 | p_euta | La eutanasia debe seguir siendo legal. | +1 | 0, 2, −2, 2, 2, ·, 2, −1, −2, ·, −2, ·, ·, −1 |
 | p_matr | El matrimonio entre personas del mismo sexo debe seguir siendo legal. | +1 | 1, 2, −1, 2, 2, 1, 2, 1, −2, 1, −2, −1, 2, −2 |
 | p_abor | El aborto debe seguir siendo legal en los plazos actuales. | +1 | 0, 2, −2, 2, 2, −1, 1, −2, −2, −1, 0, −1, 2, −1 |
 | p_cann | El cannabis para adultos debería ser legal y estar regulado. | +1 | −2, −1, −2, 1, 2, ·, 1, −1, −2, 0, −2, ·, 2, −2 |
-| p_prost | Hay que prohibir la prostitución y castigar también al cliente. | −1 | 0, 2, 0, −1, 0, ·, −1, −1, ·, 1, 1, ·, −1, · |
+| p_prost | Hay que prohibir la prostitución y castigar también al cliente. | −1 | 0, 2, 0, −1, 0, ·, −1, ·, ·, 1, 1, ·, −1, · |
 | p_medio | El Gobierno debe poder regular a los medios de comunicación para combatir la desinformación. | −1 | −2, 2, −1, 2, 1, −2, ·, 0, 2, 1, 2, 2, 1, 1 |
-| p_ident | Para entrar en webs de contenido adulto debería exigirse verificar la identidad. | −1 | 2, 2, 0, 1, 0, −1, 0, ·, ·, ·, 1, ·, ·, 2 |
-| p_taba | Hay que ampliar la prohibición de fumar y vapear a terrazas y espacios abiertos. | −1 | 0, 2, −1, 2, ·, ·, 1, −1, ·, ·, 2, ·, 1, 0 |
-| p_anon | Habría que acabar con el anonimato en las redes sociales. | −1 | 1, 2, −1, 0, ·, −2, ·, −1, ·, ·, 2, 2, ·, · |
+| p_ident | Para entrar en webs de contenido adulto debería exigirse verificar la identidad. | −1 | 2, 2, 0, 1, 0, −1, ·, ·, ·, ·, 1, ·, ·, 2 |
+| p_taba | Hay que ampliar la prohibición de fumar y vapear a terrazas y espacios abiertos. | −1 | 0, 2, −1, 2, ·, ·, ·, −1, ·, ·, 2, ·, 1, 0 |
+| p_anon | Habría que acabar con el anonimato en las redes sociales. | −1 | 1, 2, −1, ·, ·, −1, ·, ·, ·, ·, 2, 2, ·, · |
 | p_burka | Debería prohibirse el burka y el niqab en los espacios públicos. | −1 | 2, −1, 2, −2, −2, ·, 1, ·, ·, ·, 0, ·, ·, 1 |
 | p_ileg | Habría que ilegalizar los partidos que defienden la independencia de una región. | −1 | −1, −2, 2, −2, −2, ·, −1, ·, 0, ·, 2, 2, ·, · |
 | p_decr | El Gobierno debería poder legislar por decreto cuando el Parlamento bloquea sus reformas. | −1 | −1, 1, −1, 0, 0, ·, −1, 2, 2, 2, 2, 2, −1, 2 |
 | p_chat | Las aplicaciones de mensajería deberían escanear los mensajes privados para detectar delitos. | −1 | 1, 2, −2, −1, −1, 0, −1, 1, 2, ·, 2, 1, 0, −1 |
-| p_trans | Las personas deben poder cambiar su sexo legal sin informes médicos. | +1 | −2, 2, −2, 2, 2, −2, −1, −1, −2, −2, −2, −1, ·, −1 |
-| p_mili | Debería recuperarse el servicio militar obligatorio. | −1 | −1, −2, 1, −2, −2, ·, ·, −1, ·, ·, 2, 1, ·, −1 |
+| p_trans | Las personas deben poder cambiar su sexo legal sin informes médicos. | +1 | −2, 2, −2, 2, 2, −1, −1, −1, −2, −2, −2, −1, ·, −1 |
+| p_mili | Debería recuperarse el servicio militar obligatorio. | −1 | −1, −2, 1, −2, −2, ·, ·, ·, ·, ·, 2, 1, ·, −1 |
 | p_armas | Debería ser más fácil para un particular tener un arma en casa para defenderse. | +1 | −1, −2, 2, −2, −2, ·, −2, 1, 1, 2, −2, −2, −2, · |
-| p_relig | La religión debería tener más presencia en la escuela y en la vida pública. | −1 | 1, −1, 1, −2, −2, ·, −1, ·, 2, 2, 2, ·, −1, 1 |
+| p_relig | La religión debería tener más presencia en la escuela y en la vida pública. | −1 | 1, −1, 1, −2, −2, ·, −1, ·, 1, 2, 2, ·, −1, 1 |
 | p_toros | Habría que prohibir las corridas de toros. | −1 | −2, −1, −2, 1, 2, 0, −1, ·, ·, ·, ·, ·, ·, · |
 | p_menores | Hay que prohibir por ley que los menores de 16 años tengan cuentas en redes sociales. | −1 | 2, 2, −1, 1, 0, −1, ·, ·, ·, ·, ·, ·, ·, · |
-| p_apuestas | Hay que prohibir la publicidad de las apuestas y del juego online. | −1 | 0, 1, −1, 1, 2, ·, 1, −2, ·, ·, 1, ·, ·, 0 |
+| p_apuestas | Hay que prohibir la publicidad de las apuestas y del juego online. | −1 | 0, 1, −1, 1, 1, ·, 1, −2, ·, ·, 1, ·, ·, 0 |
 
 ### Contexto que justifica algunas respuestas
 
@@ -437,6 +437,7 @@ La viralidad se busca con una **imagen generada en el navegador** que el usuario
 
 La versión y la fecha se muestran en la metodología de la web (`DATA_VERSION` y `DATA_DATE` en `index.html`). Cualquier cambio en preguntas o respuestas de partidos debe subir la versión y anotarse aquí.
 
+- **1.6 (01-11-2026)**: cada pregunta lleva un desplegable «¿Por qué responde así cada partido?» con una frase por partido o referencia que cita el hecho concreto (voto, ley, programa o declaración) que sostiene su posición, y un enlace a la fuente cuando la hay: 658 frases, 14 por pregunta, guardadas en un bloque JSON dentro de `index.html` que solo se lee al abrir el desplegable. Al redactarlas se detectaron 24 casillas cuyo valor no se sostenía y se corrigen: Vox en contra de subir el salario mínimo y menos contrario a la vivienda pública (Garriga prometió vivienda social masiva), Podemos a favor y no muy a favor en empresa pública y publicidad del juego, seis casillas de SALF que eran inferencias sin hecho (expropiar, empresa pública, grandes tenedores, anonimato y ley trans pasan a en contra, avales a sin dato), D21 + Cs con aranceles, jornada, identidad en webs y tabaco ajustados y okupas a muy a favor por las 48 horas de Ciudadanos, Frente Amplio menos tajante en discursos de odio y sin dato en anonimato, Bukele contra las nacionalizaciones y sin dato en despido, con la religión en a favor, y Milei neutral en IRPF por haber restituido Ganancias y sin dato en prostitución, anonimato y mili. Posiciones: PP 70/37, PSOE 19/54, Vox 86/38, Frente Amplio 6/69, Podemos 8/73, SALF 83/55, D21 + Cs 62/56, Milei 91/32, Bukele 62/11, Trump 71/20, Putin 40/7, Maduro 24/10, Mujica 28/66, Meloni 69/26. Detalle en `docs/justificaciones-2026-11-01.md`.
 - **1.5 (01-11-2026)**: cinco referencias internacionales más, puntuadas con el mismo criterio que Milei y Bukele (solo lo hecho gobernando, con fuente por casilla, «sin dato» donde no aplica): Trump 71/20, Putin 40/7, Maduro 24/10, Mujica 28/66 y Meloni 69/26. Con ellas el rombo tiene referencias en las cuatro esquinas. La leyenda las agrupa como «Referencias» con un botón para ocultarlas o mostrarlas todas, y las ocultas tampoco salen en la lista de afinidad. La imagen genérica de portada sigue mostrando solo a los partidos del 29N más Milei y Bukele; la imagen del resultado propio muestra las referencias que el usuario tenga visibles. Detalle y fuentes en `docs/referencias-internacionales-2026-11-01.md`.
 - **1.4 (01-11-2026)**: segunda pasada del eje de libertades. (1) Nueva regla: `null` = **sin dato**, no cuenta en la posición ni en la afinidad y la web lo muestra bajo cada pregunta. Se aplica a 44 casillas sin ninguna evidencia tras buscarla una a una: SALF (17), Bukele (15), Milei (6), D21 + Cs (4) y Podemos (2). (2) Dos afirmaciones clásicas de libertad personal en las que la derecha puntúa libertaria: armas en casa para defenderse (voto de 2022, 289 a 53) y prohibir las corridas de toros (ILP de octubre de 2025). 47 afirmaciones (20 de economía y 27 de libertades). (3) Siete correcciones con fuente: SALF «ferviente provida» con votos propios en el Parlamento Europeo y sin oponerse al matrimonio igualitario; Milei muy a favor de la prioridad nacional (cobro a extranjeros en hospitales y universidades), ley trans y tabaco suavizados; Bukele a favor de bajar impuestos y neutral en jornada. Posiciones recalculadas: PP 70/37, PSOE 19/54, Vox 86/38, Frente Amplio 6/68, Podemos 6/72, SALF 84/55, D21 + Cs 61/54 (Centro), Milei 93/38, Bukele 61/9. `HASH_VERSION` 3. Detalle en `docs/revision-libertades-2026-11-01.md`, secciones 6 a 9.
 - **1.3 (01-11-2026)**: revisión del eje de libertades tras detectar que dos afirmaciones no discriminaban entre partidos (detener sin orden judicial y vigilar comunicaciones sin juez: casi todos en «muy en contra», y además la detención sin orden ya es legal en España hasta 72 horas). Se sustituyen por cuatro debates reales de esta legislatura: más poder a la policía (Ley de Seguridad Ciudadana), prisión permanente revisable, ofensas a la bandera, la Corona o la religión, y escaneo de mensajes privados (Chat Control). 45 afirmaciones (20 de economía y 25 de libertades). 27 casillas corregidas con fuente: PP a favor de sancionar discursos de odio (aprobó el artículo 510.2 en 2015), de más religión en la escuela y muy en contra de regular medios; Vox menos extremo en discursos de odio y medios por sus querellas y vetos a periodistas, y a favor de la mili; D21 + Cs hacia el centro (Cs presentó una ley contra el burka, votó por ilegalizar partidos independentistas en Madrid, bloqueó la derogación de la ley mordaza y pedía ampliar la prisión permanente); SALF pierde valores sin evidencia en eutanasia, aborto, religión y decretos, y pasa a estar en contra de limitar las protestas por alentar las tractoradas; Milei neutral en odio y medios por evidencia contradictoria; Bukele muy en contra de la eutanasia y neutral en prostitución e ilegalizar partidos. Posiciones recalculadas: PP 70/35, PSOE 19/55, Vox 86/33, Frente Amplio 6/72, Podemos 6/75, SALF 83/54, D21 + Cs 61/55 (Centro), Milei 93/41, Bukele 61/23. Cambia la versión del enlace de comparación (`HASH_VERSION` 2), así que los enlaces anteriores dejan de leerse. Detalle en `docs/revision-libertades-2026-11-01.md`.
