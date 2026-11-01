@@ -1,4 +1,6 @@
-# Revisión del eje de libertades (versión de datos 1.3, 1 de noviembre de 2026)
+# Revisión del eje de libertades (versiones de datos 1.3 y 1.4, 1 de noviembre de 2026)
+
+Este documento tiene dos partes. Las secciones 1 a 5 son la primera pasada (sustitución de dos afirmaciones y 27 correcciones). Las secciones 6 a 9 son la segunda pasada del mismo día, publicada como versión 1.4: regla «sin dato», dos afirmaciones más y correcciones de Milei, SALF y Bukele. Las posiciones de la sección 4 quedan superadas por las de la 9.
 
 Motivo: en la versión 1.2 los partidos de derechas salían más cerca de la esquina libertaria de lo que su historial sugiere (PP 70/49, Vox 86/42, SALF 83/50, Milei 93/49) y D21 + Cs aparecía en la zona libertaria (60/72). Se revisó si el problema estaba en las preguntas o en las respuestas. Cinco investigaciones en paralelo con fuentes públicas: afirmaciones nuevas, Vox, PP y SALF, D21 + Cs, y Milei y Bukele.
 
@@ -136,3 +138,88 @@ Notas:
 - Programa de SALF para las generales (salf.es solo anuncia «Próximo lanzamiento» a 1 de noviembre).
 - Programa del PP para 2026 y la propuesta de Feijóo de 2025 sobre identidad digital (si se confirma, anonimato del PP a +2).
 - El programa de Vox de 2023 no está accesible en voxespana.es. Se ha usado el de 2019 y prensa.
+
+
+## 6. Regla nueva: «sin dato» no es «neutral»
+
+Hasta ahora una casilla sin evidencia se puntuaba 0, igual que una posición neutral documentada. Eso arrastra hacia el centro a quien tiene muchas casillas vacías, sobre todo a Bukele y Milei (muchas afirmaciones son debates españoles sin equivalente en su país) y a SALF (sin programa a 1 de noviembre). Desde la versión 1.4 el valor `null` significa sin dato: no entra en la media del partido, ni en la afinidad del usuario con él, ni en las coincidencias, y la web lo indica bajo cada pregunta. Se buscó evidencia casilla por casilla antes de vaciarla (tres investigaciones: SALF, Milei y Bukele). Casillas sin dato (44):
+
+- e_suc: bukele
+- e_alq: bukele
+
+Notas de criterio:
+- Para D21 + Cs se mantiene la extrapolación del historial de Ciudadanos, que es socio de la coalición, y se marca como tal. Solo se vacían las casillas donde ni Cs tiene posición conocida (mili, anonimato, menores, medios).
+- Milei conserva prostitución, anonimato y eutanasia con declaraciones explícitas pero sin acto de gobierno. Es el límite del criterio: se admite la declaración hecha como presidente.
+- Bukele conserva cannabis (declaración explícita de noviembre de 2024) y jornada laboral (consulta de 2026 que mantiene las 44 horas, 0 documentado).
+
+## 7. Dos afirmaciones más
+
+Para equilibrar el eje se añaden dos afirmaciones clásicas de libertad personal en las que la derecha puntúa libertaria y la izquierda intervencionista.
+
+### p_armas. Debería ser más fácil para un particular tener un arma en casa para defenderse (dir +1)
+
+Voto nominal del 20-9-2022 sobre la proposición de Vox 122/000167 (presunción de legítima defensa con arma legal en el domicilio): 53 sí, 289 no. Acta: https://www.congreso.es/webpublica/opendata/votaciones/Leg14/Sesion200/20220920/Votacion002/VOT_20230302180913.pdf
+
+| Partido | Valor | Base | Fuente |
+|---|---:|---|---|
+| PP | −1 | Votó no. «No seremos nosotros quienes legitimemos el uso de armas de fuego». No ha propuesto endurecer. | Acta · https://www.elindependiente.com/politica/2019/03/20/abascal-matiza-postura-tras-la-criticas-pp-cs-no-hablamos-del-derecho-portar-armas/amp/ |
+| PSOE | −2 | Votó no. Real Decreto 653/2023 de trazabilidad y consulta pública de 2026 para un reglamento con curso obligatorio y tope de rifles. | https://www.boe.es/eli/es/rd/2023/07/18/653 · https://www.cronista.com/espana/actualidad-es/sumaran-dos-requisitos-obligatorios-para-la-compra-de-armas-en-espana/ |
+| Vox | +2 | Medida 86 de 2019, Abascal en 2019 («disponer de un arma en su casa»), proposición de 2022. | https://theobjective.com/espana/2019-03-20/abascal-pide-reformar-la-ley-para-que-los-espanoles-puedan-disponer-de-un-arma-en-su-casa/ |
+| Frente Amplio | −2 | Unidas Podemos y Compromís votaron no. | Acta |
+| Podemos | −2 | Fijó la posición de UP en contra el 20-9-2022. | https://www.congreso.es/public_oficiales/L14/CONG/DS/PL/DSCD-14-PL-208.PDF |
+| SALF | sin dato | Solo retórica, nada sobre tenencia privada. | — |
+| D21 + Cs | −2 (extrapolado) | Cs votó no. Rivera: «No quiero un país con tiroteos en los colegios». | Acta |
+| Milei | +1 | Decreto 397/2025 derogó la prohibición de 1995 y autorizó semiautomáticas a legítimos usuarios, acotado al deporte. En campaña apoyó la libre portación. | https://www.perfil.com/noticias/sociedad/por-decreto-el-gobierno-de-milei-habilito-la-compra-y-tenencia-de-armas-semiautomaticas-para-civiles.phtml |
+| Bukele | +1 | Amnistía de 90 días de octubre de 2024 para legalizar armas en manos de civiles sin acción penal. ARENA: «están armando a la población». | https://www.elsalvador.com/noticias/nacional/organo-legislativo-decreto-para-legalizacion-de-armas/1175021/2024/ |
+
+### p_toros. Habría que prohibir las corridas de toros (dir −1)
+
+Voto del 7-10-2025 sobre la ILP «No es mi cultura» (derogar la Ley 18/2013): 57 sí, 169 no, 118 abstenciones.
+
+| Partido | Valor | Base | Fuente |
+|---|---:|---|---|
+| PP | −2 | Aprobó la ley de 2013, votó no a la ILP y quiere restituir el Premio Nacional de Tauromaquia. | https://www.eldebate.com/espana/20251007/cisma-gobierno-toros-abstencion-psoe-impide-tramitar-ley-contra-tauromaquia_342268.html |
+| PSOE | −1 | Se abstuvo («ni prohibir ni promover»), pero votó no a restituir el premio en 2024. | https://www.ondavasca.com/el-psoe-se-alinea-con-sumar-y-vota-en-contra-de-restituir-el-premio-nacional-de-tauromaquia/ |
+| Vox | −2 | Medida 67 de 2019 (ley de protección de la tauromaquia), votó no a la ILP. | https://www.eldiario.es/1_c13b47 |
+| Frente Amplio | +1 | Sumar votó sí, su programa deroga la ley de 2013 y retira fondos, Urtasun suprimió el premio. Niega querer prohibir. | https://maldita.es/malditobulo/20230817/yolanda-diaz-prohibir-tauromaquia-espana/ |
+| Podemos | +2 | Votó sí, la llama «anacronismo» y ha propuesto un referéndum para prohibirla. | https://www.publico.es/politica/dia-mundial-animales-unico-partido.html |
+| SALF | 0 | Votó en el Parlamento Europeo contra las ayudas al toro de lidia («espectáculo de brutalidad») pero no pide prohibir. | https://www.eldebate.com/cultura/20240907/alvise-retrata-toros_225428.html |
+| D21 + Cs | −1 (extrapolado) | Rivera: «ni subvencionar ni prohibir». Cs votó contra la prohibición catalana de 2010. | https://www.publico.es/politica/albert-rivera-somos-taurinos-antitaurinos.amp.html |
+| Milei | sin dato | No aplica: prohibidas en Argentina desde 1954 (Ley 14.346). | http://servicios.infoleg.gob.ar/infolegInternet/anexos/150000-154999/153011/norma.htm |
+| Bukele | sin dato | No aplica: no hay tauromaquia en El Salvador. | — |
+
+## 8. Correcciones de la segunda pasada (7)
+
+| Afirmación | Partido | Antes | Ahora | Base | Fuente |
+|---|---|---:|---:|---|---|
+| p_abor | SALF | 0 | −1 | «Ferviente provida» (enero de 2026), convocó la concentración ante la clínica Dator con HazteOir (2023), votó en contra de la resolución pro aborto del Parlamento Europeo el 17-12-2025 y a favor de la alternativa conservadora. No propone derogar la ley. | https://howtheyvote.eu/votes/182767 · https://www.eldiario.es/madrid/somos/tetuan/concentracion-alvise-hazte-oir-40-anos-acoso-puertas-clinica-dator_1_10221292.html |
+| p_matr | SALF | 0 | +1 | «No se opone al matrimonio gay», ha ido a bodas, «elegir por orientación sexual es uno de los derechos más básicos» (junio de 2024). | https://www.esdiario.com/nacional/240624/137577/alvise-perez-confesiones-homosexualidad.html |
+| p_chat | SALF | 0 | 0 (documentado) | Cuatro votos nominales contradictorios: a favor de prorrogar el escaneo voluntario en marzo de 2026, contra la urgencia el 7-7-2026, contra rechazar la posición del Consejo el 9-7-2026. | https://howtheyvote.eu/votes/195338 · https://howtheyvote.eu/votes/195807 |
+| p_menores | SALF | −1 | −1 (documentado) | Votó contra las resoluciones del Parlamento Europeo que piden una edad mínima de 16 años (26-11-2025 y 17-9-2026). | https://howtheyvote.eu/votes/181520 |
+| p_prior | Milei | +1 | +2 | DNU 366/2025: atención no urgente de pago para extranjeros sin residencia permanente y universidad gratuita solo para argentinos y residentes. | https://www.derechoenzapatillas.com/2025/decreto-366-2025-reforma-integral-del-regimen-migratorio-sanitario-educativo-y-de-ciudadania/ |
+| p_taba | Milei | −2 | −1 | Legalizó vapeadores y bolsas de nicotina en 2026. Nada sobre espacios abiertos. | https://www.cronista.com/economia-politica/argentina-legalizo-los-cigarrillos-electronicos-tras-mas-de-una-decada-de-prohibicion-los-cambios-que-dispuso-el-gobierno/ |
+| p_trans | Milei | −2 | −1 | El DNU 62/2025 prohíbe tratamientos a menores pero no toca el cambio registral de adultos, que sigue sin requisitos médicos. | https://www.argentina.gob.ar/normativa/nacional/norma-409265/texto |
+| e_irpf | Bukele | 0 | +1 | Renta del 30 % al 0 % para capitales del exterior (marzo de 2024), exenciones de 15 años a edificios altos y totales a inversiones de más de 2.000 millones. No ha bajado la renta general. | https://www.bloomberglinea.com/2024/03/14/el-salvador-promete-inversion-sin-impuestos/ |
+| e_jorn | Bukele | −1 | 0 | Consulta de 2026 para «modernizar» la jornada manteniendo las 44 horas. | https://diario.elmundo.sv/economia/ministerio-de-trabajo-finaliza-esta-semana-consulta-para-reformar-la-jornada-laboral |
+
+## 9. Posiciones finales de la versión 1.4
+
+| Partido | 1.3 | 1.4 | Zona |
+|---|---|---|---|
+| PP | 70 / 35 | 70 / 37 | Derecha |
+| PSOE | 19 / 55 | 19 / 54 | Izquierda |
+| Vox | 86 / 33 | 86 / 38 | Derecha |
+| Frente Amplio | 6 / 72 | 6 / 68 | Izquierda |
+| Podemos | 6 / 75 | 6 / 72 | Izquierda |
+| SALF | 83 / 54 | 84 / 55 | Libertario |
+| D21 + Cs | 61 / 55 | 61 / 54 | Centro |
+| Milei | 93 / 41 | 93 / 38 | Derecha |
+| Bukele | 61 / 23 | 61 / 9 | Derecha |
+
+Distancias: Milei y Bukele 43 puntos (29 en libertades), PP y PSOE 54. Vox a 6 puntos de Milei. Afinidades: Frente Amplio y Podemos 95 %, Vox y SALF 85 %, PSOE y Frente Amplio 80 %, PP y D21 + Cs 74 %, PP y Vox 73 %.
+
+Lecturas:
+- Bukele baja de 23 a 9 porque ya no le cuentan como neutrales diez afirmaciones sin dato. Sobre las 17 de libertades con dato está en «muy a favor» de la intervención en casi todas.
+- Milei baja de 41 a 38 pese a armas (+1). Con lo documentado, su libertarismo es económico: expulsiones, prioridad nacional, policía, penas, protestas, decretos, aborto y símbolos puntúan hacia abajo; a favor de la libertad solo odio, medios, tabaco, anonimato, apuestas, prostitución, matrimonio y armas. Para que subiera habría que puntuar sus discursos en lugar de sus decretos, y ese no es el criterio del proyecto.
+- Vox sube de 33 a 38 por armas y toros. Queda un punto por encima del PP: Vox es más intervencionista en costumbres e inmigración y menos en lo que llama «Estado niñera» (tabaco, apuestas, redes, armas), y el PP al revés.
+- SALF queda en 84/55 con 10 casillas de libertades con dato y 17 sin él. Su posición es la de menos confianza del test. Lo documentado: muy a favor de las expulsiones y contra la ley trans, provida, a favor de la mano dura penal, y a la vez contra cualquier límite a la expresión, al anonimato, a las redes de menores y a las protestas afines.
