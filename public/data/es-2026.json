@@ -1,5 +1,5 @@
 {
- "version": "2.2",
+ "version": "2.3",
  "date": "1 de noviembre de 2026",
  "notes": {
   "a": "Respuestas en el orden de parties, de -2 (muy en contra) a +2 (muy a favor); null = sin dato, no cuenta en la posición ni en la afinidad.",
@@ -199,7 +199,7 @@
     2,
     -2,
     -2,
-    2,
+    1,
     1,
     0,
     1,
@@ -226,11 +226,11 @@
     2,
     -2,
     -2,
-    2,
+    1,
     1,
     2,
     null,
-    2,
+    1,
     2,
     -2,
     -1,
@@ -253,7 +253,7 @@
     -2,
     2,
     2,
-    -2,
+    -1,
     1,
     -2,
     null,
@@ -284,8 +284,8 @@
     0,
     -2,
     1,
-    -2,
-    1,
+    -1,
+    2,
     2,
     1,
     -1,
@@ -305,8 +305,8 @@
     -2,
     1,
     -2,
-    2,
-    2,
+    1,
+    1,
     -1,
     -1,
     -2,
@@ -329,12 +329,12 @@
    "k": "liberalizar suelo",
    "t": "Hay que liberalizar suelo y reducir trámites para que se construya más.",
    "a": [
-    2,
+    1,
     1,
     2,
     -1,
     -2,
-    2,
+    1,
     1,
     2,
     1,
@@ -358,7 +358,7 @@
    "a": [
     2,
     2,
-    -1,
+    -2,
     2,
     2,
     0,
@@ -384,10 +384,10 @@
    "t": "El sistema de pensiones debería ser mixto, con una parte de capitalización privada.",
    "a": [
     0,
-    -2,
+    -1,
     2,
-    -2,
-    -2,
+    -1,
+    -1,
     null,
     0,
     1,
@@ -410,8 +410,8 @@
    "k": "reducir la administración",
    "t": "Hay que reducir ministerios, organismos y empleo público.",
    "a": [
-    1,
-    -1,
+    2,
+    -2,
     2,
     -2,
     -2,
@@ -442,12 +442,12 @@
     -2,
     2,
     2,
-    -2,
+    -1,
     0,
     -2,
     -1,
     -2,
-    1,
+    2,
     2,
     2,
     0,
@@ -465,17 +465,17 @@
    "t": "El Estado debería poder expropiar viviendas o nacionalizar empresas estratégicas.",
    "a": [
     -2,
-    -1,
+    0,
     -2,
-    2,
-    2,
+    1,
+    1,
     -1,
-    -2,
+    -1,
     -2,
     -1,
     0,
     2,
-    1,
+    2,
     0,
     0,
     0,
@@ -521,14 +521,14 @@
     2,
     2,
     0,
+    0,
     -1,
-    -2,
     null,
     0,
     -2,
     1,
     1,
-    1,
+    2,
     1,
     1,
     2,
@@ -546,7 +546,7 @@
    "t": "El gasto público debería reducirse de forma significativa.",
    "a": [
     0,
-    -1,
+    -2,
     2,
     -2,
     -2,
@@ -586,7 +586,7 @@
     0,
     2,
     -2,
-    2,
+    1,
     -1
    ],
    "c": "El salario mínimo es el sueldo más bajo que se puede pagar por ley. Subirlo mejora los sueldos más bajos. Quien lo critica dice que puede destruir empleo en sectores poco productivos."
@@ -607,13 +607,13 @@
     1,
     -1,
     -2,
-    -1,
+    -2,
     2,
     2,
     0,
     -1,
     0,
-    1,
+    2,
     0
    ],
    "c": "Un arancel es un impuesto a los productos importados para que los nacionales compitan mejor. Protege a productores locales, pero encarece los productos y puede provocar represalias."
@@ -626,7 +626,7 @@
    "k": "flexibilidad del despido",
    "t": "Hay que facilitar a las empresas contratar y despedir, con menos restricciones e indemnizaciones más bajas.",
    "a": [
-    1,
+    2,
     -2,
     2,
     -2,
@@ -638,7 +638,7 @@
     1,
     0,
     -2,
-    -2,
+    -1,
     1,
     -1,
     2
@@ -653,18 +653,18 @@
    "k": "reducir la jornada por ley",
    "t": "La jornada laboral debe reducirse por ley sin bajar el sueldo.",
    "a": [
-    -1,
-    2,
     -2,
-    2,
-    2,
+    1,
+    -2,
+    1,
+    1,
     null,
     null,
     -2,
     0,
     null,
     -1,
-    1,
+    2,
     1,
     -2,
     null,
@@ -713,7 +713,7 @@
     -2,
     -2,
     2,
-    2,
+    1,
     2,
     null,
     1,
@@ -746,7 +746,7 @@
     2,
     2,
     1,
-    -2,
+    -1,
     1,
     -1,
     1
@@ -762,7 +762,7 @@
    "t": "Las ayudas públicas deben dar prioridad a los ciudadanos del país frente a los extranjeros con residencia legal.",
    "a": [
     0,
-    -2,
+    -1,
     2,
     -2,
     -2,
@@ -792,7 +792,7 @@
     -1,
     2,
     -2,
-    -2,
+    -1,
     null,
     1,
     2,
@@ -846,7 +846,7 @@
     1,
     -1,
     1,
-    2,
+    1,
     -2,
     0,
     0,
@@ -857,7 +857,7 @@
     null,
     -1,
     0,
-    2
+    1
    ],
    "c": "Castigar expresiones que desprecian a colectivos por su origen, religión, orientación u otras características, aunque no llamen a la violencia. El debate es dónde acaba la libertad de expresión."
   },
@@ -875,10 +875,10 @@
     -2,
     -2,
     null,
-    1,
-    1,
-    1,
     2,
+    1,
+    1,
+    1,
     2,
     2,
     null,
@@ -900,11 +900,11 @@
     -1,
     1,
     -2,
-    -2,
+    -1,
     -1,
     1,
     2,
-    2,
+    1,
     2,
     2,
     2,
@@ -923,7 +923,7 @@
    "k": "eutanasia",
    "t": "La eutanasia debe seguir siendo legal.",
    "a": [
-    0,
+    -1,
     2,
     -2,
     2,
@@ -956,16 +956,16 @@
     2,
     2,
     1,
-    2,
+    1,
     1,
     -2,
     1,
     -2,
     -1,
     2,
-    -2,
+    -1,
     2,
-    2
+    1
    ],
    "c": "Legal en España desde 2005. La pregunta plantea si debe mantenerse con los mismos derechos que el matrimonio entre personas de distinto sexo, incluida la adopción."
   },
@@ -991,7 +991,7 @@
     -1,
     2,
     -1,
-    2,
+    1,
     2
    ],
    "c": "La ley actual permite abortar libremente hasta la semana 14 y hasta la 22 por causas médicas. La pregunta plantea si mantener esos plazos."
@@ -1005,14 +1005,14 @@
    "t": "El cannabis para adultos debería ser legal y estar regulado.",
    "a": [
     -2,
-    -1,
+    -2,
     -2,
     1,
-    2,
+    1,
     null,
     1,
     -1,
-    -2,
+    -1,
     0,
     -2,
     -1,
@@ -1031,12 +1031,12 @@
    "k": "regular los medios",
    "t": "El Gobierno debe poder regular a los medios de comunicación para combatir la desinformación.",
    "a": [
-    -2,
-    2,
     -1,
-    2,
     1,
-    -2,
+    -1,
+    1,
+    1,
+    -1,
     null,
     0,
     2,
@@ -1073,7 +1073,7 @@
     null,
     1,
     null,
-    2
+    1
    ],
    "c": "Prohibir las prendas que cubren toda la cara en la calle y en los edificios públicos, como ya hacen Francia o Bélgica."
   },
@@ -1093,7 +1093,7 @@
     0,
     -1,
     null,
-    2,
+    1,
     null,
     2,
     1,
@@ -1120,7 +1120,7 @@
     -1,
     -1,
     -1,
-    -2,
+    -1,
     -2,
     -2,
     -1,
@@ -1141,15 +1141,15 @@
    "a": [
     0,
     -2,
-    -2,
-    -2,
-    -2,
-    null,
-    2,
-    null,
-    null,
-    null,
     -1,
+    -2,
+    -2,
+    null,
+    1,
+    null,
+    null,
+    null,
+    0,
     null,
     0,
     -2,
@@ -1166,14 +1166,14 @@
    "k": "armas en casa",
    "t": "Debería ser más fácil para un particular tener un arma en casa para defenderse.",
    "a": [
-    -1,
+    -2,
     -2,
     2,
     -2,
     -2,
     null,
     -2,
-    1,
+    2,
     1,
     2,
     -2,
@@ -1224,7 +1224,7 @@
     -1,
     -2,
     1,
-    2,
+    1,
     0,
     -1,
     1,
@@ -1282,8 +1282,8 @@
     "https://www.whitehouse.gov/fact-sheets/2026/03/fact-sheet-president-donald-j-trump-removes-regulatory-barriers-to-affordable-home-construction"
    ],
    "e_empv": [
-    "Trump propuso recortar el presupuesto del HUD más del 40 % y limitar a dos años la ayuda al alquiler.",
-    "https://www.nbcboston.com/news/national-international/trump-administration-hud-housing-time-limit-proposal/3770282/"
+    "Propuso recortar el HUD un 44 % y limitar a dos años la ayuda al alquiler, pero el Congreso lo rechazó en la ley de gasto de febrero de 2026.",
+    "https://www.wamc.org/2026-02-27/hud-proposes-time-limits-and-work-requirements-for-rental-aid"
    ],
    "e_acum": [
     "En enero de 2026 firmó una orden que veta el respaldo federal a las compras de vivienda de grandes inversores, pero no es un impuesto.",
@@ -1370,7 +1370,7 @@
     "https://www.whitehouse.gov/presidential-actions/2025/01/additional-measures-to-combat-anti-semitism/"
    ],
    "p_simb": [
-    "En agosto de 2025 firmó la orden 14341 para perseguir la quema de la bandera.",
+    "La orden 14341 de agosto de 2025 solo manda priorizar procesos por quemar la bandera bajo otras leyes, sin tipificar un delito que la jurisprudencia Texas contra Johnson impide.",
     "https://www.whitehouse.gov/presidential-actions/2025/08/prosecuting-burning-of-the-american-flag/"
    ],
    "p_prot": [
@@ -1444,8 +1444,8 @@
     ""
    ],
    "e_empv": [
-    "Existe DOM.RF, la institución estatal de desarrollo de la vivienda, aunque la fuente es débil.",
-    "https://www.themoscowtimes.com/2024/10/18/russias-real-estate-market-rocked-by-the-end-of-generous-mortgage-subsidies-a86738"
+    "La ley 225 FZ de 2015 convirtió la agencia hipotecaria estatal en DOM.RF, instituto único de desarrollo de vivienda que gestiona el suelo federal para construir.",
+    "https://en.wikipedia.org/wiki/DOM.RF"
    ],
    "e_acum": [
     "No hay ninguna medida ni declaración de Putin sobre esto.",
@@ -1468,7 +1468,7 @@
     "https://www.themoscowtimes.com/2024/11/11/russia-preparing-mass-government-layoff-a86976"
    ],
    "e_fort": [
-    "Subió el IRPF a las rentas altas y el impuesto de sociedades del 20 al 25 % en 2024.",
+    "La ley firmada en julio de 2024 subió el impuesto de sociedades del 20 al 25 % y fijó un IRPF progresivo de hasta el 22 % desde 2025.",
     "https://abcnews.go.com/amp/Business/wireStory/putin-signs-bill-increasing-income-taxes-wealthy-russia-111882557"
    ],
    "e_expr": [
@@ -1480,7 +1480,7 @@
     "https://www.consultant.ru/document/cons_doc_LAW_28399/"
    ],
    "e_aval": [
-    "El Estado subvenciona una hipoteca preferente al 8 % y una hipoteca familiar al 6 % hasta 2030.",
+    "El Estado paga la diferencia de tipos de la hipoteca familiar al 6 % hasta 2030 y de la hipoteca del Lejano Oriente al 2 % para menores de 36.",
     "https://www.thestar.com.my/business/business-news/2024/07/03/russia-ends-housing-mortgage-subsidy"
    ],
    "e_gasto": [
@@ -1584,7 +1584,7 @@
     "https://www.themoscowtimes.com/2018/12/31/russia-outlaws-animal-cruelty-a64009"
    ],
    "p_gest": [
-    "Firmó el 19 de diciembre de 2022 la ley que prohíbe la gestación subrogada a extranjeros, aunque sigue permitida para matrimonios y mujeres solas rusas.",
+    "Mantiene legal la gestación subrogada comercial para matrimonios y mujeres solas rusas, pero la ley del 19 de diciembre de 2022 la prohibió a extranjeros.",
     "https://www.themoscowtimes.com/2022/12/19/putin-bans-surrogacy-for-foreigners-a79738"
    ],
    "p_pand": [
@@ -1634,7 +1634,7 @@
     "https://eldiario.com/2024/05/20/empresas-pagaran-contribucion-especial-por-ley-de-pensiones/"
    ],
    "e_expr": [
-    "Ocupó Clorox, Kimberly-Clark, Kellogg's y Smurfit, y después hubo ventas silenciosas.",
+    "Ocupó por decreto las plantas de Clorox en 2014, Kimberly Clark en 2016 y Kellogg's y Smurfit Kappa en 2018, aunque luego vendió algunas en silencio.",
     "https://www.theglobeandmail.com/business/international-business/latin-american-business/article-kellogg-pulls-out-of-venezuela-due-to-countrys-ongoing-economic/"
    ],
    "e_sani": [
@@ -1820,7 +1820,7 @@
     "https://en.mercopress.com/2014/07/25/mercosur-is-not-working-because-of-protectionism-and-lack-of-arbitration"
    ],
    "e_desp": [
-    "Aprobó la responsabilidad penal empresarial y la negociación colectiva obligatoria.",
+    "Aprobó la responsabilidad penal empresarial de 2014 y mantuvo intactos los consejos de salarios y las indemnizaciones por despido.",
     "https://www.impo.com.uy/bases/leyes/19196-2014"
    ],
    "e_jorn": [
@@ -1836,8 +1836,8 @@
     ""
    ],
    "p_expul": [
-    "Uruguay tiene una ley de migración abierta, y Mujica acogió a refugiados sirios y a presos de Guantánamo.",
-    "https://www.theclinic.cl/2014/06/02/uruguay-recibira-a-120-refugiados-de-la-guerra-de-siria/"
+    "Promulgó en 2014 la ley 19.254 de residencia permanente para nacionales del Mercosur y acogió a refugiados sirios y a presos de Guantánamo.",
+    "https://www.impo.com.uy/bases/leyes/19254-2014"
    ],
    "p_prior": [
     "El Estado costeó la acogida, y la Ley 18.250 establece la igualdad de derechos.",
@@ -1990,8 +1990,8 @@
     "https://www.open.online/2026/03/05/settimana-corta-no-governo-meloni-confronto-europa/"
    ],
    "e_ecol": [
-    "Votó contra las normas de envases y de restauración de la naturaleza y se abstuvo en la de motores de 2035.",
-    "http://www.eunews.it/2024/01/29/litalia-si-astiene-su-un-altro-tassello-del-green-deal-europeo"
+    "Sus presupuestos aplazaron cada año la plastic tax, la última vez a 2027, y votó contra las normas europeas de envases y restauración de la naturaleza.",
+    "https://quifinanza.it/fisco-tasse/plastic-tax-sugar-tax-rinvio-2027/1021331/"
    ],
    "e_okupa": [
     "Con la Ley 80/2025 la ocupación es delito y se prevé la liberación urgente del inmueble.",
@@ -2030,7 +2030,7 @@
     "https://tg24.sky.it/politica/2025/05/09/governo-legge-fine-vita-toscana"
    ],
    "p_matr": [
-    "Puso fin a la inscripción de hijos de parejas del mismo sexo y convirtió la gestación subrogada en «delito universal».",
+    "Italia solo tiene uniones civiles, Meloni rechaza el matrimonio igualitario y en 2023 frenó la inscripción de hijos de parejas del mismo sexo.",
     "https://www.ilpost.it/2025/05/22/corte-costituzionale-riconoscimento-madre-non-biologica/"
    ],
    "p_abor": [
@@ -2080,8 +2080,8 @@
   },
   "pp": {
    "e_irpf": [
-    "Medida 41 del programa de 2023, deflactar la tarifa del IRPF, repetida por Feijóo en marzo de 2026, que en abril prometió dimitir si no baja impuestos.",
-    "https://www.elespanol.com/espana/politica/20260309/plan-feijoo-crisis-iran-medidas-estructurales-rescaten-clase-media-deflactar-irpf/1003744162416_0.amp.html"
+    "Bajó el IRPF con la Ley 26/2014 cuando gobernaba, sus comunidades han rebajado el tramo autonómico y Feijóo promete deflactar la tarifa y dimitir si no baja impuestos.",
+    "https://www.boe.es/eli/es/l/2014/11/27/26"
    ],
    "e_suc": [
     "Aprobó en el Senado en 2023 una ley para suprimir Sucesiones y Donaciones, y sus comunidades bonifican Sucesiones y Patrimonio casi al cien por cien.",
@@ -2096,12 +2096,12 @@
     "https://www.vozpopuli.com/espana/politica/el-chiringuito-de-sanchez-en-vivienda-costara-16500-millones-y-retrasara-la-venta-de-40000-viviendas.html"
    ],
    "e_acum": [
-    "Feijóo anunció en enero de 2025 bajar impuestos a quien compra, alquila y arrienda, y el PP quiere derogar la ley que define a los grandes tenedores.",
-    "https://www.eldebate.com/espana/20250112/feijoo-anuncia-bajada-impuestos-todos-materia-vivienda-quien-compre-alquile-arriende_260199.html"
+    "Votó contra el impuesto a las grandes fortunas en noviembre de 2022, sus comunidades bonifican Patrimonio casi al cien por cien y quiere derogar la ley del gran tenedor.",
+    "https://www.noticiasdenavarra.com/politica/2022/11/24/pleno-congreso-aprueba-impuestos-banca-6255443.amp.html"
    ],
    "e_suelo": [
-    "Feijóo promete una ley del suelo en cien días con silencio administrativo positivo a los noventa días para construir un millón de viviendas, octubre de 2026.",
-    "https://www.articulo14.es/economia/feijoo-promete-una-ley-antiokupas-y-ley-del-suelo-en-100-dias-y-deducciones-fiscales-para-alquilar-20261021.html"
+    "Feijóo promete una ley del suelo con silencio positivo, pero el PP votó contra tramitar la reforma de la ley del suelo el 25 de febrero de 2025.",
+    "https://www.elindependiente.com/espana/2025/02/25/ley-suelo-psoe-pnv-rechazo-pp-sumar-congreso/"
    ],
    "e_pens": [
     "Feijóo en Bruselas el 15 de octubre de 2026: las pensiones son innegociables y subirán con el IPC. El PP registró en 2025 una ley de revalorización automática.",
@@ -2112,15 +2112,15 @@
     "https://www.que.es/2026/10/18/privatizacion-pensiones-pp-29n/"
    ],
    "e_func": [
-    "Programa de 2023 y plan de los cien días de junio de 2023: reducir los ministerios de 22 a 13 o 14 y prescindir de 700 altos cargos y asesores.",
-    "https://okdiario.com/espana/feijoo-prescindira-700-altos-cargos-asesores-del-gobierno-sanchez-ahorrar-70-millones-11086963"
+    "Rajoy redujo los ministerios de 15 a 13 en 2011 y congeló el empleo público con tasa de reposición cero en 2012, y Feijóo promete pasar a 13 ministerios.",
+    "https://www.boe.es/eli/es/rdl/2011/12/30/20"
    ],
    "e_fort": [
     "Medida 42 del programa de 2023: eliminar el impuesto a las grandes fortunas. Votó contra los gravámenes a banca y energéticas en noviembre de 2022.",
     "https://www.noticiasdenavarra.com/politica/2022/11/24/pleno-congreso-aprueba-impuestos-banca-6255443.amp.html"
    ],
    "e_expr": [
-    "Feijóo dijo en febrero de 2026 que expropiar la renta a un arrendador es de otras latitudes, no de una democracia occidental. Rechazó la entrada de la SEPI en Telefónica.",
+    "El Gobierno de Rajoy recurrió en 2013 el decreto andaluz que expropiaba el uso de viviendas y el Constitucional lo anuló en 2015, y Feijóo rechaza expropiar rentas.",
     "https://www.ultimahora.es/noticias/comunidades/2026/02/04/2563249/feijoo-afirma-gobierno-espana-intenta-expropiar-derecho-arrendador-cobrar-renta.html"
    ],
    "e_sani": [
@@ -2128,8 +2128,8 @@
     "https://www.elespanol.com/invertia/observatorios/sanidad/20260513/junts-ve-ataque-sanidad-catalana-ley-gestion-privada-garcia-aboca-fracaso-congreso/"
    ],
    "e_aval": [
-    "Medida 91 del programa de 2023: avales públicos para hipotecas de hasta el 95 % a menores de 35 años. En 2026 promete avales de hasta el 100 %.",
-    "https://theobjective.com/wp-content/uploads/2023/07/programa-pp-23j.pdf"
+    "La Comunidad de Madrid avala desde 2022 hasta el 95 % de la hipoteca a menores de 35 con Mi Primera Vivienda y Feijóo promete avales del 100 %.",
+    "https://www.comunidad.madrid/servicios/vivienda/mi-primera-vivienda"
    ],
    "e_gasto": [
     "Promete recortar 60.000 millones de gasto improductivo y menos ministerios, pero también bajar impuestos sin tocar pensiones, sanidad ni educación.",
@@ -2144,8 +2144,8 @@
     "https://theobjective.com/wp-content/uploads/2023/07/programa-pp-23j.pdf"
    ],
    "e_desp": [
-    "Medida 26 del programa de 2023: cuentas individuales portables pagadas con cotizaciones, la llamada mochila austriaca, aunque Feijóo prometió respetar la reforma laboral de 2021.",
-    "https://theobjective.com/wp-content/uploads/2023/07/programa-pp-23j.pdf"
+    "Su reforma laboral de 2012 rebajó la indemnización por despido improcedente de 45 a 33 días y sigue vigente, y votó contra la reforma de 2021 en febrero de 2022.",
+    "https://www.boe.es/eli/es/l/2012/07/06/3"
    ],
    "e_jorn": [
     "Votó la enmienda de devolución que tumbó la ley de las 37,5 horas el 10 de septiembre de 2025, junto a Vox y Junts.",
@@ -2156,8 +2156,8 @@
     "https://www.publico.es/politica/feijoo-abre-puerta-fracking-dice-gobierna-hara-ajustes-ley-cambio-climatico.html"
    ],
    "e_okupa": [
-    "Medida 280 del programa de 2023: desalojos en 24 horas. El 21 de octubre de 2026 Feijóo prometió una ley antiocupación con desalojo en 48 horas por orden judicial.",
-    "https://www.vozpopuli.com/espana/politica/feijoo-promete-construir-un-millon-de-viviendas-y-que-los-okupas-salgan-en-48-horas-por-orden-judicial.html"
+    "Votó la ley de desahucio exprés de 2018, el Senado tomó en consideración su ley antiocupación en febrero de 2024 y Feijóo promete desalojos en 48 horas.",
+    "https://forbes.es/economia/448214/el-pp-pide-desbloquear-en-el-congreso-la-ley-antiokupas-al-okupa-se-le-desaloja-no-se-le-protege/"
    ],
    "p_expul": [
     "Rechaza la regularización masiva de 2026 y su programa pide agilizar retornos y expulsar a quien delinca, pero no propone deportaciones masivas.",
@@ -2188,7 +2188,7 @@
     "https://theobjective.com/espana/politica/2024-10-29/reforma-ley-mordaza-congreso/"
    ],
    "p_euta": [
-    "Recurrió la ley de 2021 al Constitucional, pero su programa de 2023 solo promete revisarla con el Comité de Bioética, sin derogarla.",
+    "Votó contra la ley de eutanasia en 2020 y 2021 y la recurrió al Constitucional, pero su programa de 2023 solo promete revisarla con el Comité de Bioética.",
     "https://theobjective.com/wp-content/uploads/2023/07/programa-pp-23j.pdf"
    ],
    "p_matr": [
@@ -2262,7 +2262,7 @@
     "https://theobjective.com/espana/politica/2025-05-23/psoe-impuesto-extranjeros-vivienda/"
    ],
    "e_suelo": [
-    "El Gobierno incluyó en el decreto de vivienda de julio de 2026 una reforma de la ley del suelo para acortar plazos urbanísticos y eliminar duplicidades, rechazada antes por el Congreso.",
+    "Incluyó en el borrador del decreto de vivienda de julio de 2026 una reforma de la ley del suelo para acortar plazos urbanísticos, rechazada antes por el Congreso.",
     "https://www.que.es/2026/07/24/reforma-ley-suelo-decreto-vivienda-2/"
    ],
    "e_pens": [
@@ -2326,7 +2326,7 @@
     "https://www.diaridetarragona.com/espana/257246/boe-publica-real-decreto-aprueba-regularizacion-inmigrantes-requisitos-plazos.html"
    ],
    "p_prior": [
-    "El PSPV votó en julio de 2026 contra los presupuestos valencianos con prioridad nacional de Vox en ayudas a vivienda y el Gobierno anunció recurso al Constitucional.",
+    "El PSPV votó en julio de 2026 contra los presupuestos valencianos con prioridad nacional y el Gobierno anunció un recurso al Constitucional que no consta presentado.",
     "https://www.que.es/2026/07/22/prioridad-nacional-valencia-presupuestos/"
    ],
    "p_poli": [
@@ -2366,7 +2366,7 @@
     "https://www.publico.es/sociedad/psoe-vota-no-ley-mas-pais-cannabis.html"
    ],
    "p_medio": [
-    "Su Plan de Acción por la Democracia de 2024 crea un registro de medios y Sánchez anunció en febrero de 2026 un medidor de odio y responsabilidad penal para plataformas.",
+    "Su Plan de Acción por la Democracia de 2024 propone un registro de medios y Sánchez anunció en 2026 responsabilidad penal para plataformas, pero ninguna ley se ha aprobado.",
     "https://www.publico.es/politica/luces-sombras-plan-regeneracion-democratica-gobierno-irrita-derecha.html"
    ],
    "p_burka": [
@@ -2428,8 +2428,8 @@
     "https://www.politicaelectoral.com/es/espana/generales-2026/nacional/comparar/vivienda"
    ],
    "e_pens": [
-    "Fue el único grupo que votó contra convalidar la subida del 2,7 % de las pensiones el 26 de febrero de 2026, aunque Abascal promete pagarlas como sea.",
-    "https://www.politicaelectoral.com/es/espana/generales-2026/nacional/comparar/pensiones"
+    "Votó contra la Ley 21/2021 que liga las pensiones al IPC y fue el único grupo contra convalidar la subida del 2,7 % el 26 de febrero de 2026.",
+    "https://alicanteplaza.es/alicanteplaza/lareformadepensionesdeescrivasuperasuprimerexamenenelcongresorechazadaporppyvox1"
    ],
    "e_mixto": [
     "La medida 53 de 2019 pide un modelo mixto de capitalización y reparto, y Figaredo lo defendió en julio de 2025 y octubre de 2026 llamando zombi al actual.",
@@ -2556,7 +2556,7 @@
     "https://www.eldiario.es/1_c13b47"
    ],
    "p_gest": [
-    "Presentó en 2020 una proposición para prohibir y sancionar la gestación subrogada y perseguir a quienes firmen o intermedien, rechazada en la Comisión de Igualdad en noviembre de 2020.",
+    "Su proposición no de ley de 2020 para prohibir y sancionar la gestación subrogada fue rechazada en la Comisión de Igualdad y su programa no la menciona.",
     "https://www.moncloa.com/congreso-vox-iniciativa-subrogada"
    ],
    "p_pand": [
@@ -2566,23 +2566,23 @@
   },
   "fa": {
    "e_irpf": [
-    "Su programa de 2023 propone subir el IRPF, con más tramos desde 120.000 euros y un marginal del 52 % a partir de 300.000.",
-    "https://movimientosumar.es/wp-content/uploads/2023/07/Un-Programa-para-ti.pdf"
+    "Unidas Podemos, con IU y En Comú Podem, aprobó la Ley 38/2022 que sube el IRPF del ahorro al 28 % y su programa añade tramos desde 120.000 euros.",
+    "https://www.boe.es/eli/es/l/2022/12/27/38"
    ],
    "e_suc": [
-    "En mayo de 2026 Sumar e IU registraron un impuesto estatal a herencias de más de un millón y su programa pide un impuesto permanente a grandes fortunas.",
-    "https://www.politicaelectoral.com/es/espana/generales-2026/nacional/comparar/economia"
+    "Unidas Podemos aprobó en 2022 el impuesto de solidaridad a las grandes fortunas, Ley 38/2022, y Sumar e IU registraron en 2026 un impuesto estatal a herencias millonarias.",
+    "https://www.boe.es/eli/es/l/2022/12/27/38"
    ],
    "e_alq": [
     "Unidas Podemos pactó la Ley de Vivienda de 2023 con topes en zonas tensionadas y Sumar impulsó en octubre de 2026 la renovación automática de alquileres por decreto.",
     "https://www.politicaelectoral.com/es/espana/generales-2026/nacional/comparar/vivienda"
    ],
    "e_empv": [
-    "Su programa de 2023 propone invertir el 1 % del PIB durante diez años para crear dos millones de viviendas protegidas y un banco público de suelo.",
-    "https://movimientosumar.es/wp-content/uploads/2023/07/Un-Programa-para-ti.pdf"
+    "Sumar forma parte del Gobierno que creó la empresa pública de vivienda Casa 47 por Real Decreto 1123/2025 y su programa pide un banco público de suelo.",
+    "https://www.eldiario.es/economia/casa-47-nueva-empresa-publica-vivienda-suelo-echa-andar_1_12842696.html"
    ],
    "e_acum": [
-    "En octubre de 2026 Frente Amplio anunció un impuesto anual del 10 % sobre el valor de cada vivienda a partir de la cuarta, salvo alquiler asequible.",
+    "En octubre de 2026 anunció un impuesto anual del 10 % desde la cuarta vivienda, sin voto ni ley, y la Ley de Vivienda de 2023 solo recarga el IBI.",
     ""
    ],
    "e_suelo": [
@@ -2594,31 +2594,31 @@
     "https://www.politicaelectoral.com/es/espana/generales-2026/nacional/comparar/pensiones"
    ],
    "e_mixto": [
-    "Su programa de 2023 quiere blindar en la Constitución que la Seguridad Social sea de reparto, con caja única y excluida toda operación de lucro privado.",
-    "https://movimientosumar.es/wp-content/uploads/2023/07/Un-Programa-para-ti.pdf"
+    "Su programa quiere blindar el reparto en la Constitución, pero Unidas Podemos votó en 2022 la Ley 12/2022 de fondos de pensiones de empleo de promoción pública.",
+    "https://www.publico.es/economia/aprobada-definitivamente-ley-planes-pensiones-empleo.html"
    ],
    "e_func": [
-    "Su programa de 2023 pide revertir la reducción de plantillas públicas, tasas de reposición positivas y una oferta de empleo público para la transición ecológica.",
-    "https://movimientosumar.es/wp-content/uploads/2023/07/Un-Programa-para-ti.pdf"
+    "Cogobernó con 22 ministerios, Unidas Podemos votó la Ley 20/2021 que estabiliza a cientos de miles de interinos y su programa pide tasas de reposición positivas.",
+    "https://www.boe.es/eli/es/l/2021/12/28/20"
    ],
    "e_fort": [
-    "Su programa de 2023 pide un impuesto permanente a grandes fortunas con tipos de al menos el 4 % y mantener los gravámenes a banca y energéticas.",
-    "https://papeletaclara.es/partidos/sumar"
+    "Unidas Podemos aprobó en 2022 el impuesto a grandes fortunas y los gravámenes a banca y energéticas, Ley 38/2022, y su programa pide hacerlos permanentes al 4 %.",
+    "https://www.boe.es/eli/es/l/2022/12/27/38"
    ],
    "e_expr": [
-    "Ha pedido expropiar viviendas de grandes propietarios en casos de desahucio y que Red Eléctrica sea 100 % pública, y propone una empresa pública de energía.",
+    "Ha pedido expropiar viviendas de grandes propietarios y que Red Eléctrica sea 100 % pública, pero en el Gobierno no ha expropiado ni nacionalizado nada.",
     "https://www.eldebate.com/espana/20250430/sumar-exige-responsabilidades-oligopolio-energetico-pide-red-electrica-sea-100-publica_292584.html"
    ],
    "e_sani": [
-    "Su programa de 2023 sube el gasto sanitario medio punto del PIB al año, incluye dentista y psicoterapia, y en mayo de 2026 impulsó derogar la Ley 15/1997.",
-    "https://www.politicaelectoral.com/es/espana/generales-2026/nacional/comparar/sanidad"
+    "Unidas Podemos votó la sanidad universal del Real Decreto-ley 7/2018 y la LOMLOE, y en mayo de 2026 impulsó derogar la Ley 15/1997 de gestión privada.",
+    "https://www.boe.es/eli/es/rdl/2018/07/27/7"
    ],
    "e_aval": [
-    "Yolanda Díaz calificó de regresivos e inflacionistas los avales del ICO a hipotecas de jóvenes, aunque Sumar no los ha revertido desde el Gobierno.",
+    "Yolanda Díaz llamó regresivos los avales del ICO a hipotecas de jóvenes, pero los ministros de Sumar los aprobaron en el Consejo de Ministros en 2024.",
     "https://www.bolsamania.com/noticias/empresas/economia--yolanda-diaz-critica-los-avales-del-ico-por-fomentar-la-compra-y-avisa-de-que-subira-el-precio-de-la-vivienda--16171492.html"
    ],
    "e_gasto": [
-    "Su programa de 2023 pide abandonar definitivamente la austeridad, reformar las reglas fiscales europeas y subir el gasto sanitario y educativo en puntos del PIB.",
+    "Unidas Podemos votó los presupuestos de 2021, 2022 y 2023, los de mayor gasto de la historia, y su programa pide abandonar la austeridad y subir el gasto social.",
     "https://movimientosumar.es/wp-content/uploads/2023/07/Un-Programa-para-ti.pdf"
    ],
    "e_smi": [
@@ -2630,16 +2630,16 @@
     "https://movimientosumar.es/wp-content/uploads/2023/07/Un-Programa-para-ti.pdf"
    ],
    "e_desp": [
-    "Su programa de 2023 propone un despido restaurativo y disuasorio, con readmisión o indemnización adicional según el daño causado y la capacidad de la empresa.",
-    "https://movimientosumar.es/wp-content/uploads/2023/07/Un-Programa-para-ti.pdf"
+    "Yolanda Díaz impulsó la reforma laboral de 2022, que limita los contratos temporales y mantiene las indemnizaciones, y su programa propone un despido restaurativo más caro.",
+    "https://www.boe.es/eli/es/rdl/2021/12/28/32"
    ],
    "e_jorn": [
     "Díaz llevó al Congreso la jornada de 37,5 horas sin bajar sueldo, rechazada el 10 de septiembre de 2025, y su programa apunta a 32 horas.",
     "https://www.politicaelectoral.com/es/espana/generales-2026/nacional/comparar/economia"
    ],
    "e_ecol": [
-    "Su programa de 2023 mantiene el cierre nuclear, limita vuelos con alternativa en tren y jets privados, y Urtasun llamó error estratégico prorrogar Almaraz en 2026.",
-    "https://www.politicaelectoral.com/es/espana/generales-2026/nacional/comparar/medio-ambiente"
+    "Unidas Podemos aprobó la Ley 7/2021 de cambio climático y el impuesto al plástico de la Ley 7/2022, y su programa mantiene el cierre nuclear y limita los jets privados.",
+    "https://www.boe.es/eli/es/l/2021/05/20/7"
    ],
    "e_okupa": [
     "Pide alternativa habitacional antes de cualquier desahucio y en 2026 apoyó suspender los desahucios de hogares vulnerables hasta 2030 en el decreto de vivienda.",
@@ -2650,12 +2650,12 @@
     "https://www.politicaelectoral.com/es/espana/generales-2026/nacional/comparar/inmigracion"
    ],
    "p_prior": [
-    "Su programa de 2023 pide sanidad universal también para personas en situación irregular y una ley integral contra el racismo, sin distinción por nacionalidad en las ayudas.",
-    "https://www.politicaelectoral.com/es/espana/generales-2026/nacional/comparar/inmigracion"
+    "Unidas Podemos votó la sanidad universal para personas irregulares del Real Decreto-ley 7/2018, apoyó la regularización de 2026 y su programa no distingue por nacionalidad.",
+    "https://www.boe.es/eli/es/rdl/2018/07/27/7"
    ],
    "p_poli": [
-    "Sumar registró en octubre de 2023 la derogación de la ley mordaza y su programa pide prohibir las pelotas de goma y los controles de identidad por perfil racial.",
-    "https://www.ondavasca.com/sumar-registra-hoy-en-el-congreso-su-texto-para-derogar-la-ley-mordaza/"
+    "Izquierda Unida votó en 2015 contra la ley mordaza, Sumar registró su derogación en octubre de 2023 y su programa prohíbe las pelotas de goma.",
+    "https://es.wikipedia.org/wiki/Ley_Org%C3%A1nica_de_protecci%C3%B3n_de_la_seguridad_ciudadana"
    ],
    "p_perp": [
     "Su programa de 2023 propone derogar la prisión permanente revisable, y Unidas Podemos recurrió la pena al Constitucional y votó derogarla en 2017 y 2018.",
@@ -2670,8 +2670,8 @@
     "https://www.eldiario.es/politica/psoe-sumar-reactivan-despenalizacion-ofensas-sentimientos-religiosos-corona_1_13303774.html"
    ],
    "p_prot": [
-    "Su programa de 2023 pide derogar los artículos de la ley mordaza que restringen la reunión y la expresión, y en 2026 exigió al PSOE reactivar la reforma.",
-    "https://www.politicaelectoral.com/es/espana/generales-2026/nacional/comparar/seguridad"
+    "Izquierda Unida votó en 2015 contra la ley mordaza, que sanciona los cortes de vías, y Sumar exigió al PSOE en 2026 reactivar su derogación.",
+    "https://es.wikipedia.org/wiki/Ley_Org%C3%A1nica_de_protecci%C3%B3n_de_la_seguridad_ciudadana"
    ],
    "p_euta": [
     "Unidas Podemos votó la ley de eutanasia de 2021 y el programa de Sumar de 2023 la defiende junto a cuidados paliativos a domicilio.",
@@ -2710,8 +2710,8 @@
     "https://www.congreso.es/webpublica/opendata/votaciones/Leg14/Sesion200/20220920/Votacion002/VOT_20230302180913.pdf"
    ],
    "p_relig": [
-    "Su programa de 2023 saca la religión del currículo y del horario lectivo obligatorios y dice que su nota no contará para la media de Bachillerato.",
-    "https://movimientosumar.es/wp-content/uploads/2023/07/Un-Programa-para-ti.pdf"
+    "Unidas Podemos votó la LOMLOE de 2020, que quita a la religión la nota para la media y la asignatura espejo, y su programa la saca del horario lectivo.",
+    "https://www.boe.es/eli/es/lo/2020/12/29/3"
    ],
    "p_toros": [
     "Sumar votó sí a tramitar la ILP antitaurina el 7 de octubre de 2025 y su programa deroga la ley de 2013 y retira fondos, pero niega querer prohibir.",
@@ -2728,8 +2728,8 @@
   },
   "pod": {
    "e_irpf": [
-    "Propone equiparar en el IRPF las rentas del capital y del trabajo y subir impuestos a grandes patrimonios, con más recaudación y nunca menos.",
-    "https://www.politicaelectoral.com/es/espana/generales-2026/nacional/podemos"
+    "Unidas Podemos aprobó la Ley 38/2022, que sube el IRPF del ahorro al 28 %, y propone equiparar las rentas del capital y del trabajo con más recaudación.",
+    "https://www.boe.es/eli/es/l/2022/12/27/38"
    ],
    "e_suc": [
     "Unidas Podemos impuso en 2022 el impuesto de solidaridad a las grandes fortunas, Ley 38/2022, y pide además un impuesto europeo a los grandes patrimonios.",
@@ -2744,7 +2744,7 @@
     "https://papeletaclara.es/partidos/podemos/"
    ],
    "e_acum": [
-    "Propone un impuesto a las viviendas vacías, topar el número de viviendas por propietario y expropiar el uso de la mitad de los pisos de grandes tenedores.",
+    "Propone un impuesto a viviendas vacías y topar las viviendas por propietario, sin voto ni ley, y la Ley de Vivienda que negoció solo recarga el IBI.",
     "https://www.politicaelectoral.com/es/espana/generales-2026/nacional/podemos"
    ],
    "e_suelo": [
@@ -2756,31 +2756,31 @@
     "https://www.boe.es/eli/es/l/2021/12/28/21"
    ],
    "e_mixto": [
-    "Defiende un sistema público íntegro y propone impedir por ley que bancos y fondos de inversión entren en las pensiones.",
-    "https://www.politicaelectoral.com/es/espana/generales-2026/nacional/podemos"
+    "Defiende un sistema público íntegro, pero Unidas Podemos votó en 2022 la Ley 12/2022 de fondos de pensiones de empleo de promoción pública.",
+    "https://www.publico.es/economia/aprobada-definitivamente-ley-planes-pensiones-empleo.html"
    ],
    "e_func": [
-    "Propone más plantilla en la Agencia Tributaria, un sistema de cuidados con 400.000 empleos públicos y gestión pública directa en sanidad.",
-    "https://queproponen.es/partidos/podemos"
+    "Cogobernó con 22 ministerios, votó la Ley 20/2021 que estabiliza a cientos de miles de interinos y propone 400.000 empleos públicos de cuidados.",
+    "https://www.boe.es/eli/es/l/2021/12/28/20"
    ],
    "e_fort": [
     "Impuso en 2022 el impuesto a grandes fortunas y los gravámenes a banca y energéticas, y propone que las grandes empresas del Ibex paguen el 50 % de sus beneficios.",
     "https://www.politicaelectoral.com/es/espana/generales-2026/nacional/podemos"
    ],
    "e_expr": [
-    "Montero reclama expropiar el uso de 650.000 viviendas de fondos buitre en septiembre de 2026 y propone una empresa pública de energía con más Estado en sectores estratégicos.",
+    "Montero reclama expropiar el uso de 650.000 viviendas de fondos y una empresa pública de energía, pero en el Gobierno no expropió ni nacionalizó nada.",
     "https://www.democrata.es/politica/podemos-rechaza-el-decreto-de-vivienda-pactado-con-junts-y-reclama-expropiar-650-000-pisos-de-fondos-buitre/"
    ],
    "e_sani": [
-    "Propone derogar la Ley 15/1997 para prohibir la gestión privada de la sanidad pública y educación pública gratuita de 0 a 18 años, incluidos libros y comedor.",
-    "https://www.politicaelectoral.com/es/espana/generales-2026/nacional/podemos"
+    "Unidas Podemos votó la sanidad universal del Real Decreto-ley 7/2018 y la LOMLOE, y propone derogar la Ley 15/1997 para prohibir la gestión privada.",
+    "https://www.boe.es/eli/es/rdl/2018/07/27/7"
    ],
    "e_aval": [
     "Belarra llamó infame y contraria al interés general a la ampliación de avales públicos a hipotecas de 2024 y Echenique pidió revertirlos.",
     "https://www.elsaltodiario.com/vivienda/aval-gobierno-hipotecas-llega-rescate-negocio-crisis"
    ],
    "e_gasto": [
-    "Rechaza la austeridad, pide reformar las reglas fiscales europeas y aumentar el gasto público en sanidad, educación y cuidados.",
+    "Aprobó desde el Gobierno los presupuestos de 2021, 2022 y 2023, los de mayor gasto de la historia, y pide más gasto en sanidad, educación y cuidados.",
     "https://papeletaclara.es/partidos/podemos/"
    ],
    "e_smi": [
@@ -2792,31 +2792,31 @@
     "https://www.euronews.com/2025/10/08/eu-lawmakers-narrowly-reject-resolution-supporting-mercosur-deal"
    ],
    "e_desp": [
-    "Propone volver a la indemnización de 45 días por año trabajado y que la persona despedida elija entre readmisión o indemnización.",
-    "https://papeletaclara.es/partidos/podemos/"
+    "Votó la reforma laboral de 2022, que limita los contratos temporales, y propone volver a los 45 días de indemnización con readmisión a elección del despedido.",
+    "https://www.boe.es/eli/es/rdl/2021/12/28/32"
    ],
    "e_jorn": [
-    "Propone por ley la jornada de seis horas al día, hasta 30 semanales, sin bajar el sueldo.",
+    "Propone por ley la jornada de 30 horas sin bajar sueldo y votó a favor de la de 37,5 horas, rechazada en septiembre de 2025.",
     "https://queproponen.es/partidos/podemos"
    ],
    "e_ecol": [
-    "Propone impuestos a jets privados, yates y coches de alta cilindrada, un impuesto a la huella de carbono de los grandes contaminadores y cerrar las nucleares.",
-    "https://papeletaclara.es/partidos/podemos/"
+    "Unidas Podemos aprobó la Ley 7/2021 de cambio climático y el impuesto al plástico de 2022, y propone gravar jets, yates y la huella de carbono.",
+    "https://www.boe.es/eli/es/l/2021/05/20/7"
    ],
    "e_okupa": [
     "Votó en noviembre de 2022 contra tramitar la ley antiokupas del PP y Montero llamó a la okupación problema inventado de la derecha.",
     "https://www.elindependiente.com/espana/2022/11/29/psoe-unidas-podemos-y-sus-socios-rechazan-que-el-congreso-tramite-la-ley-antiokupas-del-pp/"
    ],
    "p_expul": [
-    "Propone regularizar de inmediato a todas las personas que viven en España, derogar la Ley de Extranjería y cerrar los CIE.",
+    "Votó en abril de 2024 la toma en consideración de la ILP de regularización, origen del decreto de 2026, y propone derogar la Ley de Extranjería y cerrar los CIE.",
     "https://www.politicaelectoral.com/es/espana/generales-2026/nacional/podemos"
    ],
    "p_prior": [
-    "Propone ligar los derechos sociales a la residencia y no a la nacionalidad, con sanidad universal y apoyo a la regularización extraordinaria de 2026.",
-    "https://papeletaclara.es/partidos/podemos/"
+    "Votó en 2018 la sanidad universal para personas irregulares del Real Decreto-ley 7/2018 y propone ligar los derechos sociales a la residencia, no a la nacionalidad.",
+    "https://www.boe.es/eli/es/rdl/2018/07/27/7"
    ],
    "p_poli": [
-    "Exige derogar la Ley de Seguridad Ciudadana de 2015 con prohibición de las pelotas de goma y de las devoluciones en caliente.",
+    "Exige derogar la ley mordaza con prohibición de pelotas de goma y devoluciones en caliente, pero la reforma que negoció en el Gobierno fracasó en 2023.",
     "https://www.eldiario.es/1_caa1d7"
    ],
    "p_perp": [
@@ -2832,7 +2832,7 @@
     "https://www.publico.es/politica/congreso-abre-puerta-delito-injurias-corona.html"
    ],
    "p_prot": [
-    "Pide derogar íntegramente la ley mordaza de 2015, que es la norma que sanciona los cortes de vías y las protestas no comunicadas.",
+    "Pide derogar íntegramente la ley mordaza, que sanciona los cortes de vías, pero no la derogó en tres años de Gobierno.",
     "https://www.eldiario.es/1_caa1d7"
    ],
    "p_euta": [
@@ -2872,11 +2872,11 @@
     "https://www.congreso.es/public_oficiales/L14/CONG/DS/PL/DSCD-14-PL-208.PDF"
    ],
    "p_relig": [
-    "Propone un Estado laico, escuela pública laica, acabar con el Concordato y retirar los privilegios fiscales a las confesiones religiosas.",
-    "https://www.politicaelectoral.com/es/espana/generales-2026/nacional/podemos"
+    "Unidas Podemos votó la LOMLOE de 2020, que quita valor académico a la religión, y propone un Estado laico, acabar con el Concordato y retirar privilegios fiscales.",
+    "https://www.boe.es/eli/es/lo/2020/12/29/3"
    ],
    "p_toros": [
-    "Votó en octubre de 2025 a favor de tramitar la ILP para derogar la ley de tauromaquia, la llama anacronismo y ha propuesto un referéndum para prohibirla.",
+    "Votó en octubre de 2025 tramitar la ILP que deroga la ley de tauromaquia, sin prohibir las corridas, y propone un referéndum para prohibirlas.",
     "https://www.publico.es/politica/dia-mundial-animales-unico-partido.html"
    ],
    "p_gest": [
@@ -3152,8 +3152,8 @@
     "https://okdiario.com/img/2019/10/31/ciudadanos-programa-electoral-10n.pdf"
    ],
    "p_simb": [
-    "Ciudadanos, su socio de coalición, votó contra despenalizar las injurias a la Corona en 2018, 2020 y en el Senado en 2022, sin pedir endurecer las penas.",
-    "https://www.elsaltodiario.com/injurias-a-la-corona/senado-aprueba-votos-socialistas-propuesta-ehbildu-erc-despenalizar-delito"
+    "Ciudadanos votó contra despenalizar las injurias a la Corona, los ultrajes a España y las ofensas religiosas en el Congreso en 2021 y en el Senado en 2022.",
+    "https://www.vozpopuli.com/espana/congreso-abre-despenalizar-injurias-rey-no-pp-vox-cs.html"
    ],
    "p_prot": [
     "Ciudadanos, su socio de coalición, pidió frenar a Tsunami Democràtic en 2019, prometía actualizar los delitos de sedición y rebelión y votó contra reformar la ley mordaza.",
@@ -3354,7 +3354,7 @@
     "https://www.argentina.gob.ar/normativa/nacional/norma-409265/texto"
    ],
    "p_armas": [
-    "El decreto 397/2025 derogó la prohibición de 1995 y autorizó armas semiautomáticas a legítimos usuarios, acotado al deporte, tras defender la libre portación en campaña.",
+    "El decreto 397/2025 derogó la prohibición de 1995 y autorizó armas semiautomáticas a legítimos usuarios, un hecho aplicado, tras defender en campaña la libre portación.",
     "https://www.perfil.com/noticias/sociedad/por-decreto-el-gobierno-de-milei-habilito-la-compra-y-tenencia-de-armas-semiautomaticas-para-civiles.phtml"
    ],
    "p_relig": [
@@ -3480,8 +3480,8 @@
     "https://end-blasphemy-laws.org/countries/americas/el-salvador/"
    ],
    "p_prot": [
-    "En mayo de 2025 encarceló al abogado Alejandro Henríquez y al líder comunitario José Ángel Pérez por protestar pacíficamente contra un desalojo, acusados de desórdenes públicos.",
-    "https://www.hrw.org/world-report/2026/country-chapters/el-salvador"
+    "El decreto de excepción suspendió la libertad de reunión solo de marzo a agosto de 2022 y en mayo de 2025 encarceló a dos manifestantes pacíficos por desórdenes públicos.",
+    "https://diario.elmundo.sv/politica/cuales-derechos-constitucionales-suspende-el-regimen-de-excepcion-en-el-salvador"
    ],
    "p_euta": [
     "En septiembre de 2021 retiró la fórmula muerte digna de su reforma constitucional y descartó abrir la puerta a la eutanasia, que sigue prohibida.",
@@ -3594,11 +3594,11 @@
     "https://www.cbo.gov/publication/60730"
    ],
    "e_smi": [
-    "Orden ejecutiva de abril de 2021 con salario mínimo de 15 dólares para contratistas federales e intento de incluir los 15 dólares federales en el American Rescue Plan",
+    "Subió a 15 dólares por orden ejecutiva solo el mínimo de los contratistas federales, y el mínimo federal de 7,25 no cambió al caer su intento en 2021.",
     "https://www.dol.gov/agencies/whd/government-contracts/eo14026"
    ],
    "e_aran": [
-    "Mantuvo los aranceles de Trump a China y en mayo de 2024 subió al 100 % los de coches eléctricos chinos, con cláusulas Buy American en infraestructuras",
+    "Mantuvo los aranceles de Trump a China tras la revisión de la Sección 301 y en septiembre de 2024 hizo efectivo el 100 % a los coches eléctricos chinos.",
     "https://bidenwhitehouse.archives.gov/briefing-room/statements-releases/2024/05/14/fact-sheet-president-biden-takes-action-to-protect-american-workers-and-businesses-from-chinas-unfair-trade-practices/"
    ],
    "e_desp": [
@@ -3796,7 +3796,7 @@
     "https://lcp.fr/actualites/viols-seriels-sur-mineurs-la-perpetuite-rejetee-lors-d-un-vote-a-l-assemblee-le"
    ],
    "p_odio": [
-    "Impulsó la ley Avia de 2020 y el delito de ultraje en línea de 2024, censurados por el Conseil constitutionnel, y expulsó al imán Iquioussen en 2023",
+    "Impulsó la ley Avia de 2020 y el ultraje en línea de 2024, ambos censurados por el Conseil constitutionnel, y decretó en 2022 la expulsión del imán Iquioussen.",
     "https://www.conseil-constitutionnel.fr/decision/2020/2020801DC.htm"
    ],
    "p_simb": [
