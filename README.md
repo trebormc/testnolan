@@ -23,11 +23,12 @@ Test político interactivo que sitúa al usuario y a los partidos en el **diagra
 7. [Preguntas del test](#preguntas-del-test)
 8. [Fuentes](#fuentes)
 9. [Decisiones tomadas](#decisiones-tomadas)
-10. [Tareas pendientes](#tareas-pendientes)
-11. [Estructura de archivos propuesta](#estructura-de-archivos-propuesta)
-12. [Limitaciones y advertencias](#limitaciones-y-advertencias)
-13. [Cómo contribuir](#cómo-contribuir)
-14. [Licencia](#licencia)
+10. [Comprobaciones antes de cada push](#comprobaciones-antes-de-cada-push)
+11. [Registro de cambios de los datos](#registro-de-cambios-de-los-datos)
+12. [Estructura de archivos](#estructura-de-archivos)
+13. [Limitaciones y advertencias](#limitaciones-y-advertencias)
+14. [Cómo contribuir](#cómo-contribuir)
+15. [Licencia](#licencia)
 
 ---
 
@@ -95,8 +96,6 @@ La web está en `public/`: `es/index.html` (marcado), `assets/styles.css`, `asse
 - Metodología ampliada: versión y fecha de los datos visibles (`DATA_VERSION`, `DATA_DATE`), nota de circunscripciones (D21 + Cs solo en Madrid y Barcelona; SALF solo en algunas provincias), críticas al modelo de Nolan y soporte para enlazar la **fuente** de cada respuesta de cada partido (campo opcional `src` por pregunta; aún sin datos).
 - Pie de página con la política de datos (no hay servidor, cookies ni analítica; todo queda en el navegador), aviso de que las posiciones son estimaciones y de que el test no recomienda votar a nadie, autoría con enlace a menetray.com y contacto para correcciones.
 - Accesibilidad: descripción del SVG que se actualiza con la posición del usuario, mensajes de estado con `aria-live`, etiquetas en los botones de la leyenda y de compartir, foco visible en todos los controles y `prefers-reduced-motion` respetado.
-
-Lo que **todavía no existe** está en [Tareas pendientes](#tareas-pendientes).
 
 ---
 
@@ -217,7 +216,7 @@ Notas:
 - Tras la verificación de la versión 1.2 (71 respuestas corregidas con fuentes), el **PP** queda en la zona derecha por un punto (49 en libertades), **SALF** en el borde entre libertario y derecha (50) y **Milei** en el borde entre libertario y derecha (49): su rechazo al aborto y a la eutanasia, la restricción del cannabis medicinal y la Ley Antimafias le bajan la libertad personal. Son zonas fronterizas y conviene releerlas cuando se publiquen los programas.
 - **D21 + Cs** solo se presenta en las circunscripciones de **Madrid y Barcelona**. **SALF** va al Congreso en 46 o 47 provincias (no en Lérida, Gerona, Guipúzcoa, Cantabria ni Ciudad Real) y no concurre al Senado. La web lo indica.
 - **Las referencias internacionales** (Milei, Bukele, Trump, Putin, Maduro, Mujica y Meloni) son para comparar: no se votan en España ni entran en el veredicto, y se pueden ocultar en la leyenda. Milei y Bukele están a propósito: se les suele meter en el mismo saco y en el rombo quedan a 43 puntos, una distancia parecida a la que separa al PP del PSOE (54), pero en ejes distintos: libertades en un caso y economía en el otro. Las otras cinco cubren las cuatro esquinas: Trump cerca de Bukele, Putin y Maduro en el fondo autoritario desde orillas opuestas, Mujica como espejo de Milei (izquierda en economía, arriba en libertades) y Meloni a un paso del PP. Todas se puntúan solo con lo hecho gobernando, con fuente por casilla en `docs/referencias-internacionales-2026-11-01.md`.
-- Otros partidos que se presentan pero no están en el test porque solo concurren en sus comunidades: ERC, Junts, PNV, EH Bildu, BNG, Coalición Canaria. En Navarra UPN y PP van juntos en una coalición encabezada por UPN. Ver tareas pendientes. Las candidaturas se proclaman el 2 de noviembre y se publican en el BOE el 3; hasta entonces son candidaturas presentadas.
+- Otros partidos que se presentan pero no están en el test porque solo concurren en sus comunidades: ERC, Junts, PNV, EH Bildu, BNG, Coalición Canaria. En Navarra UPN y PP van juntos en una coalición encabezada por UPN. Las candidaturas se proclaman el 2 de noviembre y se publican en el BOE el 3; hasta entonces son candidaturas presentadas.
 
 ### Datos de las elecciones (para textos de la web)
 
@@ -287,7 +286,7 @@ Las preguntas se redactan como afirmaciones generales, principios y no medidas c
 
 ### Contexto que justifica algunas respuestas
 
-Resumen de lo investigado (octubre de 2026). Sirve para revisar y documentar cada respuesta con su fuente (ver tareas pendientes).
+Resumen de lo investigado (octubre de 2026). La justificación y la fuente de cada respuesta están en el desplegable de cada pregunta y en `public/data/es-2026.json`.
 
 - **PP**: promete deflactar el IRPF, duplicar el mínimo por hijos, IVA 0 % en alimentos básicos, eximir de IVA a autónomos que facturen menos de 85.000 €, construir un millón de viviendas, suprimir las zonas tensionadas, ley antiocupación, avales públicos de hasta el 100 % para la primera vivienda de jóvenes, prohibir por ley las regularizaciones colectivas de inmigrantes y **mantener la revalorización de las pensiones con el IPC**.
 - **PSOE**: mantener y reforzar los decretos de vivienda (topes al alquiler), crear una gran empresa pública de vivienda y suelo, impuesto de hasta el 100 % sobre la compra de vivienda por no residentes extracomunitarios, impuesto a grandes fortunas, pensiones con IPC cuatro años más, jornada de 36 horas en 2030. Sánchez propuso en 2025 acabar con el anonimato en redes.
@@ -338,7 +337,7 @@ Por tanto: **sin base de datos, sin backend, sin cookies, sin cuentas**. Las res
 
 ### 2. Compartir en redes en lugar de guardar
 
-La viralidad se busca con una **imagen generada en el navegador** que el usuario comparte (ver tareas pendientes). Ningún dato pasa por un servidor.
+La viralidad se busca con una **imagen generada en el navegador** que el usuario comparte y con el enlace del grupo. Ningún dato pasa por un servidor.
 
 ### 3. Hosting en Cloudflare, código en GitHub
 
@@ -368,11 +367,7 @@ La viralidad se busca con una **imagen generada en el navegador** que el usuario
 
 ---
 
-## Tareas pendientes
-
-Ninguna. Las pruebas en móviles reales y con lector de pantalla están hechas, y el código está separado en archivos con validación de datos y tests.
-
-### Comprobaciones antes de cada push
+## Comprobaciones antes de cada push
 
 ```
 npm test
@@ -429,8 +424,6 @@ La versión y la fecha se muestran en la metodología de la web (claves `version
     └── es/
         └── index.html       # marcado de la página
 ```
-
-Previsto para más adelante: `CONTRIBUTING.md` y una plantilla de issue para proponer correcciones con fuente.
 
 ---
 
