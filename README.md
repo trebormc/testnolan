@@ -456,6 +456,8 @@ La versión y la fecha se muestran en la metodología de la web (`DATA_VERSION` 
 ```
 /
 ├── README.md
+├── LICENSE                  # MIT, para el código
+├── LICENSE-DATA             # CC BY 4.0, para las preguntas, las posiciones y sus justificaciones
 ├── commit-message.txt       # borrador del siguiente mensaje de commit (no se despliega)
 ├── wrangler.jsonc           # configuración de Cloudflare Workers con static assets
 ├── docs/                    # verificaciones de datos con fuentes (no se despliegan)
@@ -469,7 +471,7 @@ La versión y la fecha se muestran en la metodología de la web (`DATA_VERSION` 
         └── index.html       # el test completo, un solo archivo
 ```
 
-Previsto para más adelante: `LICENSE` (MIT para el código), `LICENSE-DATA` (CC BY 4.0 para los datos), `CONTRIBUTING.md`, una plantilla de issue para proponer correcciones con fuente y, si la web crece a varios países, separar `assets/` y `data/`.
+Previsto para más adelante: `CONTRIBUTING.md`, una plantilla de issue para proponer correcciones con fuente y, si la web crece a varios países, separar `assets/` y `data/`.
 
 ---
 
@@ -497,9 +499,7 @@ No se aceptan cambios sin fuente ni discusiones de opinión política en los iss
 
 ## Licencia
 
-Pendiente de añadir los archivos. Propuesta:
-
-- **Código** (HTML, CSS, JavaScript): [MIT](https://opensource.org/licenses/MIT).
-- **Datos** (preguntas, respuestas de partidos, textos de metodología): [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/deed.es), que permite reutilizarlos citando la fuente. Si se quiere impedir el uso comercial (por ejemplo, copias con publicidad), usar CC BY-NC 4.0.
+- **Código** (HTML, CSS, JavaScript): [MIT](LICENSE).
+- **Datos** (afirmaciones, contextos, posiciones de cada partido y referencia, frases de justificación con sus fuentes y documentos de `docs/`): [CC BY 4.0](LICENSE-DATA), que permite reutilizarlos con cualquier fin citando la fuente: «Datos de testnolan.com, Robert Menetray, CC BY 4.0».
 
 © 2026 Robert Menetray · [menetray.com](https://menetray.com)

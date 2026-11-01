@@ -1,0 +1,37 @@
+Licencia de los datos: Creative Commons Reconocimiento 4.0 Internacional (CC BY 4.0)
+Data license: Creative Commons Attribution 4.0 International (CC BY 4.0)
+
+Autor y titular: Robert Menetray, 2026. https://testnolan.com
+
+QUÉ CUBRE ESTA LICENCIA
+
+Los datos de testnolan.com: las afirmaciones del test, sus textos de contexto,
+la posición asignada a cada partido o referencia internacional en cada
+afirmación, las frases que justifican cada posición con su fuente, y los
+documentos de verificación de la carpeta docs/. En el código, estos datos están
+en las constantes PARTIES, TOPICS y QUESTIONS y en el bloque JSON «whyData» de
+public/es/index.html.
+
+El código de la web (HTML, CSS y JavaScript) no se rige por esta licencia sino
+por la licencia MIT del archivo LICENSE.
+
+QUÉ PUEDES HACER
+
+Copiar, redistribuir, adaptar y reutilizar los datos con cualquier fin, también
+comercial, siempre que cites la fuente. Una atribución correcta incluye el
+nombre del autor, un enlace a https://testnolan.com, la licencia (CC BY 4.0) y
+si has hecho cambios. Por ejemplo:
+
+  Datos de testnolan.com, Robert Menetray, CC BY 4.0, con cambios.
+
+No puedes sugerir que el autor respalda tu uso de los datos. Las posiciones de
+los partidos son estimaciones hechas a partir de programas, votaciones y
+declaraciones públicas y pueden contener errores; se ofrecen sin garantía.
+
+TEXTO LEGAL
+
+El texto completo y vinculante de la licencia está en:
+https://creativecommons.org/licenses/by/4.0/legalcode.es (español)
+https://creativecommons.org/licenses/by/4.0/legalcode (inglés)
+
+Resumen legible: https://creativecommons.org/licenses/by/4.0/deed.es
