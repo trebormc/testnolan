@@ -625,10 +625,7 @@ if(ogMode!==null){
   const S = partyScores, dist = (a,b)=>Math.round(Math.hypot(S[a].E-S[b].E, S[a].P-S[b].P));
   const pAff = (a,b)=>{ const ia=PARTIES.findIndex(x=>x.id===a), ib=PARTIES.findIndex(x=>x.id===b); let d=0, n=0; for(const q of QUESTIONS){ if(q.a[ia]===null||q.a[ib]===null) continue; d+=Math.abs(q.a[ia]-q.a[ib]); n++; } return Math.round(100-d/(4*n)*100); };
   document.getElementById('affFP').textContent = pAff('fa','pod'); document.getElementById('affVS').textContent = pAff('vox','salf');
-  const gap = Math.round(S.milei.P - S.bukele.P), dMB = dist('milei','bukele'), dPP = dist('pp','psoe');
-  document.getElementById('refGap').textContent = gap;
-  document.getElementById('refCmp').textContent = `${dMB} puntos, una distancia parecida a la que separa al PP del PSOE (${dPP})`;
-  document.getElementById('refNote').innerHTML = `<strong>Milei y Bukele</strong> están los dos a la derecha y aun así a ${dMB} puntos el uno del otro, una distancia parecida a la que separa al PP del PSOE (${dPP}). La diferencia es en qué discrepan: Milei y Bukele en libertades personales, el PP y el PSOE en economía. Para eso sirve el rombo: para ver que no toda la derecha es igual ni toda la izquierda, y que estar cerca de un partido no es estar de acuerdo con él en todo. Trump, Putin, Maduro, Mujica y Meloni están con el mismo criterio: solo lo que han hecho gobernando.`;
+  document.getElementById('refNote').innerHTML = `<strong>Trump, Putin, Maduro, Mujica, Meloni, Milei y Bukele</strong> son referencias: gobernantes de fuera de España puntuados solo por lo que han hecho, para ver en qué zona cae cada forma de pensar y cuánto se parece a los partidos españoles y a sus votantes. Se ve que no toda la derecha piensa igual ni toda la izquierda, y que donde más se separan es en las libertades personales. Puedes apagarlos en la leyenda.`;
   drawLegend(); drawTable(); refresh();
 }
 })().catch(e=>{ console.error(e); const m=document.getElementById('result'); if(m) m.innerHTML='<p class="empty">No se han podido cargar los datos del test. Recarga la página y, si sigue fallando, avísanos desde el pie.</p>'; });
