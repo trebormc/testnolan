@@ -1,5 +1,5 @@
 {
- "version": "1.7",
+ "version": "1.8",
  "date": "1 de noviembre de 2026",
  "notes": {
   "a": "Respuestas en el orden de parties, de -2 (muy en contra) a +2 (muy a favor); null = sin dato, no cuenta en la posición ni en la afinidad.",
@@ -123,6 +123,24 @@
    "ref": true,
    "color": "--ref-meloni",
    "note": "Referencia internacional"
+  },
+  {
+   "id": "biden",
+   "name": "Biden",
+   "full": "Partido Demócrata (Estados Unidos, 2021-2025)",
+   "lead": "Joe Biden",
+   "ref": true,
+   "color": "--ref-biden",
+   "note": "Referencia internacional"
+  },
+  {
+   "id": "macron",
+   "name": "Macron",
+   "full": "Renaissance (Francia)",
+   "lead": "Emmanuel Macron",
+   "ref": true,
+   "color": "--ref-macron",
+   "note": "Referencia internacional"
   }
  ],
  "topics": [
@@ -189,6 +207,8 @@
     0,
     -2,
     -2,
+    2,
+    -1,
     2
    ],
    "c": "El impuesto sobre la renta (IRPF en España) grava lo que gana cada persona y es la principal fuente de ingresos del Estado. Bajarlo deja más dinero en el bolsillo, pero reduce lo que hay para servicios públicos."
@@ -213,6 +233,8 @@
     2,
     2,
     -2,
+    -1,
+    1,
     -1,
     1
    ],
@@ -239,7 +261,9 @@
     null,
     2,
     -1,
-    -1
+    -1,
+    1,
+    1
    ],
    "c": "Un tope limita por ley cuánto puede costar o subir un alquiler en zonas con precios altos. Quien lo defiende dice que protege al inquilino. Quien lo critica dice que deja menos pisos en alquiler."
   },
@@ -264,6 +288,8 @@
     1,
     2,
     1,
+    -1,
+    0,
     -1
    ],
    "c": "Una empresa pública que construya, compre y gestione viviendas y suelo para alquilarlas por debajo del precio de mercado, como las que existen en Viena o en algunos países nórdicos."
@@ -288,6 +314,8 @@
     0,
     null,
     1,
+    1,
+    -1,
     1,
     -1
    ],
@@ -314,6 +342,8 @@
     1,
     -1,
     1,
+    1,
+    1,
     1
    ],
    "c": "Liberalizar suelo es permitir construir en más terrenos. Reducir trámites es acortar los permisos, que hoy pueden tardar años. La idea es que más oferta baje los precios."
@@ -338,6 +368,8 @@
     1,
     1,
     -2,
+    1,
+    -1,
     1,
     -1
    ],
@@ -364,6 +396,8 @@
     0,
     -2,
     0,
+    1,
+    -1,
     1
    ],
    "c": "En un sistema mixto, parte de la pensión viene del Estado (reparto) y parte de un fondo que cada trabajador acumula durante su vida laboral (capitalización), como en Suecia o Chile."
@@ -389,7 +423,9 @@
     0,
     -1,
     -2,
-    -1
+    -1,
+    -2,
+    0
    ],
    "c": "Reducir el tamaño de la administración: menos ministerios, menos organismos públicos y menos personal, con el argumento de ahorrar y simplificar."
   },
@@ -414,7 +450,9 @@
     1,
     2,
     2,
-    0
+    0,
+    2,
+    -1
    ],
    "c": "Subir impuestos a los patrimonios y beneficios más altos, por ejemplo con tipos más altos en el impuesto de sociedades o un impuesto a las grandes fortunas."
   },
@@ -439,7 +477,9 @@
     2,
     1,
     0,
-    0
+    0,
+    0,
+    1
    ],
    "c": "Expropiar es que el Estado se quede con algo privado pagando una compensación. Nacionalizar es que un sector o una empresa pase a ser pública, como la energía, la banca o las telecomunicaciones."
   },
@@ -464,7 +504,9 @@
     1,
     1,
     2,
-    0
+    0,
+    1,
+    1
    ],
    "c": "Gratuitas en el momento de usarlas y financiadas con impuestos, sin copagos ni cuotas, frente a modelos con más peso de seguros o centros privados."
   },
@@ -489,7 +531,9 @@
     1,
     1,
     1,
-    2
+    2,
+    1,
+    1
    ],
    "c": "El Estado garantiza al banco una parte de la hipoteca para que los jóvenes puedan comprar sin ahorrar toda la entrada. Si el comprador no paga, lo asume el Estado."
   },
@@ -513,6 +557,8 @@
     0,
     -2,
     -2,
+    -2,
+    0,
     -2,
     0
    ],
@@ -539,7 +585,9 @@
     2,
     0,
     2,
-    -2
+    -2,
+    2,
+    -1
    ],
    "c": "El salario mínimo es el sueldo más bajo que se puede pagar por ley. Subirlo mejora los sueldos más bajos. Quien lo critica dice que puede destruir empleo en sectores poco productivos."
   },
@@ -564,6 +612,8 @@
     2,
     0,
     -1,
+    0,
+    1,
     0
    ],
    "c": "Un arancel es un impuesto a los productos importados para que los nacionales compitan mejor. Protege a productores locales, pero encarece los productos y puede provocar represalias."
@@ -589,7 +639,9 @@
     0,
     -2,
     -2,
-    1
+    1,
+    -1,
+    2
    ],
    "c": "Va de cuánto cuesta y cuánto tarda despedir, con la indemnización y las causas que hay que justificar, y de los límites a los contratos temporales. Más flexibilidad facilita contratar. Menos flexibilidad protege a quien ya tiene empleo."
   },
@@ -614,7 +666,9 @@
     -1,
     null,
     1,
-    -2
+    -2,
+    null,
+    -1
    ],
    "c": "Reducir por ley la jornada máxima legal manteniendo el salario. Mejora el tiempo libre del trabajador y encarece la hora trabajada para la empresa."
   },
@@ -639,7 +693,9 @@
     -2,
     -2,
     0,
-    -2
+    -2,
+    1,
+    0
    ],
    "c": "Impuestos a las emisiones, límites a determinadas actividades o prohibiciones (por ejemplo, de coches de combustión) para frenar el cambio climático, aunque supongan costes a empresas y consumidores."
   },
@@ -664,6 +720,8 @@
     null,
     -2,
     null,
+    2,
+    -1,
     2
    ],
    "c": "Acelerar por ley los desalojos de quien ocupa una vivienda sin título (okupación), incluidas las segundas residencias, frente a los procesos judiciales actuales, que pueden durar meses."
@@ -689,6 +747,8 @@
     2,
     1,
     -2,
+    1,
+    -1,
     1
    ],
    "c": "Expulsar a las personas que viven en el país sin permiso de residencia mediante operaciones a gran escala, en lugar de regularizarlas o tramitar los casos uno a uno."
@@ -714,7 +774,9 @@
     2,
     null,
     -1,
-    1
+    1,
+    -1,
+    0
    ],
    "c": "Que en ayudas sociales, vivienda pública o plazas escolares los nacionales vayan por delante de los extranjeros que residen legalmente y pagan impuestos."
   },
@@ -739,6 +801,8 @@
     2,
     2,
     0,
+    2,
+    -1,
     2
    ],
    "c": "Es el debate de la Ley de Seguridad Ciudadana de 2015, la que sus críticos llaman ley mordaza. Permite retener a alguien hasta seis horas para identificarlo, multar por faltas de respeto a los agentes y da por cierta la versión del policía salvo prueba en contrario. El PP la aprobó en solitario y Vox quiere endurecerla. PSOE y Sumar llevan años intentando reformarla y Podemos pide derogarla. El Congreso rechazó la reforma en marzo de 2023 y volvió a tramitarla en octubre de 2024, pero sigue parada."
@@ -764,7 +828,9 @@
     2,
     null,
     -1,
-    2
+    2,
+    0,
+    1
    ],
    "c": "Es la pena más alta del Código Penal desde 2015: cárcel sin fecha de salida, con revisión a partir de los 25 años. El Constitucional la avaló en 2021. El PP y Vox quieren ampliarla a más casos, como el asesinato con ocultación del cadáver. El Congreso rechazó esa ampliación en marzo de 2026 por dos votos. El PSOE está en contra de ampliarla, pero no la ha derogado en siete años de Gobierno. Frente Amplio y Podemos quieren eliminarla."
   },
@@ -789,7 +855,9 @@
     2,
     2,
     null,
-    -1
+    -1,
+    0,
+    2
    ],
    "c": "Castigar expresiones que desprecian a colectivos por su origen, religión, orientación u otras características, aunque no llamen a la violencia. El debate es dónde acaba la libertad de expresión."
   },
@@ -814,7 +882,9 @@
     2,
     2,
     null,
-    null
+    null,
+    null,
+    0
    ],
    "c": "El Código Penal castiga con multa los ultrajes a España y sus símbolos, las injurias al Rey y las ofensas a los sentimientos religiosos. Son los artículos por los que se condenó a raperos y humoristas. PSOE y Sumar pactaron en junio de 2026 una ley para eliminarlos y el Congreso rechazó en julio las enmiendas del PP y de Vox para mantenerlos o endurecerlos. La ley decayó al disolverse las Cortes, así que el debate vuelve con las elecciones."
   },
@@ -839,7 +909,9 @@
     2,
     2,
     null,
-    2
+    2,
+    null,
+    1
    ],
    "c": "Restringir las manifestaciones o protestas que bloquean el tráfico o las infraestructuras, con más multas o autorizaciones previas."
   },
@@ -864,7 +936,9 @@
     -2,
     null,
     null,
-    -1
+    -1,
+    null,
+    2
    ],
    "c": "La ley de eutanasia (2021) permite a una persona mayor de edad con una enfermedad grave e incurable, o con un padecimiento grave, crónico e imposibilitante, pedir ayuda médica para morir, con varios controles."
   },
@@ -889,7 +963,9 @@
     -2,
     -1,
     2,
-    -2
+    -2,
+    2,
+    2
    ],
    "c": "Legal en España desde 2005. La pregunta plantea si debe mantenerse con los mismos derechos que el matrimonio entre personas de distinto sexo, incluida la adopción."
   },
@@ -914,7 +990,9 @@
     0,
     -1,
     2,
-    -1
+    -1,
+    2,
+    2
    ],
    "c": "La ley actual permite abortar libremente hasta la semana 14 y hasta la 22 por causas médicas. La pregunta plantea si mantener esos plazos."
   },
@@ -939,7 +1017,9 @@
     -2,
     null,
     2,
-    -2
+    -2,
+    1,
+    -1
    ],
    "c": "Legal y regulado significa venta controlada a adultos, con impuestos y requisitos de calidad, como en Canadá o Uruguay, en lugar de la prohibición actual. Alemania ha ido a medio camino, con consumo, cultivo propio y clubes permitidos pero sin venta comercial."
   },
@@ -963,6 +1043,8 @@
     1,
     2,
     2,
+    1,
+    1,
     1,
     1
    ],
@@ -989,7 +1071,9 @@
     0,
     null,
     null,
-    1
+    1,
+    null,
+    2
    ],
    "c": "Prohibir las prendas que cubren toda la cara en la calle y en los edificios públicos, como ya hacen Francia o Bélgica."
   },
@@ -1014,7 +1098,9 @@
     2,
     2,
     null,
-    null
+    null,
+    null,
+    -2
    ],
    "c": "Prohibir por ley partidos que defienden pacíficamente la independencia de una parte del país. Hoy solo se puede ilegalizar un partido por lo que hace, no por lo que defiende, como vulnerar derechos de forma sistemática, fomentar la violencia o apoyar al terrorismo."
   },
@@ -1039,7 +1125,9 @@
     2,
     1,
     0,
-    -1
+    -1,
+    0,
+    1
    ],
    "c": "Es lo que en Bruselas llaman Chat Control: obligar a WhatsApp, Telegram o Signal a revisar lo que envías para detectar abusos a menores, lo que choca con el cifrado que hoy impide leer tus mensajes. El Gobierno español ha sido uno de los más duros a favor en el Consejo de la UE y llegó a plantear limitar el cifrado. En el Parlamento Europeo los eurodiputados del PP y del PSOE apoyaron en julio de 2026 prorrogar el escaneo voluntario y Vox votó en contra. Las plataformas y los expertos en seguridad lo rechazan."
   },
@@ -1064,7 +1152,9 @@
     -2,
     -1,
     null,
-    -1
+    -1,
+    2,
+    0
    ],
    "c": "La ley trans (2023) permite cambiar el sexo en el DNI desde los 16 años con una declaración, sin informes médicos ni tratamientos. La pregunta plantea si mantener esa autodeterminación."
   },
@@ -1089,7 +1179,9 @@
     -2,
     -2,
     -2,
-    null
+    null,
+    -2,
+    -1
    ],
    "c": "En España tener un arma exige licencia, pruebas y una justificación, y la defensa personal casi nunca se admite. Vox propuso en 2022 que usar un arma legal contra un intruso en casa se presuma legítima defensa, y el Congreso lo rechazó por 289 votos a 53, con el PP, el PSOE, la izquierda y Ciudadanos en contra. El Gobierno prepara un reglamento con más requisitos para las nuevas licencias."
   },
@@ -1114,7 +1206,9 @@
     2,
     null,
     -1,
-    1
+    1,
+    null,
+    -2
    ],
    "c": "Más presencia de la religión en la escuela pública (asignatura, símbolos) y en los actos institucionales, frente a un Estado más neutral en materia religiosa."
   },
@@ -1139,7 +1233,9 @@
     null,
     null,
     null,
-    null
+    null,
+    null,
+    -1
    ],
    "c": "Una ley de 2013 protege la tauromaquia como patrimonio cultural, lo que impide a las comunidades prohibirla. En octubre de 2025 el Congreso rechazó tramitar una iniciativa popular para derogarla: PP y Vox votaron en contra, el PSOE se abstuvo y Sumar y Podemos votaron a favor. Ningún partido con escaños propone hoy prohibir las corridas por ley, pero la izquierda quiere retirarles la protección y el dinero público, y Podemos ha hablado de un referéndum."
   },
@@ -1164,7 +1260,9 @@
     null,
     null,
     null,
-    null
+    null,
+    1,
+    1
    ],
    "c": "Prohibir por ley que los menores de cierta edad abran cuentas en redes sociales, con verificación de edad. Australia lo aplica desde diciembre de 2025 a los menores de 16. En Francia el Parlamento aprobó una prohibición a menores de 15 que el Consejo Constitucional anuló en agosto de 2026. En España el Gobierno propuso los 16 años, pero la ley decayó al disolverse las Cortes."
   }
@@ -3436,6 +3534,330 @@
    "p_menores": [
     "Sin ninguna ley ni propuesta sobre edad mínima para cuentas en redes sociales en su mandato.",
     ""
+   ]
+  },
+  "biden": {
+   "e_irpf": [
+    "Su presupuesto de marzo de 2024 proponía subir al 39,6 % el tipo marginal a rentas de más de un millón de dólares y no aprobó rebajas generales",
+    "https://bidenwhitehouse.archives.gov/omb/briefing-room/2024/03/11/fact-sheet-the-presidents-budget-for-fiscal-year-2025/"
+   ],
+   "e_suc": [
+    "Sus presupuestos de 2023 a 2025 proponían un impuesto mínimo del 25 % sobre patrimonios de más de 100 millones y gravar plusvalías latentes al heredar, nunca aprobados",
+    "https://bidenwhitehouse.archives.gov/omb/briefing-room/2024/03/11/fact-sheet-the-presidents-budget-for-fiscal-year-2025/"
+   ],
+   "e_alq": [
+    "En julio de 2024 pidió al Congreso limitar al 5 % anual las subidas de alquiler de caseros con más de 50 viviendas, bajo pena de perder ventajas fiscales",
+    "https://bidenwhitehouse.archives.gov/briefing-room/statements-releases/2024/07/16/fact-sheet-president-biden-announces-major-new-actions-to-lower-housing-costs-by-limiting-rent-increases-and-building-more-homes/"
+   ],
+   "e_empv": [
+    "Su plan de vivienda de mayo de 2022 y el de 2 millones de viviendas de 2024 usan créditos fiscales a promotores privados, no una empresa pública",
+    "https://bidenwhitehouse.archives.gov/briefing-room/statements-releases/2024/03/07/fact-sheet-president-biden-announces-plan-to-lower-housing-costs-for-working-families/"
+   ],
+   "e_acum": [
+    "En julio de 2024 propuso retirar la amortización acelerada a grandes caseros con más de 50 viviendas que subieran alquileres por encima del 5 %, sin aprobarse",
+    "https://bidenwhitehouse.archives.gov/briefing-room/statements-releases/2024/07/16/fact-sheet-president-biden-announces-major-new-actions-to-lower-housing-costs-by-limiting-rent-increases-and-building-more-homes/"
+   ],
+   "e_suelo": [
+    "El Housing Supply Action Plan de mayo de 2022 premió con puntos en subvenciones federales a los municipios que reformaran su zonificación para construir más",
+    "https://bidenwhitehouse.archives.gov/briefing-room/statements-releases/2022/05/16/president-biden-announces-new-actions-to-ease-the-burden-of-housing-costs/"
+   ],
+   "e_pens": [
+    "Mantuvo la revalorización automática con la inflación de la Seguridad Social, un 8,7 % en 2023, y su presupuesto de 2025 rechazó cualquier recorte de prestaciones",
+    "https://www.ssa.gov/news/en/press/releases/2022-10-13.html"
+   ],
+   "e_mixto": [
+    "Su presupuesto de marzo de 2024 se opuso frontalmente a recortes y planteó reforzar la Seguridad Social pública con más cotizaciones de las rentas altas, sin capitalización",
+    "https://bidenwhitehouse.archives.gov/omb/briefing-room/2024/03/11/fact-sheet-the-presidents-budget-for-fiscal-year-2025/"
+   ],
+   "e_func": [
+    "El empleo federal creció hasta 2,28 millones en 2024, contrató miles en el IRS y la OPM blindó en abril de 2024 a los funcionarios frente al Schedule F",
+    "https://www.pewresearch.org/short-reads/2025/01/07/what-the-data-says-about-federal-workers/"
+   ],
+   "e_fort": [
+    "La Inflation Reduction Act de 2022 creó un impuesto mínimo del 15 % a grandes empresas, un 1 % a recompras de acciones y 80.000 millones para el IRS",
+    "https://www.congress.gov/bill/117th-congress/house-bill/5376"
+   ],
+   "e_expr": [
+    "Bloqueó en enero de 2025 la compra de US Steel por Nippon Steel por seguridad nacional e invocó la Defense Production Act, pero sin nacionalizar ni expropiar nada",
+    "https://rollcall.com/2025/01/03/biden-blocks-nippon-purchase-of-us-steel/"
+   ],
+   "e_sani": [
+    "Amplió las subvenciones del Obamacare en 2021 y 2022 hasta un récord de 21,3 millones de asegurados en enero de 2024, sin sanidad pública universal ni universidad gratuita",
+    "https://www.cms.gov/newsroom/press-releases/historic-213-million-people-choose-aca-marketplace-coverage"
+   ],
+   "e_aval": [
+    "Rebajó en febrero de 2023 la prima del seguro hipotecario público FHA en 0,30 puntos y propuso en marzo de 2024 un crédito de 10.000 dólares a compradores primerizos",
+    "https://www.hud.gov/press/press_releases_media_advisories/hud_no_23_041"
+   ],
+   "e_gasto": [
+    "Firmó el American Rescue Plan de 1,9 billones en 2021 y el déficit federal fue de 1,8 billones de dólares en el ejercicio 2024 según la CBO",
+    "https://www.cbo.gov/publication/60730"
+   ],
+   "e_smi": [
+    "Orden ejecutiva de abril de 2021 con salario mínimo de 15 dólares para contratistas federales e intento de incluir los 15 dólares federales en el American Rescue Plan",
+    "https://www.dol.gov/agencies/whd/government-contracts/eo14026"
+   ],
+   "e_aran": [
+    "Mantuvo los aranceles de Trump a China y en mayo de 2024 subió al 100 % los de coches eléctricos chinos, con cláusulas Buy American en infraestructuras",
+    "https://bidenwhitehouse.archives.gov/briefing-room/statements-releases/2024/05/14/fact-sheet-president-biden-takes-action-to-protect-american-workers-and-businesses-from-chinas-unfair-trade-practices/"
+   ],
+   "e_desp": [
+    "Regla de contratistas independientes de enero de 2024 que dificulta clasificar a trabajadores como autónomos, nueva regla de horas extra y apoyo a la PRO Act sindical",
+    "https://www.dol.gov/newsroom/releases/whd/whd20240109"
+   ],
+   "e_jorn": [
+    "Sin iniciativa federal de reducción de jornada, la propuesta de 32 horas de Sanders de 2024 no tuvo respaldo de la Casa Blanca",
+    ""
+   ],
+   "e_ecol": [
+    "EPA exigió en abril de 2024 captura del 90 % de CO2 a centrales de carbón y la IRA creó una tasa al metano, pese a producción récord de petróleo",
+    "https://www.epa.gov/newsreleases/biden-harris-administration-finalizes-suite-standards-reduce-pollution-fossil-fuel"
+   ],
+   "e_okupa": [
+    "En agosto de 2021 su CDC dictó una nueva moratoria de desahucios por impago hasta octubre, anulada por el Supremo, y publicó una carta de derechos de inquilinos en 2023",
+    "https://www.govinfo.gov/content/pkg/FR-2021-08-06/html/2021-16945.htm"
+   ],
+   "p_expul": [
+    "Propuso en 2021 regularizar a 11 millones y amplió el parole humanitario, aunque en junio de 2024 cerró el asilo en la frontera y ICE deportó 271.000 personas en 2024",
+    "https://bidenwhitehouse.archives.gov/briefing-room/presidential-actions/2024/06/04/a-proclamation-on-securing-the-border/"
+   ],
+   "p_prior": [
+    "Su regla de carga pública de septiembre de 2022 dejó de penalizar a inmigrantes legales por usar Medicaid y en 2024 abrió el Obamacare a los DACA",
+    "https://www.dhs.gov/news/2022/09/08/dhs-publishes-fair-and-humane-public-charge-rule"
+   ],
+   "p_poli": [
+    "Orden ejecutiva de mayo de 2022 que restringe a agentes federales las llaves de estrangulamiento y las entradas sin aviso y crea una base de datos de mala conducta policial",
+    "https://bidenwhitehouse.archives.gov/briefing-room/presidential-actions/2022/05/25/executive-order-on-advancing-effective-accountable-policing-and-criminal-justice-practices-to-enhance-public-trust-and-public-safety/"
+   ],
+   "p_perp": [
+    "En diciembre de 2024 conmutó 37 penas de muerte federales por cadena perpetua sin libertad condicional, pero concedió clemencias masivas a miles de presos por drogas",
+    "https://bidenwhitehouse.archives.gov/briefing-room/statements-releases/2024/12/23/statement-from-president-joe-biden-on-federal-death-row-commutations/"
+   ],
+   "p_odio": [
+    "Sin sanciones legales por discurso, su estrategia contra el antisemitismo de mayo de 2023 pidió a las plataformas aplicar sus normas y presionó a redes sobre desinformación",
+    "https://bidenwhitehouse.archives.gov/briefing-room/statements-releases/2023/05/25/fact-sheet-biden-harris-administration-releases-first-ever-u-s-national-strategy-to-counter-antisemitism/"
+   ],
+   "p_simb": [
+    "Quemar la bandera está protegido por la Primera Enmienda y no hay delito federal de ofensa religiosa, sin actuación de su Administración",
+    ""
+   ],
+   "p_prot": [
+    "Los cortes de calles son competencia estatal y local y no tomó medidas federales pese a las protestas universitarias de 2024",
+    ""
+   ],
+   "p_euta": [
+    "La muerte asistida es competencia de cada estado y su Administración no tomó ninguna medida federal",
+    ""
+   ],
+   "p_matr": [
+    "Firmó la Respect for Marriage Act el 13 de diciembre de 2022, que obliga al reconocimiento federal e interestatal del matrimonio entre personas del mismo sexo",
+    "https://www.congress.gov/bill/117th-congress/house-bill/8404"
+   ],
+   "p_abor": [
+    "Órdenes ejecutivas de julio y agosto de 2022 tras Dobbs para proteger el acceso, defensa de la mifepristona ante el Supremo en 2024 y apoyo a una ley federal fallida",
+    "https://bidenwhitehouse.archives.gov/briefing-room/presidential-actions/2022/07/08/executive-order-on-protecting-access-to-reproductive-healthcare-services/"
+   ],
+   "p_cann": [
+    "Indultó en octubre de 2022 y diciembre de 2023 la posesión simple federal y su DEA propuso en mayo de 2024 reclasificar el cannabis a Lista III, sin legalizarlo",
+    "https://bidenwhitehouse.archives.gov/briefing-room/statements-releases/2022/10/06/statement-from-president-biden-on-marijuana-reform/"
+   ],
+   "p_medio": [
+    "Creó en 2022 una Junta de Gobernanza de la Desinformación en el DHS, disuelta en agosto, y presionó a plataformas sobre covid y elecciones según Murthy v. Missouri",
+    "https://www.supremecourt.gov/opinions/23pdf/23-411_3dq3.pdf"
+   ],
+   "p_burka": [
+    "No existe debate federal sobre el velo integral y no hubo medida alguna",
+    ""
+   ],
+   "p_ileg": [
+    "No aplica, sin partidos independentistas relevantes ni mecanismo federal de ilegalización de partidos",
+    ""
+   ],
+   "p_chat": [
+    "Renovó en abril de 2024 la vigilancia sin orden judicial de la Sección 702 y su FBI pidió acceso al cifrado, pero su CISA recomendó cifrado de extremo a extremo",
+    "https://www.npr.org/2024/04/20/1246076114/senate-passes-reauthorization-surveillance-program-fisa"
+   ],
+   "p_trans": [
+    "Pasaportes con marcador X desde abril de 2022 y la Seguridad Social desde octubre de 2022 permiten cambiar el sexo registral por simple declaración, sin informes médicos",
+    "https://www.ssa.gov/news/en/press/releases/2022-03-31.html"
+   ],
+   "p_armas": [
+    "Firmó la Bipartisan Safer Communities Act en junio de 2022, su ATF reguló armas fantasma en 2022 y creó la Oficina de Prevención de Violencia Armada en 2023",
+    "https://www.congress.gov/bill/117th-congress/senate-bill/2938"
+   ],
+   "p_relig": [
+    "Sin medidas sobre religión en la escuela, competencia estatal, solo mantuvo la oficina de alianzas con organizaciones religiosas",
+    ""
+   ],
+   "p_toros": [
+    "No aplica, sin tradición ni debate federal sobre tauromaquia",
+    ""
+   ],
+   "p_menores": [
+    "Pidió en el Estado de la Unión de 2023 prohibir la publicidad dirigida a menores y respaldó la Kids Online Safety Act en julio de 2024, sin vetar cuentas",
+    "https://bidenwhitehouse.archives.gov/briefing-room/statements-releases/2024/07/30/statement-from-president-joe-biden-on-senate-passage-of-the-kids-online-safety-and-privacy-act/"
+   ]
+  },
+  "macron": {
+   "e_irpf": [
+    "Suprimió la taxe d'habitation, bajó el IRPF 5.000 millones en 2020 y creó la flat tax del 30 % pese al déficit creciente",
+    "https://www.vie-publique.fr/discours/279716-olivier-dussopt-29042021-politique-gouvernementale"
+   ],
+   "e_suc": [
+    "Suprimió el ISF en 2018 y lo sustituyó por el IFI solo inmobiliario, pero no tocó sucesiones pese a prometerlo en 2022",
+    "https://www.vie-publique.fr/en-bref/281993-suppression-de-lisf-bilan-2021-sur-la-fiscalite-du-capital"
+   ],
+   "e_alq": [
+    "La ley ELAN de 2018 permitió topar alquileres en París, Lyon o Lille, prorrogado por la ley 3DS de 2022 y en trámite de nueva prórroga en octubre de 2026",
+    "https://www.publicsenat.fr/actualites/societe/encadrement-des-loyers-un-compromis-entre-lassemblee-et-le-senat-qui-permet-dechapper-au-pire-selon-le-senateur-communiste-ian"
+   ],
+   "e_empv": [
+    "No creó empresa pública de vivienda, recortó cinco euros las APL en 2017 e impuso a los bailleurs sociaux la RLS de 1.300 millones anuales desde 2018",
+    "https://www.publicsenat.fr/actualites/politique/baisse-des-apl-macron-appelle-tous-les-proprietaires-a-baisser-les-loyers-de-5"
+   ],
+   "e_acum": [
+    "Pasó del ISF al IFI en 2018, que grava inmuebles desde 1,3 millones, pero redujo la fiscalidad del capital y nunca creó impuesto a multipropietarios",
+    "https://www.vie-publique.fr/files/rapport/pdf/292639.pdf"
+   ],
+   "e_suelo": [
+    "La ley ELAN de 2018 simplificó normas urbanísticas y limitó recursos contra permisos, aunque la ley Climat de 2021 impuso el objetivo ZAN que restringe suelo nuevo",
+    "https://www.vie-publique.fr/dossierlegislatif/JORFDOLE000036769798"
+   ],
+   "e_pens": [
+    "Mantuvo la indexación legal pero subindexó pensiones en 2019, intentó retrasarla seis meses en 2025 y propuso subindexar en 2026, rechazado por el Parlamento",
+    "https://www.vie-publique.fr/files/rapport/pdf/304047.pdf"
+   ],
+   "e_mixto": [
+    "La ley PACTE de 2019 creó el plan d'épargne retraite voluntario con ventajas fiscales, sin introducir capitalización obligatoria en el sistema público",
+    "https://www.vie-publique.fr/dossierlegislatif/JORFDOLE000038817639"
+   ],
+   "e_func": [
+    "Prometió recortar 120.000 funcionarios en 2017, el empleo público creció y Attal renunció en 2024, aunque los presupuestos de 2025 y 2026 suprimen puestos y operadores",
+    "https://www.publicsenat.fr/actualites/politique/reduction-de-nombre-de-fonctionnaires-le-virage-a-180-degres-de-gabriel-attal"
+   ],
+   "e_fort": [
+    "Suprimió el ISF en 2018 y su bloque rechazó la taxe Zucman en octubre de 2025, aunque aceptó contribuciones excepcionales temporales a grandes empresas en 2025",
+    "https://lcp.fr/actualites/budget-2026-la-taxe-zucman-rejetee-par-l-assemblee-nationale-413632"
+   ],
+   "e_expr": [
+    "El Estado recompró el 100 % de EDF en junio de 2023 por 9.700 millones, pero privatizó la FDJ en 2019 e intentó privatizar ADP",
+    "https://presse.economie.gouv.fr/08062023-letat-redevient-lactionnaire-unique-dedf/"
+   ],
+   "e_sani": [
+    "El Ségur de la santé de julio de 2020 destinó más de 8.000 millones anuales a salarios hospitalarios, aunque duplicó las franquicias médicas en 2024",
+    "https://www.info.gouv.fr/actualite/segur-de-la-sante-revaloriser-les-salaires-des-soignants"
+   ],
+   "e_aval": [
+    "El presupuesto de 2025 extendió el prêt à taux zéro a todo el territorio y a casas individuales desde abril de 2025, sin aval público directo",
+    "https://www.service-public.fr/particuliers/actualites/A16863"
+   ],
+   "e_gasto": [
+    "El déficit alcanzó el 5,8 % del PIB en 2024 tras el quoi qu'il en coûte, pero los presupuestos de 2025 y 2026 recortaron decenas de miles de millones",
+    "https://www.vie-publique.fr/rapport/297366-la-situation-des-finances-publiques-debut-2025"
+   ],
+   "e_smi": [
+    "Ningún coup de pouce al SMIC en nueve años, solo revalorizaciones automáticas legales, siguiendo al grupo de expertos también en enero de 2025",
+    "https://www.vie-publique.fr/files/rapport/pdf/296720.pdf"
+   ],
+   "e_aran": [
+    "Defendió el CETA y el libre comercio, pero Francia votó contra el acuerdo con Mercosur en el Consejo de la UE en enero de 2026 por los agricultores",
+    "https://www.publicsenat.fr/actualites/international/isolee-sur-le-mercosur-la-france-a-t-elle-perdu-son-influence-en-europe"
+   ],
+   "e_desp": [
+    "Las ordenanzas de septiembre de 2017 toparon con el barème Macron las indemnizaciones por despido improcedente y crearon la rupture conventionnelle collective",
+    "https://www.vie-publique.fr/loi/20781-loi-29-mars-2018-ratification-ordonnances-travail-macron"
+   ],
+   "e_jorn": [
+    "No redujo la jornada, las ordenanzas de 2017 flexibilizaron el tiempo de trabajo y Bayrou propuso suprimir dos festivos en julio de 2025",
+    "https://www.publicsenat.fr/actualites/politique/budget-2026-suivez-en-direct-les-annonces-de-francois-bayrou"
+   ],
+   "e_ecol": [
+    "Aprobó la ley Climat de 2021 y las ZFE, pero congeló la taxe carbone en diciembre de 2018 tras los chalecos amarillos y pidió pausa normativa en 2023",
+    "https://www.vie-publique.fr/discours/207450-edouard-philippe-04122018-moratoire-six-mois-hausse-taxes-carburants"
+   ],
+   "e_okupa": [
+    "La ley Kasbarian de julio de 2023 triplicó las penas por ocupación hasta tres años y 45.000 euros y aceleró los desalojos por vía prefectoral",
+    "https://www.economie.gouv.fr/daj/lettre-de-la-daj-la-loi-ndeg2023-668-du-27-juillet-2023-visant-proteger-les-logements-contre"
+   ],
+   "p_expul": [
+    "La ley de inmigración de enero de 2024 facilitó OQTF y expulsiones de extranjeros peligrosos, pero las expulsiones efectivas siguen bajas y no hubo expulsiones masivas",
+    "https://www.vie-publique.fr/dossierlegislatif/JORFDOLE000047079143"
+   ],
+   "p_prior": [
+    "Aceptó en diciembre de 2023 condicionar prestaciones a cinco años de residencia para aprobar la ley, pero el Conseil constitutionnel lo anuló en enero de 2024",
+    "https://www.conseil-constitutionnel.fr/actualites/communique/decision-n-2023-863-dc-du-25-janvier-2024-communique-de-presse"
+   ],
+   "p_poli": [
+    "La ley Sécurité globale de 2021, la LOPMI de 2023 y las multas forfaitarias por drogas desde 2020 ampliaron drones, cámaras y sanciones policiales sin juez",
+    "https://www.conseil-constitutionnel.fr/sites/default/files/2021-05/2021817dc_cp_1.pdf"
+   ],
+   "p_perp": [
+    "Mantuvo la perpétuité con período de seguridad, en 2019 lo elevó a 30 años por matar policías y en julio de 2026 defendió la perpétuité para violadores seriales de menores",
+    "https://lcp.fr/actualites/viols-seriels-sur-mineurs-la-perpetuite-rejetee-lors-d-un-vote-a-l-assemblee-le"
+   ],
+   "p_odio": [
+    "Impulsó la ley Avia de 2020 y el delito de ultraje en línea de 2024, censurados por el Conseil constitutionnel, y expulsó al imán Iquioussen en 2023",
+    "https://www.conseil-constitutionnel.fr/decision/2020/2020801DC.htm"
+   ],
+   "p_simb": [
+    "Mantuvo sin cambios el delito de ultraje a la bandera de 2003 y su Gobierno reafirmó en 2020 que nunca habría delito de blasfemia",
+    "https://www.publicsenat.fr/actualites/politique/affaire-mila-il-n-existera-jamais-sous-l-autorite-de-ce-gouvernement-de-delit-de"
+   ],
+   "p_prot": [
+    "La ley anticasseurs de abril de 2019 permitió registros y castigó cubrirse el rostro, con prohibiciones de manifestar en 2023, aunque toleró bloqueos agrícolas en 2024",
+    "https://www.vie-publique.fr/dossierlegislatif/JORFDOLE000037523566"
+   ],
+   "p_euta": [
+    "Macron convocó la convención ciudadana de 2023 y promulgó la ley del derecho a la aide à mourir el 18 de agosto de 2026",
+    "https://www.info.gouv.fr/actualite/aide-a-mourir-ce-que-dit-la-loi"
+   ],
+   "p_matr": [
+    "Mantuvo el matrimonio igualitario de 2013 y la ley de bioética de agosto de 2021 abrió la PMA a parejas de mujeres y mujeres solas",
+    "https://www.vie-publique.fr/dossierlegislatif/JORFDOLE000038811571"
+   ],
+   "p_abor": [
+    "Amplió el plazo del aborto a 14 semanas en marzo de 2022 e inscribió la libertad de abortar en la Constitución el 8 de marzo de 2024",
+    "https://lcp.fr/actualites/apres-le-vote-du-congres-la-france-devient-le-premier-pays-au-monde-a-inscrire-l-ivg"
+   ],
+   "p_cann": [
+    "Generalizó en 2020 la multa de 200 euros por consumo, rechazó legalizar y solo autorizó un experimento de cannabis terapéutico desde 2021",
+    "https://www.vie-publique.fr/discours/290220-emmanuel-macron-26062023-securite-marseille"
+   ],
+   "p_medio": [
+    "La ley de diciembre de 2018 contra la manipulación de la información permite al juez retirar noticias falsas en campaña y da poderes al CSA, hoy ARCOM",
+    "https://www.vie-publique.fr/dossierlegislatif/JORFDOLE000037151987"
+   ],
+   "p_burka": [
+    "Mantuvo la prohibición del velo integral de 2010 y Attal prohibió la abaya en la escuela en agosto de 2023, validado por el Conseil d'État",
+    "https://www.conseil-etat.fr/actualites/laicite-l-interdiction-du-port-de-tenues-de-type-abaya-a-l-ecole-est-conforme-a-la-loi"
+   ],
+   "p_ileg": [
+    "Negoció con los nacionalistas corsos el proceso de Beauvau y un proyecto de autonomía constitucional aprobado por la Asamblea en junio de 2026, sin ilegalizar partidos",
+    "https://www.publicsenat.fr/actualites/politique/document-autonomie-de-la-corse-le-texte-de-laccord-entre-le-gouvernement-et-les-elus"
+   ],
+   "p_chat": [
+    "Francia figuraba en septiembre de 2025 entre los quince Estados que apoyaban en el Consejo de la UE la detección obligatoria de contenidos pedocriminales en mensajería",
+    "https://www.euronews.com/my-europe/2025/09/11/fact-check-is-the-eu-about-to-start-scanning-your-text-messages"
+   ],
+   "p_trans": [
+    "No modificó el cambio de sexo legal sin informes médicos pero ante juez vigente desde 2016, y prohibió las terapias de conversión en enero de 2022",
+    "https://lcp.fr/actualites/lutte-contre-les-therapies-de-conversion-la-proposition-de-loi-definitivement-adoptee"
+   ],
+   "p_armas": [
+    "La ley de febrero de 2018 transpuso la directiva europea y pasó armas semiautomáticas de la categoría B a la A, prohibida a particulares",
+    "https://www.vie-publique.fr/dossierlegislatif/JORFDOLE000036073656"
+   ],
+   "p_relig": [
+    "La ley contra el separatismo de agosto de 2021 endureció el control de cultos y asociaciones y la abaya fue prohibida en la escuela en 2023",
+    "https://www.conseil-constitutionnel.fr/decision/2021/2021823DC.htm"
+   ],
+   "p_toros": [
+    "Su Gobierno se opuso a la proposición de Caron de 2022 y apoyó en noviembre de 2024 suprimir en el Senado la prohibición para menores de 16 años",
+    "https://www.publicsenat.fr/actualites/societe/apres-des-debats-nourris-le-senat-rejette-linterdiction-de-la-corrida-pour-les-mineurs-de-moins-de-16-ans"
+   ],
+   "p_menores": [
+    "Macron impulsó prohibir las redes a menores de 15 años, aprobado por el Parlamento en julio de 2026 aunque el Conseil constitutionnel lo anuló en agosto",
+    "https://lcp.fr/actualites/reseaux-sociaux-pourquoi-le-conseil-constitutionnel-a-censure-l-interdiction-pour-les"
    ]
   }
  }
