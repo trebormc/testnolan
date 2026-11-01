@@ -1,5 +1,5 @@
 {
- "version": "2.1",
+ "version": "2.2",
  "date": "1 de noviembre de 2026",
  "notes": {
   "a": "Respuestas en el orden de parties, de -2 (muy en contra) a +2 (muy a favor); null = sin dato, no cuenta en la posición ni en la afinidad.",
@@ -1078,33 +1078,6 @@
    "c": "Prohibir las prendas que cubren toda la cara en la calle y en los edificios públicos, como ya hacen Francia o Bélgica."
   },
   {
-   "id": "p_ileg",
-   "ax": "P",
-   "g": "cost",
-   "dir": -1,
-   "k": "ilegalizar partidos independentistas",
-   "t": "Habría que ilegalizar los partidos que defienden la independencia de una región.",
-   "a": [
-    -1,
-    -2,
-    2,
-    -2,
-    -2,
-    null,
-    -1,
-    null,
-    0,
-    null,
-    2,
-    2,
-    null,
-    null,
-    null,
-    -2
-   ],
-   "c": "Prohibir por ley partidos que defienden pacíficamente la independencia de una parte del país. Hoy solo se puede ilegalizar un partido por lo que hace, no por lo que defiende, como vulnerar derechos de forma sistemática, fomentar la violencia o apoyar al terrorismo."
-  },
-  {
    "id": "p_chat",
    "ax": "P",
    "g": "seg",
@@ -1157,6 +1130,33 @@
     0
    ],
    "c": "La ley trans (2023) permite cambiar el sexo en el DNI desde los 16 años con una declaración, sin informes médicos ni tratamientos. La pregunta plantea si mantener esa autodeterminación."
+  },
+  {
+   "id": "p_gest",
+   "ax": "P",
+   "g": "vida",
+   "dir": 1,
+   "k": "gestación subrogada",
+   "t": "Las parejas deberían poder recurrir a la gestación subrogada con un contrato libre.",
+   "a": [
+    0,
+    -2,
+    -2,
+    -2,
+    -2,
+    null,
+    2,
+    null,
+    null,
+    null,
+    -1,
+    null,
+    0,
+    -2,
+    null,
+    -1
+   ],
+   "c": "En España la gestación subrogada está prohibida desde 1988 y los contratos son nulos, aunque se inscribe a los hijos nacidos fuera. El PSOE la considera una forma de violencia contra la mujer y desde 2023 está prohibido anunciarla. El PP está dividido y Ciudadanos la defendía regulada. Fuera de España, Italia la convirtió en delito universal en 2024, Francia la mantiene prohibida y Milei la defiende como un contrato entre adultos."
   },
   {
    "id": "p_armas",
@@ -1240,31 +1240,31 @@
    "c": "En España el debate son los toros: una ley de 2013 protege la tauromaquia como patrimonio cultural y en octubre de 2025 el Congreso rechazó tramitar una iniciativa popular para derogarla. PP y Vox votaron en contra, el PSOE se abstuvo y Sumar y Podemos a favor. Ningún partido con escaños propone hoy prohibir las corridas por ley, pero la izquierda quiere retirarles la protección y el dinero público. Fuera de España la pregunta se mide con lo que cada gobierno ha hecho frente a espectáculos con animales: circos, peleas, rodeos o corridas."
   },
   {
-   "id": "p_menores",
+   "id": "p_pand",
    "ax": "P",
-   "g": "expr",
-   "dir": -1,
-   "k": "menores en redes sociales",
-   "t": "Hay que prohibir por ley que los menores de 16 años tengan cuentas en redes sociales.",
+   "g": "cost",
+   "dir": 1,
+   "k": "confinamientos y pasaporte covid",
+   "t": "En una pandemia el Estado no debería imponer confinamientos ni pasaportes de vacunación.",
    "a": [
-    2,
-    2,
-    -1,
-    1,
     0,
+    -2,
+    2,
+    -2,
+    -2,
+    1,
+    -2,
+    1,
+    -2,
+    1,
     -1,
-    null,
-    null,
-    null,
-    -1,
-    null,
-    null,
+    -2,
     null,
     1,
-    1,
-    1
+    -1,
+    -2
    ],
-   "c": "Prohibir por ley que los menores de cierta edad abran cuentas en redes sociales, con verificación de edad. Australia lo aplica desde diciembre de 2025 a los menores de 16. En Francia el Parlamento aprobó una prohibición a menores de 15 que el Consejo Constitucional anuló en agosto de 2026. En España el Gobierno propuso los 16 años, pero la ley decayó al disolverse las Cortes."
+   "c": "Es el recuerdo de 2020 y 2021: estado de alarma, confinamiento domiciliario, toques de queda y pasaporte covid para entrar en bares u hospitales en varias comunidades. El Constitucional anuló en 2021 parte de los dos estados de alarma a instancias de Vox. La pregunta mide hasta dónde está dispuesto cada partido a limitar la libertad de movimiento en una emergencia sanitaria."
   }
  ],
  "why": {
@@ -1401,10 +1401,6 @@
     "En octubre de 2015 dijo en New Hampshire que hay que dejar a las mujeres llevar burka si quieren y que no merece la pena pelear por eso.",
     "https://time.com/4087545/donald-trump-burqas/"
    ],
-   "p_ileg": [
-    "No hay ninguna medida ni declaración de Trump sobre esto.",
-    ""
-   ],
    "p_chat": [
     "Los hechos conocidos sobre Trump en este tema son contradictorios y no tienen una fuente verificada.",
     ""
@@ -1425,9 +1421,13 @@
     "Firmó en diciembre de 2018 la ley agraria que prohíbe las peleas de gallos en Puerto Rico y en noviembre de 2019 la PACT Act contra la crueldad animal.",
     "https://www.npr.org/2019/11/25/782842651/trump-signs-law-making-cruelty-to-animals-a-federal-crime"
    ],
-   "p_menores": [
-    "Su embajada en Londres pidió en junio de 2026 al Reino Unido evitar vetos generales de redes a menores de 16 y preferir reglas focalizadas.",
-    "https://www.lbc.co.uk/article/white-house-starmer-social-media-under-16s-5HjdbHt_2/"
+   "p_gest": [
+    "La gestación subrogada es competencia estatal, sin medida federal ni declaración de Trump: su decreto de febrero de 2025 trata solo de la fecundación in vitro.",
+    "https://www.deseret.com/politics/2025/02/19/president-trump-ivf-executive-order-pro-life-argument"
+   ],
+   "p_pand": [
+    "Sin confinamiento federal, pidió liberar Michigan en abril de 2020 y en enero de 2025 revocó por decreto los mandatos federales de vacunación, aunque recomendó quedarse en casa en marzo de 2020.",
+    "https://www.govinfo.gov/content/pkg/DCPD-202500159/html/DCPD-202500159.htm"
    ]
   },
   "putin": {
@@ -1563,10 +1563,6 @@
     "Daguestán prohibió el niqab mientras el Kremlin se mantuvo al margen.",
     "https://themoscowtimes.com/2024/07/18/explainer-does-russia-plan-to-ban-islamic-veiling"
    ],
-   "p_ileg": [
-    "Aprobó la Ley de Partidos de 2001 contra los partidos regionales, usa el artículo 280.1 y declaró extremista a Navalni.",
-    "https://www.occrp.org/en/news/moscow-court-marks-navalnys-anti-graft-group-extremist"
-   ],
    "p_chat": [
     "La ley Yarovaya obliga a guardar los mensajes y entregar las claves al FSB, y Telegram fue bloqueado.",
     "https://www.helpnetsecurity.com/2016/06/29/new-russian-law/"
@@ -1587,9 +1583,13 @@
     "Firmó en diciembre de 2018 la ley de trato responsable de animales, que prohíbe las peleas de animales y los zoos de contacto, pero mantiene circos y delfinarios con licencia.",
     "https://www.themoscowtimes.com/2018/12/31/russia-outlaws-animal-cruelty-a64009"
    ],
-   "p_menores": [
-    "Existe un proyecto de Roskomnadzor de octubre de 2026 que todavía no es ley.",
-    "https://meduza.io/en/news/2026/10/27/russia-s-internet-regulator-proposes-limiting-screen-time-for-children-under-14-and-requiring-social-media-platforms-to-verify-users-ages"
+   "p_gest": [
+    "Firmó el 19 de diciembre de 2022 la ley que prohíbe la gestación subrogada a extranjeros, aunque sigue permitida para matrimonios y mujeres solas rusas.",
+    "https://www.themoscowtimes.com/2022/12/19/putin-bans-surrogacy-for-foreigners-a79738"
+   ],
+   "p_pand": [
+    "Decretó días no laborables nacionales de marzo a mayo de 2020 y su Gobierno impulsó una ley federal de códigos QR que, tras pedir él reelaborarla, se retiró en enero de 2022.",
+    "https://meduza.io/en/feature/2022/01/17/canceling-qr-codes"
    ]
   },
   "maduro": {
@@ -1725,10 +1725,6 @@
     "No hay ninguna medida ni declaración de Maduro sobre esto.",
     ""
    ],
-   "p_ileg": [
-    "Intervino judicialmente a Copei, AD, Primero Justicia, Voluntad Popular y el PCV.",
-    "https://www.hrw.org/es/world-report/2021/country-chapters/venezuela"
-   ],
    "p_chat": [
     "Hay revisiones de teléfonos y detenciones por mensajes de WhatsApp.",
     "https://www.hrw.org/es/report/2025/04/30/castigados-por-buscar-un-cambio/asesinatos-desapariciones-forzadas-y-detenciones"
@@ -1749,9 +1745,13 @@
     "Las corridas y las peleas de gallos siguen legales en Venezuela y solo el fiscal Saab, no Maduro, pidió suspender corridas en 2021 y 2022.",
     "https://eldiario.com/2022/01/21/ordenan-suspender-corridas-toros-tachira-ley-contra/"
    ],
-   "p_menores": [
-    "No hay ninguna medida ni declaración de Maduro sobre esto.",
+   "p_gest": [
+    "Venezuela carece de regulación sobre gestación subrogada y no consta ninguna medida ni declaración de Maduro entre 2013 y 2026.",
     ""
+   ],
+   "p_pand": [
+    "Decretó cuarentena nacional el 17 de marzo de 2020 y mantuvo el esquema 7+7 hasta 2022, con detenciones de médicos y periodistas críticos.",
+    "https://www.vozdeamerica.com/a/acusan-a-maduro-de-aprovechar-la-pandemia-para-consolidar-autoritarismo/5399313.html"
    ]
   },
   "mujica": {
@@ -1887,10 +1887,6 @@
     "No hay ninguna medida ni declaración de Mujica sobre esto.",
     ""
    ],
-   "p_ileg": [
-    "No hay ninguna medida ni declaración de Mujica sobre esto.",
-    ""
-   ],
    "p_chat": [
     "Compró El Guardián sin control legislativo, aunque cada escucha requiere orden judicial.",
     "https://digitalrightslac.derechosdigitales.org/en/el-guardian-que-vigila-a-los-ciudadanos"
@@ -1911,9 +1907,13 @@
     "No hay ley, decreto ni declaración suya sobre jineteadas, galgos o circos entre 2010 y 2015, y la ley de bienestar animal de 2009 es de Vázquez.",
     ""
    ],
-   "p_menores": [
-    "No hay ninguna medida ni declaración de Mujica sobre esto.",
-    ""
+   "p_gest": [
+    "Promulgó en noviembre de 2013 la ley 19.167, que permite la gestación altruista con una familiar pero anula todo contrato oneroso o gratuito.",
+    "https://www.impo.com.uy/bases/leyes/19167-2013"
+   ],
+   "p_pand": [
+    "Fuera del cargo desde 2018, en marzo de 2021 solo elogió las medidas iniciales del Gobierno sin pronunciarse sobre confinamientos ni pasaportes.",
+    "https://es.mercopress.com/2021/03/04/pepe-mujica-aseguro-que-la-pandemia-ayudo-al-gobierno-de-lacalle-pou"
    ]
   },
   "meloni": {
@@ -2049,10 +2049,6 @@
     "El decreto escuela de septiembre de 2026 prohíbe el rostro cubierto en las actividades escolares, aunque falta confirmar el número en la Gazzetta.",
     "https://www.tecnicadellascuola.it/decreto-scuola-per-chi-indossa-burqua-e-niqab-multe-fino-a-mille-euro-anche-per-i-genitori"
    ],
-   "p_ileg": [
-    "No hay ninguna medida ni declaración de Meloni sobre esto.",
-    ""
-   ],
    "p_chat": [
     "Italia se abstuvo en el Coreper de noviembre de 2025 pidiendo garantías.",
     "https://tg24.sky.it/mondo/2025/11/26/ue-chat-control-italia"
@@ -2073,9 +2069,13 @@
     "Su mayoría aprobó en mayo de 2025 la ley Brambilla, que endurece las penas por maltrato, pero su Gobierno aplazó en julio de 2025 el fin de los circos con animales.",
     "https://www.open.online/2025/05/29/carcere-maltrattamento-animali-legge-cosa-prevede/"
    ],
-   "p_menores": [
-    "Dijo el 17 de junio de 2026, tras el G7, que no es contraria al veto de redes a menores de 16 aunque dudó de que baste por sí solo.",
-    "https://www.lapresse.it/video/2026/06/17/social-media-meloni-divieto-non-basta-serve-coinvolgere-piattaforme/"
+   "p_gest": [
+    "Su Gobierno impulsó la ley 169 de noviembre de 2024, que castiga como delito universal la gestación subrogada contratada por italianos incluso en el extranjero.",
+    "https://www.normattiva.it/eli/id/2024/11/18/24G00187/ORIGINAL"
+   ],
+   "p_pand": [
+    "Se opuso al pase verde desde julio de 2021 y pidió abolirlo, y en octubre de 2022 su decreto 162 adelantó el fin de la vacunación obligatoria del personal sanitario.",
+    "https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:decreto.legge:2022-10-31;162"
    ]
   },
   "pp": {
@@ -2211,10 +2211,6 @@
     "Votó la ley de Vox el 17 de febrero de 2026 y registró dos días después la suya, con multas por llevar velo integral en espacios públicos.",
     "https://theobjective.com/espana/politica/2026-02-19/pp-presenta-ley-prohibir-burka-multas/"
    ],
-   "p_ileg": [
-    "Feijóo ha rechazado ilegalizar partidos independentistas y el PP no apoyó las propuestas de Vox de reformar la Ley de Partidos para hacerlo.",
-    ""
-   ],
    "p_chat": [
     "Sus eurodiputados votaron con el PPE la urgencia del 7 de julio de 2026 y la prórroga del escaneo voluntario hasta 2028, sin posición del partido nacional.",
     "https://maldita.es/desinfo/20260710/votacion-chat-control-eurodiputados-espanoles-pp-psoe/"
@@ -2235,9 +2231,13 @@
     "Aprobó la ley de protección de la tauromaquia de 2013, votó no a la ILP para derogarla el 7 de octubre de 2025 y quiere restituir el Premio Nacional.",
     "https://www.eldebate.com/espana/20251007/cisma-gobierno-toros-abstencion-psoe-impide-tramitar-ley-contra-tauromaquia_342268.html"
    ],
-   "p_menores": [
-    "Registró antes que el Gobierno una ley para prohibir las redes a menores de 16 salvo consentimiento paterno expreso, y su programa de 2023 ya pedía verificación de edad.",
-    "https://www.ondavasca.com/el-pp-propone-prohibir-el-acceso-a-redes-sociales-de-menores-de-16-anos-salvo-consentimiento-expreso-de-los-padres/"
+   "p_gest": [
+    "Dividido: su congreso de 2017 quedó en tablas, en 2018 la mayoría rechazó regularla, Feijóo pidió en marzo de 2023 solo ordenar el asunto y la ponencia de 2025 la omite.",
+    "https://www.elindependiente.com/espana/2023/03/30/feijoo-matiza-sobre-la-gestacion-subrogada-al-abogar-solo-por-ordenar-este-asunto/"
+   ],
+   "p_pand": [
+    "Votó sí a las prórrogas del estado de alarma de marzo y abril de 2020, se abstuvo en mayo y octubre y votó no en junio, y la Galicia de Feijóo impuso el certificado covid en julio de 2021.",
+    "https://maldita.es/malditodato/20210512/falso-pp-votara-contra-estado-alarma-octubre-maria-jesus-montero/"
    ]
   },
   "psoe": {
@@ -2373,10 +2373,6 @@
     "Votó el 17 de febrero de 2026 contra la ley de Vox para prohibir el burka, pero Patxi López se abrió a negociar la propuesta de Junts.",
     "https://www.elespanol.com/espana/politica/20260217/psoe-abre-negociar-junts-prohibicion-burka-tumbar-iniciativa-similar-vox-racista/1003744134409_0.html"
    ],
-   "p_ileg": [
-    "Aprobó en junio de 2024 la ley de amnistía a los independentistas del procés y ha rechazado todas las propuestas de Vox para ilegalizar partidos.",
-    "https://www.boe.es/eli/es/lo/2024/06/10/1"
-   ],
    "p_chat": [
     "España defendió en el Consejo de la UE impedir el cifrado de extremo a extremo en 2023 y apoyó el acuerdo de Chat Control de noviembre de 2025, y sus eurodiputados votaron la prórroga.",
     "https://www.eldiario.es/tecnologia/espana-pide-debilitar-cifrado-mensajeria-digital-documento-filtrado-ue_1_10228734.html"
@@ -2397,9 +2393,13 @@
     "Se abstuvo en octubre de 2025 en la ILP para derogar la ley de tauromaquia con el lema ni prohibir ni promover, pero votó no a restituir el Premio Nacional.",
     "https://www.ondavasca.com/el-psoe-se-alinea-con-sumar-y-vota-en-contra-de-restituir-el-premio-nacional-de-tauromaquia/"
    ],
-   "p_menores": [
-    "Sánchez anunció el 3 de febrero de 2026 en Dubái prohibir las redes sociales a menores de 16 mediante su ley de menores digitales, decaída al disolverse las Cortes.",
-    "https://es.ara.cat/sociedad/sanchez-anuncia-espana-prohibira-acceso-redes-sociales-menores-16-anos_1_5636702.html"
+   "p_gest": [
+    "Su Ley Orgánica 1/2023 la declara contrato nulo y violencia reproductiva y persigue su publicidad, y en mayo de 2025 Justicia vetó inscribir a los bebés nacidos así en el extranjero.",
+    "https://www.eldiario.es/politica/gobierno-supremo-complican-no-cierran-camino-vientres-alquiler_1_12262456.html"
+   ],
+   "p_pand": [
+    "Su Gobierno decretó el confinamiento de marzo de 2020 y el segundo estado de alarma, y logró la prórroga de seis meses el 29 de octubre de 2020 con 194 votos.",
+    "https://www.elsaltodiario.com/coronavirus/gobierno-saca-adelante-prorroga-seis-meses-estado-alarma"
    ]
   },
   "vox": {
@@ -2535,10 +2535,6 @@
     "Registró la ley para prohibir el burka y el niqab en espacios públicos que el Congreso debatió el 17 de febrero de 2026 con el voto favorable del PP.",
     "https://theobjective.com/espana/politica/2026-02-19/pp-presenta-ley-prohibir-burka-multas/"
    ],
-   "p_ileg": [
-    "La medida 2 de 2019 ilegaliza partidos, asociaciones y ONG que persigan destruir la unidad territorial, y el programa de 2023 lo repite y suspende sus autonomías.",
-    "https://www.voxespana.es/wp-content/uploads/2019/04/maqueta_100_medidas_2019.pdf"
-   ],
    "p_chat": [
     "Buxadé votó en julio de 2026 en el Parlamento Europeo contra la urgencia y a favor de la objeción para frenar Chat Control, rechazando un panóptico digital.",
     "https://www.moncloa.com/2026/07/12/vox-chat-control-parlamento-europeo-3398591/"
@@ -2559,9 +2555,13 @@
     "La medida 67 de 2019 impulsa una ley de protección de la tauromaquia y el 7 de octubre de 2025 votó no a tramitar la iniciativa popular antitaurina.",
     "https://www.eldiario.es/1_c13b47"
    ],
-   "p_menores": [
-    "Abascal llamó censura a la prohibición en febrero de 2026, dijo que corresponde a las familias y el grupo presentó enmienda de devolución a la ley.",
-    "https://theobjective.com/espana/politica/2026-02-03/abascal-redes-sociales-menores-censurar/"
+   "p_gest": [
+    "Presentó en 2020 una proposición para prohibir y sancionar la gestación subrogada y perseguir a quienes firmen o intermedien, rechazada en la Comisión de Igualdad en noviembre de 2020.",
+    "https://www.moncloa.com/congreso-vox-iniciativa-subrogada"
+   ],
+   "p_pand": [
+    "Votó contra las prórrogas del estado de alarma desde el 9 de abril de 2020 y sus recursos lograron que el Constitucional anulara partes del primer y del segundo estado de alarma en 2021.",
+    "https://www.economistjurist.es/noticias-juridicas/es-inconstitucional-la-prorroga-de-6-meses-del-segundo-estado-de-alarma-y-la-cogobernanza-con-las-autonomias"
    ]
   },
   "fa": {
@@ -2697,10 +2697,6 @@
     "Votó en febrero de 2026 contra la ley de Vox para prohibir el burka, que calificó de racismo disfrazado de feminismo.",
     "https://papeletaclara.es/partidos/sumar"
    ],
-   "p_ileg": [
-    "Define España como país de países, pactó la amnistía de 2024 con ERC y Junts y su programa pide votar en Cataluña el acuerdo de la mesa de diálogo.",
-    "https://www.politicaelectoral.com/es/espana/generales-2026/nacional/comparar/estado-ccaa"
-   ],
    "p_chat": [
     "Compromís votó contra la urgencia de Chat Control el 7 de julio de 2026 y sus eurodiputados están en Verdes y La Izquierda, que lideraron el rechazo.",
     "https://www.greens-efa.eu/en/article/press/chatcontrol-meps-agree-to-controversial-vote-by-urgency-procedure"
@@ -2721,9 +2717,13 @@
     "Sumar votó sí a tramitar la ILP antitaurina el 7 de octubre de 2025 y su programa deroga la ley de 2013 y retira fondos, pero niega querer prohibir.",
     "https://maldita.es/malditobulo/20230817/yolanda-diaz-prohibir-tauromaquia-espana/"
    ],
-   "p_menores": [
-    "Sira Rego, ministra de IU, impulsó con Bolaños desde 2024 la ley que limita a los menores de 16 años el acceso a redes sociales, decaída en octubre de 2026.",
-    "https://www.politicaelectoral.com/es/espana/generales-2026/nacional/comparar/educacion"
+   "p_gest": [
+    "Unidas Podemos, con En Comú Podem e IU, aprobó en febrero de 2023 la ley que la define como violencia contra las mujeres, impulsada desde el Ministerio de Igualdad.",
+    "https://www.elsaltodiario.com/gestacion-subrogada/gestacion-subrogada-claves-psoe-podemos-pp-ciudadanos"
+   ],
+   "p_pand": [
+    "Unidas Podemos, con En Comú Podem e IU, cogobernó el confinamiento y votó sí a las prórrogas de 2020, y Más País y Compromís apoyaron la de seis meses en octubre de 2020.",
+    "https://www.elsaltodiario.com/coronavirus/gobierno-saca-adelante-prorroga-seis-meses-estado-alarma"
    ]
   },
   "pod": {
@@ -2859,10 +2859,6 @@
     "Votó en febrero de 2026 contra la ley de Vox para prohibir el burka y el niqab en los espacios públicos.",
     "https://papeletaclara.es/partidos/podemos/"
    ],
-   "p_ileg": [
-    "Votó la ley de amnistía en 2024 y defiende un Estado plurinacional con derecho a decidir, lo contrario de ilegalizar partidos independentistas.",
-    "https://papeletaclara.es/partidos/podemos/"
-   ],
    "p_chat": [
     "Su grupo europeo La Izquierda votó el 9 de julio de 2026 rechazar la prórroga del escaneo voluntario, pero Montero no consta en esa votación ni hay postura propia.",
     "https://howtheyvote.eu/votes/195807"
@@ -2883,9 +2879,13 @@
     "Votó en octubre de 2025 a favor de tramitar la ILP para derogar la ley de tauromaquia, la llama anacronismo y ha propuesto un referéndum para prohibirla.",
     "https://www.publico.es/politica/dia-mundial-animales-unico-partido.html"
    ],
-   "p_menores": [
-    "Belarra dijo en febrero de 2026 que la prohibición para menores de 16 suena muy bien, pero no va a servir para nada, y propuso gravar a las plataformas.",
-    "https://www.eldebate.com/educacion/20260211/podemos-quiere-crujir-impuestos-redes-sociales-usar-ese-dinero-educacion-sexual-obligatoria_384178.html"
+   "p_gest": [
+    "Irene Montero impulsó la Ley Orgánica 1/2023, que la reconoce como violencia contra las mujeres, y en marzo de 2023 reiteró que es violencia con sesgo de pobreza.",
+    "https://www.deia.eus/actualidad/sociedad/2023/03/29/montero-reitera-gestacion-subrogada-forma-6624132.html"
+   ],
+   "p_pand": [
+    "Unidas Podemos formaba el Gobierno que decretó el confinamiento en marzo de 2020 y votó a favor de todas las prórrogas del estado de alarma.",
+    "https://www.elindependiente.com/politica/2020/04/09/el-congreso-aprueba-la-prorroga-del-estado-de-alarma-hasta-el-26-de-abril-con-el-voto-en-contra-de-vox-y-la-cup/"
    ]
   },
   "salf": {
@@ -3021,10 +3021,6 @@
     "SALF no ha publicado programa y no hay voto ni declaración de Alvise sobre el burka o el niqab.",
     ""
    ],
-   "p_ileg": [
-    "SALF no ha publicado programa y Alvise descarta pactar con Bildu, ERC y Junts, pero no ha pedido ilegalizarlos.",
-    ""
-   ],
    "p_chat": [
     "Votó por prorrogar el escaneo voluntario en marzo de 2026, contra la urgencia el 7 de julio y en sentidos opuestos en los dos rechazos del 9 de julio.",
     "https://howtheyvote.eu/votes/189270"
@@ -3045,9 +3041,13 @@
     "Votó en el Parlamento Europeo contra las ayudas al toro de lidia en 2024, ni un euro público, pero no pide prohibir las corridas.",
     "https://www.eldebate.com/cultura/20240907/alvise-retrata-toros_225428.html"
    ],
-   "p_menores": [
-    "Votó contra las resoluciones del Parlamento Europeo que piden una edad mínima de 16 años para las redes, en noviembre de 2025 y septiembre de 2026.",
-    "https://howtheyvote.eu/votes/181520"
+   "p_gest": [
+    "SALF no ha publicado programa y no hay declaración ni voto de Alvise sobre la gestación subrogada.",
+    ""
+   ],
+   "p_pand": [
+    "En diciembre de 2021 convocó a rodear el Congreso contra la mascarilla obligatoria en exteriores y defendió a quienes no se vacunan, sin posición hallada sobre los confinamientos de 2020.",
+    "https://www.moncloa.com/2021/12/23/alvise-perez-rabia-uso-mascarillas-congreso-1162323/"
    ]
   },
   "d21": {
@@ -3183,10 +3183,6 @@
     "Ciudadanos, su socio de coalición, presentó en el Parlament en 2010 y 2013 proposiciones para prohibir el burka y el niqab en los espacios públicos.",
     "https://www.eldebate.com/espana/cataluna/barcelona/20241120/vox-instara-ayuntamiento-barcelona-pronunciarse-sobre-prohibicion-burka-niqab-calle_246285.html"
    ],
-   "p_ileg": [
-    "Ciudadanos, su socio de coalición, apoyó en 2019 en la Asamblea de Madrid ilegalizar partidos que atenten contra la unidad, pero se abstuvo en el Congreso en 2020.",
-    "https://www.elindependiente.com/politica/2019/11/07/pp-y-cs-se-unen-a-vox-para-ilegalizar-partidos-que-atenten-contra-la-unidad-de-espana/amp/"
-   ],
    "p_chat": [
     "Ciudadanos, su socio de coalición, respaldó en 2023 desde Renew la posición del Parlamento Europeo que solo permite detectar con orden judicial y excluye el cifrado.",
     "https://es.euronews.com/next/2026/07/10/chat-control-10-supera-el-tramite-en-el-parlamento-europeo-por-la-puerta-trasera"
@@ -3207,9 +3203,13 @@
     "Ciudadanos, su socio de coalición, votó en 2010 contra la prohibición catalana de las corridas y Rivera resumió su postura en ni subvencionar ni prohibir.",
     "https://www.publico.es/politica/albert-rivera-somos-taurinos-antitaurinos.amp.html"
    ],
-   "p_menores": [
-    "Ni Democracia 21 ni Ciudadanos tienen posición conocida sobre esto, porque el debate sobre la edad mínima en redes es posterior a la salida de Cs del Congreso.",
-    ""
+   "p_gest": [
+    "Ciudadanos, su socio de coalición, registró proposiciones de ley para regularla de forma altruista en 2017, 2019 y marzo de 2023 con el modelo canadiense.",
+    "https://www.elindependiente.com/espana/2023/03/30/ciudadanos-registra-en-el-congreso-una-proposicion-para-regular-la-gestacion-subrogada/"
+   ],
+   "p_pand": [
+    "Ciudadanos, su socio de coalición, votó a favor de todas las prórrogas del estado de alarma en 2020, incluida la de seis meses del 29 de octubre.",
+    "https://maldita.es/malditodato/20210512/falso-pp-votara-contra-estado-alarma-octubre-maria-jesus-montero/"
    ]
   },
   "milei": {
@@ -3345,10 +3345,6 @@
     "No aplica: el velo integral no es un debate en Argentina y su Gobierno no ha tomado ninguna medida sobre vestimenta religiosa.",
     ""
    ],
-   "p_ileg": [
-    "No aplica: en Argentina no hay partidos independentistas y su Gobierno no ha impulsado ninguna ilegalización de partidos.",
-    ""
-   ],
    "p_chat": [
     "Las resoluciones 428/2024 y 710/2024 autorizan ciberpatrullaje con inteligencia artificial en redes y fuentes abiertas, pero no hay ninguna medida sobre mensajes privados, así que no se puntúa.",
     "https://chequeado.com/el-explicador/ciberpatrullaje-e-inteligencia-artificial-que-dispuso-el-gobierno-de-milei-y-que-debates-plantea-la-medida/"
@@ -3369,9 +3365,13 @@
     "Respaldó en julio de 2024 la Ley Conan, que multiplica las penas por maltrato animal y tipifica las peleas de animales, aunque el Congreso no la aprobó.",
     "https://eleconomista.com.ar/politica/javier-milei-dio-visto-bueno-comienza-diputados-tratamiento-ley-conan-maltrato-animal-n75162"
    ],
-   "p_menores": [
-    "No hay medida: Argentina no tiene ley de edad mínima para redes sociales y su Gobierno no ha impulsado ninguna.",
+   "p_gest": [
+    "Como presidente no ha tomado ninguna medida y no se ha localizado una declaración suya sobre la gestación subrogada, solo sobre otros contratos sobre el propio cuerpo.",
     ""
+   ],
+   "p_pand": [
+    "Nunca gobernó en pandemia, rechazó la cuarentena de 2020 y en diciembre de 2021 firmó como diputado el comunicado opositor contra el pase sanitario.",
+    "https://www.a24.com/politica/coronavirus-diputados-la-oposicion-se-manifestaron-contra-del-pase-sanitario-n986376"
    ]
   },
   "bukele": {
@@ -3507,10 +3507,6 @@
     "Sin ninguna medida ni declaración sobre el velo integral: la población musulmana en El Salvador es mínima y el debate no existe.",
     ""
    ],
-   "p_ileg": [
-    "No ha ilegalizado partidos, pero la reforma electoral de junio de 2023 dejó sin escaños a los pequeños y encarceló en 2025 a críticos como Ruth López y Enrique Anaya.",
-    "https://www.hrw.org/news/2025/05/20/el-salvador-prominent-human-rights-defender-arrested"
-   ],
    "p_chat": [
     "El régimen de excepción suspende desde marzo de 2022 el secreto de las comunicaciones y las leyes de ciberseguridad de noviembre de 2024 amenazan la privacidad según HRW.",
     "https://www.hrw.org/es/news/2024/12/12/el-salvador-nuevas-leyes-amenazan-la-libertad-de-expresion-y-la-privacidad"
@@ -3531,9 +3527,13 @@
     "Sancionó en enero de 2022 la Ley de Bienestar Animal, que prohíbe los espectáculos con peleas de perros y otros animales de compañía, y disolvió su instituto en marzo de 2025.",
     "https://faolex.fao.org/docs/pdf/els216831.pdf"
    ],
-   "p_menores": [
-    "Sin ninguna ley ni propuesta sobre edad mínima para cuentas en redes sociales en su mandato.",
+   "p_gest": [
+    "El Salvador no regula ni prohíbe la gestación subrogada y no consta ninguna medida ni declaración de Bukele sobre ella desde 2019.",
     ""
+   ],
+   "p_pand": [
+    "Impuso en marzo de 2020 una cuarentena domiciliaria obligatoria con miles de detenidos en centros de contención y en abril anunció que no acataría las cautelares de la Sala Constitucional.",
+    "https://www.diariolibre.com/actualidad/internacional/advierten-consecuencias-legales-por-ignorar-fallo-del-supremo-en-el-salvador-GO18348583"
    ]
   },
   "biden": {
@@ -3669,10 +3669,6 @@
     "No existe debate federal sobre el velo integral y no hubo medida alguna",
     ""
    ],
-   "p_ileg": [
-    "No aplica, sin partidos independentistas relevantes ni mecanismo federal de ilegalización de partidos",
-    ""
-   ],
    "p_chat": [
     "Renovó en abril de 2024 la vigilancia sin orden judicial de la Sección 702 y su FBI pidió acceso al cifrado, pero su CISA recomendó cifrado de extremo a extremo",
     "https://www.npr.org/2024/04/20/1246076114/senate-passes-reauthorization-surveillance-program-fisa"
@@ -3693,9 +3689,13 @@
     "Firmó el 20 de diciembre de 2022 la Big Cat Public Safety Act, que prohíbe tener grandes felinos en manos privadas y los espectáculos de contacto con cachorros.",
     "https://aldf.org/article/big-cat-public-safety-act-signed-into-law/"
    ],
-   "p_menores": [
-    "Pidió en el Estado de la Unión de 2023 prohibir la publicidad dirigida a menores y respaldó la Kids Online Safety Act en julio de 2024, sin vetar cuentas",
-    "https://bidenwhitehouse.archives.gov/briefing-room/statements-releases/2024/07/30/statement-from-president-joe-biden-on-senate-passage-of-the-kids-online-safety-and-privacy-act/"
+   "p_gest": [
+    "Competencia estatal, sin medida federal ni declaración conocida sobre la gestación subrogada durante su mandato de 2021 a 2025.",
+    ""
+   ],
+   "p_pand": [
+    "Sin confinamiento federal, pero en septiembre de 2021 ordenó vacunar a empleados federales y contratistas y dictó una regla para grandes empresas que el Supremo anuló en enero de 2022.",
+    "https://bidenwhitehouse.archives.gov/briefing-room/presidential-actions/2021/09/09/executive-order-on-requiring-coronavirus-disease-2019-vaccination-for-federal-employees/"
    ]
   },
   "macron": {
@@ -3831,10 +3831,6 @@
     "Mantuvo la prohibición del velo integral de 2010 y Attal prohibió la abaya en la escuela en agosto de 2023, validado por el Conseil d'État",
     "https://www.conseil-etat.fr/actualites/laicite-l-interdiction-du-port-de-tenues-de-type-abaya-a-l-ecole-est-conforme-a-la-loi"
    ],
-   "p_ileg": [
-    "Negoció con los nacionalistas corsos el proceso de Beauvau y un proyecto de autonomía constitucional aprobado por la Asamblea en junio de 2026, sin ilegalizar partidos",
-    "https://www.publicsenat.fr/actualites/politique/document-autonomie-de-la-corse-le-texte-de-laccord-entre-le-gouvernement-et-les-elus"
-   ],
    "p_chat": [
     "Francia figuraba en septiembre de 2025 entre los quince Estados que apoyaban en el Consejo de la UE la detección obligatoria de contenidos pedocriminales en mensajería",
     "https://www.euronews.com/my-europe/2025/09/11/fact-check-is-the-eu-about-to-start-scanning-your-text-messages"
@@ -3855,9 +3851,13 @@
     "Promulgó en noviembre de 2021 la ley que veta animales salvajes en circos y delfinarios, pero en noviembre de 2022 descartó prohibir la corrida.",
     "https://www.publicsenat.fr/actualites/societe/maltraitance-animale-lapplication-de-la-loi-prend-du-retard-denonce-un-rapport-du-senat"
    ],
-   "p_menores": [
-    "Macron impulsó prohibir las redes a menores de 15 años, aprobado por el Parlamento en julio de 2026 aunque el Conseil constitutionnel lo anuló en agosto",
-    "https://lcp.fr/actualites/reseaux-sociaux-pourquoi-le-conseil-constitutionnel-a-censure-l-interdiction-pour-les"
+   "p_gest": [
+    "Mantuvo la nulidad de todo convenio de gestación por otro, la ley de bioética de agosto de 2021 no la legalizó y en 2017 se declaró no favorable.",
+    "https://www.legifrance.gouv.fr/jorf/id/JORFTEXT000043884384"
+   ],
+   "p_pand": [
+    "Impuso confinamientos en 2020 y 2021, el pase sanitario por ley de agosto de 2021 y el pase de vacunación en enero de 2022.",
+    "https://www.legifrance.gouv.fr/jorf/id/JORFTEXT000043909676"
    ]
   }
  }

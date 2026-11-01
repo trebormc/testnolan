@@ -169,3 +169,57 @@ Siete afirmaciones que apenas separaban a los partidos españoles o tenían dema
 | D21 + Cs | Ciudadanos, su socio de coalición, prometía en 2019 limitar la publicidad de juegos y apuestas con los mismos criterios que la del tabaco y el alcohol. | https://okdiario.com/img/2019/10/31/ciudadanos-programa-electoral-10n.pdf |
 | Milei | En noviembre de 2024 La Libertad Avanza votó en Diputados contra la ley de ludopatía que prohibía la publicidad de apuestas online, que quedó frenada en el Senado. | https://www.rionegro.com.ar/politica/el-gobierno-promueve-una-ley-contra-la-ludopatia-pero-permite-la-publicidad-de-las-apuestas-online-4588656/ |
 | Bukele | Sin ninguna medida sobre publicidad de apuestas o juego online en su mandato: el debate no existe en El Salvador. | — |
+
+# Preguntas retiradas en la versión 2.2
+
+Sustituidas por gestación subrogada y confinamientos en pandemia, que separan al libertario tanto de la izquierda como de la derecha. «Menores en redes» era un debate de este año con seis casillas sin dato; «ilegalizar partidos independentistas» medía el eje territorial, que el proyecto deja fuera, y solo separaba a Vox del resto.
+
+## p_menores: Hay que prohibir por ley que los menores de 16 años tengan cuentas en redes sociales.
+
+```json
+{"id": "p_menores", "ax": "P", "g": "expr", "dir": -1, "k": "menores en redes sociales", "t": "Hay que prohibir por ley que los menores de 16 años tengan cuentas en redes sociales.", "a": [2, 2, -1, 1, 0, -1, null, null, null, -1, null, null, null, 1, 1, 1], "c": "Prohibir por ley que los menores de cierta edad abran cuentas en redes sociales, con verificación de edad. Australia lo aplica desde diciembre de 2025 a los menores de 16. En Francia el Parlamento aprobó una prohibición a menores de 15 que el Consejo Constitucional anuló en agosto de 2026. En España el Gobierno propuso los 16 años, pero la ley decayó al disolverse las Cortes."}
+```
+
+| Partido | Frase | Fuente |
+|---|---|---|
+| Trump | Su embajada en Londres pidió en junio de 2026 al Reino Unido evitar vetos generales de redes a menores de 16 y preferir reglas focalizadas. | https://www.lbc.co.uk/article/white-house-starmer-social-media-under-16s-5HjdbHt_2/ |
+| Putin | Existe un proyecto de Roskomnadzor de octubre de 2026 que todavía no es ley. | https://meduza.io/en/news/2026/10/27/russia-s-internet-regulator-proposes-limiting-screen-time-for-children-under-14-and-requiring-social-media-platforms-to-verify-users-ages |
+| Maduro | No hay ninguna medida ni declaración de Maduro sobre esto. | — |
+| Mujica | No hay ninguna medida ni declaración de Mujica sobre esto. | — |
+| Meloni | Dijo el 17 de junio de 2026, tras el G7, que no es contraria al veto de redes a menores de 16 aunque dudó de que baste por sí solo. | https://www.lapresse.it/video/2026/06/17/social-media-meloni-divieto-non-basta-serve-coinvolgere-piattaforme/ |
+| PP | Registró antes que el Gobierno una ley para prohibir las redes a menores de 16 salvo consentimiento paterno expreso, y su programa de 2023 ya pedía verificación de edad. | https://www.ondavasca.com/el-pp-propone-prohibir-el-acceso-a-redes-sociales-de-menores-de-16-anos-salvo-consentimiento-expreso-de-los-padres/ |
+| PSOE | Sánchez anunció el 3 de febrero de 2026 en Dubái prohibir las redes sociales a menores de 16 mediante su ley de menores digitales, decaída al disolverse las Cortes. | https://es.ara.cat/sociedad/sanchez-anuncia-espana-prohibira-acceso-redes-sociales-menores-16-anos_1_5636702.html |
+| Vox | Abascal llamó censura a la prohibición en febrero de 2026, dijo que corresponde a las familias y el grupo presentó enmienda de devolución a la ley. | https://theobjective.com/espana/politica/2026-02-03/abascal-redes-sociales-menores-censurar/ |
+| Frente Amplio | Sira Rego, ministra de IU, impulsó con Bolaños desde 2024 la ley que limita a los menores de 16 años el acceso a redes sociales, decaída en octubre de 2026. | https://www.politicaelectoral.com/es/espana/generales-2026/nacional/comparar/educacion |
+| Podemos | Belarra dijo en febrero de 2026 que la prohibición para menores de 16 suena muy bien, pero no va a servir para nada, y propuso gravar a las plataformas. | https://www.eldebate.com/educacion/20260211/podemos-quiere-crujir-impuestos-redes-sociales-usar-ese-dinero-educacion-sexual-obligatoria_384178.html |
+| SALF | Votó contra las resoluciones del Parlamento Europeo que piden una edad mínima de 16 años para las redes, en noviembre de 2025 y septiembre de 2026. | https://howtheyvote.eu/votes/181520 |
+| D21 + Cs | Ni Democracia 21 ni Ciudadanos tienen posición conocida sobre esto, porque el debate sobre la edad mínima en redes es posterior a la salida de Cs del Congreso. | — |
+| Milei | No hay medida: Argentina no tiene ley de edad mínima para redes sociales y su Gobierno no ha impulsado ninguna. | — |
+| Bukele | Sin ninguna ley ni propuesta sobre edad mínima para cuentas en redes sociales en su mandato. | — |
+| Biden | Pidió en el Estado de la Unión de 2023 prohibir la publicidad dirigida a menores y respaldó la Kids Online Safety Act en julio de 2024, sin vetar cuentas | https://bidenwhitehouse.archives.gov/briefing-room/statements-releases/2024/07/30/statement-from-president-joe-biden-on-senate-passage-of-the-kids-online-safety-and-privacy-act/ |
+| Macron | Macron impulsó prohibir las redes a menores de 15 años, aprobado por el Parlamento en julio de 2026 aunque el Conseil constitutionnel lo anuló en agosto | https://lcp.fr/actualites/reseaux-sociaux-pourquoi-le-conseil-constitutionnel-a-censure-l-interdiction-pour-les |
+
+## p_ileg: Habría que ilegalizar los partidos que defienden la independencia de una región.
+
+```json
+{"id": "p_ileg", "ax": "P", "g": "cost", "dir": -1, "k": "ilegalizar partidos independentistas", "t": "Habría que ilegalizar los partidos que defienden la independencia de una región.", "a": [-1, -2, 2, -2, -2, null, -1, null, 0, null, 2, 2, null, null, null, -2], "c": "Prohibir por ley partidos que defienden pacíficamente la independencia de una parte del país. Hoy solo se puede ilegalizar un partido por lo que hace, no por lo que defiende, como vulnerar derechos de forma sistemática, fomentar la violencia o apoyar al terrorismo."}
+```
+
+| Partido | Frase | Fuente |
+|---|---|---|
+| Trump | No hay ninguna medida ni declaración de Trump sobre esto. | — |
+| Putin | Aprobó la Ley de Partidos de 2001 contra los partidos regionales, usa el artículo 280.1 y declaró extremista a Navalni. | https://www.occrp.org/en/news/moscow-court-marks-navalnys-anti-graft-group-extremist |
+| Maduro | Intervino judicialmente a Copei, AD, Primero Justicia, Voluntad Popular y el PCV. | https://www.hrw.org/es/world-report/2021/country-chapters/venezuela |
+| Mujica | No hay ninguna medida ni declaración de Mujica sobre esto. | — |
+| Meloni | No hay ninguna medida ni declaración de Meloni sobre esto. | — |
+| PP | Feijóo ha rechazado ilegalizar partidos independentistas y el PP no apoyó las propuestas de Vox de reformar la Ley de Partidos para hacerlo. | — |
+| PSOE | Aprobó en junio de 2024 la ley de amnistía a los independentistas del procés y ha rechazado todas las propuestas de Vox para ilegalizar partidos. | https://www.boe.es/eli/es/lo/2024/06/10/1 |
+| Vox | La medida 2 de 2019 ilegaliza partidos, asociaciones y ONG que persigan destruir la unidad territorial, y el programa de 2023 lo repite y suspende sus autonomías. | https://www.voxespana.es/wp-content/uploads/2019/04/maqueta_100_medidas_2019.pdf |
+| Frente Amplio | Define España como país de países, pactó la amnistía de 2024 con ERC y Junts y su programa pide votar en Cataluña el acuerdo de la mesa de diálogo. | https://www.politicaelectoral.com/es/espana/generales-2026/nacional/comparar/estado-ccaa |
+| Podemos | Votó la ley de amnistía en 2024 y defiende un Estado plurinacional con derecho a decidir, lo contrario de ilegalizar partidos independentistas. | https://papeletaclara.es/partidos/podemos/ |
+| SALF | SALF no ha publicado programa y Alvise descarta pactar con Bildu, ERC y Junts, pero no ha pedido ilegalizarlos. | — |
+| D21 + Cs | Ciudadanos, su socio de coalición, apoyó en 2019 en la Asamblea de Madrid ilegalizar partidos que atenten contra la unidad, pero se abstuvo en el Congreso en 2020. | https://www.elindependiente.com/politica/2019/11/07/pp-y-cs-se-unen-a-vox-para-ilegalizar-partidos-que-atenten-contra-la-unidad-de-espana/amp/ |
+| Milei | No aplica: en Argentina no hay partidos independentistas y su Gobierno no ha impulsado ninguna ilegalización de partidos. | — |
+| Bukele | No ha ilegalizado partidos, pero la reforma electoral de junio de 2023 dejó sin escaños a los pequeños y encarceló en 2025 a críticos como Ruth López y Enrique Anaya. | https://www.hrw.org/news/2025/05/20/el-salvador-prominent-human-rights-defender-arrested |
+| Biden | No aplica, sin partidos independentistas relevantes ni mecanismo federal de ilegalización de partidos | — |
+| Macron | Negoció con los nacionalistas corsos el proceso de Beauvau y un proyecto de autonomía constitucional aprobado por la Asamblea en junio de 2026, sin ilegalizar partidos | https://www.publicsenat.fr/actualites/politique/document-autonomie-de-la-corse-le-texte-de-laccord-entre-le-gouvernement-et-les-elus |

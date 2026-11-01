@@ -197,26 +197,26 @@ Estas reglas se acordaron para que **todos los partidos se midan con la misma va
 
 ## Partidos incluidos y posiciones resultantes
 
-Posiciones calculadas con el cuestionario actual (40 preguntas, versión de datos 2.1). Escala de 0 a 100.
+Posiciones calculadas con el cuestionario actual (40 preguntas, versión de datos 2.2). Escala de 0 a 100.
 
 | Partido | Candidatura y cabeza de lista | Economía | Libertades | Zona |
 |---|---|---:|---:|---|
-| PP | Partido Popular · Alberto Núñez Feijóo | 70 | 34 | Derecha |
-| PSOE | PSOE / PSC · Pedro Sánchez | 19 | 65 | Izquierda |
-| Vox | Vox · Santiago Abascal | 86 | 30 | Derecha |
-| Frente Amplio | Frente Amplio (antes Sumar) · Ada Colau | 6 | 76 | Izquierda |
-| Podemos | Podemos · Irene Montero | 8 | 78 | Izquierda |
+| PP | Partido Popular · Alberto Núñez Feijóo | 70 | 35 | Derecha |
+| PSOE | PSOE / PSC · Pedro Sánchez | 19 | 60 | Izquierda |
+| Vox | Vox · Santiago Abascal | 86 | 31 | Derecha |
+| Frente Amplio | Frente Amplio (antes Sumar) · Ada Colau | 6 | 70 | Izquierda |
+| Podemos | Podemos · Irene Montero | 8 | 70 | Izquierda |
 | SALF | Se Acabó La Fiesta · Alvise Pérez | 83 | 52 | Libertario |
-| D21 + Cs | Democracia para el Siglo 21 (Democracia 21 + Ciudadanos + UCIN) · Miriam González | 62 | 56 | Centro |
-| Milei *(referencia)* | La Libertad Avanza (Argentina) · Javier Milei | 91 | 30 | Derecha |
-| Bukele *(referencia)* | Nuevas Ideas (El Salvador) · Nayib Bukele | 62 | 13 | Derecha |
+| D21 + Cs | Democracia para el Siglo 21 (Democracia 21 + Ciudadanos + UCIN) · Miriam González | 62 | 54 | Centro |
+| Milei *(referencia)* | La Libertad Avanza (Argentina) · Javier Milei | 91 | 32 | Derecha |
+| Bukele *(referencia)* | Nuevas Ideas (El Salvador) · Nayib Bukele | 62 | 10 | Derecha |
 | Trump *(referencia)* | Partido Republicano (Estados Unidos) · Donald Trump | 71 | 28 | Derecha |
-| Putin *(referencia)* | Rusia Unida (Rusia) · Vladímir Putin | 40 | 7 | Autoritario |
+| Putin *(referencia)* | Rusia Unida (Rusia) · Vladímir Putin | 40 | 9 | Autoritario |
 | Maduro *(referencia)* | PSUV (Venezuela) · Nicolás Maduro | 24 | 13 | Autoritario |
-| Mujica *(referencia)* | Frente Amplio (Uruguay, 2010-2015) · José Mujica | 28 | 68 | Izquierda |
-| Meloni *(referencia)* | Fratelli d'Italia (Italia) · Giorgia Meloni | 69 | 25 | Derecha |
+| Mujica *(referencia)* | Frente Amplio (Uruguay, 2010-2015) · José Mujica | 28 | 67 | Izquierda |
+| Meloni *(referencia)* | Fratelli d'Italia (Italia) · Giorgia Meloni | 69 | 26 | Derecha |
 | Biden *(referencia)* | Partido Demócrata (Estados Unidos, 2021-2025) · Joe Biden | 25 | 58 | Izquierda |
-| Macron *(referencia)* | Renaissance (Francia) · Emmanuel Macron | 64 | 45 | Centro |
+| Macron *(referencia)* | Renaissance (Francia) · Emmanuel Macron | 64 | 40 | Centro |
 
 Notas:
 
@@ -283,13 +283,13 @@ Las preguntas se redactan como afirmaciones generales, principios y no medidas c
 | p_cann | El cannabis para adultos debería ser legal y estar regulado. | +1 | −2, −1, −2, 1, 2, ·, 1, −1, −2, 0, −2, −1, 2, −2, 1, −1 |
 | p_medio | El Gobierno debe poder regular a los medios de comunicación para combatir la desinformación. | −1 | −2, 2, −1, 2, 1, −2, ·, 0, 2, 1, 2, 2, 1, 1, 1, 1 |
 | p_burka | Deberían prohibirse el burka y el niqab en los espacios públicos. | −1 | 2, −1, 2, −2, −2, ·, 1, ·, ·, −1, 0, ·, ·, 1, ·, 2 |
-| p_ileg | Habría que ilegalizar los partidos que defienden la independencia de una región. | −1 | −1, −2, 2, −2, −2, ·, −1, ·, 0, ·, 2, 2, ·, ·, ·, −2 |
 | p_chat | Las aplicaciones de mensajería deberían escanear los mensajes privados para detectar delitos. | −1 | 1, 2, −2, −1, −1, 0, −1, ·, 2, ·, 2, 1, 0, −1, 0, 1 |
 | p_trans | Las personas deben poder cambiar su sexo legal sin informes médicos. | +1 | −2, 2, −2, 2, 2, −1, −1, −1, −2, −2, −2, −1, ·, −1, 2, 0 |
+| p_gest | Las parejas deberían poder recurrir a la gestación subrogada con un contrato libre. | +1 | 0, −2, −2, −2, −2, ·, 2, ·, ·, ·, −1, ·, 0, −2, ·, −1 |
 | p_armas | Debería ser más fácil para un particular tener un arma en casa para defenderse. | +1 | −1, −2, 2, −2, −2, ·, −2, 1, 1, 2, −2, −2, −2, ·, −2, −1 |
 | p_relig | La religión debería tener más presencia en la escuela y en la vida pública. | −1 | 1, −1, 1, −2, −2, ·, −1, 1, 1, 2, 2, 1, −1, 1, −1, −2 |
 | p_toros | El Estado debería prohibir los espectáculos que maltratan animales, como las corridas de toros. | −1 | −2, −1, −2, 1, 2, 0, −1, 1, 1, 1, 1, ·, ·, 0, 1, 0 |
-| p_menores | Hay que prohibir por ley que los menores de 16 años tengan cuentas en redes sociales. | −1 | 2, 2, −1, 1, 0, −1, ·, ·, ·, −1, ·, ·, ·, 1, 1, 1 |
+| p_pand | En una pandemia el Estado no debería imponer confinamientos ni pasaportes de vacunación. | +1 | 0, −2, 2, −2, −2, 1, −2, 1, −2, 1, −1, −2, ·, 1, −1, −2 |
 
 ### Contexto que justifica algunas respuestas
 
@@ -393,6 +393,7 @@ Ejecuta dos cosas, sin dependencias:
 
 La versión y la fecha se muestran en la metodología de la web (claves `version` y `date` de `public/data/es-2026.json`). Cualquier cambio en preguntas o respuestas de partidos debe subir la versión y anotarse aquí.
 
+- **2.2 (01-11-2026)**: dos preguntas nuevas de libertad personal que separan al libertario tanto de la izquierda como de la derecha, en lugar de «menores en redes sociales» (debate de este año con seis casillas sin dato) e «ilegalizar partidos independentistas» (eje territorial, fuera del proyecto, y solo separaba a Vox). «Las parejas deberían poder recurrir a la gestación subrogada con un contrato libre»: PSOE, Vox, Frente Amplio y Podemos muy en contra, PP dividido, Ciudadanos a favor, Meloni muy en contra por su delito universal, Macron y Putin en contra, Mujica neutral por su ley de 2013 que la permite solo altruista y anula los contratos. «En una pandemia el Estado no debería imponer confinamientos ni pasaportes de vacunación»: Vox muy a favor por sus recursos al Constitucional, Milei, Trump, Meloni y SALF a favor, PP neutral por sus votos cambiantes y el certificado covid de Galicia, PSOE, Podemos, Frente Amplio, Bukele, Maduro y Macron muy en contra, Biden y Putin en contra. Quedan 52 casillas sin dato de 640. Las dos retiradas están en `docs/preguntas-retiradas-2026-11-01.md`. Posiciones: PP 70/35, PSOE 19/60, Vox 86/31, Frente Amplio 6/70, Podemos 8/70, SALF 83/52, D21 + Cs 62/54, Milei 91/32, Bukele 62/10, Trump 71/28, Putin 40/9, Maduro 24/13, Mujica 28/67, Meloni 69/26, Biden 25/58, Macron 64/40.
 - **2.1 (01-11-2026)**: revisión casilla a casilla de Milei con el criterio 7. Tres correcciones: escanear mensajes pasa a sin dato (el ciberpatrullaje es sobre redes y fuentes abiertas, no sobre mensajes privados); prisión permanente baja de muy a favor a a favor, porque la perpetua está en un proyecto de Código Penal no aprobado y la ley de reiterancia solo toca la prisión preventiva; aborto baja de muy en contra a en contra, porque la ley de 2020 sigue vigente y lo hecho es obstrucción administrativa. Milei pasa de 91/26 a 91/30. El resto de casillas se confirma con sus fuentes.
 - **2.0 (01-11-2026)**: dos preguntas reformuladas para que las referencias puedan puntuarse sin cambiar lo que miden en España. «Habría que prohibir las corridas de toros» pasa a «El Estado debería prohibir los espectáculos que maltratan animales, como las corridas de toros», y se puntúa fuera con lo hecho frente a peleas, circos o delfinarios: Milei (Ley Conan), Bukele (Ley de Bienestar Animal de 2022), Trump (PACT Act y peleas de gallos), Putin (ley de 2018) y Biden (Big Cat Act) a favor; Meloni y Macron neutrales por aplazar o descartar prohibiciones; Maduro y Mujica siguen sin dato. «Ofender a la bandera, a la Corona o a los sentimientos religiosos» pierde la Corona y se puntúa con las leyes de ultraje y blasfemia: Bukele y Meloni a favor por mantenerlas. Las respuestas de los partidos españoles no cambian. Quedan 56 casillas sin dato de 640. Posiciones: Milei 91/26, Bukele 62/13, Meloni 69/25, Biden 25/58, Macron 64/45. Detalle en `docs/referencias-internacionales-2026-11-01.md`.
 - **1.9 (01-11-2026)**: pasada sobre las 60 casillas sin dato de las referencias internacionales buscando declaraciones o promesas documentadas, con tope de ±1 y sin deducir nada por ideología. Se rellenan 12 con fuente: Milei a favor de más religión en la escuela (borrador de Ley de Libertad Educativa de 2025); Maduro a favor de la cadena perpetua (propuesta constitucional de 2024), de la religión en la vida pública (programas a iglesias evangélicas) y de la jornada de 40 horas aplicada en 2013, y en contra del cannabis (declaración de 2025); Trump a favor de desalojar okupas (promesa de 2024), en contra de la eutanasia (Departamento de Estado, 2025), en contra de prohibir el burka (2015) y en contra de vetar las redes a menores (consulta de su embajada en Londres, 2026); Biden a favor de castigar las ofensas a la bandera (ley que presentó en 1989) y en contra de más religión en la escuela (voto de 1984); Meloni a favor de vetar las redes a menores (junio de 2026). Las otras 48 siguen sin dato porque no hay nada que puntuar sin inventar. Cambios de posición: Trump 71/28, Maduro 24/13, Biden 25/60. Detalle en `docs/referencias-internacionales-2026-11-01.md`.
