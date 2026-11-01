@@ -72,19 +72,19 @@ El test **no recomienda votar a nadie**. Muestra afinidad con las posiciones est
 Existe un prototipo funcional en un único archivo, `index.html`, con todo el CSS y el JavaScript incrustados, más `og-image.png` (imagen fija para Open Graph). Incluye:
 
 - Rombo de Nolan dibujado en SVG con las cinco zonas, la línea media discontinua y los ejes rotulados.
-- **43 afirmaciones** (20 de economía y 23 de libertades) con escala de 5 puntos. Cada una lleva una etiqueta corta de tema (`k`) y un **contexto en lenguaje llano** (`c`) que se despliega con «¿Qué significa?» justo encima de la escala, a todo el ancho de la pregunta.
+- **45 afirmaciones** (20 de economía y 25 de libertades) con escala de 5 puntos. Cada una lleva una etiqueta corta de tema (`k`) y un **contexto en lenguaje llano** (`c`) que se despliega con «¿Qué significa?» justo encima de la escala, a todo el ancho de la pregunta.
 - Posición de cada partido calculada a partir de sus respuestas, con el mismo cálculo que el usuario.
 - Punto **"Tú"** que se mueve en el rombo según se responde.
 - **Veredicto** en «Tu posición», basado en la afinidad del partido más cercano (sin las referencias internacionales): 85 % o más, «te representa»; de 75 % a 84 %, «el que más se parece a ti, con matices»; por debajo, «ningún partido te representa del todo» indicando el más cercano. Si el segundo está a 3 puntos o menos se declara empate («te representan por igual X e Y»), y no hay veredicto hasta tener 4 respuestas por eje. Los cuatro umbrales son constantes (`REP_FULL`, `REP_PARTIAL`, `REP_TIE`, `REP_MIN_AXIS`). Calibración: un votante convencido que se desvía un paso en la mitad de las preguntas obtiene ~91 %; responder al azar da ~64 % con el mejor partido; todo neutral da hasta 77 % con los partidos moderados; Frente Amplio y Podemos están al 95 % entre sí, Vox y SALF al 88 %, PSOE y Frente Amplio al 85 %. El veredicto sale también en la franja, en la columna fija, en la imagen compartida y en el texto de compartir.
 - Ranking de **afinidad por respuestas** con cada partido, y un bloque **«En qué coincides y en qué no»** con los tres partidos más cercanos (ampliable a todos): temas en los que has dado la misma respuesta (sin contar el neutral) y temas en los que estás a tres o más pasos de distancia.
 - En cada pregunta, **qué responde cada partido** siempre visible, alineado bajo la opción correspondiente de la escala (la columna de tu respuesta queda marcada). Volver a pulsar la opción elegida la quita.
 - Leyenda para mostrar u ocultar partidos.
-- **Paginación por ámbitos**: las 43 afirmaciones se agrupan en 8 ámbitos de 4 a 6 preguntas, alternando economía y libertades (Impuestos y gasto público; Vida privada y derechos; Vivienda; Expresión, protesta y redes; Trabajo y pensiones; Inmigración y seguridad; Estado, empresa y medio ambiente; Costumbres e instituciones). Se muestra un ámbito por página, con un indicador de pasos que lleva a cualquiera y marca cuántas van respondidas en cada uno, botones Anterior / Siguiente ámbito y, en el último, «Ver mi resultado». El ámbito actual se recuerda. Los ámbitos (`TOPICS`, campo `g` de cada pregunta) solo ordenan el cuestionario; no afectan al cálculo. Arriba, un **tablero compacto de tres columnas**: rombo con leyenda, «Tu posición» (puntuaciones y afinidad) y «Comparte y compara» (nombre del punto y botones, desactivados hasta que haya respuestas). Debajo, la **zona de trabajo en dos columnas**: a la izquierda una columna fija (sticky) con una miniatura viva del rombo (vía `<use>` del mismo SVG), la zona, las puntuaciones, el partido más afín y el panel «En qué coincides y en qué no»; a la derecha, las preguntas paginadas. Así el punto se mueve y las coincidencias cambian a la vista mientras se responde. En móvil la columna fija pasa debajo de las preguntas (sin la miniatura) y una **franja fija superior** con la miniatura, la zona y las puntuaciones hace esa función.
+- **Paginación por ámbitos**: las 45 afirmaciones se agrupan en 8 ámbitos de 4 a 7 preguntas, alternando economía y libertades (Impuestos y gasto público; Vida privada y derechos; Vivienda; Expresión, protesta y redes; Trabajo y pensiones; Inmigración y seguridad; Estado, empresa y medio ambiente; Costumbres e instituciones). Se muestra un ámbito por página, con un indicador de pasos que lleva a cualquiera y marca cuántas van respondidas en cada uno, botones Anterior / Siguiente ámbito y, en el último, «Ver mi resultado». El ámbito actual se recuerda. Los ámbitos (`TOPICS`, campo `g` de cada pregunta) solo ordenan el cuestionario; no afectan al cálculo. Arriba, un **tablero compacto de tres columnas**: rombo con leyenda, «Tu posición» (puntuaciones y afinidad) y «Comparte y compara» (nombre del punto y botones, desactivados hasta que haya respuestas). Debajo, la **zona de trabajo en dos columnas**: a la izquierda una columna fija (sticky) con una miniatura viva del rombo (vía `<use>` del mismo SVG), la zona, las puntuaciones, el partido más afín y el panel «En qué coincides y en qué no»; a la derecha, las preguntas paginadas. Así el punto se mueve y las coincidencias cambian a la vista mientras se responde. En móvil la columna fija pasa debajo de las preguntas (sin la miniatura) y una **franja fija superior** con la miniatura, la zona y las puntuaciones hace esa función.
 - Barra de progreso global de 2 px y botón «Borrar todas mis respuestas» (con confirmación en dos pulsaciones) al pie de la página de preguntas.
 - **Atajos de teclado**: `1`–`5` responden la pregunta activa y pasan a la siguiente (la misma tecla quita la respuesta); flechas o `j`/`k` cambian de pregunta y, en los bordes, de ámbito. La pista solo se muestra en dispositivos con puntero.
 - **Nombre opcional para tu punto**: sustituye a «Tú» en el rombo, viaja en el enlace de comparación (`&n=`) y aparece en la imagen compartida («A Marta le sale…»).
 - Dos secciones informativas **plegadas por defecto** (solo título y una línea de entradilla; al abrir, el texto ocupa todo el ancho, en dos columnas de lectura en pantallas anchas; los enlaces de la barra superior las abren): **«Qué es el test de Nolan y por qué sirve»** (la línea izquierda-derecha frente a los dos ejes; David Nolan, el artículo de 1971 y el Partido Libertario; Marshall Fritz y el «World's Smallest Political Quiz» de 1987; la brújula política de 2001; para qué le sirve a quien no sabe a quién votar; límites del modelo) y **«Cómo se calcula y de dónde salen las posiciones»** (ejes, puntuación, afinidad, veredicto, estimaciones, circunscripciones, tabla de posiciones, versión de los datos y fuentes). La barra superior enlaza a las dos.
-- **Diseño**: tema oscuro único de grafito medio (`#1e1f22`) con texto blanco papel (`#f4f3ef`) y secundario `#d6d4cd`, pensado para que el texto se lea bien sin ser negro puro. Tipografía Bricolage Grotesque para títulos y afirmaciones (en seminegrita), Source Sans 3 para texto e IBM Plex Mono para cifras y etiquetas. Sin degradados ni sombras: filetes de 1 px, controles segmentados, numerales tabulares. Portada a todo el ancho con el texto en dos columnas y una fila de cifras clave. Preguntas en filas separadas por filetes con número `01 / 43`. En móvil las tres columnas del tablero se apilan en el mismo orden y la columna fija de coincidencias pasa debajo de las preguntas. `prefers-reduced-motion` desactiva las transiciones. La imagen de Open Graph y la de compartir usan el mismo tema.
+- **Diseño**: tema oscuro único de grafito medio (`#1e1f22`) con texto blanco papel (`#f4f3ef`) y secundario `#d6d4cd`, pensado para que el texto se lea bien sin ser negro puro. Tipografía Bricolage Grotesque para títulos y afirmaciones (en seminegrita), Source Sans 3 para texto e IBM Plex Mono para cifras y etiquetas. Sin degradados ni sombras: filetes de 1 px, controles segmentados, numerales tabulares. Portada a todo el ancho con el texto en dos columnas y una fila de cifras clave. Preguntas en filas separadas por filetes con número `01 / 45`. En móvil las tres columnas del tablero se apilan en el mismo orden y la columna fija de coincidencias pasa debajo de las preguntas. `prefers-reduced-motion` desactiva las transiciones. La imagen de Open Graph y la de compartir usan el mismo tema.
 - Persistencia de respuestas solo en el navegador del usuario (`localStorage`, clave `testnolan-es-2026`, con `try/catch`). Nada sale del dispositivo.
 - **Tono de los textos**: cercano y directo, pensado para quien no sabe a quién votar o va a votar «al menos malo». La portada es un solo párrafo corto a todo el ancho: para quién es (quien va a votar «al menos malo»), cuánto se tarda (5 minutos), qué va a ver (qué partido se le parece más y en qué discrepa sin saberlo) y la invitación a pasárselo a quien se vaya a llevar una sorpresa. Lo de que no lo ha hecho ningún partido y no guarda nada queda en la fila de cifras y en el pie. El titular es «¿Qué partido te representa de verdad?» y la palabra clave «test de Nolan» queda en la etiqueta superior, el título de la pestaña y los metadatos. La metodología y el pie mantienen la precisión pero sin formalismos.
 - Esqueleto HTML completo (`lang="es"`, `charset`, `viewport`), título y descripción orientados a buscar «test de Nolan elecciones generales España 29N», etiquetas Open Graph y Twitter Card, `canonical` a `https://testnolan.com/es/` y datos estructurados JSON-LD.
@@ -190,19 +190,19 @@ Estas reglas se acordaron para que **todos los partidos se midan con la misma va
 
 ## Partidos incluidos y posiciones resultantes
 
-Posiciones calculadas con el cuestionario actual (43 preguntas, versión de datos 1.2). Escala de 0 a 100.
+Posiciones calculadas con el cuestionario actual (45 preguntas, versión de datos 1.3). Escala de 0 a 100.
 
 | Partido | Candidatura y cabeza de lista | Economía | Libertades | Zona |
 |---|---|---:|---:|---|
-| PP | Partido Popular · Alberto Núñez Feijóo | 70 | 49 | Derecha |
-| PSOE | PSOE / PSC · Pedro Sánchez | 19 | 58 | Izquierda |
-| Vox | Vox · Santiago Abascal | 86 | 42 | Derecha |
-| Frente Amplio | Frente Amplio (antes Sumar) · Ada Colau | 6 | 71 | Izquierda |
-| Podemos | Podemos · Irene Montero | 6 | 74 | Izquierda |
-| SALF | Se Acabó La Fiesta · Alvise Pérez | 83 | 50 | Libertario |
-| D21 + Cs | Democracia para el Siglo 21 (Democracia 21 + Ciudadanos + UCIN) · Miriam González | 60 | 72 | Libertario |
-| Milei *(referencia)* | La Libertad Avanza (Argentina) · Javier Milei | 93 | 49 | Derecha |
-| Bukele *(referencia)* | Nuevas Ideas (El Salvador) · Nayib Bukele | 61 | 22 | Derecha |
+| PP | Partido Popular · Alberto Núñez Feijóo | 70 | 35 | Derecha |
+| PSOE | PSOE / PSC · Pedro Sánchez | 19 | 55 | Izquierda |
+| Vox | Vox · Santiago Abascal | 86 | 33 | Derecha |
+| Frente Amplio | Frente Amplio (antes Sumar) · Ada Colau | 6 | 72 | Izquierda |
+| Podemos | Podemos · Irene Montero | 6 | 75 | Izquierda |
+| SALF | Se Acabó La Fiesta · Alvise Pérez | 83 | 54 | Libertario |
+| D21 + Cs | Democracia para el Siglo 21 (Democracia 21 + Ciudadanos + UCIN) · Miriam González | 61 | 55 | Centro |
+| Milei *(referencia)* | La Libertad Avanza (Argentina) · Javier Milei | 93 | 41 | Derecha |
+| Bukele *(referencia)* | Nuevas Ideas (El Salvador) · Nayib Bukele | 61 | 23 | Derecha |
 
 Notas:
 
@@ -232,7 +232,7 @@ Las afirmaciones se redactan de la forma más general posible, para que el mismo
 | id | Afirmación | dir | Respuestas |
 |---|---|:-:|---|
 | e_irpf | Hay que bajar el impuesto sobre la renta aunque el Estado recaude menos. | +1 | 2, −1, 2, −2, −2, 2, 1, 1, 0 |
-| e_suc | Deberían suprimirse los impuestos de sucesiones y de patrimonio. | +1 | 2, −2, 2, −2, −2, 2, 0, 2, 0 |
+| e_suc | Deberían suprimirse los impuestos de sucesiones y de patrimonio. | +1 | 2, −2, 2, −2, −2, 2, 1, 2, 0 |
 | e_alq | El Estado debe poner topes al precio del alquiler. | −1 | −2, 2, −2, 2, 2, −2, 1, −2, 0 |
 | e_empv | Hay que crear una gran empresa pública estatal de vivienda y suelo. | −1 | −1, 2, −2, 2, 2, −2, 0, −2, 1 |
 | e_acum | Quien acumula muchas viviendas debería pagar cada año un impuesto especial alto. | −1 | −2, 1, −2, 2, 2, −2, −1, −2, −1 |
@@ -252,35 +252,35 @@ Las afirmaciones se redactan de la forma más general posible, para que el mismo
 | e_ecol | Hay que imponer impuestos y normas ambientales estrictas a empresas y consumidores aunque frenen la economía. | −1 | −1, 1, −2, 2, 2, −2, 0, −2, −2 |
 | e_okupa | Hay que poder desalojar en pocos días a quien ocupa una vivienda sin permiso. | +1 | 2, −1, 2, −2, −2, 2, 1, 2, 1 |
 
-### Libertades (23)
+### Libertades (25)
 
 | id | Afirmación | dir | Respuestas |
 |---|---|:-:|---|
 | p_expul | Hay que expulsar de forma masiva a los inmigrantes en situación irregular. | −1 | 0, −2, 2, −2, −2, 2, −1, 1, 1 |
 | p_prior | Las ayudas públicas deben dar prioridad a los ciudadanos del país frente a los extranjeros con residencia legal. | −1 | 0, −2, 2, −2, −2, 1, −1, 1, 0 |
-| p_deten | En situaciones graves de seguridad, la policía debería poder detener sin orden judicial. | −1 | −2, −2, −1, −2, −2, 0, −2, 0, 2 |
-| p_odio | El Estado debe poder sancionar o expulsar a quien difunda discursos de odio, aunque no inciten a la violencia. | −1 | −1, 1, −2, 2, 2, −2, 0, −1, 2 |
-| p_prot | Hay que limitar más las protestas que cortan calles o carreteras. | −1 | 1, −1, 1, −2, −2, 1, 0, 2, 2 |
-| p_euta | La eutanasia debe seguir siendo legal. | +1 | 0, 2, −2, 2, 2, −1, 2, −1, −1 |
+| p_poli | La policía debería tener más margen para identificar, registrar y multar a personas sin pasar por un juez. | −1 | 2, −1, 2, −2, −2, 0, 1, 2, 2 |
+| p_perp | La prisión permanente revisable debería mantenerse o ampliarse a más delitos. | −1 | 2, −1, 2, −2, −2, 1, 1, 2, 2 |
+| p_odio | El Estado debe poder sancionar o expulsar a quien difunda discursos de odio, aunque no inciten a la violencia. | −1 | 1, 1, −1, 2, 2, −2, 0, 0, 2 |
+| p_simb | Ofender a la bandera, a la Corona o a los sentimientos religiosos debería seguir siendo delito. | −1 | 2, −2, 2, −2, −2, 0, 1, 1, 0 |
+| p_prot | Hay que limitar más las protestas que cortan calles o carreteras. | −1 | 1, −1, 1, −2, −2, −1, 1, 2, 2 |
+| p_euta | La eutanasia debe seguir siendo legal. | +1 | 0, 2, −2, 2, 2, 0, 2, −1, −2 |
 | p_matr | El matrimonio entre personas del mismo sexo debe seguir siendo legal. | +1 | 1, 2, −1, 2, 2, 0, 2, 1, −2 |
-| p_abor | El aborto debe seguir siendo legal en los plazos actuales. | +1 | 0, 2, −2, 2, 2, −1, 2, −2, −2 |
+| p_abor | El aborto debe seguir siendo legal en los plazos actuales. | +1 | 0, 2, −2, 2, 2, 0, 1, −2, −2 |
 | p_cann | El cannabis para adultos debería ser legal y estar regulado. | +1 | −2, −1, −2, 1, 2, −1, 1, −1, −2 |
-| p_prost | Hay que prohibir la prostitución y castigar también al cliente. | −1 | 0, 2, 0, −1, 0, 0, −1, −1, 1 |
-| p_medio | El Gobierno debe poder regular a los medios de comunicación para combatir la desinformación. | −1 | −1, 2, −2, 2, 1, −2, −1, −1, 2 |
+| p_prost | Hay que prohibir la prostitución y castigar también al cliente. | −1 | 0, 2, 0, −1, 0, 0, −1, −1, 0 |
+| p_medio | El Gobierno debe poder regular a los medios de comunicación para combatir la desinformación. | −1 | −2, 2, −1, 2, 1, −2, 0, 0, 2 |
 | p_ident | Para entrar en webs de contenido adulto debería exigirse verificar la identidad. | −1 | 2, 2, 0, 1, 0, −1, 0, −1, 0 |
-| p_taba | Hay que ampliar la prohibición de fumar y vapear a terrazas y espacios abiertos. | −1 | 0, 2, −2, 2, 1, −2, 1, −2, 0 |
+| p_taba | Hay que ampliar la prohibición de fumar y vapear a terrazas y espacios abiertos. | −1 | 0, 2, −1, 2, 1, −2, 1, −2, 0 |
 | p_anon | Habría que acabar con el anonimato en las redes sociales. | −1 | 1, 2, −1, 0, 0, −2, 0, −1, 0 |
-| p_burka | Debería prohibirse el burka y el niqab en los espacios públicos. | −1 | 2, −1, 2, −2, −2, 2, −1, 0, 0 |
-| p_ileg | Habría que ilegalizar los partidos que defienden la independencia de una región. | −1 | −1, −2, 2, −2, −2, 0, −2, 0, 1 |
-| p_decr | El Gobierno debería poder legislar por decreto cuando el Parlamento bloquea sus reformas. | −1 | −1, 1, −1, 0, 0, 1, −2, 2, 2 |
-| p_vigil | El Estado debería poder acceder a las comunicaciones privadas sin orden judicial para prevenir delitos. | −1 | −2, −2, −1, −2, −2, −1, −2, 0, 2 |
+| p_burka | Debería prohibirse el burka y el niqab en los espacios públicos. | −1 | 2, −1, 2, −2, −2, 2, 1, 0, 0 |
+| p_ileg | Habría que ilegalizar los partidos que defienden la independencia de una región. | −1 | −1, −2, 2, −2, −2, 0, −1, 0, 0 |
+| p_decr | El Gobierno debería poder legislar por decreto cuando el Parlamento bloquea sus reformas. | −1 | −1, 1, −1, 0, 0, 0, −1, 2, 2 |
+| p_chat | Las aplicaciones de mensajería deberían escanear los mensajes privados para detectar delitos. | −1 | 1, 2, −2, −1, −1, 0, −1, 1, 2 |
 | p_trans | Las personas deben poder cambiar su sexo legal sin informes médicos. | +1 | −2, 2, −2, 2, 2, −2, −1, −2, −2 |
-| p_mili | Debería recuperarse el servicio militar obligatorio. | −1 | −1, −2, 0, −2, −2, −1, −1, −1, 0 |
-| p_relig | La religión debería tener más presencia en la escuela y en la vida pública. | −1 | 0, −1, 1, −2, −2, 1, −1, 1, 2 |
+| p_mili | Debería recuperarse el servicio militar obligatorio. | −1 | −1, −2, 1, −2, −2, −1, 0, −1, 0 |
+| p_relig | La religión debería tener más presencia en la escuela y en la vida pública. | −1 | 1, −1, 1, −2, −2, 0, −1, 1, 2 |
 | p_menores | Hay que prohibir por ley que los menores de 16 años tengan cuentas en redes sociales. | −1 | 2, 2, −1, 1, 0, −1, 0, −1, 0 |
-| p_apuestas | Hay que prohibir la publicidad de las apuestas y del juego online. | −1 | −1, 1, −1, 1, 2, −1, 0, −2, 0 |
-
-Las diez últimas (e_desp, e_jorn, e_ecol, e_okupa, p_vigil, p_trans, p_mili, p_relig, p_menores, p_apuestas) se añadieron en la versión 1.1 tras revisar los cuestionarios de politica.cc y graficnolan.cat. Cubren dos clásicos del test de Nolan que faltaban (flexibilidad laboral y vigilancia sin orden judicial) y temas que dividen con claridad a los partidos españoles. Sus respuestas tienen el mismo nivel de certeza que las demás: estimaciones a partir de posiciones públicas, pendientes de contrastar con los programas. Las de menor certeza son p_mili (Vox ha coqueteado con un servicio nacional, pero no es una propuesta cerrada) y p_menores (los partidos se han pronunciado sobre la propuesta del Gobierno, no en programas). En el eje personal, p_vigil y p_mili son restricciones que pueden venir de cualquier lado, p_trans y p_relig las plantea la derecha y p_menores y p_apuestas la izquierda, para mantener el equilibrio del criterio 5.
+| p_apuestas | Hay que prohibir la publicidad de las apuestas y del juego online. | −1 | 0, 1, −1, 1, 2, −1, 1, −2, 0 |
 
 ### Contexto que justifica algunas respuestas
 
@@ -294,7 +294,7 @@ Resumen de lo investigado (octubre de 2026). Sirve para revisar y documentar cad
 - **SALF**: IRPF del 0 % para rentas bajo 35.000 €, supresión de sucesiones, reducir el Estado, cinco puntos menos de IRPF por hijo, deportaciones de inmigrantes irregulares, mano dura penal. Alvise ha llamado "estafa piramidal" al sistema de pensiones sin detallar reforma.
 - **Democracia 21 + Cs**: liberal en economía e instituciones pero partidario de mantener un Estado del bienestar fuerte; bajar presión fiscal sin recortar servicios; regeneración institucional (90 % menos de asesores, límite de mandatos, jueces eligiendo a los vocales del CGPJ); liberal en derechos civiles.
 - **Milei (lo aplicado)**: más de 17.600 artículos desregulados, Ley de Bases (privatizaciones, RIGI), superávit fiscal, derogación de la ley de alquileres; pero restableció el Impuesto a las Ganancias para asalariados, bajó la edad penal, gobierna mucho por decreto y firmó el DNU 681/2026 para expulsar a extranjeros por "mensajes de odio". No ha tocado aborto ni matrimonio igualitario.
-- **Bukele (lo aplicado)**: régimen de excepción desde marzo de 2022 que suspende libertad de asociación, privacidad de las comunicaciones y garantías del debido proceso (más de 86.000 detenciones, miles arbitrarias según ONG, cientos de muertes bajo custodia); reelección indefinida y mandato de seis años; ley de agentes extranjeros que grava las donaciones del exterior a ONG; reforma de la Ley Bitcoin en enero de 2025, exigida por el FMI, que convierte en voluntaria su aceptación y retira al Estado del negocio.
+- **Bukele (lo aplicado)**: cadena perpetua introducida en la Constitución en marzo de 2026 y extendida a menores desde los 12 años en abril; régimen de excepción desde marzo de 2022 que suspende libertad de asociación, privacidad de las comunicaciones y garantías del debido proceso (más de 86.000 detenciones, miles arbitrarias según ONG, cientos de muertes bajo custodia); reelección indefinida y mandato de seis años; ley de agentes extranjeros que grava las donaciones del exterior a ONG; reforma de la Ley Bitcoin en enero de 2025, exigida por el FMI, que convierte en voluntaria su aceptación y retira al Estado del negocio.
 
 ---
 
@@ -393,7 +393,7 @@ La viralidad se busca con una **imagen generada en el navegador** que el usuario
 ### Contenido y transparencia
 
 - [ ] Añadir a cada respuesta de cada partido una **fuente** (enlace a programa, votación o declaración). El desplegable ya la muestra si existe: basta con añadir a la pregunta un campo `src:{pp:'https://…', psoe:'https://…'}`.
-- [ ] Revisar las respuestas cuando los partidos publiquen sus programas completos (a 1 de noviembre de 2026 ninguno lo había hecho). Prioridad: las casillas sin evidencia que lista `docs/verificacion-2026-11-01.md` (sobre todo D21 + Cs y SALF en libertades) y las zonas fronterizas de PP, SALF y Milei. Comprobar en el BOE del 3 de noviembre las candidaturas proclamadas.
+- [ ] Revisar las respuestas cuando los partidos publiquen sus programas completos (a 1 de noviembre de 2026 ninguno lo había hecho). Prioridad: las casillas sin evidencia que listan `docs/verificacion-2026-11-01.md` y `docs/revision-libertades-2026-11-01.md` (sobre todo SALF en libertades, que sigue extrapolado, y los votos nominales del Parlamento Europeo sobre Chat Control de julio de 2026). Comprobar en el BOE del 3 de noviembre las candidaturas proclamadas.
 - [x] Indicar en la web en qué circunscripciones se presentan D21 + Cs (solo Madrid y Barcelona) y SALF (algunas provincias).
 - [ ] Valorar añadir los partidos territoriales (ERC, Junts, PNV, EH Bildu, BNG, Coalición Canaria) con un filtro por comunidad.
 - [x] Mencionar las críticas al modelo de Nolan (en la sección «Qué es el test de Nolan», apartado «Límites del modelo»).
@@ -423,6 +423,7 @@ La viralidad se busca con una **imagen generada en el navegador** que el usuario
 
 La versión y la fecha se muestran en la metodología de la web (`DATA_VERSION` y `DATA_DATE` en `index.html`). Cualquier cambio en preguntas o respuestas de partidos debe subir la versión y anotarse aquí.
 
+- **1.3 (01-11-2026)**: revisión del eje de libertades tras detectar que dos afirmaciones no discriminaban entre partidos (detener sin orden judicial y vigilar comunicaciones sin juez: casi todos en «muy en contra», y además la detención sin orden ya es legal en España hasta 72 horas). Se sustituyen por cuatro debates reales de esta legislatura: más poder a la policía (Ley de Seguridad Ciudadana), prisión permanente revisable, ofensas a la bandera, la Corona o la religión, y escaneo de mensajes privados (Chat Control). 45 afirmaciones (20 de economía y 25 de libertades). 27 casillas corregidas con fuente: PP a favor de sancionar discursos de odio (aprobó el artículo 510.2 en 2015), de más religión en la escuela y muy en contra de regular medios; Vox menos extremo en discursos de odio y medios por sus querellas y vetos a periodistas, y a favor de la mili; D21 + Cs hacia el centro (Cs presentó una ley contra el burka, votó por ilegalizar partidos independentistas en Madrid, bloqueó la derogación de la ley mordaza y pedía ampliar la prisión permanente); SALF pierde valores sin evidencia en eutanasia, aborto, religión y decretos, y pasa a estar en contra de limitar las protestas por alentar las tractoradas; Milei neutral en odio y medios por evidencia contradictoria; Bukele muy en contra de la eutanasia y neutral en prostitución e ilegalizar partidos. Posiciones recalculadas: PP 70/35, PSOE 19/55, Vox 86/33, Frente Amplio 6/72, Podemos 6/75, SALF 83/54, D21 + Cs 61/55 (Centro), Milei 93/41, Bukele 61/23. Cambia la versión del enlace de comparación (`HASH_VERSION` 2), así que los enlaces anteriores dejan de leerse. Detalle en `docs/revision-libertades-2026-11-01.md`.
 - **1.2 (01-11-2026)**: verificación completa con fuentes públicas (cinco revisiones en paralelo: historia del test, datos legales y electorales, economía, libertades, y Milei y Bukele). 71 respuestas corregidas, entre ellas 11 cambios de signo o de dos puntos: Podemos y Frente Amplio contra los avales a hipotecas; PP a favor de prohibir el burka y de prohibir las redes a menores de 16, y en contra de la autodeterminación de género; Vox contra prohibir las redes a menores; Frente Amplio contra la ley abolicionista de la prostitución; Milei contra los discursos de odio (cerró el INADI) y neutral en detención sin juez (Ley Antimafias); Bukele a favor del sistema mixto de pensiones. Contextos corregidos: eutanasia (supuestos legales), cannabis (Alemania sin venta), prostitución (Suecia y Francia castigan al cliente, no a quien vende), mili (suspendida, no suprimida), redes y menores (ley francesa anulada, ley española decaída), decreto (el Parlamento vota después), ilegalización de partidos, sucesiones (impuesto a grandes fortunas). SALF concurre en casi todas las provincias. Historia del test: 1969, The Individualist, Advocates for Self-Government, más de 28 millones de pasadas. Posiciones recalculadas: PP 70/49, PSOE 19/58, Vox 86/42, Frente Amplio 6/71, Podemos 6/74, SALF 83/50, D21 + Cs 60/72, Milei 93/49, Bukele 61/22. Detalle en `docs/verificacion-2026-11-01.md`.
 - **1.1 (31-10-2026)**: 10 afirmaciones nuevas (4 de economía, 6 de libertades); contexto y etiqueta corta en todas; cuatro afirmaciones redactadas de forma más genérica (impuesto sobre la renta, inflación, gasto público sin la cifra del PIB, «ciudadanos del país»). Posiciones recalculadas: PP 66/54, PSOE 20/59, Vox 80/37, Frente Amplio 5/66, Podemos 4/72, SALF 81/47, D21 + Cs 56/74, Milei 93/54, Bukele 55/15.
 - **1.0 (31-10-2026)**: primera versión con 33 afirmaciones (16 de economía y 17 de libertades) y 7 partidos más 2 referencias.
@@ -459,7 +460,7 @@ La versión y la fecha se muestran en la metodología de la web (`DATA_VERSION` 
 ## Limitaciones y advertencias
 
 - **Las respuestas de los partidos son estimaciones**, no posiciones oficiales. Se basan en anuncios de precampaña, votaciones y declaraciones hasta el 31 de octubre de 2026.
-- **El resultado depende del cuestionario.** Con otras preguntas los puntos se moverían. Por ejemplo, con el cuestionario actual el PP sale en el centro ligeramente por encima de la línea media y D21 + Cs en la zona libertaria; en un análisis previo hecho a mano, con más peso del tamaño del Estado, ambos quedaban algo más abajo. Por eso las reglas de clasificación y el equilibrio de las preguntas son tan importantes.
+- **El resultado depende del cuestionario.** Con otras preguntas los puntos se moverían. Por ejemplo, en la versión 1.2 el PP salía en el centro, a un punto de la zona libertaria, y D21 + Cs en la zona libertaria, porque dos afirmaciones de seguridad tenían a casi todos los partidos en «muy en contra» y subían a todos. Al sustituirlas por debates reales (ley mordaza, prisión permanente, ofensas a símbolos, Chat Control) el PP y Vox bajaron unos diez puntos y D21 + Cs pasó al centro. Por eso el equilibrio de las preguntas importa tanto como las respuestas: una afirmación en la que todos coinciden no mide nada.
 - **Milei y Bukele** se estiman por analogía y con preguntas pensadas para España.
 - **El modelo de Nolan simplifica**: reduce la política a dos ejes y deja fuera, entre otros, el eje territorial, que en España es muy relevante.
 - El test **no es una encuesta** ni pretende representar a la población.
