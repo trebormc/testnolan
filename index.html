@@ -112,6 +112,8 @@ h1{font-size:clamp(36px,6.4vw,76px);line-height:.98;letter-spacing:-.03em}
 @media (min-width:960px){.dash{grid-template-columns:minmax(0,380px) minmax(0,1fr) minmax(0,1fr);gap:18px;align-items:stretch}}
 .dash-col{display:flex;flex-direction:column;gap:10px;min-width:0}
 .dash .panel{min-width:0}
+.dash-note{grid-column:1 / -1;max-width:none;font-size:14px;line-height:1.55;margin:4px 2px 0}
+.dash-note strong{color:var(--ink)}
 .panel{border:1px solid var(--line);border-radius:10px;padding:18px 20px;background:var(--surface)}
 .chart-wrap{padding:6px}
 .share-panel{display:flex;flex-direction:column;gap:12px}
@@ -391,7 +393,7 @@ body.og #shareCanvas{display:block;width:1200px;height:630px}
     <div class="panel" id="resultPanel"><div id="result" aria-live="polite"></div></div>
     <section class="panel share-panel" id="shareBox" aria-label="Tu grupo y compartir">
       <div class="result-head"><h2>Compártelo con tu grupo</h2></div>
-      <p class="note">Los nombres y las puntuaciones viajan en el enlace, nunca a un servidor. Quien lo abra os verá a todos en el rombo y podrá sumarse y reenviarlo.</p>
+      <p class="note">Aquí no se guarda nada en ningún servidor. Tu nombre y tus dos puntuaciones solo van dentro del enlace que tú decidas enviar, así que únicamente los ve la gente a la que se lo pases. Si no lo compartes con nadie, o no pones nombre, nadie sabrá tu resultado. Quien reciba el enlace os verá a todos en el rombo y podrá sumarse y reenviarlo a más gente.</p>
       <div class="name-row"><label class="note" for="nameInput">Tu nombre, para el rombo, el enlace y la imagen</label>
         <div class="add-row"><input id="nameInput" maxlength="24" autocomplete="off" placeholder="Tu nombre"><button class="btn" type="button" id="nameBtn">Añadir mi nombre</button></div></div>
       <div id="groupList"></div>
@@ -407,6 +409,7 @@ body.og #shareCanvas{display:block;width:1200px;height:630px}
       <p class="note" id="shareMsg" role="status" aria-live="polite"></p>
       <div id="shareLinks" hidden></div>
     </section>
+    <p class="note dash-note"><strong>Tómatelo como una brújula, no como un GPS.</strong> Las posiciones de los partidos son una estimación hecha con sus programas, sus votos y lo que declaran, y todos prometen cosas que luego no cumplen, sea del color que sea. Lo que sí te da el rombo es una idea de hacia qué zona y qué partido te acercas más, y en qué, y de que entre el blanco y el negro hay muchos grises. Puede que ninguno te represente del todo. Le pasa a mucha gente. Aun así, votar sabiendo en qué coincides y en qué no es mejor que votar al menos malo.</p>
   </section>
 
   <details class="info" id="nolan">
@@ -420,7 +423,7 @@ body.og #shareCanvas{display:block;width:1200px;height:630px}
       <p>Para votar sabiendo lo que compras. Cuando respondes a afirmaciones concretas en vez de preguntarte si eres de izquierdas o de derechas pasan dos cosas. La primera es que descubres que tus opiniones no son un paquete cerrado y que coincides con partidos distintos en temas distintos. La segunda es que ves de golpe en qué <em>no</em> coincides con el partido al que pensabas votar, que es justo lo que los programas y los mítines no te cuentan. Esto no te dice a quién votar. Te dice con qué estarías tragando sin estar de acuerdo, y eso ya es más de lo que suele saber un votante.</p>
       </div>
       <p>Aquí lo hemos aplicado a las <strong>elecciones generales de España del 29 de noviembre de 2026</strong>: los siete partidos principales responden las mismas 47 afirmaciones que tú, con lo que dicen sus programas, lo que han votado en el Congreso y lo que declaran sus dirigentes.</p>
-      <p><strong>¿Y qué pintan Milei y Bukele?</strong> Están de referencia, y a propósito. Se les mete muchas veces en el mismo saco, el de la nueva derecha, y en el rombo se ve que comparten lado, no valores. Milei queda a la derecha, al lado de Vox, y Bukele abajo del todo, en la esquina autoritaria, a <span id="refGap">29</span> puntos en libertades personales. Entre ellos hay <span id="refCmp">43 puntos en el rombo, frente a los 54 que separan al PP del PSOE</span>. El PP y el PSOE discrepan sobre todo en economía. Milei y Bukele coinciden en economía y chocan en libertades. Esa es la gracia del gráfico, que no mide solo la línea de izquierda a derecha sino también cuánto quiere cada uno que el Estado se meta en tu vida. Ojo con Milei: su libertarismo es sobre todo económico. Como presidente ha endurecido las expulsiones, las penas y el poder de la policía, ha limitado las protestas y ha recortado el acceso al aborto, y eso es lo que puntúa aquí. A los dos se les puntúa solo con lo que han hecho, y las afirmaciones que son debates españoles sin equivalente en su país quedan sin dato.</p>
+      <p><strong>¿Y qué pintan Milei y Bukele?</strong> Están de referencia, y a propósito. Se les mete en el mismo saco, el de la nueva derecha, y en el rombo están a <span id="refCmp">43 puntos, una distancia parecida a la que separa al PP del PSOE (54)</span>. La diferencia está en qué discrepan: Milei y Bukele chocan en libertades personales, con <span id="refGap">29</span> puntos de diferencia, y el PP y el PSOE chocan en economía. Por eso unos comparten lado y los otros no. Esa es la gracia del gráfico. No toda la derecha es igual ni toda la izquierda es igual, y que un partido te quede cerca no quiere decir que pienses como él en todo. Ojo con Milei: su libertarismo es sobre todo económico. Como presidente ha endurecido las expulsiones, las penas y el poder de la policía, ha limitado las protestas y ha recortado el acceso al aborto, y eso es lo que puntúa aquí. A los dos se les puntúa solo con lo que han hecho, y las afirmaciones que son debates españoles sin equivalente en su país quedan sin dato.</p>
       <div class="blk">
       <h3>Límites del modelo</h3>
       <p>Lo creó un libertario, y sus críticos señalan con razón que el modelo favorece esa esquina: presenta la «libertad» como el valor que ordena todo el mapa y trata como equivalentes cosas muy distintas, como bajar impuestos y despenalizar el cannabis. Reduce la política a dos ejes y deja fuera otros que en España pesan mucho: el territorial, el europeo, el ecológico o el de la calidad institucional. Y la frontera entre «económico» y «personal» tampoco es nítida: la inmigración o la prostitución tienen las dos caras. Úsalo como lo que es, una foto aproximada que te hace pensar, no un veredicto definitivo.</p>
@@ -1157,8 +1160,8 @@ if(ogMode!==null){
   document.getElementById('affFP').textContent = pAff('fa','pod'); document.getElementById('affVS').textContent = pAff('vox','salf');
   const gap = Math.round(S.milei.P - S.bukele.P), dMB = dist('milei','bukele'), dPP = dist('pp','psoe');
   document.getElementById('refGap').textContent = gap;
-  document.getElementById('refCmp').textContent = `${dMB} puntos en el rombo, frente a los ${dPP} que separan al PP del PSOE`;
-  document.getElementById('refNote').innerHTML = `<strong>Milei y Bukele</strong> están de referencia a propósito. Se les mete en el mismo saco, pero en el rombo están a ${dMB} puntos, y casi toda la distancia es en libertades personales, con ${gap} puntos de diferencia. El PP y el PSOE están a ${dPP} puntos, casi todos en economía. Comparten lado, no valores.`;
+  document.getElementById('refCmp').textContent = `${dMB} puntos, una distancia parecida a la que separa al PP del PSOE (${dPP})`;
+  document.getElementById('refNote').innerHTML = `<strong>Milei y Bukele</strong> están los dos a la derecha y aun así a ${dMB} puntos el uno del otro, una distancia parecida a la que separa al PP del PSOE (${dPP}). La diferencia es en qué discrepan: Milei y Bukele en libertades personales, el PP y el PSOE en economía. Para eso sirve el rombo: para ver que no toda la derecha es igual ni toda la izquierda, y que estar cerca de un partido no es estar de acuerdo con él en todo.`;
   drawLegend(); drawTable(); refresh();
 }
 </script>
