@@ -132,7 +132,7 @@ puntuación = 50 + 25 × media(respuesta × dir)
 
 Da un valor de 0 a 100, donde 50 es el punto neutro. Se calcula igual para el usuario y para cada partido.
 
-Una respuesta de partido puede ser `null`, que significa **sin dato**: no hay programa, voto ni declaración que permita puntuarla. No es lo mismo que 0 (neutral o posición ambigua documentada). Las casillas sin dato no entran en la media del partido, ni en la afinidad, ni en las coincidencias, y la web lo indica en el desplegable de cada pregunta. Se usa sobre todo con Milei y Bukele, porque varias afirmaciones son debates españoles sin equivalente en Argentina o El Salvador, y con SALF, que a 1 de noviembre de 2026 no ha publicado programa.
+Una respuesta de partido puede ser `null`, que significa **sin dato**: no hay programa, voto ni declaración que permita puntuarla. No es lo mismo que 0 (neutral o posición ambigua documentada). Las casillas sin dato no entran en la media del partido, ni en la afinidad, ni en las coincidencias, y la web lo indica en el desplegable de cada pregunta. Se usa sobre todo con las referencias internacionales, porque varias afirmaciones son debates españoles sin equivalente en sus países, y con SALF, que a 1 de noviembre de 2026 no ha publicado programa.
 
 ### Afinidad con cada partido
 
@@ -192,7 +192,7 @@ Estas reglas se acordaron para que **todos los partidos se midan con la misma va
 
 ## Partidos incluidos y posiciones resultantes
 
-Posiciones calculadas con el cuestionario actual (47 preguntas, versión de datos 1.4). Escala de 0 a 100.
+Posiciones calculadas con el cuestionario actual (47 preguntas, versión de datos 1.5). Escala de 0 a 100.
 
 | Partido | Candidatura y cabeza de lista | Economía | Libertades | Zona |
 |---|---|---:|---:|---|
@@ -205,12 +205,17 @@ Posiciones calculadas con el cuestionario actual (47 preguntas, versión de dato
 | D21 + Cs | Democracia para el Siglo 21 (Democracia 21 + Ciudadanos + UCIN) · Miriam González | 61 | 54 | Centro |
 | Milei *(referencia)* | La Libertad Avanza (Argentina) · Javier Milei | 93 | 38 | Derecha |
 | Bukele *(referencia)* | Nuevas Ideas (El Salvador) · Nayib Bukele | 61 | 9 | Derecha |
+| Trump *(referencia)* | Partido Republicano (Estados Unidos) · Donald Trump | 71 | 20 | Derecha |
+| Putin *(referencia)* | Rusia Unida (Rusia) · Vladímir Putin | 40 | 7 | Autoritario |
+| Maduro *(referencia)* | PSUV (Venezuela) · Nicolás Maduro | 24 | 10 | Autoritario |
+| Mujica *(referencia)* | Frente Amplio (Uruguay, 2010-2015) · José Mujica | 28 | 66 | Izquierda |
+| Meloni *(referencia)* | Fratelli d'Italia (Italia) · Giorgia Meloni | 69 | 26 | Derecha |
 
 Notas:
 
 - Tras la verificación de la versión 1.2 (71 respuestas corregidas con fuentes), el **PP** queda en la zona derecha por un punto (49 en libertades), **SALF** en el borde entre libertario y derecha (50) y **Milei** en el borde entre libertario y derecha (49): su rechazo al aborto y a la eutanasia, la restricción del cannabis medicinal y la Ley Antimafias le bajan la libertad personal. Son zonas fronterizas y conviene releerlas cuando se publiquen los programas.
 - **D21 + Cs** solo se presenta en las circunscripciones de **Madrid y Barcelona**. **SALF** va al Congreso en 46 o 47 provincias (no en Lérida, Gerona, Guipúzcoa, Cantabria ni Ciudad Real) y no concurre al Senado. La web lo indica.
-- **Milei y Bukele** son referencias para comparar, no se votan en España ni entran en el veredicto. Están a propósito: se les suele meter en el mismo saco y en el rombo quedan a unos 40 puntos en libertades personales (Milei en la esquina libertaria, Bukele en la autoritaria), y sirven para ver que la derecha española tampoco se parece tanto a ninguno de los dos. La web compara esa distancia con la que separa al PP del PSOE (unos 54 y 46 puntos en el rombo: parecida, pero en ejes distintos, economía en un caso y libertades en el otro) en una nota bajo la leyenda y en la sección «Qué es el test de Nolan», con las cifras calculadas en vivo a partir de las posiciones. Varias preguntas son específicas de España y sus respuestas se estiman por analogía. Se muestran en otro color (naranja y rosa).
+- **Las referencias internacionales** (Milei, Bukele, Trump, Putin, Maduro, Mujica y Meloni) son para comparar: no se votan en España ni entran en el veredicto, y se pueden ocultar en la leyenda. Milei y Bukele están a propósito: se les suele meter en el mismo saco y en el rombo quedan a 43 puntos, una distancia parecida a la que separa al PP del PSOE (54), pero en ejes distintos: libertades en un caso y economía en el otro. Las otras cinco cubren las cuatro esquinas: Trump cerca de Bukele, Putin y Maduro en el fondo autoritario desde orillas opuestas, Mujica como espejo de Milei (izquierda en economía, arriba en libertades) y Meloni a un paso del PP. Todas se puntúan solo con lo hecho gobernando, con fuente por casilla en `docs/referencias-internacionales-2026-11-01.md`.
 - Otros partidos que se presentan pero no están en el test porque solo concurren en sus comunidades: ERC, Junts, PNV, EH Bildu, BNG, Coalición Canaria. En Navarra UPN y PP van juntos en una coalición encabezada por UPN. Ver tareas pendientes. Las candidaturas se proclaman el 2 de noviembre y se publican en el BOE el 3; hasta entonces son candidaturas presentadas.
 
 ### Datos de las elecciones (para textos de la web)
@@ -225,7 +230,7 @@ Notas:
 
 ## Preguntas del test
 
-Respuestas de los partidos en el orden: PP, PSOE, Vox, Frente Amplio, Podemos, SALF, D21 + Cs, Milei, Bukele. Valores de −2 a +2. El punto (·) es «sin dato»: no cuenta en la posición ni en la afinidad.
+Respuestas de los partidos en el orden: PP, PSOE, Vox, Frente Amplio, Podemos, SALF, D21 + Cs, Milei, Bukele, Trump, Putin, Maduro, Mujica, Meloni. Valores de −2 a +2. El punto (·) es «sin dato»: no cuenta en la posición ni en la afinidad.
 
 Las afirmaciones se redactan de la forma más general posible, para que el mismo cuestionario sirva en cualquier país; lo que cambia en cada elección es la respuesta de los partidos.
 
@@ -233,58 +238,58 @@ Las afirmaciones se redactan de la forma más general posible, para que el mismo
 
 | id | Afirmación | dir | Respuestas |
 |---|---|:-:|---|
-| e_irpf | Hay que bajar el impuesto sobre la renta aunque el Estado recaude menos. | +1 | 2, −1, 2, −2, −2, 2, 1, 1, 1 |
-| e_suc | Deberían suprimirse los impuestos de sucesiones y de patrimonio. | +1 | 2, −2, 2, −2, −2, 2, 1, 2, · |
-| e_alq | El Estado debe poner topes al precio del alquiler. | −1 | −2, 2, −2, 2, 2, −2, 1, −2, · |
-| e_empv | Hay que crear una gran empresa pública estatal de vivienda y suelo. | −1 | −1, 2, −2, 2, 2, −2, 0, −2, 1 |
-| e_acum | Quien acumula muchas viviendas debería pagar cada año un impuesto especial alto. | −1 | −2, 1, −2, 2, 2, −2, −1, −2, · |
-| e_suelo | Hay que liberalizar suelo y reducir trámites para que se construya más. | +1 | 2, 1, 2, −1, −2, 2, 1, 2, 1 |
-| e_pens | Las pensiones deben subir cada año con la inflación, por ley y pase lo que pase. | −1 | 2, 2, −1, 2, 2, 0, 0, 0, 0 |
-| e_mixto | El sistema de pensiones debería ser mixto, con una parte de capitalización privada. | +1 | 0, −2, 2, −2, −2, ·, 0, 1, 1 |
-| e_func | Hay que reducir ministerios, organismos y empleo público. | +1 | 1, −1, 2, −2, −2, 2, 1, 2, 2 |
-| e_fort | Las grandes fortunas y las grandes empresas deberían pagar más impuestos. | −1 | −2, 2, −2, 2, 2, −2, 0, −2, −1 |
-| e_expr | El Estado debería poder expropiar viviendas o nacionalizar empresas estratégicas. | −1 | −2, −1, −2, 2, 2, −2, −2, −2, 0 |
-| e_sani | Sanidad y educación deben ser públicas y gratuitas para todos, pagadas con impuestos. | −1 | 1, 2, 1, 2, 2, 0, 1, −1, 1 |
-| e_aval | El Estado debe avalar con dinero público las hipotecas de los jóvenes. | −1 | 2, 2, 0, −1, −2, 1, 0, −2, 1 |
-| e_gasto | El gasto público debería reducirse de forma significativa. | +1 | 0, −1, 2, −2, −2, 2, 0, 2, 1 |
-| e_smi | El Gobierno debe seguir subiendo el salario mínimo por ley. | −1 | 1, 2, 0, 2, 2, ·, 0, −1, 1 |
-| e_aran | Hay que proteger al campo y a la industria nacional con aranceles o límites a las importaciones. | −1 | −1, −1, 1, 1, 1, 1, −2, −2, −1 |
-| e_desp | Hay que facilitar a las empresas contratar y despedir, con menos restricciones e indemnizaciones más bajas. | +1 | 1, −2, 2, −2, −2, ·, 1, 2, 1 |
-| e_jorn | La jornada laboral debe reducirse por ley sin bajar el sueldo. | −1 | −1, 2, −2, 2, 2, ·, 0, −2, 0 |
-| e_ecol | Hay que imponer impuestos y normas ambientales estrictas a empresas y consumidores aunque frenen la economía. | −1 | −1, 1, −2, 2, 2, −2, 0, −2, −2 |
-| e_okupa | Hay que poder desalojar en pocos días a quien ocupa una vivienda sin permiso. | +1 | 2, −1, 2, −2, −2, 2, 1, 2, · |
+| e_irpf | Hay que bajar el impuesto sobre la renta aunque el Estado recaude menos. | +1 | 2, −1, 2, −2, −2, 2, 1, 1, 1, 2, 0, −2, −2, 2 |
+| e_suc | Deberían suprimirse los impuestos de sucesiones y de patrimonio. | +1 | 2, −2, 2, −2, −2, 2, 1, 2, ·, 2, 2, −2, −1, 1 |
+| e_alq | El Estado debe poner topes al precio del alquiler. | −1 | −2, 2, −2, 2, 2, −2, 1, −2, ·, −1, ·, 2, −1, −1 |
+| e_empv | Hay que crear una gran empresa pública estatal de vivienda y suelo. | −1 | −1, 2, −2, 2, 2, −2, 0, −2, 1, −2, 1, 2, 1, −1 |
+| e_acum | Quien acumula muchas viviendas debería pagar cada año un impuesto especial alto. | −1 | −2, 1, −2, 2, 2, −2, −1, −2, ·, 0, ·, 1, 1, −1 |
+| e_suelo | Hay que liberalizar suelo y reducir trámites para que se construya más. | +1 | 2, 1, 2, −1, −2, 2, 1, 2, 1, 2, 1, −1, 1, 1 |
+| e_pens | Las pensiones deben subir cada año con la inflación, por ley y pase lo que pase. | −1 | 2, 2, −1, 2, 2, 0, 0, 0, 0, 1, 1, −2, 1, −1 |
+| e_mixto | El sistema de pensiones debería ser mixto, con una parte de capitalización privada. | +1 | 0, −2, 2, −2, −2, ·, 0, 1, 1, −1, 0, −2, 0, 1 |
+| e_func | Hay que reducir ministerios, organismos y empleo público. | +1 | 1, −1, 2, −2, −2, 2, 1, 2, 2, 2, 0, −1, −2, −1 |
+| e_fort | Las grandes fortunas y las grandes empresas deberían pagar más impuestos. | −1 | −2, 2, −2, 2, 2, −2, 0, −2, −1, −2, 1, 2, 2, 0 |
+| e_expr | El Estado debería poder expropiar viviendas o nacionalizar empresas estratégicas. | −1 | −2, −1, −2, 2, 2, −2, −2, −2, 0, 0, 2, 1, 0, 0 |
+| e_sani | Sanidad y educación deben ser públicas y gratuitas para todos, pagadas con impuestos. | −1 | 1, 2, 1, 2, 2, 0, 1, −1, 1, −2, 1, 1, 2, 0 |
+| e_aval | El Estado debe avalar con dinero público las hipotecas de los jóvenes. | −1 | 2, 2, 0, −1, −2, 1, 0, −2, 1, 1, 1, 1, 1, 2 |
+| e_gasto | El gasto público debería reducirse de forma significativa. | +1 | 0, −1, 2, −2, −2, 2, 0, 2, 1, 0, −2, −2, −2, 0 |
+| e_smi | El Gobierno debe seguir subiendo el salario mínimo por ley. | −1 | 1, 2, 0, 2, 2, ·, 0, −1, 1, −2, 2, 0, 2, −2 |
+| e_aran | Hay que proteger al campo y a la industria nacional con aranceles o límites a las importaciones. | −1 | −1, −1, 1, 1, 1, 1, −2, −2, −1, 2, 2, 0, −1, 0 |
+| e_desp | Hay que facilitar a las empresas contratar y despedir, con menos restricciones e indemnizaciones más bajas. | +1 | 1, −2, 2, −2, −2, ·, 1, 2, 1, 1, 0, −2, −2, 1 |
+| e_jorn | La jornada laboral debe reducirse por ley sin bajar el sueldo. | −1 | −1, 2, −2, 2, 2, ·, 0, −2, 0, ·, −1, ·, 1, −2 |
+| e_ecol | Hay que imponer impuestos y normas ambientales estrictas a empresas y consumidores aunque frenen la economía. | −1 | −1, 1, −2, 2, 2, −2, 0, −2, −2, −2, −2, −2, 0, −2 |
+| e_okupa | Hay que poder desalojar en pocos días a quien ocupa una vivienda sin permiso. | +1 | 2, −1, 2, −2, −2, 2, 1, 2, ·, ·, ·, −2, ·, 2 |
 
 ### Libertades (27)
 
 | id | Afirmación | dir | Respuestas |
 |---|---|:-:|---|
-| p_expul | Hay que expulsar de forma masiva a los inmigrantes en situación irregular. | −1 | 0, −2, 2, −2, −2, 2, −1, 1, 1 |
-| p_prior | Las ayudas públicas deben dar prioridad a los ciudadanos del país frente a los extranjeros con residencia legal. | −1 | 0, −2, 2, −2, −2, 1, −1, 2, · |
-| p_poli | La policía debería tener más margen para identificar, registrar y multar a personas sin pasar por un juez. | −1 | 2, −1, 2, −2, −2, ·, 1, 2, 2 |
-| p_perp | La prisión permanente revisable debería mantenerse o ampliarse a más delitos. | −1 | 2, −1, 2, −2, −2, 1, 1, 2, 2 |
-| p_odio | El Estado debe poder sancionar o expulsar a quien difunda discursos de odio, aunque no inciten a la violencia. | −1 | 1, 1, −1, 2, 2, −2, 0, 0, 2 |
-| p_simb | Ofender a la bandera, a la Corona o a los sentimientos religiosos debería seguir siendo delito. | −1 | 2, −2, 2, −2, −2, ·, 1, 1, · |
-| p_prot | Hay que limitar más las protestas que cortan calles o carreteras. | −1 | 1, −1, 1, −2, −2, −1, 1, 2, 2 |
-| p_euta | La eutanasia debe seguir siendo legal. | +1 | 0, 2, −2, 2, 2, ·, 2, −1, −2 |
-| p_matr | El matrimonio entre personas del mismo sexo debe seguir siendo legal. | +1 | 1, 2, −1, 2, 2, 1, 2, 1, −2 |
-| p_abor | El aborto debe seguir siendo legal en los plazos actuales. | +1 | 0, 2, −2, 2, 2, −1, 1, −2, −2 |
-| p_cann | El cannabis para adultos debería ser legal y estar regulado. | +1 | −2, −1, −2, 1, 2, ·, 1, −1, −2 |
-| p_prost | Hay que prohibir la prostitución y castigar también al cliente. | −1 | 0, 2, 0, −1, 0, ·, −1, −1, · |
-| p_medio | El Gobierno debe poder regular a los medios de comunicación para combatir la desinformación. | −1 | −2, 2, −1, 2, 1, −2, ·, 0, 2 |
-| p_ident | Para entrar en webs de contenido adulto debería exigirse verificar la identidad. | −1 | 2, 2, 0, 1, 0, −1, 0, ·, · |
-| p_taba | Hay que ampliar la prohibición de fumar y vapear a terrazas y espacios abiertos. | −1 | 0, 2, −1, 2, ·, ·, 1, −1, · |
-| p_anon | Habría que acabar con el anonimato en las redes sociales. | −1 | 1, 2, −1, 0, ·, −2, ·, −1, · |
-| p_burka | Debería prohibirse el burka y el niqab en los espacios públicos. | −1 | 2, −1, 2, −2, −2, ·, 1, ·, · |
-| p_ileg | Habría que ilegalizar los partidos que defienden la independencia de una región. | −1 | −1, −2, 2, −2, −2, ·, −1, ·, 0 |
-| p_decr | El Gobierno debería poder legislar por decreto cuando el Parlamento bloquea sus reformas. | −1 | −1, 1, −1, 0, 0, ·, −1, 2, 2 |
-| p_chat | Las aplicaciones de mensajería deberían escanear los mensajes privados para detectar delitos. | −1 | 1, 2, −2, −1, −1, 0, −1, 1, 2 |
-| p_trans | Las personas deben poder cambiar su sexo legal sin informes médicos. | +1 | −2, 2, −2, 2, 2, −2, −1, −1, −2 |
-| p_mili | Debería recuperarse el servicio militar obligatorio. | −1 | −1, −2, 1, −2, −2, ·, ·, −1, · |
-| p_armas | Debería ser más fácil para un particular tener un arma en casa para defenderse. | +1 | −1, −2, 2, −2, −2, ·, −2, 1, 1 |
-| p_relig | La religión debería tener más presencia en la escuela y en la vida pública. | −1 | 1, −1, 1, −2, −2, ·, −1, ·, 2 |
-| p_toros | Habría que prohibir las corridas de toros. | −1 | −2, −1, −2, 1, 2, 0, −1, ·, · |
-| p_menores | Hay que prohibir por ley que los menores de 16 años tengan cuentas en redes sociales. | −1 | 2, 2, −1, 1, 0, −1, ·, ·, · |
-| p_apuestas | Hay que prohibir la publicidad de las apuestas y del juego online. | −1 | 0, 1, −1, 1, 2, ·, 1, −2, · |
+| p_expul | Hay que expulsar de forma masiva a los inmigrantes en situación irregular. | −1 | 0, −2, 2, −2, −2, 2, −1, 1, 1, 2, 2, 1, −2, 1 |
+| p_prior | Las ayudas públicas deben dar prioridad a los ciudadanos del país frente a los extranjeros con residencia legal. | −1 | 0, −2, 2, −2, −2, 1, −1, 2, ·, 2, 2, ·, −1, 1 |
+| p_poli | La policía debería tener más margen para identificar, registrar y multar a personas sin pasar por un juez. | −1 | 2, −1, 2, −2, −2, ·, 1, 2, 2, 2, 2, 2, 0, 2 |
+| p_perp | La prisión permanente revisable debería mantenerse o ampliarse a más delitos. | −1 | 2, −1, 2, −2, −2, 1, 1, 2, 2, 2, 2, ·, −1, 2 |
+| p_odio | El Estado debe poder sancionar o expulsar a quien difunda discursos de odio, aunque no inciten a la violencia. | −1 | 1, 1, −1, 2, 2, −2, 0, 0, 2, 1, 2, 2, ·, −1 |
+| p_simb | Ofender a la bandera, a la Corona o a los sentimientos religiosos debería seguir siendo delito. | −1 | 2, −2, 2, −2, −2, ·, 1, 1, ·, 2, 2, 2, ·, · |
+| p_prot | Hay que limitar más las protestas que cortan calles o carreteras. | −1 | 1, −1, 1, −2, −2, −1, 1, 2, 2, 2, 2, 2, ·, 2 |
+| p_euta | La eutanasia debe seguir siendo legal. | +1 | 0, 2, −2, 2, 2, ·, 2, −1, −2, ·, −2, ·, ·, −1 |
+| p_matr | El matrimonio entre personas del mismo sexo debe seguir siendo legal. | +1 | 1, 2, −1, 2, 2, 1, 2, 1, −2, 1, −2, −1, 2, −2 |
+| p_abor | El aborto debe seguir siendo legal en los plazos actuales. | +1 | 0, 2, −2, 2, 2, −1, 1, −2, −2, −1, 0, −1, 2, −1 |
+| p_cann | El cannabis para adultos debería ser legal y estar regulado. | +1 | −2, −1, −2, 1, 2, ·, 1, −1, −2, 0, −2, ·, 2, −2 |
+| p_prost | Hay que prohibir la prostitución y castigar también al cliente. | −1 | 0, 2, 0, −1, 0, ·, −1, −1, ·, 1, 1, ·, −1, · |
+| p_medio | El Gobierno debe poder regular a los medios de comunicación para combatir la desinformación. | −1 | −2, 2, −1, 2, 1, −2, ·, 0, 2, 1, 2, 2, 1, 1 |
+| p_ident | Para entrar en webs de contenido adulto debería exigirse verificar la identidad. | −1 | 2, 2, 0, 1, 0, −1, 0, ·, ·, ·, 1, ·, ·, 2 |
+| p_taba | Hay que ampliar la prohibición de fumar y vapear a terrazas y espacios abiertos. | −1 | 0, 2, −1, 2, ·, ·, 1, −1, ·, ·, 2, ·, 1, 0 |
+| p_anon | Habría que acabar con el anonimato en las redes sociales. | −1 | 1, 2, −1, 0, ·, −2, ·, −1, ·, ·, 2, 2, ·, · |
+| p_burka | Debería prohibirse el burka y el niqab en los espacios públicos. | −1 | 2, −1, 2, −2, −2, ·, 1, ·, ·, ·, 0, ·, ·, 1 |
+| p_ileg | Habría que ilegalizar los partidos que defienden la independencia de una región. | −1 | −1, −2, 2, −2, −2, ·, −1, ·, 0, ·, 2, 2, ·, · |
+| p_decr | El Gobierno debería poder legislar por decreto cuando el Parlamento bloquea sus reformas. | −1 | −1, 1, −1, 0, 0, ·, −1, 2, 2, 2, 2, 2, −1, 2 |
+| p_chat | Las aplicaciones de mensajería deberían escanear los mensajes privados para detectar delitos. | −1 | 1, 2, −2, −1, −1, 0, −1, 1, 2, ·, 2, 1, 0, −1 |
+| p_trans | Las personas deben poder cambiar su sexo legal sin informes médicos. | +1 | −2, 2, −2, 2, 2, −2, −1, −1, −2, −2, −2, −1, ·, −1 |
+| p_mili | Debería recuperarse el servicio militar obligatorio. | −1 | −1, −2, 1, −2, −2, ·, ·, −1, ·, ·, 2, 1, ·, −1 |
+| p_armas | Debería ser más fácil para un particular tener un arma en casa para defenderse. | +1 | −1, −2, 2, −2, −2, ·, −2, 1, 1, 2, −2, −2, −2, · |
+| p_relig | La religión debería tener más presencia en la escuela y en la vida pública. | −1 | 1, −1, 1, −2, −2, ·, −1, ·, 2, 2, 2, ·, −1, 1 |
+| p_toros | Habría que prohibir las corridas de toros. | −1 | −2, −1, −2, 1, 2, 0, −1, ·, ·, ·, ·, ·, ·, · |
+| p_menores | Hay que prohibir por ley que los menores de 16 años tengan cuentas en redes sociales. | −1 | 2, 2, −1, 1, 0, −1, ·, ·, ·, ·, ·, ·, ·, · |
+| p_apuestas | Hay que prohibir la publicidad de las apuestas y del juego online. | −1 | 0, 1, −1, 1, 2, ·, 1, −2, ·, ·, 1, ·, ·, 0 |
 
 ### Contexto que justifica algunas respuestas
 
@@ -299,6 +304,11 @@ Resumen de lo investigado (octubre de 2026). Sirve para revisar y documentar cad
 - **Democracia 21 + Cs**: liberal en economía e instituciones pero partidario de mantener un Estado del bienestar fuerte; bajar presión fiscal sin recortar servicios; regeneración institucional (90 % menos de asesores, límite de mandatos, jueces eligiendo a los vocales del CGPJ); liberal en derechos civiles.
 - **Milei (lo aplicado)**: más de 17.600 artículos desregulados, Ley de Bases (privatizaciones, RIGI), superávit fiscal, derogación de la ley de alquileres; pero restableció el Impuesto a las Ganancias para asalariados, bajó la edad penal, gobierna mucho por decreto y firmó el DNU 681/2026 para expulsar a extranjeros por "mensajes de odio". No ha tocado aborto ni matrimonio igualitario.
 - **Bukele (lo aplicado)**: cadena perpetua introducida en la Constitución en marzo de 2026 y extendida a menores desde los 12 años en abril; régimen de excepción desde marzo de 2022 que suspende libertad de asociación, privacidad de las comunicaciones y garantías del debido proceso (más de 86.000 detenciones, miles arbitrarias según ONG, cientos de muertes bajo custodia); reelección indefinida y mandato de seis años; ley de agentes extranjeros que grava las donaciones del exterior a ONG; reforma de la Ley Bitcoin en enero de 2025, exigida por el FMI, que convierte en voluntaria su aceptación y retira al Estado del negocio.
+- **Trump (lo aplicado)**: recortes de impuestos de 2017 y 2025 con déficit récord, aranceles generalizados, DOGE y recorte de Medicaid; deportaciones masivas, Guardia Nacional contra protestas, pena de muerte, órdenes ejecutivas en serie, restricciones a personas trans, armas y religión en la escuela.
+- **Putin (lo aplicado)**: sin impuesto de sucesiones, nacionalizaciones desde 2022, aranceles y gasto militar récord; represión total de prensa, protesta y oposición, ley Yarovaya, prohibición del cambio de sexo legal, mili obligatoria, religión en la escuela.
+- **Maduro (lo aplicado)**: controles de precios y alquileres, expropiaciones, inamovilidad laboral, hiperinflación; Ley contra el Odio, FAES, represión de 2014, 2017 y 2024, intervención judicial de los partidos, estado de excepción permanente, bloqueo de X, desarme civil.
+- **Mujica (lo aplicado, 2010-2015)**: subida del IRPF alto, salario mínimo doblado, gasto y empleo público al alza, cárcel al empresario que incumpla seguridad; cannabis regulado, aborto y matrimonio igualitario legalizados, inmigración abierta, contra las armas y la mano dura; con una ley de medios y el sistema de escuchas El Guardián en el debe.
+- **Meloni (lo aplicado)**: rebajas del IRPEF, no al salario mínimo y a la semana de 32 horas, aval público a hipotecas de jóvenes, delito de ocupación; decreto de seguridad de 2025 (policía, bloqueos de carretera, cannabis light), verificación de edad para porno, centros en Albania, contra el matrimonio igualitario y la gestación subrogada, aborto sin tocar.
 
 ---
 
@@ -427,6 +437,7 @@ La viralidad se busca con una **imagen generada en el navegador** que el usuario
 
 La versión y la fecha se muestran en la metodología de la web (`DATA_VERSION` y `DATA_DATE` en `index.html`). Cualquier cambio en preguntas o respuestas de partidos debe subir la versión y anotarse aquí.
 
+- **1.5 (01-11-2026)**: cinco referencias internacionales más, puntuadas con el mismo criterio que Milei y Bukele (solo lo hecho gobernando, con fuente por casilla, «sin dato» donde no aplica): Trump 71/20, Putin 40/7, Maduro 24/10, Mujica 28/66 y Meloni 69/26. Con ellas el rombo tiene referencias en las cuatro esquinas. La leyenda las agrupa como «Referencias» con un botón para ocultarlas o mostrarlas todas, y las ocultas tampoco salen en la lista de afinidad. La imagen genérica de portada sigue mostrando solo a los partidos del 29N más Milei y Bukele; la imagen del resultado propio muestra las referencias que el usuario tenga visibles. Detalle y fuentes en `docs/referencias-internacionales-2026-11-01.md`.
 - **1.4 (01-11-2026)**: segunda pasada del eje de libertades. (1) Nueva regla: `null` = **sin dato**, no cuenta en la posición ni en la afinidad y la web lo muestra bajo cada pregunta. Se aplica a 44 casillas sin ninguna evidencia tras buscarla una a una: SALF (17), Bukele (15), Milei (6), D21 + Cs (4) y Podemos (2). (2) Dos afirmaciones clásicas de libertad personal en las que la derecha puntúa libertaria: armas en casa para defenderse (voto de 2022, 289 a 53) y prohibir las corridas de toros (ILP de octubre de 2025). 47 afirmaciones (20 de economía y 27 de libertades). (3) Siete correcciones con fuente: SALF «ferviente provida» con votos propios en el Parlamento Europeo y sin oponerse al matrimonio igualitario; Milei muy a favor de la prioridad nacional (cobro a extranjeros en hospitales y universidades), ley trans y tabaco suavizados; Bukele a favor de bajar impuestos y neutral en jornada. Posiciones recalculadas: PP 70/37, PSOE 19/54, Vox 86/38, Frente Amplio 6/68, Podemos 6/72, SALF 84/55, D21 + Cs 61/54 (Centro), Milei 93/38, Bukele 61/9. `HASH_VERSION` 3. Detalle en `docs/revision-libertades-2026-11-01.md`, secciones 6 a 9.
 - **1.3 (01-11-2026)**: revisión del eje de libertades tras detectar que dos afirmaciones no discriminaban entre partidos (detener sin orden judicial y vigilar comunicaciones sin juez: casi todos en «muy en contra», y además la detención sin orden ya es legal en España hasta 72 horas). Se sustituyen por cuatro debates reales de esta legislatura: más poder a la policía (Ley de Seguridad Ciudadana), prisión permanente revisable, ofensas a la bandera, la Corona o la religión, y escaneo de mensajes privados (Chat Control). 45 afirmaciones (20 de economía y 25 de libertades). 27 casillas corregidas con fuente: PP a favor de sancionar discursos de odio (aprobó el artículo 510.2 en 2015), de más religión en la escuela y muy en contra de regular medios; Vox menos extremo en discursos de odio y medios por sus querellas y vetos a periodistas, y a favor de la mili; D21 + Cs hacia el centro (Cs presentó una ley contra el burka, votó por ilegalizar partidos independentistas en Madrid, bloqueó la derogación de la ley mordaza y pedía ampliar la prisión permanente); SALF pierde valores sin evidencia en eutanasia, aborto, religión y decretos, y pasa a estar en contra de limitar las protestas por alentar las tractoradas; Milei neutral en odio y medios por evidencia contradictoria; Bukele muy en contra de la eutanasia y neutral en prostitución e ilegalizar partidos. Posiciones recalculadas: PP 70/35, PSOE 19/55, Vox 86/33, Frente Amplio 6/72, Podemos 6/75, SALF 83/54, D21 + Cs 61/55 (Centro), Milei 93/41, Bukele 61/23. Cambia la versión del enlace de comparación (`HASH_VERSION` 2), así que los enlaces anteriores dejan de leerse. Detalle en `docs/revision-libertades-2026-11-01.md`.
 - **1.2 (01-11-2026)**: verificación completa con fuentes públicas (cinco revisiones en paralelo: historia del test, datos legales y electorales, economía, libertades, y Milei y Bukele). 71 respuestas corregidas, entre ellas 11 cambios de signo o de dos puntos: Podemos y Frente Amplio contra los avales a hipotecas; PP a favor de prohibir el burka y de prohibir las redes a menores de 16, y en contra de la autodeterminación de género; Vox contra prohibir las redes a menores; Frente Amplio contra la ley abolicionista de la prostitución; Milei contra los discursos de odio (cerró el INADI) y neutral en detención sin juez (Ley Antimafias); Bukele a favor del sistema mixto de pensiones. Contextos corregidos: eutanasia (supuestos legales), cannabis (Alemania sin venta), prostitución (Suecia y Francia castigan al cliente, no a quien vende), mili (suspendida, no suprimida), redes y menores (ley francesa anulada, ley española decaída), decreto (el Parlamento vota después), ilegalización de partidos, sucesiones (impuesto a grandes fortunas). SALF concurre en casi todas las provincias. Historia del test: 1969, The Individualist, Advocates for Self-Government, más de 28 millones de pasadas. Posiciones recalculadas: PP 70/49, PSOE 19/58, Vox 86/42, Frente Amplio 6/71, Podemos 6/74, SALF 83/50, D21 + Cs 60/72, Milei 93/49, Bukele 61/22. Detalle en `docs/verificacion-2026-11-01.md`.
@@ -466,7 +477,7 @@ La versión y la fecha se muestran en la metodología de la web (`DATA_VERSION` 
 
 - **Las respuestas de los partidos son estimaciones**, no posiciones oficiales. Se basan en anuncios de precampaña, votaciones y declaraciones hasta el 31 de octubre de 2026.
 - **El resultado depende del cuestionario.** Con otras preguntas los puntos se moverían. Por ejemplo, en la versión 1.2 el PP salía en el centro, a un punto de la zona libertaria, y D21 + Cs en la zona libertaria, porque dos afirmaciones de seguridad tenían a casi todos los partidos en «muy en contra» y subían a todos. Al sustituirlas por debates reales (ley mordaza, prisión permanente, ofensas a símbolos, Chat Control), añadir armas y toros y dejar sin dato lo que no tiene fuente, el PP y Vox bajaron unos doce puntos, D21 + Cs pasó al centro y Bukele a la esquina autoritaria. Por eso el equilibrio de las preguntas importa tanto como las respuestas: una afirmación en la que todos coinciden no mide nada.
-- **Milei y Bukele** se puntúan solo con lo que han hecho como gobernantes. Las afirmaciones que son debates españoles sin equivalente en Argentina o El Salvador quedan «sin dato» y no cuentan, así que su posición se calcula sobre menos preguntas y es más extrema.
+- **Las referencias internacionales** (Milei, Bukele, Trump, Putin, Maduro, Mujica y Meloni) se puntúan solo con lo que han hecho como gobernantes. Las afirmaciones que son debates españoles sin equivalente en Argentina o El Salvador quedan «sin dato» y no cuentan, así que su posición se calcula sobre menos preguntas y es más extrema.
 - **El modelo de Nolan simplifica**: reduce la política a dos ejes y deja fuera, entre otros, el eje territorial, que en España es muy relevante.
 - El test **no es una encuesta** ni pretende representar a la población.
 

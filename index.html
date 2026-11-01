@@ -52,7 +52,7 @@
   --ink:#f4f3ef; --ink-2:#d6d4cd; --muted:#a9a7a0; --faint:#7a7872;
   --accent:#f4f3ef; --accent-ink:#1e1f22;
   --z-lib:#ecb858; --z-der:#6a9fe0; --z-izq:#e8746a; --z-aut:#a493ea; --z-cen:#5cc092;
-  --ref-milei:#f0a142; --ref-bukele:#e57a9e; --friend:#b9a0f5; --friend-ink:#1a1030;
+  --ref-milei:#f0a142; --ref-bukele:#e57a9e; --ref-trump:#f26b5b; --ref-putin:#9fb3c8; --ref-maduro:#d4a73a; --ref-mujica:#7fd3a0; --ref-meloni:#6fc7e0; --friend:#b9a0f5; --friend-ink:#1a1030;
   --ok:#8fd6ad; --ko:#f0a08c;
   --f-display:"Bricolage Grotesque", "Avenir Next", "Segoe UI", system-ui, sans-serif;
   --f-body:"Source Sans 3", "Segoe UI", system-ui, -apple-system, sans-serif;
@@ -168,7 +168,10 @@ svg{display:block;width:100%;height:auto}
 .axis-label{font-family:var(--f-mono);font-size:10px;fill:var(--muted);letter-spacing:.08em}
 .p-label{font-family:var(--f-body);font-size:12.5px;font-weight:600;fill:var(--ink)}
 .p-label-bg{fill:var(--surface);opacity:.9}
-.legend{display:flex;flex-wrap:wrap;gap:6px;padding:0 2px}
+.legend{display:flex;flex-direction:column;gap:8px;padding:0 2px}
+.legend-group{display:flex;flex-wrap:wrap;gap:6px;align-items:center}
+.legend-lab{font-family:var(--f-mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin-right:4px}
+.legend-all{font-size:12.5px;margin-left:2px}
 .chip{display:inline-flex;align-items:center;gap:7px;border:1px solid var(--line-strong);background:transparent;color:var(--ink);
   border-radius:999px;padding:4px 10px 4px 8px;font-size:12.5px;font-family:var(--f-body);cursor:pointer;transition:border-color .12s,color .12s}
 .chip:hover{border-color:var(--ink)}
@@ -461,6 +464,7 @@ body.og #shareCanvas{display:block;width:1200px;height:630px}
       </div>
       <p>Aquí lo hemos aplicado a las <strong>elecciones generales de España del 29 de noviembre de 2026</strong>: los siete partidos principales responden las mismas 47 afirmaciones que tú, con lo que dicen sus programas, lo que han votado en el Congreso y lo que declaran sus dirigentes.</p>
       <p><strong>¿Y qué pintan Milei y Bukele?</strong> Están de referencia, y a propósito. Se les mete en el mismo saco, el de la nueva derecha, y en el rombo están a <span id="refCmp">43 puntos, una distancia parecida a la que separa al PP del PSOE (54)</span>. La diferencia está en qué discrepan: Milei y Bukele chocan en libertades personales, con <span id="refGap">29</span> puntos de diferencia, y el PP y el PSOE chocan en economía. Por eso unos comparten lado y los otros no. Esa es la gracia del gráfico. No toda la derecha es igual ni toda la izquierda es igual, y que un partido te quede cerca no quiere decir que pienses como él en todo. Ojo con Milei: su libertarismo es sobre todo económico. Como presidente ha endurecido las expulsiones, las penas y el poder de la policía, ha limitado las protestas y ha recortado el acceso al aborto, y eso es lo que puntúa aquí. A los dos se les puntúa solo con lo que han hecho, y las afirmaciones que son debates españoles sin equivalente en su país quedan sin dato.</p>
+      <p>Con el mismo criterio están <strong>Trump, Putin, Maduro, Mujica y Meloni</strong>, para que el rombo tenga referencias en las cuatro esquinas. Trump cae cerca de Bukele: aranceles, deportaciones, Guardia Nacional contra las protestas y gobierno por decreto. Putin y Maduro comparten el fondo autoritario aunque uno venga de la derecha y el otro de la izquierda. Mujica es el espejo de Milei: izquierda en economía y arriba en libertades, con el cannabis, el aborto y el matrimonio igualitario legalizados en Uruguay. Y Meloni queda a un paso del PP, bastante más ortodoxa de lo que prometía. Puedes apagarlas en la leyenda si te estorban.</p>
       <div class="blk">
       <h3>Límites del modelo</h3>
       <p>Lo creó un libertario, y sus críticos señalan con razón que el modelo favorece esa esquina: presenta la «libertad» como el valor que ordena todo el mapa y trata como equivalentes cosas muy distintas, como bajar impuestos y despenalizar el cannabis. Reduce la política a dos ejes y deja fuera otros que en España pesan mucho: el territorial, el europeo, el ecológico o el de la calidad institucional. Y la frontera entre «económico» y «personal» tampoco es nítida: la inmigración o la prostitución tienen las dos caras. Úsalo como lo que es, una foto aproximada que te hace pensar, no un veredicto definitivo.</p>
@@ -502,7 +506,7 @@ body.og #shareCanvas{display:block;width:1200px;height:630px}
 <script>
 const SITE_URL = 'https://testnolan.com/es/';
 const SITE_SHORT = 'testnolan.com';
-const DATA_VERSION = '1.4';
+const DATA_VERSION = '1.5';
 const DATA_DATE = '1 de noviembre de 2026';
 // Durante el periodo de prohibición de encuestas (24–28 de noviembre) puede ponerse a false para que la imagen compartida no muestre el partido más afín.
 const SHARE_SHOW_TOP_PARTY = true;
@@ -521,7 +525,12 @@ const PARTIES = [
   {id:'salf',  name:'SALF',          full:'Se Acabó La Fiesta',        lead:'Alvise Pérez',         ref:false, note:'En casi todas las provincias, no al Senado'},
   {id:'d21',   name:'D21 + Cs',      full:'Democracia para el Siglo 21', lead:'Miriam González',    ref:false, note:'Solo en Madrid y Barcelona'},
   {id:'milei', name:'Milei',         full:'La Libertad Avanza (Argentina)', lead:'Javier Milei',    ref:true, color:'--ref-milei', note:'Referencia internacional'},
-  {id:'bukele',name:'Bukele',        full:'Nuevas Ideas (El Salvador)', lead:'Nayib Bukele',        ref:true, color:'--ref-bukele', note:'Referencia internacional'}
+  {id:'bukele',name:'Bukele',        full:'Nuevas Ideas (El Salvador)', lead:'Nayib Bukele',        ref:true, color:'--ref-bukele', note:'Referencia internacional'},
+  {id:'trump', name:'Trump',         full:'Partido Republicano (Estados Unidos)', lead:'Donald Trump', ref:true, color:'--ref-trump', note:'Referencia internacional'},
+  {id:'putin', name:'Putin',         full:'Rusia Unida (Rusia)',        lead:'Vladímir Putin',       ref:true, color:'--ref-putin', note:'Referencia internacional'},
+  {id:'maduro',name:'Maduro',        full:'PSUV (Venezuela)',           lead:'Nicolás Maduro',       ref:true, color:'--ref-maduro', note:'Referencia internacional'},
+  {id:'mujica',name:'Mujica',        full:'Frente Amplio (Uruguay, 2010-2015)', lead:'José Mujica',  ref:true, color:'--ref-mujica', note:'Referencia internacional'},
+  {id:'meloni',name:'Meloni',        full:'Fratelli d\'Italia (Italia)', lead:'Giorgia Meloni',     ref:true, color:'--ref-meloni', note:'Referencia internacional'}
 ];
 // Ámbitos: agrupan las preguntas en páginas, alternando economía y libertades. No afectan al cálculo.
 const TOPICS = [
@@ -535,103 +544,103 @@ const TOPICS = [
   {id:'cost', ax:'P', t:'Costumbres e instituciones'}
 ];
 // dir +1: estar a favor = más libertad en ese eje; -1: a favor = más intervención del Estado
-// a: respuestas en orden pp, psoe, vox, fa, pod, salf, d21, milei, bukele (de -2 a +2; null = sin dato, no cuenta en la posición ni en la afinidad)
+// a: respuestas en orden pp, psoe, vox, fa, pod, salf, d21, milei, bukele, trump, putin, maduro, mujica, meloni (de -2 a +2; null = sin dato, no cuenta en la posición ni en la afinidad)
 // g: ámbito; k: etiqueta corta del tema (para las listas de coincidencias); c: contexto en lenguaje llano
 // src (opcional): {pp:'https://...', psoe:'https://...'} con la fuente de la respuesta de cada partido
 const QUESTIONS = [
- {id:'e_irpf',  ax:'E', g:'imp', dir:+1, k:'impuesto sobre la renta', t:'Hay que bajar el impuesto sobre la renta aunque el Estado recaude menos.', a:[2,-1,2,-2,-2,2,1,1,1],
+ {id:'e_irpf',  ax:'E', g:'imp', dir:+1, k:'impuesto sobre la renta', t:'Hay que bajar el impuesto sobre la renta aunque el Estado recaude menos.', a:[2,-1,2,-2,-2,2,1,1,1,2,0,-2,-2,2],
   c:'El impuesto sobre la renta (IRPF en España) grava lo que gana cada persona y es la principal fuente de ingresos del Estado. Bajarlo deja más dinero en el bolsillo, pero reduce lo que hay para servicios públicos.'},
- {id:'e_suc',   ax:'E', g:'imp', dir:+1, k:'sucesiones y patrimonio', t:'Deberían suprimirse los impuestos de sucesiones y de patrimonio.', a:[2,-2,2,-2,-2,2,1,2,null],
+ {id:'e_suc',   ax:'E', g:'imp', dir:+1, k:'sucesiones y patrimonio', t:'Deberían suprimirse los impuestos de sucesiones y de patrimonio.', a:[2,-2,2,-2,-2,2,1,2,null,2,2,-2,-1,1],
   c:'Sucesiones grava lo que heredas y patrimonio lo que tienes por encima de cierta cantidad. Son impuestos del Estado cedidos a las comunidades autónomas, y varias los han bonificado casi del todo, aunque desde 2023 el impuesto estatal a las grandes fortunas recupera parte de lo que no se paga por patrimonios de más de 3 millones.'},
- {id:'e_alq',   ax:'E', g:'viv', dir:-1, k:'topes al alquiler', t:'El Estado debe poner topes al precio del alquiler.', a:[-2,2,-2,2,2,-2,1,-2,null],
+ {id:'e_alq',   ax:'E', g:'viv', dir:-1, k:'topes al alquiler', t:'El Estado debe poner topes al precio del alquiler.', a:[-2,2,-2,2,2,-2,1,-2,null,-1,null,2,-1,-1],
   c:'Un tope limita por ley cuánto puede costar o subir un alquiler en zonas con precios altos. Quien lo defiende dice que protege al inquilino. Quien lo critica dice que deja menos pisos en alquiler.'},
- {id:'e_empv',  ax:'E', g:'viv', dir:-1, k:'empresa pública de vivienda', t:'Hay que crear una gran empresa pública estatal de vivienda y suelo.', a:[-1,2,-2,2,2,-2,0,-2,1],
+ {id:'e_empv',  ax:'E', g:'viv', dir:-1, k:'empresa pública de vivienda', t:'Hay que crear una gran empresa pública estatal de vivienda y suelo.', a:[-1,2,-2,2,2,-2,0,-2,1,-2,1,2,1,-1],
   c:'Una empresa pública que construya, compre y gestione viviendas y suelo para alquilarlas por debajo del precio de mercado, como las que existen en Viena o en algunos países nórdicos.'},
- {id:'e_acum',  ax:'E', g:'viv', dir:-1, k:'impuesto a grandes tenedores', t:'Quien acumula muchas viviendas debería pagar cada año un impuesto especial alto.', a:[-2,1,-2,2,2,-2,-1,-2,null],
+ {id:'e_acum',  ax:'E', g:'viv', dir:-1, k:'impuesto a grandes tenedores', t:'Quien acumula muchas viviendas debería pagar cada año un impuesto especial alto.', a:[-2,1,-2,2,2,-2,-1,-2,null,0,null,1,1,-1],
   c:'Un impuesto anual específico para quien posee muchas viviendas (los llamados grandes tenedores), con la intención de que las vendan o las alquilen.'},
- {id:'e_suelo', ax:'E', g:'viv', dir:+1, k:'liberalizar suelo', t:'Hay que liberalizar suelo y reducir trámites para que se construya más.', a:[2,1,2,-1,-2,2,1,2,1],
+ {id:'e_suelo', ax:'E', g:'viv', dir:+1, k:'liberalizar suelo', t:'Hay que liberalizar suelo y reducir trámites para que se construya más.', a:[2,1,2,-1,-2,2,1,2,1,2,1,-1,1,1],
   c:'Liberalizar suelo es permitir construir en más terrenos. Reducir trámites es acortar los permisos, que hoy pueden tardar años. La idea es que más oferta baje los precios.'},
- {id:'e_pens',  ax:'E', g:'trab', dir:-1, k:'pensiones con la inflación', t:'Las pensiones deben subir cada año con la inflación, por ley y pase lo que pase.', a:[2,2,-1,2,2,0,0,0,0],
+ {id:'e_pens',  ax:'E', g:'trab', dir:-1, k:'pensiones con la inflación', t:'Las pensiones deben subir cada año con la inflación, por ley y pase lo que pase.', a:[2,2,-1,2,2,0,0,0,0,1,1,-2,1,-1],
   c:'Revalorizar con la inflación garantiza que las pensiones no pierdan poder adquisitivo, pero encarece el sistema en años de precios altos y obliga a buscar el dinero por otra vía.'},
- {id:'e_mixto', ax:'E', g:'trab', dir:+1, k:'pensiones mixtas', t:'El sistema de pensiones debería ser mixto, con una parte de capitalización privada.', a:[0,-2,2,-2,-2,null,0,1,1],
+ {id:'e_mixto', ax:'E', g:'trab', dir:+1, k:'pensiones mixtas', t:'El sistema de pensiones debería ser mixto, con una parte de capitalización privada.', a:[0,-2,2,-2,-2,null,0,1,1,-1,0,-2,0,1],
   c:'En un sistema mixto, parte de la pensión viene del Estado (reparto) y parte de un fondo que cada trabajador acumula durante su vida laboral (capitalización), como en Suecia o Chile.'},
- {id:'e_func',  ax:'E', g:'imp', dir:+1, k:'reducir la administración', t:'Hay que reducir ministerios, organismos y empleo público.', a:[1,-1,2,-2,-2,2,1,2,2],
+ {id:'e_func',  ax:'E', g:'imp', dir:+1, k:'reducir la administración', t:'Hay que reducir ministerios, organismos y empleo público.', a:[1,-1,2,-2,-2,2,1,2,2,2,0,-1,-2,-1],
   c:'Reducir el tamaño de la administración: menos ministerios, menos organismos públicos y menos personal, con el argumento de ahorrar y simplificar.'},
- {id:'e_fort',  ax:'E', g:'imp', dir:-1, k:'impuestos a grandes fortunas', t:'Las grandes fortunas y las grandes empresas deberían pagar más impuestos.', a:[-2,2,-2,2,2,-2,0,-2,-1],
+ {id:'e_fort',  ax:'E', g:'imp', dir:-1, k:'impuestos a grandes fortunas', t:'Las grandes fortunas y las grandes empresas deberían pagar más impuestos.', a:[-2,2,-2,2,2,-2,0,-2,-1,-2,1,2,2,0],
   c:'Subir impuestos a los patrimonios y beneficios más altos, por ejemplo con tipos más altos en el impuesto de sociedades o un impuesto a las grandes fortunas.'},
- {id:'e_expr',  ax:'E', g:'est', dir:-1, k:'expropiar y nacionalizar', t:'El Estado debería poder expropiar viviendas o nacionalizar empresas estratégicas.', a:[-2,-1,-2,2,2,-2,-2,-2,0],
+ {id:'e_expr',  ax:'E', g:'est', dir:-1, k:'expropiar y nacionalizar', t:'El Estado debería poder expropiar viviendas o nacionalizar empresas estratégicas.', a:[-2,-1,-2,2,2,-2,-2,-2,0,0,2,1,0,0],
   c:'Expropiar es que el Estado se quede con algo privado pagando una compensación. Nacionalizar es que un sector o una empresa pase a ser pública, como la energía, la banca o las telecomunicaciones.'},
- {id:'e_sani',  ax:'E', g:'est', dir:-1, k:'sanidad y educación públicas', t:'Sanidad y educación deben ser públicas y gratuitas para todos, pagadas con impuestos.', a:[1,2,1,2,2,0,1,-1,1],
+ {id:'e_sani',  ax:'E', g:'est', dir:-1, k:'sanidad y educación públicas', t:'Sanidad y educación deben ser públicas y gratuitas para todos, pagadas con impuestos.', a:[1,2,1,2,2,0,1,-1,1,-2,1,1,2,0],
   c:'Gratuitas en el momento de usarlas y financiadas con impuestos, sin copagos ni cuotas, frente a modelos con más peso de seguros o centros privados.'},
- {id:'e_aval',  ax:'E', g:'viv', dir:-1, k:'avales a hipotecas', t:'El Estado debe avalar con dinero público las hipotecas de los jóvenes.', a:[2,2,0,-1,-2,1,0,-2,1],
+ {id:'e_aval',  ax:'E', g:'viv', dir:-1, k:'avales a hipotecas', t:'El Estado debe avalar con dinero público las hipotecas de los jóvenes.', a:[2,2,0,-1,-2,1,0,-2,1,1,1,1,1,2],
   c:'El Estado garantiza al banco una parte de la hipoteca para que los jóvenes puedan comprar sin ahorrar toda la entrada. Si el comprador no paga, lo asume el Estado.'},
- {id:'e_gasto', ax:'E', g:'imp', dir:+1, k:'reducir el gasto público', t:'El gasto público debería reducirse de forma significativa.', a:[0,-1,2,-2,-2,2,0,2,1],
+ {id:'e_gasto', ax:'E', g:'imp', dir:+1, k:'reducir el gasto público', t:'El gasto público debería reducirse de forma significativa.', a:[0,-1,2,-2,-2,2,0,2,1,0,-2,-2,-2,0],
   c:'El gasto público es todo lo que gastan las administraciones: pensiones, sanidad, educación, sueldos públicos, inversiones. Reducirlo de forma significativa implica recortar alguna de esas partidas.'},
- {id:'e_smi',   ax:'E', g:'trab', dir:-1, k:'salario mínimo', t:'El Gobierno debe seguir subiendo el salario mínimo por ley.', a:[1,2,0,2,2,null,0,-1,1],
+ {id:'e_smi',   ax:'E', g:'trab', dir:-1, k:'salario mínimo', t:'El Gobierno debe seguir subiendo el salario mínimo por ley.', a:[1,2,0,2,2,null,0,-1,1,-2,2,0,2,-2],
   c:'El salario mínimo es el sueldo más bajo que se puede pagar por ley. Subirlo mejora los sueldos más bajos. Quien lo critica dice que puede destruir empleo en sectores poco productivos.'},
- {id:'e_aran',  ax:'E', g:'est', dir:-1, k:'aranceles', t:'Hay que proteger al campo y a la industria nacional con aranceles o límites a las importaciones.', a:[-1,-1,1,1,1,1,-2,-2,-1],
+ {id:'e_aran',  ax:'E', g:'est', dir:-1, k:'aranceles', t:'Hay que proteger al campo y a la industria nacional con aranceles o límites a las importaciones.', a:[-1,-1,1,1,1,1,-2,-2,-1,2,2,0,-1,0],
   c:'Un arancel es un impuesto a los productos importados para que los nacionales compitan mejor. Protege a productores locales, pero encarece los productos y puede provocar represalias.'},
- {id:'e_desp',  ax:'E', g:'trab', dir:+1, k:'flexibilidad del despido', t:'Hay que facilitar a las empresas contratar y despedir, con menos restricciones e indemnizaciones más bajas.', a:[1,-2,2,-2,-2,null,1,2,1],
+ {id:'e_desp',  ax:'E', g:'trab', dir:+1, k:'flexibilidad del despido', t:'Hay que facilitar a las empresas contratar y despedir, con menos restricciones e indemnizaciones más bajas.', a:[1,-2,2,-2,-2,null,1,2,1,1,0,-2,-2,1],
   c:'Va de cuánto cuesta y cuánto tarda despedir, con la indemnización y las causas que hay que justificar, y de los límites a los contratos temporales. Más flexibilidad facilita contratar. Menos flexibilidad protege a quien ya tiene empleo.'},
- {id:'e_jorn',  ax:'E', g:'trab', dir:-1, k:'reducir la jornada por ley', t:'La jornada laboral debe reducirse por ley sin bajar el sueldo.', a:[-1,2,-2,2,2,null,0,-2,0],
+ {id:'e_jorn',  ax:'E', g:'trab', dir:-1, k:'reducir la jornada por ley', t:'La jornada laboral debe reducirse por ley sin bajar el sueldo.', a:[-1,2,-2,2,2,null,0,-2,0,null,-1,null,1,-2],
   c:'Reducir por ley la jornada máxima legal manteniendo el salario. Mejora el tiempo libre del trabajador y encarece la hora trabajada para la empresa.'},
- {id:'e_ecol',  ax:'E', g:'est', dir:-1, k:'regulación ambiental', t:'Hay que imponer impuestos y normas ambientales estrictas a empresas y consumidores aunque frenen la economía.', a:[-1,1,-2,2,2,-2,0,-2,-2],
+ {id:'e_ecol',  ax:'E', g:'est', dir:-1, k:'regulación ambiental', t:'Hay que imponer impuestos y normas ambientales estrictas a empresas y consumidores aunque frenen la economía.', a:[-1,1,-2,2,2,-2,0,-2,-2,-2,-2,-2,0,-2],
   c:'Impuestos a las emisiones, límites a determinadas actividades o prohibiciones (por ejemplo, de coches de combustión) para frenar el cambio climático, aunque supongan costes a empresas y consumidores.'},
- {id:'e_okupa', ax:'E', g:'viv', dir:+1, k:'desalojos exprés', t:'Hay que poder desalojar en pocos días a quien ocupa una vivienda sin permiso.', a:[2,-1,2,-2,-2,2,1,2,null],
+ {id:'e_okupa', ax:'E', g:'viv', dir:+1, k:'desalojos exprés', t:'Hay que poder desalojar en pocos días a quien ocupa una vivienda sin permiso.', a:[2,-1,2,-2,-2,2,1,2,null,null,null,-2,null,2],
   c:'Acelerar por ley los desalojos de quien ocupa una vivienda sin título (okupación), incluidas las segundas residencias, frente a los procesos judiciales actuales, que pueden durar meses.'},
- {id:'p_expul', ax:'P', g:'seg', dir:-1, k:'expulsiones masivas', t:'Hay que expulsar de forma masiva a los inmigrantes en situación irregular.', a:[0,-2,2,-2,-2,2,-1,1,1],
+ {id:'p_expul', ax:'P', g:'seg', dir:-1, k:'expulsiones masivas', t:'Hay que expulsar de forma masiva a los inmigrantes en situación irregular.', a:[0,-2,2,-2,-2,2,-1,1,1,2,2,1,-2,1],
   c:'Expulsar a las personas que viven en el país sin permiso de residencia mediante operaciones a gran escala, en lugar de regularizarlas o tramitar los casos uno a uno.'},
- {id:'p_prior', ax:'P', g:'seg', dir:-1, k:'prioridad nacional en ayudas', t:'Las ayudas públicas deben dar prioridad a los ciudadanos del país frente a los extranjeros con residencia legal.', a:[0,-2,2,-2,-2,1,-1,2,null],
+ {id:'p_prior', ax:'P', g:'seg', dir:-1, k:'prioridad nacional en ayudas', t:'Las ayudas públicas deben dar prioridad a los ciudadanos del país frente a los extranjeros con residencia legal.', a:[0,-2,2,-2,-2,1,-1,2,null,2,2,null,-1,1],
   c:'Que en ayudas sociales, vivienda pública o plazas escolares los nacionales vayan por delante de los extranjeros que residen legalmente y pagan impuestos.'},
- {id:'p_poli',  ax:'P', g:'seg', dir:-1, k:'más poder a la policía', t:'La policía debería tener más margen para identificar, registrar y multar a personas sin pasar por un juez.', a:[2,-1,2,-2,-2,null,1,2,2],
+ {id:'p_poli',  ax:'P', g:'seg', dir:-1, k:'más poder a la policía', t:'La policía debería tener más margen para identificar, registrar y multar a personas sin pasar por un juez.', a:[2,-1,2,-2,-2,null,1,2,2,2,2,2,0,2],
   c:'Es el debate de la Ley de Seguridad Ciudadana de 2015, la que sus críticos llaman ley mordaza. Permite retener a alguien hasta seis horas para identificarlo, multar por faltas de respeto a los agentes y da por cierta la versión del policía salvo prueba en contrario. El PP la aprobó en solitario y Vox quiere endurecerla. PSOE y Sumar llevan años intentando reformarla y Podemos pide derogarla. El Congreso rechazó la reforma en marzo de 2023 y volvió a tramitarla en octubre de 2024, pero sigue parada.'},
- {id:'p_perp',  ax:'P', g:'seg', dir:-1, k:'prisión permanente revisable', t:'La prisión permanente revisable debería mantenerse o ampliarse a más delitos.', a:[2,-1,2,-2,-2,1,1,2,2],
+ {id:'p_perp',  ax:'P', g:'seg', dir:-1, k:'prisión permanente revisable', t:'La prisión permanente revisable debería mantenerse o ampliarse a más delitos.', a:[2,-1,2,-2,-2,1,1,2,2,2,2,null,-1,2],
   c:'Es la pena más alta del Código Penal desde 2015: cárcel sin fecha de salida, con revisión a partir de los 25 años. El Constitucional la avaló en 2021. El PP y Vox quieren ampliarla a más casos, como el asesinato con ocultación del cadáver. El Congreso rechazó esa ampliación en marzo de 2026 por dos votos. El PSOE está en contra de ampliarla pero no la ha derogado en siete años de Gobierno. Frente Amplio y Podemos quieren eliminarla.'},
- {id:'p_odio',  ax:'P', g:'expr', dir:-1, k:'discursos de odio', t:'El Estado debe poder sancionar o expulsar a quien difunda discursos de odio, aunque no inciten a la violencia.', a:[1,1,-1,2,2,-2,0,0,2],
+ {id:'p_odio',  ax:'P', g:'expr', dir:-1, k:'discursos de odio', t:'El Estado debe poder sancionar o expulsar a quien difunda discursos de odio, aunque no inciten a la violencia.', a:[1,1,-1,2,2,-2,0,0,2,1,2,2,null,-1],
   c:'Castigar expresiones que desprecian a colectivos por su origen, religión, orientación u otras características, aunque no llamen a la violencia. El debate es dónde acaba la libertad de expresión.'},
- {id:'p_simb',  ax:'P', g:'expr', dir:-1, k:'ofensas a la bandera, la Corona o la religión', t:'Ofender a la bandera, a la Corona o a los sentimientos religiosos debería seguir siendo delito.', a:[2,-2,2,-2,-2,null,1,1,null],
+ {id:'p_simb',  ax:'P', g:'expr', dir:-1, k:'ofensas a la bandera, la Corona o la religión', t:'Ofender a la bandera, a la Corona o a los sentimientos religiosos debería seguir siendo delito.', a:[2,-2,2,-2,-2,null,1,1,null,2,2,2,null,null],
   c:'El Código Penal castiga con multa los ultrajes a España y sus símbolos, las injurias al Rey y las ofensas a los sentimientos religiosos. Son los artículos por los que se condenó a raperos y humoristas. PSOE y Sumar pactaron en junio de 2026 una ley para eliminarlos y el Congreso rechazó en julio las enmiendas del PP y de Vox para mantenerlos o endurecerlos. La ley decayó al disolverse las Cortes, así que el debate vuelve con las elecciones.'},
- {id:'p_prot',  ax:'P', g:'expr', dir:-1, k:'limitar las protestas', t:'Hay que limitar más las protestas que cortan calles o carreteras.', a:[1,-1,1,-2,-2,-1,1,2,2],
+ {id:'p_prot',  ax:'P', g:'expr', dir:-1, k:'limitar las protestas', t:'Hay que limitar más las protestas que cortan calles o carreteras.', a:[1,-1,1,-2,-2,-1,1,2,2,2,2,2,null,2],
   c:'Restringir las manifestaciones o protestas que bloquean el tráfico o las infraestructuras, con más multas o autorizaciones previas.'},
- {id:'p_euta',  ax:'P', g:'vida', dir:+1, k:'eutanasia', t:'La eutanasia debe seguir siendo legal.', a:[0,2,-2,2,2,null,2,-1,-2],
+ {id:'p_euta',  ax:'P', g:'vida', dir:+1, k:'eutanasia', t:'La eutanasia debe seguir siendo legal.', a:[0,2,-2,2,2,null,2,-1,-2,null,-2,null,null,-1],
   c:'La ley de eutanasia (2021) permite a una persona mayor de edad con una enfermedad grave e incurable, o con un padecimiento grave, crónico e imposibilitante, pedir ayuda médica para morir, con varios controles.'},
- {id:'p_matr',  ax:'P', g:'vida', dir:+1, k:'matrimonio igualitario', t:'El matrimonio entre personas del mismo sexo debe seguir siendo legal.', a:[1,2,-1,2,2,1,2,1,-2],
+ {id:'p_matr',  ax:'P', g:'vida', dir:+1, k:'matrimonio igualitario', t:'El matrimonio entre personas del mismo sexo debe seguir siendo legal.', a:[1,2,-1,2,2,1,2,1,-2,1,-2,-1,2,-2],
   c:'Legal en España desde 2005. La afirmación plantea si debe mantenerse con los mismos derechos que el matrimonio entre personas de distinto sexo, incluida la adopción.'},
- {id:'p_abor',  ax:'P', g:'vida', dir:+1, k:'aborto', t:'El aborto debe seguir siendo legal en los plazos actuales.', a:[0,2,-2,2,2,-1,1,-2,-2],
+ {id:'p_abor',  ax:'P', g:'vida', dir:+1, k:'aborto', t:'El aborto debe seguir siendo legal en los plazos actuales.', a:[0,2,-2,2,2,-1,1,-2,-2,-1,0,-1,2,-1],
   c:'La ley actual permite abortar libremente hasta la semana 14 y hasta la 22 por causas médicas. La afirmación plantea si mantener esos plazos.'},
- {id:'p_cann',  ax:'P', g:'vida', dir:+1, k:'cannabis', t:'El cannabis para adultos debería ser legal y estar regulado.', a:[-2,-1,-2,1,2,null,1,-1,-2],
+ {id:'p_cann',  ax:'P', g:'vida', dir:+1, k:'cannabis', t:'El cannabis para adultos debería ser legal y estar regulado.', a:[-2,-1,-2,1,2,null,1,-1,-2,0,-2,null,2,-2],
   c:'Legal y regulado significa venta controlada a adultos, con impuestos y requisitos de calidad, como en Canadá o Uruguay, en lugar de la prohibición actual. Alemania ha ido a medio camino, con consumo, cultivo propio y clubes permitidos pero sin venta comercial.'},
- {id:'p_prost', ax:'P', g:'vida', dir:-1, k:'prostitución', t:'Hay que prohibir la prostitución y castigar también al cliente.', a:[0,2,0,-1,0,null,-1,-1,null],
+ {id:'p_prost', ax:'P', g:'vida', dir:-1, k:'prostitución', t:'Hay que prohibir la prostitución y castigar también al cliente.', a:[0,2,0,-1,0,null,-1,-1,null,1,1,null,-1,null],
   c:'Modelo abolicionista: perseguir la prostitución castigando a quien paga por sexo, sin castigar a quien lo vende, como hacen Suecia desde 1999 y Francia desde 2016, frente a regularla como una actividad laboral o dejarla como está.'},
- {id:'p_medio', ax:'P', g:'expr', dir:-1, k:'regular los medios', t:'El Gobierno debe poder regular a los medios de comunicación para combatir la desinformación.', a:[-2,2,-1,2,1,-2,null,0,2],
+ {id:'p_medio', ax:'P', g:'expr', dir:-1, k:'regular los medios', t:'El Gobierno debe poder regular a los medios de comunicación para combatir la desinformación.', a:[-2,2,-1,2,1,-2,null,0,2,1,2,2,1,1],
   c:'Que el Gobierno pueda imponer normas a periódicos, televisiones o webs (registro, sanciones, retirada de contenidos) para frenar bulos. El riesgo es quién decide qué es desinformación.'},
- {id:'p_ident', ax:'P', g:'expr', dir:-1, k:'verificar la identidad en webs para adultos', t:'Para entrar en webs de contenido adulto debería exigirse verificar la identidad.', a:[2,2,0,1,0,-1,0,null,null],
+ {id:'p_ident', ax:'P', g:'expr', dir:-1, k:'verificar la identidad en webs para adultos', t:'Para entrar en webs de contenido adulto debería exigirse verificar la identidad.', a:[2,2,0,1,0,-1,0,null,null,null,1,null,null,2],
   c:'Exigir una verificación de edad e identidad (DNI digital, cartera de identidad) para acceder a pornografía en internet, con el fin de proteger a los menores.'},
- {id:'p_taba',  ax:'P', g:'cost', dir:-1, k:'prohibición de fumar en terrazas', t:'Hay que ampliar la prohibición de fumar y vapear a terrazas y espacios abiertos.', a:[0,2,-1,2,null,null,1,-1,null],
+ {id:'p_taba',  ax:'P', g:'cost', dir:-1, k:'prohibición de fumar en terrazas', t:'Hay que ampliar la prohibición de fumar y vapear a terrazas y espacios abiertos.', a:[0,2,-1,2,null,null,1,-1,null,null,2,null,1,0],
   c:'Ampliar los espacios sin humo a terrazas de bares, playas, paradas de autobús o estadios, incluidos los cigarrillos electrónicos.'},
- {id:'p_anon',  ax:'P', g:'expr', dir:-1, k:'anonimato en redes', t:'Habría que acabar con el anonimato en las redes sociales.', a:[1,2,-1,0,null,-2,null,-1,null],
+ {id:'p_anon',  ax:'P', g:'expr', dir:-1, k:'anonimato en redes', t:'Habría que acabar con el anonimato en las redes sociales.', a:[1,2,-1,0,null,-2,null,-1,null,null,2,2,null,null],
   c:'Obligar a identificarse con nombre real o documento para tener una cuenta en redes sociales, para perseguir el acoso y los bulos. Se pierde el anonimato que protege a denunciantes o disidentes.'},
- {id:'p_burka', ax:'P', g:'cost', dir:-1, k:'burka y niqab', t:'Debería prohibirse el burka y el niqab en los espacios públicos.', a:[2,-1,2,-2,-2,null,1,null,null],
+ {id:'p_burka', ax:'P', g:'cost', dir:-1, k:'burka y niqab', t:'Debería prohibirse el burka y el niqab en los espacios públicos.', a:[2,-1,2,-2,-2,null,1,null,null,null,0,null,null,1],
   c:'Prohibir las prendas que cubren toda la cara en la calle y en los edificios públicos, como ya hacen Francia o Bélgica.'},
- {id:'p_ileg',  ax:'P', g:'cost', dir:-1, k:'ilegalizar partidos independentistas', t:'Habría que ilegalizar los partidos que defienden la independencia de una región.', a:[-1,-2,2,-2,-2,null,-1,null,0],
+ {id:'p_ileg',  ax:'P', g:'cost', dir:-1, k:'ilegalizar partidos independentistas', t:'Habría que ilegalizar los partidos que defienden la independencia de una región.', a:[-1,-2,2,-2,-2,null,-1,null,0,null,2,2,null,null],
   c:'Prohibir por ley partidos que defienden pacíficamente la independencia de una parte del país. Hoy solo se puede ilegalizar un partido por lo que hace, no por lo que defiende, como vulnerar derechos de forma sistemática, fomentar la violencia o apoyar al terrorismo.'},
- {id:'p_decr',  ax:'P', g:'cost', dir:-1, k:'legislar por decreto', t:'El Gobierno debería poder legislar por decreto cuando el Parlamento bloquea sus reformas.', a:[-1,1,-1,0,0,null,-1,2,2],
+ {id:'p_decr',  ax:'P', g:'cost', dir:-1, k:'legislar por decreto', t:'El Gobierno debería poder legislar por decreto cuando el Parlamento bloquea sus reformas.', a:[-1,1,-1,0,0,null,-1,2,2,2,2,2,-1,2],
   c:'Legislar por decreto es aprobar normas sin pasar antes por el Parlamento, que solo las vota después para mantenerlas o tumbarlas. La Constitución lo reserva a casos de urgencia. La afirmación plantea usarlo como vía habitual cuando no hay mayoría.'},
- {id:'p_chat',  ax:'P', g:'seg', dir:-1, k:'escanear mensajes privados', t:'Las aplicaciones de mensajería deberían escanear los mensajes privados para detectar delitos.', a:[1,2,-2,-1,-1,0,-1,1,2],
+ {id:'p_chat',  ax:'P', g:'seg', dir:-1, k:'escanear mensajes privados', t:'Las aplicaciones de mensajería deberían escanear los mensajes privados para detectar delitos.', a:[1,2,-2,-1,-1,0,-1,1,2,null,2,1,0,-1],
   c:'Es lo que en Bruselas llaman Chat Control: obligar a WhatsApp, Telegram o Signal a revisar lo que envías para detectar abusos a menores, lo que choca con el cifrado que hoy impide leer tus mensajes. El Gobierno español ha sido uno de los más duros a favor en el Consejo de la UE y llegó a plantear limitar el cifrado. En el Parlamento Europeo los eurodiputados del PP y del PSOE apoyaron en julio de 2026 prorrogar el escaneo voluntario y Vox votó en contra. Las plataformas y los expertos en seguridad lo rechazan.'},
- {id:'p_trans', ax:'P', g:'vida', dir:+1, k:'autodeterminación de género', t:'Las personas deben poder cambiar su sexo legal sin informes médicos.', a:[-2,2,-2,2,2,-2,-1,-1,-2],
+ {id:'p_trans', ax:'P', g:'vida', dir:+1, k:'autodeterminación de género', t:'Las personas deben poder cambiar su sexo legal sin informes médicos.', a:[-2,2,-2,2,2,-2,-1,-1,-2,-2,-2,-1,null,-1],
   c:'La ley trans (2023) permite cambiar el sexo en el DNI desde los 16 años con una declaración, sin informes médicos ni tratamientos. La afirmación plantea si mantener esa autodeterminación.'},
- {id:'p_mili',  ax:'P', g:'seg', dir:-1, k:'servicio militar obligatorio', t:'Debería recuperarse el servicio militar obligatorio.', a:[-1,-2,1,-2,-2,null,null,-1,null],
+ {id:'p_mili',  ax:'P', g:'seg', dir:-1, k:'servicio militar obligatorio', t:'Debería recuperarse el servicio militar obligatorio.', a:[-1,-2,1,-2,-2,null,null,-1,null,null,2,1,null,-1],
   c:'España suspendió el servicio militar obligatorio a finales de 2001. Con el rearme europeo, varios países han vuelto a debatir una mili obligatoria o un servicio nacional.'},
- {id:'p_armas', ax:'P', g:'seg', dir:1, k:'armas en casa', t:'Debería ser más fácil para un particular tener un arma en casa para defenderse.', a:[-1,-2,2,-2,-2,null,-2,1,1],
+ {id:'p_armas', ax:'P', g:'seg', dir:1, k:'armas en casa', t:'Debería ser más fácil para un particular tener un arma en casa para defenderse.', a:[-1,-2,2,-2,-2,null,-2,1,1,2,-2,-2,-2,null],
   c:'En España tener un arma exige licencia, pruebas y una justificación, y la defensa personal casi nunca se admite. Vox propuso en 2022 que usar un arma legal contra un intruso en casa se presuma legítima defensa, y el Congreso lo rechazó por 289 votos a 53, con el PP, el PSOE, la izquierda y Ciudadanos en contra. El Gobierno prepara un reglamento con más requisitos para las nuevas licencias.'},
- {id:'p_relig', ax:'P', g:'cost', dir:-1, k:'religión en la vida pública', t:'La religión debería tener más presencia en la escuela y en la vida pública.', a:[1,-1,1,-2,-2,null,-1,null,2],
+ {id:'p_relig', ax:'P', g:'cost', dir:-1, k:'religión en la vida pública', t:'La religión debería tener más presencia en la escuela y en la vida pública.', a:[1,-1,1,-2,-2,null,-1,null,2,2,2,null,-1,1],
   c:'Más presencia de la religión en la escuela pública (asignatura, símbolos) y en los actos institucionales, frente a un Estado más neutral en materia religiosa.'},
- {id:'p_toros', ax:'P', g:'cost', dir:-1, k:'corridas de toros', t:'Habría que prohibir las corridas de toros.', a:[-2,-1,-2,1,2,0,-1,null,null],
+ {id:'p_toros', ax:'P', g:'cost', dir:-1, k:'corridas de toros', t:'Habría que prohibir las corridas de toros.', a:[-2,-1,-2,1,2,0,-1,null,null,null,null,null,null,null],
   c:'Una ley de 2013 protege la tauromaquia como patrimonio cultural, lo que impide a las comunidades prohibirla. En octubre de 2025 el Congreso rechazó tramitar una iniciativa popular para derogarla: PP y Vox votaron en contra, el PSOE se abstuvo y Sumar y Podemos votaron a favor. Ningún partido con escaños propone hoy prohibirlas por ley, pero la izquierda quiere retirarles la protección y el dinero público, y Podemos ha hablado de un referéndum.'},
- {id:'p_menores', ax:'P', g:'expr', dir:-1, k:'menores en redes sociales', t:'Hay que prohibir por ley que los menores de 16 años tengan cuentas en redes sociales.', a:[2,2,-1,1,0,-1,null,null,null],
+ {id:'p_menores', ax:'P', g:'expr', dir:-1, k:'menores en redes sociales', t:'Hay que prohibir por ley que los menores de 16 años tengan cuentas en redes sociales.', a:[2,2,-1,1,0,-1,null,null,null,null,null,null,null,null],
   c:'Prohibir por ley que los menores de cierta edad abran cuentas en redes sociales, con verificación de edad. Australia lo aplica desde diciembre de 2025 a los menores de 16. En Francia el Parlamento aprobó una prohibición a menores de 15 que el Consejo Constitucional anuló en agosto de 2026. En España el Gobierno propuso los 16 años, pero la ley decayó al disolverse las Cortes.'},
- {id:'p_apuestas', ax:'P', g:'cost', dir:-1, k:'publicidad de apuestas', t:'Hay que prohibir la publicidad de las apuestas y del juego online.', a:[0,1,-1,1,2,null,1,-2,null],
+ {id:'p_apuestas', ax:'P', g:'cost', dir:-1, k:'publicidad de apuestas', t:'Hay que prohibir la publicidad de las apuestas y del juego online.', a:[0,1,-1,1,2,null,1,-2,null,null,1,null,null,0],
   c:'Prohibir anuncios de casas de apuestas y juego online en televisión, deporte e internet, como ya se limitó en España en 2020, para reducir la ludopatía, sobre todo entre jóvenes.'}
 ];
 const LABELS = ['Muy en contra','En contra','Neutral','A favor','Muy a favor'];
@@ -782,15 +791,26 @@ function drawChart(){
 
 function drawLegend(){
   const lg = document.getElementById('legend'); lg.innerHTML='';
-  PARTIES.forEach(p=>{
+  const chip = p=>{
     const b = document.createElement('button'); b.type='button'; b.className='chip'; b.id='chip-'+p.id;
     b.setAttribute('aria-pressed', hidden.has(p.id)?'false':'true');
     b.innerHTML = `<span class="dot" style="background:${p.ref?`var(${p.color})`:'var(--ink)'}"></span>${p.name}`;
     b.title = `${p.full} · ${p.lead}${p.note?` · ${p.note}`:''}`;
     b.setAttribute('aria-label', `${hidden.has(p.id)?'Mostrar':'Ocultar'} ${p.full} en el rombo`);
-    b.addEventListener('click',()=>{ hidden.has(p.id)?hidden.delete(p.id):hidden.add(p.id); save(); drawLegend(); drawChart(); });
-    lg.appendChild(b);
-  });
+    b.addEventListener('click',()=>{ hidden.has(p.id)?hidden.delete(p.id):hidden.add(p.id); save(); drawLegend(); drawChart(); drawResult(); });
+    return b;
+  };
+  const real = PARTIES.filter(p=>!p.ref), refs = PARTIES.filter(p=>p.ref);
+  const g1 = document.createElement('div'); g1.className='legend-group'; real.forEach(p=>g1.appendChild(chip(p))); lg.appendChild(g1);
+  if(refs.length){
+    const g2 = document.createElement('div'); g2.className='legend-group';
+    const lab = document.createElement('span'); lab.className='legend-lab'; lab.textContent='Referencias'; g2.appendChild(lab);
+    refs.forEach(p=>g2.appendChild(chip(p)));
+    const allOff = refs.every(p=>hidden.has(p.id));
+    const t = document.createElement('button'); t.type='button'; t.className='linkbtn legend-all'; t.textContent = allOff ? 'Mostrar todas' : 'Ocultar todas';
+    t.addEventListener('click',()=>{ refs.forEach(p=> allOff ? hidden.delete(p.id) : hidden.add(p.id)); save(); drawLegend(); drawChart(); drawResult(); });
+    g2.appendChild(t); lg.appendChild(g2);
+  }
 }
 
 function affinity(i, src=answers){
@@ -847,7 +867,7 @@ function drawResult(){
     return;
   }
   const E = u.E ?? 50, P = u.P ?? 50;
-  const rows = PARTIES.map((p,i)=>({p, i, a:affinity(i)})).sort((x,y)=>y.a-x.a);
+  const rows = PARTIES.map((p,i)=>({p, i, a:affinity(i)})).filter(r=>!(r.p.ref && hidden.has(r.p.id))).sort((x,y)=>y.a-x.a);
   const warn = (u.nE<4 || u.nP<4) ? `<p class="note" style="margin-top:10px">Responde al menos 4 preguntas de cada eje para que la posición sea fiable${u.E===null?' (en economía aún no hay ninguna)':''}${u.P===null?' (en libertades aún no hay ninguna)':''}.</p>` : '';
   const real = rows.filter(x=>!x.p.ref);
   const shown = showAllMatches ? real : real.slice(0,3);
@@ -1046,7 +1066,7 @@ function paintChart(ctx, ox, oy, size, opts={}){
   const [cx0,cy0]=T(50,50); txt('Centro',cx0,cy0+30*k,fB(11.5),muted); placed.push({x:cx0-22*k,y:cy0+19*k,w:44*k,h:14*k});
   const axl=(s,x,y,rot)=>{ ctx.save(); ctx.translate(ox+x*k,oy+y*k); ctx.rotate(rot*Math.PI/180); txt(s,0,0,fM(10.5),muted); ctx.restore(); };
   axl('LIBERTAD ECONÓMICA →',150,152,-45); axl('← LIBERTAD PERSONAL',410,152,45);
-  const items = PARTIES.filter(p=>!hidden.has(p.id)).map(p=>({p,s:partyScores[p.id]}));
+  const items = PARTIES.filter(p=>!hidden.has(p.id) && !(opts.coreRefsOnly && p.ref && !['milei','bukele'].includes(p.id))).map(p=>({p,s:partyScores[p.id]}));
   const marks = personMarks().filter(m=> (m.id==='you' ? opts.showUser!==false : opts.showGroup!==false));
   items.forEach(({s})=>{ const [x,y]=T(s.E,s.P); placed.push({x:x-7*k,y:y-7*k,w:14*k,h:14*k}); });
   marks.forEach(m=>{ const [x,y]=T(m.E,m.P); m.x=x; m.y=y; placed.push({x:x-11*k,y:y-11*k,w:22*k,h:22*k}); });
@@ -1080,7 +1100,7 @@ async function renderShareImage(imgMode){
   const bg=cssVar('--bg'), ink=cssVar('--ink'), muted=cssVar('--muted'), accent=cssVar('--ink'), surface=cssVar('--surface'), soft=cssVar('--soft'), line=cssVar('--line-strong');
   ctx.fillStyle=bg; ctx.fillRect(0,0,W,H);
   ctx.fillStyle=surface; rr(ctx,32,35,560,560,20); ctx.fill(); ctx.strokeStyle=line; ctx.lineWidth=1.5; ctx.stroke();
-  paintChart(ctx, 32, 35, 560, {showUser: imgMode==='user', showGroup: imgMode==='user'});
+  paintChart(ctx, 32, 35, 560, {showUser: imgMode==='user', showGroup: imgMode==='user', coreRefsOnly: imgMode!=='user'});
   const X=640, COLW=520;
   const t=(s,x,y,font,color,align='left')=>{ ctx.font=font; ctx.fillStyle=color; ctx.textAlign=align; ctx.textBaseline='alphabetic'; ctx.fillText(s,x,y); };
   try{ ctx.letterSpacing='0.08em'; }catch(e){}
@@ -1241,7 +1261,7 @@ if(ogMode!==null){
   const gap = Math.round(S.milei.P - S.bukele.P), dMB = dist('milei','bukele'), dPP = dist('pp','psoe');
   document.getElementById('refGap').textContent = gap;
   document.getElementById('refCmp').textContent = `${dMB} puntos, una distancia parecida a la que separa al PP del PSOE (${dPP})`;
-  document.getElementById('refNote').innerHTML = `<strong>Milei y Bukele</strong> están los dos a la derecha y aun así a ${dMB} puntos el uno del otro, una distancia parecida a la que separa al PP del PSOE (${dPP}). La diferencia es en qué discrepan: Milei y Bukele en libertades personales, el PP y el PSOE en economía. Para eso sirve el rombo: para ver que no toda la derecha es igual ni toda la izquierda, y que estar cerca de un partido no es estar de acuerdo con él en todo.`;
+  document.getElementById('refNote').innerHTML = `<strong>Milei y Bukele</strong> están los dos a la derecha y aun así a ${dMB} puntos el uno del otro, una distancia parecida a la que separa al PP del PSOE (${dPP}). La diferencia es en qué discrepan: Milei y Bukele en libertades personales, el PP y el PSOE en economía. Para eso sirve el rombo: para ver que no toda la derecha es igual ni toda la izquierda, y que estar cerca de un partido no es estar de acuerdo con él en todo. Trump, Putin, Maduro, Mujica y Meloni están con el mismo criterio: solo lo que han hecho gobernando.`;
   drawLegend(); drawTable(); refresh();
 }
 </script>
