@@ -210,6 +210,22 @@ svg{display:block;width:100%;height:auto}
 .share{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}
 .share-row{display:flex;gap:8px;flex-wrap:wrap;margin-top:8px}
 .share-row .btn{text-decoration:none;display:inline-flex;align-items:center}
+.nets-row{display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin-top:4px}
+.nets-row .note{white-space:nowrap}
+.nets{display:flex;flex-wrap:wrap;gap:8px}
+.net{display:inline-flex;align-items:center;justify-content:center;width:38px;height:38px;padding:0;color:var(--ink);background:transparent;border:1px solid var(--line-strong);border-radius:9px;cursor:pointer;transition:border-color .12s,background .12s}
+.net svg{width:17px;height:17px;display:block;margin:auto}
+.nets .tipwrap{flex:0 0 auto}
+.net:hover{border-color:var(--ink);background:var(--soft)}
+.net:disabled{opacity:.4;cursor:default;border-color:var(--line-strong);background:transparent}
+.btn svg{width:16px;height:16px;display:inline-block;vertical-align:-3px;margin-right:7px}
+.tipwrap{position:relative;display:inline-flex}
+.tipwrap.grow{flex:1 1 auto}
+.tipwrap.grow .btn{width:100%}
+.tipwrap:hover .tip:not(:empty),.tipwrap:focus-within .tip:not(:empty){opacity:1;transform:translate(-50%,0)}
+.tip{position:absolute;left:50%;bottom:calc(100% + 8px);transform:translate(-50%,4px);background:var(--ink);color:var(--bg);font-size:12.5px;font-weight:600;padding:6px 10px;border-radius:6px;white-space:nowrap;opacity:0;pointer-events:none;transition:opacity .15s,transform .15s}
+.tip::after{content:"";position:absolute;left:50%;top:100%;margin-left:-5px;border:5px solid transparent;border-top-color:var(--ink)}
+.tip.show{opacity:1;transform:translate(-50%,0)}
 
 /* Botones */
 .btn{font:inherit;font-size:14px;font-weight:600;border:1px solid var(--line-strong);background:transparent;color:var(--ink);border-radius:var(--r);padding:9px 14px;cursor:pointer;transition:border-color .12s,background .12s,color .12s;line-height:1.2}
@@ -414,9 +430,17 @@ body.og #shareCanvas{display:block;width:1200px;height:630px}
         </div>
         <p class="note" id="mErr" role="status" aria-live="polite">Las dos puntuaciones de 0 a 100 que salen en «Tu posición».</p>
       </details>
+      <div class="nets-row"><span class="note" id="netsLabel">Compartir en:</span>
+      <div class="nets" id="nets" role="group" aria-labelledby="netsLabel">
+        <span class="tipwrap" id="netNativeWrap" hidden><button class="net" type="button" id="netNative" aria-label="Compartir con otras aplicaciones"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 15V4m0 0L8.5 7.5M12 4l3.5 3.5M5 13v6h14v-6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></button><span class="tip" data-label="Compartir…">Compartir…</span></span>
+        <span class="tipwrap"><button class="net" type="button" aria-label="WhatsApp" data-net="wa"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3a9 9 0 0 0-7.7 13.6L3 21l4.5-1.2A9 9 0 1 0 12 3z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><path d="M9 8.2c.2-.5.5-.5.8-.5h.5c.2 0 .4 0 .6.5l.7 1.7c.1.2.1.4 0 .6l-.5.7c-.1.2-.2.3 0 .6a6.5 6.5 0 0 0 3 2.7c.3.1.4.1.6-.1l.7-.9c.2-.2.4-.2.6-.1l1.7.8c.3.1.4.2.4.4 0 .3 0 1-.5 1.5s-1.2.8-1.8.8c-.9 0-2.4-.5-4-1.9S8.8 11.4 8.7 10c0-.6.1-1.3.3-1.8z" fill="currentColor"/></svg></button><span class="tip" data-label="WhatsApp">WhatsApp</span></span>
+        <span class="tipwrap"><button class="net" type="button" aria-label="Telegram" data-net="tg"><svg viewBox="0 0 24 24" aria-hidden="true"><g transform="translate(0 1)"><path d="M21 4L3 11l6 2 2 6 3.5-4 4.5 3z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><path d="M9 13l12-9" fill="none" stroke="currentColor" stroke-width="1.8"/></g></svg></button><span class="tip" data-label="Telegram">Telegram</span></span>
+        <span class="tipwrap"><button class="net" type="button" aria-label="X" data-net="x"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 4l16 16M20 4L4 20" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></svg></button><span class="tip" data-label="X">X</span></span>
+        <span class="tipwrap"><button class="net" type="button" aria-label="Facebook" data-net="fb"><svg viewBox="0 0 24 24" aria-hidden="true"><path transform="translate(-1.1 0)" d="M14.5 21v-7h2.4l.4-3h-2.8V9.2c0-.9.3-1.5 1.5-1.5h1.5V5.1c-.3 0-1.2-.1-2.2-.1-2.2 0-3.7 1.3-3.7 3.8V11H9v3h2.6v7z" fill="currentColor"/></svg></button><span class="tip" data-label="Facebook">Facebook</span></span>
+        <span class="tipwrap"><button class="net" type="button" id="dlImg" aria-label="Descargar imagen"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 4v11m0 0l-3.5-3.5M12 15l3.5-3.5M5 19h14" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></button><span class="tip" id="dlTip" data-label="Descargar imagen">Descargar imagen</span></span>
+      </div></div>
       <div class="share">
-        <button class="btn primary" id="shareBtn" type="button">Compartir mi resultado</button>
-        <button class="btn" id="copyLink" type="button" aria-label="Copiar un enlace con tu punto y los de tu grupo">Copiar enlace del grupo</button>
+        <span class="tipwrap grow"><button class="btn" id="copyLink" type="button" aria-label="Copiar un enlace con tu punto y los de tu grupo"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M10 14a4 4 0 0 0 5.7 0l3-3a4 4 0 0 0-5.7-5.7l-1.2 1.2M14 10a4 4 0 0 0-5.7 0l-3 3a4 4 0 0 0 5.7 5.7l1.2-1.2" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>Copiar enlace del grupo</button><span class="tip" id="copyTip" role="status" aria-live="polite"></span></span>
       </div>
       <p class="hint" id="shareHint"></p>
       <p class="note" id="shareMsg" role="status" aria-live="polite"></p>
@@ -811,8 +835,8 @@ function drawResult(){
   const u = axisScore(q=>answers[q.id]);
   const n = Object.keys(answers).length;
   const me = myEntry();
-  document.getElementById('shareBtn').disabled = !me; document.getElementById('copyLink').disabled = !(me || group.length);
-  document.getElementById('shareHint').textContent = !n ? 'Responde unas cuantas afirmaciones y podrás compartir tu punto en el rombo y retar a tu gente a hacer lo mismo.' : !name ? 'Pon tu nombre arriba y se activará el botón de compartir.' : 'La imagen lleva el rombo con tu punto y los de tu grupo. Con el enlace, quien lo abra os verá a todos y podrá sumarse.';
+  document.querySelectorAll('#nets .net').forEach(b=>b.disabled = !me); document.getElementById('dlImg').disabled = !me; document.getElementById('copyLink').disabled = !(me || group.length);
+  document.getElementById('shareHint').textContent = !n ? 'Responde unas cuantas afirmaciones y podrás compartir tu punto en el rombo y retar a tu gente a hacer lo mismo.' : !name ? 'Pon tu nombre arriba y se activará el botón de compartir.' : 'Los botones abren la red con el texto y el enlace del grupo ya escritos. La imagen con el rombo se descarga aparte, por si quieres adjuntarla.';
   drawStrip(u, n);
   if(!n){
     r.innerHTML = `<div class="result-head"><h2>Tu posición</h2></div>
@@ -1091,40 +1115,55 @@ function shareText(){
 }
 function downloadBlob(blob,fname){ const a=document.createElement('a'); a.href=URL.createObjectURL(blob); a.download=fname; document.body.appendChild(a); a.click(); setTimeout(()=>{ URL.revokeObjectURL(a.href); a.remove(); },1500); }
 function setShareMsg(s){ document.getElementById('shareMsg').textContent = s; }
-function showShareLinks(text,url){
-  const box=document.getElementById('shareLinks'); const enc=encodeURIComponent;
-  box.innerHTML = `<div class="share-row">
-    <a class="btn" target="_blank" rel="noopener" href="https://twitter.com/intent/tweet?text=${enc(text)}&url=${enc(url)}">X</a>
-    <a class="btn" target="_blank" rel="noopener" href="https://www.facebook.com/sharer/sharer.php?u=${enc(url)}&quote=${enc(text)}">Facebook</a>
-    <a class="btn" target="_blank" rel="noopener" href="https://wa.me/?text=${enc(text+' '+url)}">WhatsApp</a>
-    <a class="btn" target="_blank" rel="noopener" href="https://t.me/share/url?url=${enc(url)}&text=${enc(text)}">Telegram</a>
-    <button class="btn" type="button" id="copyText">Copiar texto</button>
-  </div>`;
-  box.hidden=false;
-  document.getElementById('copyText').addEventListener('click',()=>copyToClipboard(text+' '+url,'Texto copiado.'));
+// Aviso breve pegado a un botón (en lugar de un alert): se muestra 1,8 s y desaparece
+const tipTimers = {};
+function showTip(id, msg){ const t=document.getElementById(id); if(!t) return; t.textContent=msg; t.classList.add('show'); clearTimeout(tipTimers[id]); tipTimers[id]=setTimeout(()=>{ t.classList.remove('show'); setTimeout(()=>{ t.textContent = t.dataset.label || ''; },200); },1800); }
+// Copia al portapapeles con tres vías: API moderna (solo en HTTPS o localhost), execCommand (HTTP en red local) y, si todo falla, un campo seleccionado para copiar a mano
+async function copyToClipboard(str, tipId, okMsg){
+  let ok = false;
+  if(navigator.clipboard && window.isSecureContext){ try{ await navigator.clipboard.writeText(str); ok = true; }catch(e){} }
+  if(!ok){
+    try{ const ta=document.createElement('textarea'); ta.value=str; ta.setAttribute('readonly',''); ta.style.cssText='position:fixed;top:0;left:0;width:1px;height:1px;opacity:0'; document.body.appendChild(ta); ta.focus(); ta.select(); ta.setSelectionRange(0,str.length); ok = document.execCommand('copy'); ta.remove(); }catch(e){ ok=false; }
+  }
+  if(ok){ showTip(tipId, okMsg); setShareMsg(''); return true; }
+  const box=document.getElementById('shareLinks');
+  box.innerHTML = `<label class="note" style="display:block;margin-top:6px">No se ha podido copiar solo. Selecciona y copia:<input class="copyfield" readonly value="${esc(str)}" style="display:block;width:100%;margin-top:6px;font:inherit;font-size:13px;border:1px solid var(--line-strong);background:var(--bg);color:var(--ink);border-radius:var(--r);padding:8px 10px"></label>`;
+  box.hidden=false; const f=box.querySelector('input'); f.focus(); f.select();
+  return false;
 }
-async function copyToClipboard(s,okMsg){
-  try{ await navigator.clipboard.writeText(s); setShareMsg(okMsg); }
-  catch(e){ window.prompt('Copia este texto:', s); }
+function netUrl(net, text, url){
+  const enc=encodeURIComponent;
+  if(net==='wa') return `https://wa.me/?text=${enc(text+' '+url)}`;
+  if(net==='tg') return `https://t.me/share/url?url=${enc(url)}&text=${enc(text)}`;
+  if(net==='x')  return `https://twitter.com/intent/tweet?text=${enc(text)}&url=${enc(url)}`;
+  if(net==='fb') return `https://www.facebook.com/sharer/sharer.php?u=${enc(url)}&quote=${enc(text)}`;
+  return url;
 }
-async function shareResult(){
-  const btn=document.getElementById('shareBtn'); btn.disabled=true; setShareMsg('Generando la imagen…');
+document.querySelectorAll('#nets .net[data-net]').forEach(b=>b.addEventListener('click',()=>{
+  if(b.disabled) return;
+  const w = window.open(netUrl(b.dataset.net, shareText(), compareUrl()), '_blank', 'noopener');
+  if(!w) setShareMsg('El navegador ha bloqueado la ventana. Copia el enlace y pégalo tú.');
+}));
+// Compartir nativo (móvil y algunos escritorios): imagen + texto + enlace en una sola hoja
+const netNative = document.getElementById('netNative');
+if(navigator.share) document.getElementById('netNativeWrap').hidden = false;
+netNative.addEventListener('click', async ()=>{
+  netNative.disabled=true; setShareMsg('Preparando la imagen…');
   try{
-    const blob = await renderShareImage('user');
-    const text = shareText(), url = compareUrl();
-    const file = new File([blob],'testnolan-resultado.png',{type:'image/png'});
-    if(navigator.canShare && navigator.canShare({files:[file]})){
-      try{ await navigator.share({files:[file], text, url}); setShareMsg(''); return; }
-      catch(e){ if(e && e.name==='AbortError'){ setShareMsg(''); return; } }
-    }
-    downloadBlob(blob,'testnolan-resultado.png');
-    setShareMsg('Imagen descargada. Adjúntala al publicar en:');
-    showShareLinks(text,url);
-  }catch(e){ setShareMsg('No se ha podido generar la imagen en este navegador.'); }
+    const text=shareText(), url=compareUrl();
+    let payload = {text, url};
+    try{ const blob=await renderShareImage('user'); const file=new File([blob],'testnolan-resultado.png',{type:'image/png'}); if(navigator.canShare && navigator.canShare({files:[file]})) payload={files:[file], text, url}; }catch(e){}
+    await navigator.share(payload); setShareMsg('');
+  }catch(e){ setShareMsg(e && e.name==='AbortError' ? '' : 'No se ha podido abrir el menú de compartir.'); }
+  finally{ netNative.disabled = !myEntry(); }
+});
+document.getElementById('dlImg').addEventListener('click', async ()=>{
+  const btn=document.getElementById('dlImg'); btn.disabled=true; setShareMsg('');
+  try{ const blob=await renderShareImage('user'); downloadBlob(blob,'testnolan-resultado.png'); showTip('dlTip','Imagen descargada'); }
+  catch(e){ setShareMsg('No se ha podido generar la imagen en este navegador.'); }
   finally{ btn.disabled=false; }
-}
-document.getElementById('shareBtn').addEventListener('click',shareResult);
-document.getElementById('copyLink').addEventListener('click',()=>copyToClipboard(compareUrl(),'Enlace copiado. Quien lo abra os verá a todos en el rombo y podrá sumarse.'));
+});
+document.getElementById('copyLink').addEventListener('click',()=>copyToClipboard(compareUrl(),'copyTip','Enlace copiado'));
 document.getElementById('stripResult').addEventListener('click',()=>document.getElementById('dash').scrollIntoView({behavior:'smooth', block:'start'}));
 document.getElementById('liveTop').addEventListener('click',()=>document.getElementById('dash').scrollIntoView({behavior:'smooth', block:'start'}));
 const nameInput = document.getElementById('nameInput'), nameBtn = document.getElementById('nameBtn'); nameInput.value = name;
