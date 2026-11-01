@@ -415,3 +415,15 @@ Para que las referencias puedan puntuarse sin cambiar lo que miden en España: �
 | p_simb | Meloni | +1 | Mantiene el vilipendio a la bandera y a la religión del Código Penal y su partido registró en mayo de 2024 multas de hasta 5.000 euros por exponer mal la bandera. | https://www.ilfoglio.it/politica/2024/05/21/news/meloni-e-il-tricolore-pulito-fdi-propone-multe-fino-a-5000-euro-per-chi-non-sa-esporre-la-bandiera--101728 |
 
 Siguen sin dato: Maduro y Mujica en espectáculos con animales (solo hay actuaciones del fiscal Saab o leyes de Vázquez) y Mujica en ofensas a símbolos. Macron pasa de en contra a neutral porque la ley de 2021 contra animales salvajes en circos pesa tanto como su negativa a prohibir la corrida.
+
+## Versión 2.1: revisión de Milei casilla a casilla
+
+Se revisaron las 40 casillas de Milei con el criterio 7 del README (hechos por encima de intentos, e intentos por encima de palabras). Se confirman 37 y se corrigen tres:
+
+| id | Antes | Ahora | Motivo |
+|---|---:|---:|---|
+| p_chat | en contra | sin dato | Las resoluciones de ciberpatrullaje tratan de redes y fuentes abiertas, no de mensajes privados. |
+| p_perp | muy a favor | a favor | La perpetua está en un proyecto de Código Penal no aprobado; la Ley 27.785 solo endurece la prisión preventiva. |
+| p_abor | muy en contra | en contra | La ley de 2020 sigue vigente; lo hecho es dejar de distribuir misoprostol y el proyecto de derogación es de su bancada. |
+
+Por qué sale a la derecha y no libertario: de sus 16 casillas de libertades con dato, solo matrimonio igualitario y armas suman libertad; odio y medios quedan neutrales por hechos contradictorios; y pesan hacia abajo, todas con acto de gobierno, la prioridad nacional (DNU 366/2025), el poder policial (decreto 383/2025), el protocolo antipiquetes, el DNU 62/2025 sobre menores trans, la restricción del Reprocann, el DNU 681/2026 sobre símbolos y las expulsiones, además de su rechazo declarado a la eutanasia y su apoyo a la Ley Conan y a la enseñanza religiosa en la escuela pública.

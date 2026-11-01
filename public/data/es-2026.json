@@ -1,5 +1,5 @@
 {
- "version": "2.0",
+ "version": "2.1",
  "date": "1 de noviembre de 2026",
  "notes": {
   "a": "Respuestas en el orden de parties, de -2 (muy en contra) a +2 (muy a favor); null = sin dato, no cuenta en la posición ni en la afinidad.",
@@ -822,7 +822,7 @@
     -2,
     1,
     1,
-    2,
+    1,
     2,
     2,
     2,
@@ -984,7 +984,7 @@
     2,
     -1,
     1,
-    -2,
+    -1,
     -2,
     -1,
     0,
@@ -1119,7 +1119,7 @@
     -1,
     0,
     -1,
-    1,
+    null,
     2,
     null,
     2,
@@ -3306,7 +3306,7 @@
     "https://chequeado.com/el-explicador/que-podra-hacer-ahora-la-policia-federal-los-5-cambios-del-nuevo-decreto-anunciado-por-patricia-bullrich/"
    ],
    "p_perp": [
-    "Su proyecto de Código Penal de octubre de 2025 prevé perpetua sin salida anticipada y la Ley 27.785 de reiterancia de febrero de 2025 endurece la prisión preventiva.",
+    "Su proyecto de Código Penal de octubre de 2025 prevé perpetua sin salida anticipada, pero el Congreso no lo ha aprobado, y la Ley 27.785 de reiterancia de 2025 solo endurece la prisión preventiva.",
     "https://www.lanacion.com.ar/politica/nuevo-codigo-penal-de-milei-y-bullrich-punto-por-punto-esto-es-lo-que-se-sabe-del-proyecto-nid03102025/"
    ],
    "p_odio": [
@@ -3330,7 +3330,7 @@
     "https://www.lanacion.com.ar/politica/javier-milei-aclaro-su-posicion-sobre-la-homosexualidad-y-dio-un-particular-ejemplo-para-explicarla-nid08112023/"
    ],
    "p_abor": [
-    "En 2024 el Estado dejó de distribuir misoprostol y mifepristona para abortos legales, su bancada presentó un proyecto para derogar la ley y declaró 2024 año de la vida.",
+    "No ha tocado la ley de 2020, pero en 2024 el Estado dejó de distribuir misoprostol y mifepristona para abortos legales, su bancada presentó un proyecto para derogarla y declaró 2024 año de la vida.",
     "https://chequeado.com/el-explicador/a-4-anos-de-la-ley-del-aborto-sin-entrega-de-medicamentos-y-con-un-proyecto-presentado-para-derogarla/"
    ],
    "p_cann": [
@@ -3350,7 +3350,7 @@
     ""
    ],
    "p_chat": [
-    "Las resoluciones 428/2024 y 710/2024 autorizan ciberpatrullaje con inteligencia artificial en redes y fuentes abiertas sin juez, pero nada sobre mensajes cifrados.",
+    "Las resoluciones 428/2024 y 710/2024 autorizan ciberpatrullaje con inteligencia artificial en redes y fuentes abiertas, pero no hay ninguna medida sobre mensajes privados, así que no se puntúa.",
     "https://chequeado.com/el-explicador/ciberpatrullaje-e-inteligencia-artificial-que-dispuso-el-gobierno-de-milei-y-que-debates-plantea-la-medida/"
    ],
    "p_trans": [
