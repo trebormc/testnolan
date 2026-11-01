@@ -35,10 +35,14 @@ let group = [];        // [{name,E,P,src}] personas recibidas por enlace (#g=) o
 function cleanName(s){ return String(s||'').replace(/[<>"&~|%+]/g,'').replace(/\s+/g,' ').trim().slice(0,NAME_MAX); }
 function esc(s){ return String(s).replace(/[&<>"']/g, c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c])); }
 
-try{ const s = JSON.parse(localStorage.getItem(STORE_KEY)||'null'); if(s){ answers = s.answers||{}; hidden = new Set(s.hidden||[]); name = cleanName(s.name); group = Array.isArray(s.group) ? s.group.map(cleanPerson).filter(Boolean) : []; page = Number.isInteger(s.page) ? Math.min(Math.max(0,s.page),TOPICS.length-1) : 0; } }catch(e){}
+// Por defecto solo se muestran los partidos españoles: las referencias internacionales empiezan ocultas y se encienden en la leyenda. HIDDEN_VERSION invalida la elección guardada con el criterio anterior.
+const HIDDEN_VERSION = 2;
+const REF_IDS = PARTIES.filter(p=>p.ref).map(p=>p.id);
+hidden = new Set(REF_IDS);
+try{ const s = JSON.parse(localStorage.getItem(STORE_KEY)||'null'); if(s){ answers = s.answers||{}; if(s.hv===HIDDEN_VERSION) hidden = new Set(s.hidden||[]); name = cleanName(s.name); group = Array.isArray(s.group) ? s.group.map(cleanPerson).filter(Boolean) : []; page = Number.isInteger(s.page) ? Math.min(Math.max(0,s.page),TOPICS.length-1) : 0; } }catch(e){}
 // Respuestas guardadas de preguntas que ya no existen (versiones anteriores): se descartan para que no cuenten en el progreso
 { const valid = new Set(QUESTIONS.map(q=>q.id)); for(const k of Object.keys(answers)) if(!valid.has(k)) delete answers[k]; }
-function save(){ try{ localStorage.setItem(STORE_KEY, JSON.stringify({answers, hidden:[...hidden], name, page, group})); }catch(e){} }
+function save(){ try{ localStorage.setItem(STORE_KEY, JSON.stringify({answers, hidden:[...hidden], hv:HIDDEN_VERSION, name, page, group})); }catch(e){} }
 
 const partyScores = Scoring.partyScores(PARTIES, QUESTIONS);
 
@@ -433,7 +437,7 @@ function paintChart(ctx, ox, oy, size, opts={}){
   const [cx0,cy0]=T(50,50); txt('Centro',cx0,cy0+30*k,fB(11.5),ink2); placed.push({x:cx0-22*k,y:cy0+19*k,w:44*k,h:14*k});
   const axl=(s,x,y,rot)=>{ ctx.save(); ctx.translate(ox+x*k,oy+y*k); ctx.rotate(rot*Math.PI/180); txt(s,0,0,fM(10.5),ink2); ctx.restore(); };
   axl('LIBERTAD ECONÓMICA →',150,152,-45); axl('← LIBERTAD PERSONAL',410,152,45);
-  const items = PARTIES.filter(p=>!hidden.has(p.id) && !(opts.coreRefsOnly && p.ref && !['milei','bukele'].includes(p.id))).map(p=>({p,s:partyScores[p.id]}));
+  const items = PARTIES.filter(p=> opts.spainOnly ? !p.ref : !hidden.has(p.id)).map(p=>({p,s:partyScores[p.id]}));
   const marks = personMarks().filter(m=> (m.id==='you' ? opts.showUser!==false : opts.showGroup!==false));
   items.forEach(({s})=>{ const [x,y]=T(s.E,s.P); placed.push({x:x-7*k,y:y-7*k,w:14*k,h:14*k}); });
   marks.forEach(m=>{ const [x,y]=T(m.E,m.P); m.x=x; m.y=y; placed.push({x:x-11*k,y:y-11*k,w:22*k,h:22*k}); });
@@ -467,7 +471,7 @@ async function renderShareImage(imgMode){
   const bg=cssVar('--bg'), ink=cssVar('--ink'), muted=cssVar('--muted'), accent=cssVar('--ink'), surface=cssVar('--surface'), soft=cssVar('--soft'), line=cssVar('--line-strong');
   ctx.fillStyle=bg; ctx.fillRect(0,0,W,H);
   ctx.fillStyle=surface; rr(ctx,32,35,560,560,20); ctx.fill(); ctx.strokeStyle=line; ctx.lineWidth=1.5; ctx.stroke();
-  paintChart(ctx, 32, 35, 560, {showUser: imgMode==='user', showGroup: imgMode==='user', coreRefsOnly: imgMode!=='user'});
+  paintChart(ctx, 32, 35, 560, {showUser: imgMode==='user', showGroup: imgMode==='user', spainOnly: imgMode!=='user'});
   const X=640, COLW=520;
   const t=(s,x,y,font,color,align='left')=>{ ctx.font=font; ctx.fillStyle=color; ctx.textAlign=align; ctx.textBaseline='alphabetic'; ctx.fillText(s,x,y); };
   try{ ctx.letterSpacing='0.08em'; }catch(e){}
@@ -625,7 +629,7 @@ if(ogMode!==null){
   const S = partyScores, dist = (a,b)=>Math.round(Math.hypot(S[a].E-S[b].E, S[a].P-S[b].P));
   const pAff = (a,b)=>{ const ia=PARTIES.findIndex(x=>x.id===a), ib=PARTIES.findIndex(x=>x.id===b); let d=0, n=0; for(const q of QUESTIONS){ if(q.a[ia]===null||q.a[ib]===null) continue; d+=Math.abs(q.a[ia]-q.a[ib]); n++; } return Math.round(100-d/(4*n)*100); };
   document.getElementById('affFP').textContent = pAff('fa','pod'); document.getElementById('affVS').textContent = pAff('vox','salf');
-  document.getElementById('refNote').innerHTML = `<strong>Trump, Biden, Macron, Meloni, Putin, Maduro, Mujica, Milei y Bukele</strong> son referencias: gobernantes de fuera de España puntuados solo por lo que han hecho, para ver en qué zona cae cada forma de pensar y cuánto se parece a los partidos españoles y a sus votantes. Se ve que no toda la derecha piensa igual ni toda la izquierda, y que donde más se separan es en las libertades personales. Puedes apagarlos en la leyenda.`;
+  document.getElementById('refNote').innerHTML = `<strong>Trump, Biden, Macron, Meloni, Putin, Maduro, Mujica, Milei y Bukele</strong> son referencias: gobernantes de fuera de España puntuados solo por lo que han hecho, para ver en qué zona cae cada forma de pensar y cuánto se parece a los partidos españoles y a sus votantes. Se ve que no toda la derecha piensa igual ni toda la izquierda, y que donde más se separan es en las libertades personales. Están apagados al cargar la página: enciéndelos en la leyenda con «Mostrar todas».`;
   drawLegend(); drawTable(); refresh();
 }
 })().catch(e=>{ console.error(e); const m=document.getElementById('result'); if(m) m.innerHTML='<p class="empty">No se han podido cargar los datos del test. Recarga la página y, si sigue fallando, avísanos desde el pie.</p>'; });
