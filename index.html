@@ -91,12 +91,15 @@ kbd{font-family:var(--f-mono);font-size:11px;border:1px solid var(--line-strong)
 @media (max-width:560px){.top-meta .long{display:none}.top-meta .short{display:inline}.top{height:auto;min-height:52px;flex-wrap:wrap;padding:8px 0;gap:6px 12px}.top-meta{padding-left:12px}}
 
 /* Portada, a todo el ancho */
-.hero{padding:clamp(22px,3.6vw,40px) 0 clamp(20px,3vw,32px);display:flex;flex-direction:column;gap:16px}
+.hero{padding:clamp(22px,3.6vw,40px) 0 clamp(16px,2.4vw,28px);display:grid;grid-template-columns:1fr;gap:22px;align-items:center}
+.hero-txt{display:flex;flex-direction:column;gap:16px;min-width:0}
+.hero-chart{width:100%;max-width:440px;margin:0 auto;display:flex;flex-direction:column;gap:8px;min-width:0}
+@media (min-width:960px){.hero{grid-template-columns:minmax(0,1fr) minmax(320px,440px);gap:clamp(32px,4vw,64px)}.hero-chart{margin:0}}
 .eyebrow{font-family:var(--f-mono);font-size:11.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
 h1{font-size:clamp(36px,6.4vw,76px);line-height:.98;letter-spacing:-.03em}
 .lede{color:var(--ink-2);font-size:clamp(17px,1.6vw,20px);line-height:1.5}
 .lede strong{color:var(--ink);font-weight:600}
-.facts{list-style:none;margin:8px 0 0;padding:0;display:flex;flex-wrap:wrap;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.facts{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
 .facts li{display:flex;align-items:baseline;gap:10px;padding:12px 24px 12px 0;margin-right:24px;border-right:1px solid var(--line)}
 .facts li:last-child{border-right:0;margin-right:0;padding-right:0}
 .facts .num{font-family:var(--f-mono);font-size:20px;color:var(--ink);font-variant-numeric:tabular-nums;line-height:1}
@@ -104,7 +107,7 @@ h1{font-size:clamp(36px,6.4vw,76px);line-height:.98;letter-spacing:-.03em}
 @media (max-width:640px){.facts{display:grid;grid-template-columns:1fr 1fr;border-bottom:0}.facts li{padding:12px 12px 12px 0;margin-right:0;border-right:0;border-bottom:1px solid var(--line)}.facts li:nth-child(odd){border-right:1px solid var(--line);padding-right:12px;margin-right:12px}.facts .num{font-size:17px}}
 
 /* Tablero compacto: rombo y leyenda · tu posición · compartir */
-.dash{display:grid;grid-template-columns:1fr;gap:14px;margin-top:12px}
+.dash{display:grid;grid-template-columns:1fr;gap:14px;margin-top:44px;padding-top:28px;border-top:1px solid var(--line)}
 @media (min-width:640px) and (max-width:959px){.dash{grid-template-columns:1fr 1fr}.dash-col{grid-column:1 / -1}}
 @media (min-width:960px){.dash{grid-template-columns:minmax(0,380px) minmax(0,1fr) minmax(0,1fr);gap:18px;align-items:stretch}}
 .dash-col{display:flex;flex-direction:column;gap:10px;min-width:0}
@@ -116,9 +119,26 @@ h1{font-size:clamp(36px,6.4vw,76px);line-height:.98;letter-spacing:-.03em}
 .share-panel .share{margin:0}
 .share-panel .share .btn{flex:1 1 auto}
 .share-panel .hint{font-size:13.5px;color:var(--muted)}
+.add-row{display:flex;gap:8px;flex-wrap:wrap;align-items:stretch}
+.add-row input{flex:1 1 120px;min-width:0;font:inherit;font-size:15px;border:1px solid var(--line-strong);background:var(--bg);color:var(--ink);border-radius:var(--r);padding:8px 10px}
+.add-row input[type=number]{flex:0 1 104px}
+.add-row input:hover{border-color:var(--ink-2)}
+.add-row input::placeholder{color:var(--faint)}
+.add-row .btn{flex:0 0 auto}
+.glist{list-style:none;margin:4px 0 0;padding:0;display:flex;flex-direction:column}
+.glist li{display:flex;align-items:center;gap:10px;padding:8px 0;border-top:1px solid var(--line);font-size:14px}
+.glist li:last-child{border-bottom:1px solid var(--line)}
+.glist .who{flex:1 1 auto;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.glist .me .who{font-weight:600}
+.glist .sc{font-family:var(--f-mono);font-size:12.5px;color:var(--ink-2);font-variant-numeric:tabular-nums;white-space:nowrap}
+.glist .rm{font-size:12.5px}
+.manual summary{cursor:pointer;font-size:13.5px;color:var(--ink-2);list-style:none}
+.manual summary::before{content:"+ ";color:var(--muted)}
+.manual[open] summary::before{content:"− "}
+.manual .add-row{margin-top:10px}
 
 /* Zona de trabajo: columna fija con rombo en miniatura y coincidencias · preguntas */
-.work{display:grid;grid-template-columns:1fr;gap:28px;margin-top:40px}
+.work{display:grid;grid-template-columns:1fr;gap:28px;margin-top:32px}
 @media (min-width:960px){
   .work{grid-template-columns:minmax(0,330px) minmax(0,1fr);gap:40px;align-items:start}
   .live{position:sticky;top:12px;max-height:calc(100vh - 24px);overflow-y:auto;scrollbar-width:thin}
@@ -313,21 +333,11 @@ body.og #shareCanvas{display:block;width:1200px;height:630px}
   </nav>
 
   <header class="hero" id="top">
-    <h1>¿Qué partido te representa de verdad?</h1>
-    <p class="lede">¿Vas a votar «al menos malo» sin saber muy bien en qué se diferencian? Responde 47 afirmaciones en 5 minutos y mira dónde caes en el rombo junto a PP, PSOE, Vox, Frente Amplio, Podemos, SALF y D21 + Cs: qué partido se parece más a ti y en qué discrepas con él sin saberlo. Luego pásaselo a quien creas que se va a llevar una sorpresa.</p>
-    <ul class="facts" aria-label="Datos del test">
-      <li><span class="num" id="factQ">47</span><span class="lbl">afirmaciones</span></li>
-      <li><span class="num" id="factT">8</span><span class="lbl">ámbitos</span></li>
-      <li><span class="num">7</span><span class="lbl">partidos del 29N</span></li>
-      <li><span class="num">5</span><span class="lbl">minutos</span></li>
-      <li><span class="num">0</span><span class="lbl">datos guardados</span></li>
-    </ul>
-  </header>
-
-  <div class="panel" id="friendBox" hidden></div>
-
-  <section class="dash" id="dash" aria-label="Tu resultado">
-    <div class="dash-col">
+    <div class="hero-txt">
+      <h1>¿Qué partido te representa de verdad?</h1>
+      <p class="lede">¿Vas a votar «al menos malo» sin saber muy bien en qué se diferencian? Responde 47 afirmaciones en 5 minutos y mira dónde caes en el rombo junto a PP, PSOE, Vox, Frente Amplio, Podemos, SALF y D21 + Cs: qué partido se parece más a ti y en qué discrepas con él sin saberlo. Luego pásaselo a tus amigos y descubre quién es el facha y quién el rojo del grupo. Los nombres y las puntuaciones viajan en el enlace, así que podéis ir sumándoos al mismo rombo.</p>
+    </div>
+    <div class="hero-chart">
       <div class="panel chart-wrap">
         <svg id="chart" viewBox="0 0 560 560" role="img" aria-labelledby="chartTitle chartDesc">
           <title id="chartTitle">Diagrama de Nolan con los partidos de las generales del 29N y tu posición</title>
@@ -335,28 +345,24 @@ body.og #shareCanvas{display:block;width:1200px;height:630px}
           <g id="chartG"></g>
         </svg>
       </div>
-      <div class="legend" id="legend" role="group" aria-label="Mostrar u ocultar partidos"></div>
-      <p class="note" id="refNote" style="padding:0 2px"></p>
+      <p class="note" id="heroNote" hidden></p>
     </div>
-    <div class="panel" id="resultPanel"><div id="result" aria-live="polite"></div></div>
-    <section class="panel share-panel" id="shareBox" aria-label="Compartir">
-      <div class="result-head"><h2>Compártelo y compara</h2></div>
-      <label class="name-row"><span class="note">Ponle tu nombre al punto si quieres (sale en el rombo, en el enlace y en la imagen)</span><input id="nameInput" maxlength="24" autocomplete="off" placeholder="Tu nombre"></label>
-      <div class="share">
-        <button class="btn primary" id="shareBtn" type="button">Compartir mi resultado</button>
-        <button class="btn" id="copyLink" type="button" aria-label="Copiar un enlace con tu resultado para comparar con otra persona">Copiar enlace para comparar</button>
-      </div>
-      <p class="hint" id="shareHint">Responde unas cuantas afirmaciones y podrás compartir tu punto en el rombo y retar a alguien a hacer lo mismo.</p>
-      <p class="note" id="shareMsg" role="status" aria-live="polite"></p>
-      <div id="shareLinks" hidden></div>
-    </section>
+  </header>
+  <ul class="facts" aria-label="Datos del test">
+    <li><span class="num" id="factQ">47</span><span class="lbl">afirmaciones</span></li>
+    <li><span class="num" id="factT">8</span><span class="lbl">ámbitos</span></li>
+    <li><span class="num">7</span><span class="lbl">partidos del 29N</span></li>
+    <li><span class="num">5</span><span class="lbl">minutos</span></li>
+    <li><span class="num">0</span><span class="lbl">datos guardados</span></li>
+  </ul>
+
   </section>
 
   <div class="work">
   <aside class="live" aria-label="Tu resultado en vivo">
     <div class="panel live-head">
       <svg viewBox="0 0 560 560" aria-hidden="true"><use href="#chartG"/></svg>
-      <div><div class="z" id="liveZ">Tu posición</div><div class="s" id="liveS">Responde para aparecer</div><button class="btn" type="button" id="liveTop">Ver el rombo grande</button></div>
+      <div><div class="z" id="liveZ">Tu posición</div><div class="s" id="liveS">Responde para aparecer</div><button class="btn" type="button" id="liveTop">Ver resultado completo</button></div>
     </div>
     <div class="panel" id="matchPanel"><div id="matches"></div></div>
   </aside>
@@ -375,6 +381,33 @@ body.og #shareCanvas{display:block;width:1200px;height:630px}
     <p class="note" id="resetConfirm" role="status" hidden></p>
   </main>
   </div>
+
+  <section class="dash" id="dash" aria-label="Tu resultado">
+    <div class="dash-col">
+      <div class="panel chart-wrap"><svg viewBox="0 0 560 560" aria-hidden="true"><use href="#chartG"/></svg></div>
+      <div class="legend" id="legend" role="group" aria-label="Mostrar u ocultar partidos"></div>
+      <p class="note" id="refNote" style="padding:0 2px"></p>
+    </div>
+    <div class="panel" id="resultPanel"><div id="result" aria-live="polite"></div></div>
+    <section class="panel share-panel" id="shareBox" aria-label="Tu grupo y compartir">
+      <div class="result-head"><h2>Compártelo con tu grupo</h2></div>
+      <p class="note">Los nombres y las puntuaciones viajan en el enlace, nunca a un servidor. Quien lo abra os verá a todos en el rombo y podrá sumarse y reenviarlo.</p>
+      <div class="name-row"><label class="note" for="nameInput">Tu nombre, para el rombo, el enlace y la imagen</label>
+        <div class="add-row"><input id="nameInput" maxlength="24" autocomplete="off" placeholder="Tu nombre"><button class="btn" type="button" id="nameBtn">Añadir mi nombre</button></div></div>
+      <div id="groupList"></div>
+      <details class="manual"><summary>Añadir a alguien a mano</summary>
+        <div class="add-row"><input id="mName" maxlength="24" autocomplete="off" placeholder="Nombre" aria-label="Nombre"><input id="mE" type="number" inputmode="numeric" min="0" max="100" placeholder="Economía" aria-label="Libertad económica, de 0 a 100"><input id="mP" type="number" inputmode="numeric" min="0" max="100" placeholder="Libertades" aria-label="Libertad personal, de 0 a 100"><button class="btn" type="button" id="mAdd">Añadir</button></div>
+        <p class="note">Las dos puntuaciones de 0 a 100 que salen en «Tu posición».</p>
+      </details>
+      <div class="share">
+        <button class="btn primary" id="shareBtn" type="button">Compartir mi resultado</button>
+        <button class="btn" id="copyLink" type="button" aria-label="Copiar un enlace con tu punto y los de tu grupo">Copiar enlace del grupo</button>
+      </div>
+      <p class="hint" id="shareHint"></p>
+      <p class="note" id="shareMsg" role="status" aria-live="polite"></p>
+      <div id="shareLinks" hidden></div>
+    </section>
+  </section>
 
   <details class="info" id="nolan">
     <summary><span><h2>Qué es el test de Nolan y por qué sirve</h2><span class="kicker">Un mapa con dos ejes en lugar de la línea de izquierda a derecha, que separa lo que piensas de la economía de lo que piensas de las libertades personales.</span></span><span class="plus" aria-hidden="true">+</span></summary>
@@ -418,7 +451,7 @@ body.og #shareCanvas{display:block;width:1200px;height:630px}
   </details>
 
   <footer class="foot">
-    <div><span class="label">Tus datos</span><p><strong>Ninguno.</strong> No hay cuentas, ni cookies, ni analítica, ni ningún servidor que reciba tus respuestas. Lo que marcas se queda en tu propio navegador, para que no lo pierdas si recargas o vuelves otro día. Lo cambias o lo borras cuando quieras con «Borrar todas mis respuestas». Nadie más que tú puede verlo. Si compartes un enlace con tu resultado, tus respuestas y el nombre que hayas puesto van codificados en la propia dirección, detrás de la almohadilla, que nunca llega a ningún servidor.</p></div>
+    <div><span class="label">Tus datos</span><p><strong>Ninguno.</strong> No hay cuentas, ni cookies, ni analítica, ni ningún servidor que reciba tus respuestas. Lo que marcas se queda en tu propio navegador, para que no lo pierdas si recargas o vuelves otro día. Lo cambias o lo borras cuando quieras con «Borrar todas mis respuestas». Nadie más que tú puede verlo. Si compartes el enlace del grupo, los nombres y las dos puntuaciones de cada persona van en la propia dirección, detrás de la almohadilla, que nunca llega a ningún servidor. Tus respuestas una a una no viajan nunca.</p></div>
     <div><span class="label">Aviso</span><p>Esto <strong>no lo ha hecho ningún partido</strong> ni nadie que quiera que votes a uno en concreto. Las posiciones de los partidos son <strong>estimaciones</strong> a partir de fuentes públicas y pueden tener errores. El test <strong>no te recomienda a quién votar</strong> ni es una encuesta: solo compara tus respuestas con lo que dicen las candidaturas, para que votes sabiendo en qué coincides y en qué no.</p></div>
     <div><span class="label">Autoría</span><p>Hecho por <a href="https://menetray.com">Robert Menetray</a>. ¿Ves algún error en las posiciones? <a href="https://menetray.com">Escríbeme</a> indicando la fuente. <!-- TODO: sustituir el enlace de «Escríbeme» por la URL de issues del repositorio cuando sea público --> El código es abierto, con licencia MIT, y los datos de partidos y preguntas van con licencia CC BY 4.0.</p></div>
   </footer>
@@ -572,13 +605,13 @@ let name = '';
 let page = 0;          // ámbito actual (índice en TOPICS)
 let activeCard = null; // tarjeta activa (para el teclado)
 let showAllMatches = false;
-let friend = null;     // {answers, name} recibido por el enlace #r=
+let group = [];        // [{name,E,P,src}] personas recibidas por enlace (#g=) o añadidas a mano. Nunca llega al servidor.
 
-function cleanName(s){ return String(s||'').replace(/[<>"'&]/g,'').trim().slice(0,NAME_MAX); }
+function cleanName(s){ return String(s||'').replace(/[<>"'&~|]/g,'').trim().slice(0,NAME_MAX); }
 function esc(s){ return String(s).replace(/[&<>"']/g, c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c])); }
 
-try{ const s = JSON.parse(localStorage.getItem(STORE_KEY)||'null'); if(s){ answers = s.answers||{}; hidden = new Set(s.hidden||[]); name = cleanName(s.name); page = Number.isInteger(s.page) ? Math.min(Math.max(0,s.page),TOPICS.length-1) : 0; } }catch(e){}
-function save(){ try{ localStorage.setItem(STORE_KEY, JSON.stringify({answers, hidden:[...hidden], name, page})); }catch(e){} }
+try{ const s = JSON.parse(localStorage.getItem(STORE_KEY)||'null'); if(s){ answers = s.answers||{}; hidden = new Set(s.hidden||[]); name = cleanName(s.name); group = Array.isArray(s.group) ? s.group.map(cleanPerson).filter(Boolean) : []; page = Number.isInteger(s.page) ? Math.min(Math.max(0,s.page),TOPICS.length-1) : 0; } }catch(e){}
+function save(){ try{ localStorage.setItem(STORE_KEY, JSON.stringify({answers, hidden:[...hidden], name, page, group})); }catch(e){} }
 
 function cssVar(n){ return getComputedStyle(document.documentElement).getPropertyValue(n).trim(); }
 
@@ -603,20 +636,21 @@ function zoneOf(E,P){
   return 'Autoritario';
 }
 
-// Enlace con resultado: #r=<versión><una cifra por pregunta: 0..4, o _ si no se respondió>&n=<nombre>, en el orden de QUESTIONS. Nunca llega al servidor.
-function encodeAnswers(src){ return HASH_VERSION + QUESTIONS.map(q=> src[q.id]===undefined ? '_' : String(src[q.id]+2)).join(''); }
-function decodeAnswers(s){
-  if(!s || s[0]!==HASH_VERSION || s.length!==QUESTIONS.length+1) return null;
-  const out = {}; let n = 0;
-  QUESTIONS.forEach((q,i)=>{ const c = s[i+1]; if(c>='0' && c<='4'){ out[q.id] = parseInt(c,10)-2; n++; } });
-  return n ? out : null;
+// Enlace del grupo: #g=Nombre~E~P|Otro~E~P (puntuaciones de 0 a 100). Nunca llega al servidor. HASH_VERSION cambia si cambia el formato.
+function cleanPerson(x){ if(!x) return null; const nm=cleanName(x.name), E=Math.round(+x.E), P=Math.round(+x.P); if(!nm || !(E>=0&&E<=100) || !(P>=0&&P<=100)) return null; return {name:nm, E, P, src:x.src==='link'?'link':'manual'}; }
+function encodeGroup(list){ return list.map(p=>`${p.name}~${p.E}~${p.P}`).join('|'); }
+function decodeGroup(str){ if(!str) return []; return str.split('|').map(t=>{ const [n,e,pp]=t.split('~'); return cleanPerson({name:n, E:e, P:pp, src:'link'}); }).filter(Boolean); }
+function mergeFromHash(){
+  try{
+    const prm = new URLSearchParams(location.hash.replace(/^#/,'')); const inc = decodeGroup(prm.get('g')); let added = 0;
+    for(const x of inc){ if(name && x.name.toLowerCase()===name.toLowerCase()) continue; if(group.some(g=>g.name===x.name && g.E===x.E && g.P===x.P)) continue; group.push(x); added++; }
+    if(added) save(); return added;
+  }catch(e){ return 0; }
 }
-function readFriend(){
-  try{ const p = new URLSearchParams(location.hash.replace(/^#/,'')); const a = decodeAnswers(p.get('r')); return a ? {answers:a, name:cleanName(p.get('n'))} : null; }catch(e){ return null; }
-}
-friend = readFriend();
+function myEntry(){ const u = axisScore(q=>answers[q.id]); if(!name || (u.E===null && u.P===null)) return null; return {name, E:Math.round(u.E ?? 50), P:Math.round(u.P ?? 50), src:'me'}; }
+mergeFromHash();
 function baseUrl(){ return (location.origin && location.origin!=='null') ? location.origin + location.pathname : SITE_URL; }
-function compareUrl(){ return baseUrl() + '#r=' + encodeAnswers(answers) + (name ? '&n=' + encodeURIComponent(name) : ''); }
+function compareUrl(){ const me = myEntry(); const list = [...(me?[me]:[]), ...group]; return baseUrl() + (list.length ? '#g=' + encodeURIComponent(encodeGroup(list)) : ''); }
 
 // Geometría del rombo: E y P de 0 a 100. Centro (280,280), semidiagonal 240
 const C = 280, K = 2.4;
@@ -631,10 +665,10 @@ const ZONES = [
 const CENTER_SQ = [[65,65],[65,35],[35,35],[35,65]];
 const ZONE_LABELS = [['Libertario','Libertad en todo',88,88],['Derecha','Conservador',90,22],['Izquierda','Progresista',22,90],['Autoritario','Totalitarismo',10,10]];
 
-// Marcas de personas (tú y, si llega por enlace, otra persona)
+// Marcas de personas: tu grupo (por enlace o a mano) y tú
 function personMarks(){
   const marks = [];
-  if(friend){ const fs = axisScore(q=>friend.answers[q.id]); marks.push({id:'friend', label:friend.name||'Amigo', E:fs.E ?? 50, P:fs.P ?? 50, color:'--friend', ink:'--friend-ink'}); }
+  group.forEach((g,i)=>marks.push({id:'g'+i, label:g.name, E:g.E, P:g.P, color:'--friend', ink:'--friend-ink'}));
   const user = axisScore(q=>answers[q.id]);
   if(user.E!==null || user.P!==null) marks.push({id:'you', label:name||'Tú', E:user.E ?? 50, P:user.P ?? 50, color:'--accent', ink:'--accent-ink'});
   return marks;
@@ -701,7 +735,7 @@ function drawChart(){
   const you = marks.find(m=>m.id==='you');
   let desc = 'Rombo dividido en zonas libertaria, derecha, izquierda, autoritaria y centro, con un punto por partido calculado a partir de sus respuestas.';
   if(you) desc += ` Tu posición: zona ${zoneOf(you.E,you.P)}, libertad económica ${Math.round(you.E)} y libertad personal ${Math.round(you.P)} sobre 100.`;
-  if(friend){ const f = marks.find(m=>m.id==='friend'); desc += ` Resultado recibido por enlace (${f.label}): zona ${zoneOf(f.E,f.P)}, economía ${Math.round(f.E)}, libertades ${Math.round(f.P)}.`; }
+  if(group.length) desc += ' También ' + group.map(g=>`${g.name} (${zoneOf(g.E,g.P)}, ${g.E} y ${g.P})`).join(', ') + '.';
   document.getElementById('chartDesc').textContent = desc;
 }
 
@@ -760,8 +794,9 @@ function drawResult(){
   const r = document.getElementById('result'), mBox = document.getElementById('matches');
   const u = axisScore(q=>answers[q.id]);
   const n = Object.keys(answers).length;
-  document.getElementById('shareBtn').disabled = !n; document.getElementById('copyLink').disabled = !n;
-  document.getElementById('shareHint').textContent = n ? 'La imagen lleva tu punto, tu zona y tus puntuaciones. Con el enlace, quien lo abra verá su punto junto al tuyo.' : 'Responde unas cuantas afirmaciones y podrás compartir tu punto en el rombo y retar a alguien a hacer lo mismo.';
+  const me = myEntry();
+  document.getElementById('shareBtn').disabled = !me; document.getElementById('copyLink').disabled = !(me || group.length);
+  document.getElementById('shareHint').textContent = !n ? 'Responde unas cuantas afirmaciones y podrás compartir tu punto en el rombo y retar a tu gente a hacer lo mismo.' : !name ? 'Pon tu nombre arriba y se activará el botón de compartir.' : 'La imagen lleva el rombo con tu punto y los de tu grupo. Con el enlace, quien lo abra os verá a todos y podrá sumarse.';
   drawStrip(u, n);
   if(!n){
     r.innerHTML = `<div class="result-head"><h2>Tu posición</h2></div>
@@ -807,17 +842,21 @@ function drawStrip(u, n){
   for(const [a,b] of [['stripZ','stripS'],['liveZ','liveS']]){ document.getElementById(a).textContent = z; document.getElementById(b).textContent = sm; }
 }
 
-function drawFriend(){
-  const box = document.getElementById('friendBox');
-  if(!friend){ box.hidden = true; box.innerHTML=''; return; }
-  const fs = axisScore(q=>friend.answers[q.id]);
-  const E = fs.E ?? 50, P = fs.P ?? 50;
-  const n = Object.keys(friend.answers).length;
-  const who = friend.name ? esc(friend.name) : null;
-  box.hidden = false;
-  box.innerHTML = `<div class="result-head"><h2>${who ? `${who} te ha enviado su resultado` : 'Te han enviado un resultado'}</h2><span class="zone-pill friend-pill">${zoneOf(E,P)}</span></div>
-    <p class="note" style="margin-top:8px">Aparece en el rombo como «${who||'Amigo'}»: libertad económica ${fs.E===null?'—':Math.round(fs.E)}, libertad personal ${fs.P===null?'—':Math.round(fs.P)} (${n} ${n===1?'respuesta':'respuestas'}). Responde tú para ver tu punto junto al suyo. <button type="button" class="linkbtn" id="friendOff">Quitar del rombo</button></p>`;
-  document.getElementById('friendOff').addEventListener('click',()=>{ friend=null; history.replaceState(null,'',location.pathname+location.search); refresh(false); });
+function drawGroup(){
+  const box = document.getElementById('groupList'), hero = document.getElementById('heroNote');
+  const me = myEntry();
+  const rows = [];
+  if(me) rows.push(`<li class="me"><span class="who">${esc(me.name)} <span class="note">(tú)</span></span><span class="sc">${me.E} · ${me.P}</span><span class="zone-pill">${zoneOf(me.E,me.P)}</span></li>`);
+  group.forEach((g,i)=>rows.push(`<li><span class="who">${esc(g.name)}</span><span class="sc">${g.E} · ${g.P}</span><span class="zone-pill friend-pill">${zoneOf(g.E,g.P)}</span><button type="button" class="linkbtn rm" data-i="${i}" aria-label="Quitar a ${esc(g.name)} del grupo">quitar</button></li>`));
+  const nl = group.filter(g=>g.src==='link').length;
+  const head = group.length ? `<p class="note" style="margin-top:4px">${group.length===1?'Una persona':group.length+' personas'} en tu grupo${nl?` (${nl===group.length?(nl===1?'llegó':'llegaron todas'):nl} por enlace)`:''}. Economía · libertades, de 0 a 100.</p>` : '';
+  box.innerHTML = rows.length ? head + `<ul class="glist">${rows.join('')}</ul>` : `<p class="note">Aquí saldrán los nombres y las puntuaciones de quien te pase su enlace, y los tuyos.</p>`;
+  box.querySelectorAll('.rm').forEach(b=>b.addEventListener('click',()=>{ group.splice(+b.dataset.i,1); save(); refresh(false); }));
+  if(group.length){
+    const names = group.map(g=>g.name); const shown = names.slice(0,3).map(esc).join(', ') + (names.length>3 ? ` y ${names.length-3} más` : '');
+    const n = Object.keys(answers).length;
+    hero.innerHTML = `<strong>${shown}</strong> ${group.length===1?'ya está':'ya están'} en el rombo. ${n ? 'Tu punto sale junto a los suyos.' : 'Responde y verás dónde caes tú.'}`; hero.hidden = false;
+  } else { hero.hidden = true; hero.innerHTML=''; }
 }
 
 function answerGroups(q){
@@ -911,7 +950,7 @@ function drawTable(){
   document.getElementById('dataVersion').textContent = `Datos de partidos y preguntas: versión ${DATA_VERSION}, actualizada el ${DATA_DATE}. ${QUESTIONS.filter(q=>q.ax==='E').length} afirmaciones de economía y ${QUESTIONS.filter(q=>q.ax==='P').length} de libertades, en ${TOPICS.length} ámbitos. El registro de cambios está en el repositorio.`;
 }
 
-function refresh(full=true){ if(full) drawQuestions(); drawChart(); drawResult(); drawFriend(); drawProgress(); }
+function refresh(full=true){ if(full) drawQuestions(); drawChart(); drawResult(); drawGroup(); drawProgress(); }
 
 /* ---------- Teclado: 1–5 responde la pregunta activa, flechas cambian de pregunta (y de ámbito al llegar al borde) ---------- */
 function currentCard(){
@@ -967,7 +1006,7 @@ function paintChart(ctx, ox, oy, size, opts={}){
   const axl=(s,x,y,rot)=>{ ctx.save(); ctx.translate(ox+x*k,oy+y*k); ctx.rotate(rot*Math.PI/180); txt(s,0,0,fM(10.5),muted); ctx.restore(); };
   axl('LIBERTAD ECONÓMICA →',150,152,-45); axl('← LIBERTAD PERSONAL',410,152,45);
   const items = PARTIES.filter(p=>!hidden.has(p.id)).map(p=>({p,s:partyScores[p.id]}));
-  const marks = personMarks().filter(m=> (m.id==='you' ? opts.showUser!==false : opts.showFriend!==false));
+  const marks = personMarks().filter(m=> (m.id==='you' ? opts.showUser!==false : opts.showGroup!==false));
   items.forEach(({s})=>{ const [x,y]=T(s.E,s.P); placed.push({x:x-7*k,y:y-7*k,w:14*k,h:14*k}); });
   marks.forEach(m=>{ const [x,y]=T(m.E,m.P); m.x=x; m.y=y; placed.push({x:x-11*k,y:y-11*k,w:22*k,h:22*k}); });
   const bx0=ox+4*k, by0=oy+4*k, bw=552*k;
@@ -1000,7 +1039,7 @@ async function renderShareImage(imgMode){
   const bg=cssVar('--bg'), ink=cssVar('--ink'), muted=cssVar('--muted'), accent=cssVar('--ink'), surface=cssVar('--surface'), soft=cssVar('--soft'), line=cssVar('--line-strong');
   ctx.fillStyle=bg; ctx.fillRect(0,0,W,H);
   ctx.fillStyle=surface; rr(ctx,32,35,560,560,20); ctx.fill(); ctx.strokeStyle=line; ctx.lineWidth=1.5; ctx.stroke();
-  paintChart(ctx, 32, 35, 560, {showUser: imgMode==='user', showFriend:false});
+  paintChart(ctx, 32, 35, 560, {showUser: imgMode==='user', showGroup: imgMode==='user'});
   const X=640, COLW=520;
   const t=(s,x,y,font,color,align='left')=>{ ctx.font=font; ctx.fillStyle=color; ctx.textAlign=align; ctx.textBaseline='alphabetic'; ctx.fillText(s,x,y); };
   try{ ctx.letterSpacing='0.08em'; }catch(e){}
@@ -1031,7 +1070,8 @@ async function renderShareImage(imgMode){
 function shareText(){
   const u=axisScore(q=>answers[q.id]); const E=u.E ?? 50, P=u.P ?? 50;
   const vt = verdictTexts(verdict());
-  return `Me sale ${zoneOf(E,P)} (${u.E===null?'—':Math.round(u.E)}/${u.P===null?'—':Math.round(u.P)}) en el test de Nolan para el 29N${vt.share && SHARE_SHOW_TOP_PARTY ? ' y '+vt.share.charAt(0).toLowerCase()+vt.share.slice(1) : ''}. Son 5 minutos. ¿Y a ti?`;
+  const g = group.length ? ` Ya somos ${group.length+1} en el rombo.` : '';
+  return `Me sale ${zoneOf(E,P)} (${u.E===null?'—':Math.round(u.E)}/${u.P===null?'—':Math.round(u.P)}) en el test de Nolan para el 29N${vt.share && SHARE_SHOW_TOP_PARTY ? ' y '+vt.share.charAt(0).toLowerCase()+vt.share.slice(1) : ''}.${g} Son 5 minutos. ¿Y a ti?`;
 }
 function downloadBlob(blob,fname){ const a=document.createElement('a'); a.href=URL.createObjectURL(blob); a.download=fname; document.body.appendChild(a); a.click(); setTimeout(()=>{ URL.revokeObjectURL(a.href); a.remove(); },1500); }
 function setShareMsg(s){ document.getElementById('shareMsg').textContent = s; }
@@ -1068,14 +1108,24 @@ async function shareResult(){
   finally{ btn.disabled=false; }
 }
 document.getElementById('shareBtn').addEventListener('click',shareResult);
-document.getElementById('copyLink').addEventListener('click',()=>copyToClipboard(compareUrl(),'Enlace copiado. Quien lo abra verá tu punto en el rombo junto al suyo.'));
+document.getElementById('copyLink').addEventListener('click',()=>copyToClipboard(compareUrl(),'Enlace copiado. Quien lo abra os verá a todos en el rombo y podrá sumarse.'));
 document.getElementById('stripResult').addEventListener('click',()=>document.getElementById('dash').scrollIntoView({behavior:'smooth', block:'start'}));
 document.getElementById('liveTop').addEventListener('click',()=>document.getElementById('dash').scrollIntoView({behavior:'smooth', block:'start'}));
-const nameInput = document.getElementById('nameInput'); nameInput.value = name;
-nameInput.addEventListener('input',()=>{ name = cleanName(nameInput.value); save(); drawChart(); });
+const nameInput = document.getElementById('nameInput'), nameBtn = document.getElementById('nameBtn'); nameInput.value = name;
+function commitName(){ name = cleanName(nameInput.value); nameInput.value = name; save(); refresh(false); nameBtn.textContent = name ? 'Cambiar' : 'Añadir mi nombre'; if(name) setShareMsg(''); }
+nameBtn.textContent = name ? 'Cambiar' : 'Añadir mi nombre';
+nameBtn.addEventListener('click',()=>{ if(nameBtn.textContent==='Cambiar'){ nameInput.focus(); nameInput.select(); nameBtn.textContent='Guardar'; } else commitName(); });
+nameInput.addEventListener('keydown',e=>{ if(e.key==='Enter'){ e.preventDefault(); commitName(); } });
+nameInput.addEventListener('input',()=>{ if(cleanName(nameInput.value)!==name) nameBtn.textContent = name ? 'Guardar' : 'Añadir mi nombre'; });
+document.getElementById('mAdd').addEventListener('click',()=>{
+  const nI=document.getElementById('mName'), eI=document.getElementById('mE'), pI=document.getElementById('mP');
+  const x = cleanPerson({name:nI.value, E:eI.value, P:pI.value, src:'manual'});
+  if(!x){ setShareMsg('Hace falta un nombre y dos puntuaciones de 0 a 100.'); return; }
+  group.push(x); save(); nI.value=''; eI.value=''; pI.value=''; setShareMsg(`${x.name} ya está en el rombo.`); refresh(false);
+});
 
 /* ---------- Interacción general ---------- */
-window.addEventListener('hashchange',()=>{ friend=readFriend(); refresh(false); });
+window.addEventListener('hashchange',()=>{ mergeFromHash(); refresh(false); });
 // Las secciones informativas solo se abren al pulsar su título o un enlace de la barra superior; nunca por defecto ni al recargar con el hash en la URL.
 document.querySelectorAll('a.top-link[href^="#"]').forEach(a=>a.addEventListener('click',()=>{ const d=document.getElementById(a.getAttribute('href').slice(1)); if(d && d.tagName==='DETAILS') d.open=true; }));
 
