@@ -464,7 +464,6 @@ La versión y la fecha se muestran en la metodología de la web (`DATA_VERSION` 
     ├── _headers             # cabeceras de seguridad y caché
     ├── 404.html             # página de error
     ├── robots.txt
-    ├── sitemap.xml
     ├── og-image.png         # imagen fija para Open Graph (https://testnolan.com/og-image.png)
     └── es/
         └── index.html       # el test completo, un solo archivo
