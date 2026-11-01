@@ -87,15 +87,14 @@ kbd{font-family:var(--f-mono);font-size:11px;border:1px solid var(--line-strong)
 .top-meta{font-family:var(--f-mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin-right:auto;padding-left:16px;border-left:1px solid var(--line);line-height:1;padding-block:2px}
 .top-link{font-size:14px;color:var(--ink-2);text-decoration:none}
 .top-link:hover{color:var(--ink)}
-@media (max-width:560px){.top-meta{display:none}}
+.top-meta .short{display:none}
+@media (max-width:560px){.top-meta .long{display:none}.top-meta .short{display:inline}.top{height:auto;min-height:52px;flex-wrap:wrap;padding:8px 0;gap:6px 12px}.top-meta{padding-left:12px}}
 
 /* Portada, a todo el ancho */
-.hero{padding:clamp(36px,6vw,64px) 0 clamp(24px,3.5vw,36px);display:flex;flex-direction:column;gap:20px}
+.hero{padding:clamp(22px,3.6vw,40px) 0 clamp(20px,3vw,32px);display:flex;flex-direction:column;gap:16px}
 .eyebrow{font-family:var(--f-mono);font-size:11.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
 h1{font-size:clamp(36px,6.4vw,76px);line-height:.98;letter-spacing:-.03em}
-.ledes{display:grid;grid-template-columns:1fr;gap:14px 48px}
-@media (min-width:860px){.ledes{grid-template-columns:1.25fr 1fr}}
-.lede{color:var(--ink-2);font-size:clamp(16.5px,1.5vw,19px);line-height:1.5}
+.lede{color:var(--ink-2);font-size:clamp(17px,1.6vw,20px);line-height:1.5}
 .lede strong{color:var(--ink);font-weight:600}
 .facts{list-style:none;margin:8px 0 0;padding:0;display:flex;flex-wrap:wrap;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
 .facts li{display:flex;align-items:baseline;gap:10px;padding:12px 24px 12px 0;margin-right:24px;border-right:1px solid var(--line)}
@@ -308,17 +307,13 @@ body.og #shareCanvas{display:block;width:1200px;height:630px}
 <div class="wrap">
   <nav class="top" aria-label="Principal">
     <a class="brand" href="#top">testnolan<span>.com</span></a>
-    <span class="top-meta">España · Generales 29N 2026</span>
+    <span class="top-meta"><span class="long">Elecciones generales de España</span><span class="short">Generales</span> · 29N 2026</span>
     <span style="display:flex;gap:18px"><a class="top-link" href="#nolan">Qué es el test de Nolan</a><a class="top-link" href="#meth">Cómo se calcula</a></span>
   </nav>
 
   <header class="hero" id="top">
-    <span class="eyebrow">Test de Nolan · Elecciones generales de España · 29 de noviembre de 2026</span>
     <h1>¿Qué partido te representa de verdad?</h1>
-    <div class="ledes">
-      <p class="lede">Si no tienes claro a quién votar el <strong>29N</strong>, o vas a votar «al menos malo» sin saber muy bien en qué se diferencian, esto es para ti. Son 43 afirmaciones sobre impuestos, vivienda, libertades y cosas así, de las que estás de acuerdo o no. En <strong>5 minutos</strong> tienes tu punto en el rombo de Nolan junto a PP, PSOE, Vox, Frente Amplio, Podemos, SALF y D21 + Cs, que responden exactamente las mismas preguntas. Y ves en qué coincides con cada uno y en qué no.</p>
-      <p class="lede">Aviso: la gente se sorprende. Lo normal es descubrir que el partido al que pensabas votar no opina como tú en unas cuantas cosas, y que el «bando contrario» no está tan lejos en otras. Esto <strong>no lo ha hecho ningún partido</strong>, no te va a decir a quién votar y <strong>no guarda nada</strong> de lo que respondes: ni cookies, ni cuentas, ni servidor. Cuando acabes, compártelo con tus amigos o con los del trabajo, a ver quién se lleva la sorpresa.</p>
-    </div>
+    <p class="lede">¿Vas a votar «al menos malo» sin saber muy bien en qué se diferencian? Responde 43 afirmaciones en 5 minutos y mira dónde caes en el rombo junto a PP, PSOE, Vox, Frente Amplio, Podemos, SALF y D21 + Cs: qué partido se parece más a ti y en qué discrepas con él sin saberlo. Luego pásaselo a quien creas que se va a llevar una sorpresa.</p>
     <ul class="facts" aria-label="Datos del test">
       <li><span class="num" id="factQ">43</span><span class="lbl">afirmaciones</span></li>
       <li><span class="num" id="factT">8</span><span class="lbl">ámbitos</span></li>
