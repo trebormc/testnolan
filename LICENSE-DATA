@@ -6,9 +6,9 @@ Código fuente y datos: https://github.com/trebormc/testnolan
 
 QUÉ CUBRE ESTA LICENCIA
 
-Los datos de testnolan.com: las afirmaciones del test, sus textos de contexto,
+Los datos de testnolan.com: las preguntas del test, sus textos de contexto,
 la posición asignada a cada partido o referencia internacional en cada
-afirmación, las frases que justifican cada posición con su fuente, y los
+pregunta, las frases que justifican cada posición con su fuente, y los
 documentos de verificación de la carpeta docs/. En el código, estos datos están
 en las constantes PARTIES, TOPICS y QUESTIONS y en el bloque JSON «whyData» de
 public/es/index.html.
