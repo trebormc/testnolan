@@ -1,5 +1,5 @@
 {
- "version": "1.9",
+ "version": "2.0",
  "date": "1 de noviembre de 2026",
  "notes": {
   "a": "Respuestas en el orden de parties, de -2 (muy en contra) a +2 (muy a favor); null = sin dato, no cuenta en la posición ni en la afinidad.",
@@ -866,8 +866,8 @@
    "ax": "P",
    "g": "expr",
    "dir": -1,
-   "k": "ofensas a la bandera, la Corona o la religión",
-   "t": "Ofender a la bandera, a la Corona o a los sentimientos religiosos debería seguir siendo delito.",
+   "k": "ofensas a la bandera o a la religión",
+   "t": "Ofender a la bandera o a los sentimientos religiosos debería seguir siendo delito.",
    "a": [
     2,
     -2,
@@ -877,16 +877,16 @@
     null,
     1,
     1,
-    null,
+    1,
     2,
     2,
     2,
     null,
-    null,
+    1,
     1,
     0
    ],
-   "c": "El Código Penal castiga con multa los ultrajes a España y sus símbolos, las injurias al Rey y las ofensas a los sentimientos religiosos. Son los artículos por los que se condenó a raperos y humoristas. PSOE y Sumar pactaron en junio de 2026 una ley para eliminarlos y el Congreso rechazó en julio las enmiendas del PP y de Vox para mantenerlos o endurecerlos. La ley decayó al disolverse las Cortes, así que el debate vuelve con las elecciones."
+   "c": "El Código Penal castiga con multa los ultrajes a España y sus símbolos, las injurias al Rey y las ofensas a los sentimientos religiosos. Son los artículos por los que se condenó a raperos y humoristas. PSOE y Sumar pactaron en junio de 2026 una ley para eliminarlos y el Congreso rechazó en julio las enmiendas del PP y de Vox para mantenerlos o endurecerlos. La ley decayó al disolverse las Cortes, así que el debate vuelve con las elecciones. Fuera de España se mide con las leyes de ultraje a la bandera y de blasfemia que cada gobierno ha mantenido, creado o derogado."
   },
   {
    "id": "p_prot",
@@ -1217,8 +1217,8 @@
    "ax": "P",
    "g": "cost",
    "dir": -1,
-   "k": "corridas de toros",
-   "t": "Habría que prohibir las corridas de toros.",
+   "k": "corridas de toros y maltrato animal",
+   "t": "El Estado debería prohibir los espectáculos que maltratan animales, como las corridas de toros.",
    "a": [
     -2,
     -1,
@@ -1227,17 +1227,17 @@
     2,
     0,
     -1,
+    1,
+    1,
+    1,
+    1,
     null,
     null,
-    null,
-    null,
-    null,
-    null,
-    null,
-    null,
-    -1
+    0,
+    1,
+    0
    ],
-   "c": "Una ley de 2013 protege la tauromaquia como patrimonio cultural, lo que impide a las comunidades prohibirla. En octubre de 2025 el Congreso rechazó tramitar una iniciativa popular para derogarla: PP y Vox votaron en contra, el PSOE se abstuvo y Sumar y Podemos votaron a favor. Ningún partido con escaños propone hoy prohibir las corridas por ley, pero la izquierda quiere retirarles la protección y el dinero público, y Podemos ha hablado de un referéndum."
+   "c": "En España el debate son los toros: una ley de 2013 protege la tauromaquia como patrimonio cultural y en octubre de 2025 el Congreso rechazó tramitar una iniciativa popular para derogarla. PP y Vox votaron en contra, el PSOE se abstuvo y Sumar y Podemos a favor. Ningún partido con escaños propone hoy prohibir las corridas por ley, pero la izquierda quiere retirarles la protección y el dinero público. Fuera de España la pregunta se mide con lo que cada gobierno ha hecho frente a espectáculos con animales: circos, peleas, rodeos o corridas."
   },
   {
    "id": "p_menores",
@@ -1422,8 +1422,8 @@
     "https://www.whitehouse.gov/presidential-actions/2025/05/establishment-of-the-religious-liberty-commission/"
    ],
    "p_toros": [
-    "No hay ninguna medida ni declaración de Trump sobre esto.",
-    ""
+    "Firmó en diciembre de 2018 la ley agraria que prohíbe las peleas de gallos en Puerto Rico y en noviembre de 2019 la PACT Act contra la crueldad animal.",
+    "https://www.npr.org/2019/11/25/782842651/trump-signs-law-making-cruelty-to-animals-a-federal-crime"
    ],
    "p_menores": [
     "Su embajada en Londres pidió en junio de 2026 al Reino Unido evitar vetos generales de redes a menores de 16 y preferir reglas focalizadas.",
@@ -1584,8 +1584,8 @@
     "https://www.opendemocracy.net/en/teaching-orthodoxy-in-russian-schools/"
    ],
    "p_toros": [
-    "No hay ninguna medida ni declaración de Putin sobre esto.",
-    ""
+    "Firmó en diciembre de 2018 la ley de trato responsable de animales, que prohíbe las peleas de animales y los zoos de contacto, pero mantiene circos y delfinarios con licencia.",
+    "https://www.themoscowtimes.com/2018/12/31/russia-outlaws-animal-cruelty-a64009"
    ],
    "p_menores": [
     "Existe un proyecto de Roskomnadzor de octubre de 2026 que todavía no es ley.",
@@ -1746,8 +1746,8 @@
     "https://www.christianitytoday.com/news/2024/april/venezuela-maduro-evangelicals.html"
    ],
    "p_toros": [
-    "No hay ninguna medida ni declaración de Maduro sobre esto.",
-    ""
+    "Las corridas y las peleas de gallos siguen legales en Venezuela y solo el fiscal Saab, no Maduro, pidió suspender corridas en 2021 y 2022.",
+    "https://eldiario.com/2022/01/21/ordenan-suspender-corridas-toros-tachira-ley-contra/"
    ],
    "p_menores": [
     "No hay ninguna medida ni declaración de Maduro sobre esto.",
@@ -1856,8 +1856,8 @@
     ""
    ],
    "p_simb": [
-    "No hay ninguna medida ni declaración de Mujica sobre esto.",
-    ""
+    "Uruguay castiga ofender los cultos pero no ultrajar la bandera, y no hay reforma ni declaración de Mujica al respecto entre 2010 y 2015.",
+    "https://impo.com.uy/bases/codigo-penal/9155-1933"
    ],
    "p_prot": [
     "La ley de faltas no castiga cortar calles.",
@@ -1908,7 +1908,7 @@
     "https://www.vozdeamerica.com/a/expresidente-uruguayo-jose-mujica-habla-sobre-laicismo-crecimiento-de-los-no-religiosos/7301148.html"
    ],
    "p_toros": [
-    "No aplica: en Uruguay las corridas de toros están prohibidas desde 1912.",
+    "No hay ley, decreto ni declaración suya sobre jineteadas, galgos o circos entre 2010 y 2015, y la ley de bienestar animal de 2009 es de Vázquez.",
     ""
    ],
    "p_menores": [
@@ -2018,8 +2018,8 @@
     "https://www.ilpost.it/2023/10/12/sentenza-saviano-meloni-diffamazione/"
    ],
    "p_simb": [
-    "No ha tocado el delito de vilipendio.",
-    ""
+    "Mantiene el vilipendio a la bandera y a la religión del Código Penal y su partido registró en mayo de 2024 multas de hasta 5.000 euros por exponer mal la bandera.",
+    "https://www.ilfoglio.it/politica/2024/05/21/news/meloni-e-il-tricolore-pulito-fdi-propone-multe-fino-a-5000-euro-per-chi-non-sa-esporre-la-bandiera--101728"
    ],
    "p_prot": [
     "Desde 2025 bloquear calles con el cuerpo es delito.",
@@ -2070,8 +2070,8 @@
     "https://www.open.online/2025/12/09/scuola-via-libera-definitivo-indicazioni-nazionali-valditara/"
    ],
    "p_toros": [
-    "No hay ninguna medida ni declaración de Meloni sobre esto.",
-    ""
+    "Su mayoría aprobó en mayo de 2025 la ley Brambilla, que endurece las penas por maltrato, pero su Gobierno aplazó en julio de 2025 el fin de los circos con animales.",
+    "https://www.open.online/2025/05/29/carcere-maltrattamento-animali-legge-cosa-prevede/"
    ],
    "p_menores": [
     "Dijo el 17 de junio de 2026, tras el G7, que no es contraria al veto de redes a menores de 16 aunque dudó de que baste por sí solo.",
@@ -3366,8 +3366,8 @@
     "https://eleconomista.com.ar/politica/home-schooling-religion-escuelas-control-familiar-gobierno-va-ley-educacion-n90777"
    ],
    "p_toros": [
-    "No aplica: las corridas de toros están prohibidas en Argentina desde 1954 por la Ley 14.346 y no hay debate sobre ellas.",
-    "http://servicios.infoleg.gob.ar/infolegInternet/anexos/150000-154999/153011/norma.htm"
+    "Respaldó en julio de 2024 la Ley Conan, que multiplica las penas por maltrato animal y tipifica las peleas de animales, aunque el Congreso no la aprobó.",
+    "https://eleconomista.com.ar/politica/javier-milei-dio-visto-bueno-comienza-diputados-tratamiento-ley-conan-maltrato-animal-n75162"
    ],
    "p_menores": [
     "No hay medida: Argentina no tiene ley de edad mínima para redes sociales y su Gobierno no ha impulsado ninguna.",
@@ -3476,8 +3476,8 @@
     "https://cpj.org/2025/05/7-salvadorian-journalists-face-charges-after-report-on-presidents-alleged-gang-ties/"
    ],
    "p_simb": [
-    "Ninguna reforma ni propuesta sobre ofensas a símbolos o religión: las penas de 2022 a medios por difundir mensajes de pandillas se derogaron en noviembre de 2023.",
-    "https://www.jurist.org/news/2023/11/el-salvador-legislative-assembly-repeals-law-criminalizing-dissemination-of-gang-messages"
+    "Su Asamblea reformó el Código Penal en 2022 sin tocar el artículo 296, hasta dos años de cárcel por ofender creencias religiosas, ni la Ley de Símbolos Patrios.",
+    "https://end-blasphemy-laws.org/countries/americas/el-salvador/"
    ],
    "p_prot": [
     "En mayo de 2025 encarceló al abogado Alejandro Henríquez y al líder comunitario José Ángel Pérez por protestar pacíficamente contra un desalojo, acusados de desórdenes públicos.",
@@ -3528,8 +3528,8 @@
     "https://en.wikipedia.org/wiki/Nayib_Bukele"
    ],
    "p_toros": [
-    "No aplica: en El Salvador no hay corridas de toros ni tradición taurina y Bukele no ha legislado sobre ello.",
-    ""
+    "Sancionó en enero de 2022 la Ley de Bienestar Animal, que prohíbe los espectáculos con peleas de perros y otros animales de compañía, y disolvió su instituto en marzo de 2025.",
+    "https://faolex.fao.org/docs/pdf/els216831.pdf"
    ],
    "p_menores": [
     "Sin ninguna ley ni propuesta sobre edad mínima para cuentas en redes sociales en su mandato.",
@@ -3690,8 +3690,8 @@
     "https://voteview.com/rollcall/RS0980405"
    ],
    "p_toros": [
-    "No aplica, sin tradición ni debate federal sobre tauromaquia",
-    ""
+    "Firmó el 20 de diciembre de 2022 la Big Cat Public Safety Act, que prohíbe tener grandes felinos en manos privadas y los espectáculos de contacto con cachorros.",
+    "https://aldf.org/article/big-cat-public-safety-act-signed-into-law/"
    ],
    "p_menores": [
     "Pidió en el Estado de la Unión de 2023 prohibir la publicidad dirigida a menores y respaldó la Kids Online Safety Act en julio de 2024, sin vetar cuentas",
@@ -3852,8 +3852,8 @@
     "https://www.conseil-constitutionnel.fr/decision/2021/2021823DC.htm"
    ],
    "p_toros": [
-    "Su Gobierno se opuso a la proposición de Caron de 2022 y apoyó en noviembre de 2024 suprimir en el Senado la prohibición para menores de 16 años",
-    "https://www.publicsenat.fr/actualites/societe/apres-des-debats-nourris-le-senat-rejette-linterdiction-de-la-corrida-pour-les-mineurs-de-moins-de-16-ans"
+    "Promulgó en noviembre de 2021 la ley que veta animales salvajes en circos y delfinarios, pero en noviembre de 2022 descartó prohibir la corrida.",
+    "https://www.publicsenat.fr/actualites/societe/maltraitance-animale-lapplication-de-la-loi-prend-du-retard-denonce-un-rapport-du-senat"
    ],
    "p_menores": [
     "Macron impulsó prohibir las redes a menores de 15 años, aprobado por el Parlamento en julio de 2026 aunque el Conseil constitutionnel lo anuló en agosto",

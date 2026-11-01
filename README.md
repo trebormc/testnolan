@@ -197,7 +197,7 @@ Estas reglas se acordaron para que **todos los partidos se midan con la misma va
 
 ## Partidos incluidos y posiciones resultantes
 
-Posiciones calculadas con el cuestionario actual (40 preguntas, versión de datos 1.9). Escala de 0 a 100.
+Posiciones calculadas con el cuestionario actual (40 preguntas, versión de datos 2.0). Escala de 0 a 100.
 
 | Partido | Candidatura y cabeza de lista | Economía | Libertades | Zona |
 |---|---|---:|---:|---|
@@ -208,15 +208,15 @@ Posiciones calculadas con el cuestionario actual (40 preguntas, versión de dato
 | Podemos | Podemos · Irene Montero | 8 | 78 | Izquierda |
 | SALF | Se Acabó La Fiesta · Alvise Pérez | 83 | 52 | Libertario |
 | D21 + Cs | Democracia para el Siglo 21 (Democracia 21 + Ciudadanos + UCIN) · Miriam González | 62 | 56 | Centro |
-| Milei *(referencia)* | La Libertad Avanza (Argentina) · Javier Milei | 91 | 27 | Derecha |
-| Bukele *(referencia)* | Nuevas Ideas (El Salvador) · Nayib Bukele | 62 | 12 | Derecha |
+| Milei *(referencia)* | La Libertad Avanza (Argentina) · Javier Milei | 91 | 26 | Derecha |
+| Bukele *(referencia)* | Nuevas Ideas (El Salvador) · Nayib Bukele | 62 | 13 | Derecha |
 | Trump *(referencia)* | Partido Republicano (Estados Unidos) · Donald Trump | 71 | 28 | Derecha |
-| Putin *(referencia)* | Rusia Unida (Rusia) · Vladímir Putin | 40 | 6 | Autoritario |
+| Putin *(referencia)* | Rusia Unida (Rusia) · Vladímir Putin | 40 | 7 | Autoritario |
 | Maduro *(referencia)* | PSUV (Venezuela) · Nicolás Maduro | 24 | 13 | Autoritario |
 | Mujica *(referencia)* | Frente Amplio (Uruguay, 2010-2015) · José Mujica | 28 | 68 | Izquierda |
-| Meloni *(referencia)* | Fratelli d'Italia (Italia) · Giorgia Meloni | 69 | 23 | Derecha |
-| Biden *(referencia)* | Partido Demócrata (Estados Unidos, 2021-2025) · Joe Biden | 25 | 60 | Izquierda |
-| Macron *(referencia)* | Renaissance (Francia) · Emmanuel Macron | 64 | 46 | Centro |
+| Meloni *(referencia)* | Fratelli d'Italia (Italia) · Giorgia Meloni | 69 | 25 | Derecha |
+| Biden *(referencia)* | Partido Demócrata (Estados Unidos, 2021-2025) · Joe Biden | 25 | 58 | Izquierda |
+| Macron *(referencia)* | Renaissance (Francia) · Emmanuel Macron | 64 | 45 | Centro |
 
 Notas:
 
@@ -275,7 +275,7 @@ Las preguntas se redactan como afirmaciones generales, principios y no medidas c
 | p_poli | La policía debería tener más margen para identificar, registrar y multar a personas sin pasar por un juez. | −1 | 2, −1, 2, −2, −2, ·, 1, 2, 2, 2, 2, 2, 0, 2, −1, 2 |
 | p_perp | La prisión permanente revisable debería mantenerse o ampliarse a más delitos. | −1 | 2, −1, 2, −2, −2, 1, 1, 2, 2, 2, 2, 1, −1, 2, 0, 1 |
 | p_odio | El Estado debe poder sancionar o expulsar a quien difunda discursos de odio, aunque no inciten a la violencia. | −1 | 1, 1, −1, 1, 2, −2, 0, 0, 2, 1, 2, 2, ·, −1, 0, 2 |
-| p_simb | Ofender a la bandera, a la Corona o a los sentimientos religiosos debería seguir siendo delito. | −1 | 2, −2, 2, −2, −2, ·, 1, 1, ·, 2, 2, 2, ·, ·, 1, 0 |
+| p_simb | Ofender a la bandera o a los sentimientos religiosos debería seguir siendo delito. | −1 | 2, −2, 2, −2, −2, ·, 1, 1, 1, 2, 2, 2, ·, 1, 1, 0 |
 | p_prot | Hay que limitar más las protestas que cortan calles o carreteras. | −1 | 1, −1, 1, −2, −2, −1, 1, 2, 2, 2, 2, 2, ·, 2, ·, 1 |
 | p_euta | La eutanasia debe seguir siendo legal. | +1 | 0, 2, −2, 2, 2, ·, 2, −1, −2, −1, −2, ·, ·, −1, ·, 2 |
 | p_matr | El matrimonio entre personas del mismo sexo debe seguir siendo legal. | +1 | 1, 2, −1, 2, 2, 1, 2, 1, −2, 1, −2, −1, 2, −2, 2, 2 |
@@ -288,7 +288,7 @@ Las preguntas se redactan como afirmaciones generales, principios y no medidas c
 | p_trans | Las personas deben poder cambiar su sexo legal sin informes médicos. | +1 | −2, 2, −2, 2, 2, −1, −1, −1, −2, −2, −2, −1, ·, −1, 2, 0 |
 | p_armas | Debería ser más fácil para un particular tener un arma en casa para defenderse. | +1 | −1, −2, 2, −2, −2, ·, −2, 1, 1, 2, −2, −2, −2, ·, −2, −1 |
 | p_relig | La religión debería tener más presencia en la escuela y en la vida pública. | −1 | 1, −1, 1, −2, −2, ·, −1, 1, 1, 2, 2, 1, −1, 1, −1, −2 |
-| p_toros | Habría que prohibir las corridas de toros. | −1 | −2, −1, −2, 1, 2, 0, −1, ·, ·, ·, ·, ·, ·, ·, ·, −1 |
+| p_toros | El Estado debería prohibir los espectáculos que maltratan animales, como las corridas de toros. | −1 | −2, −1, −2, 1, 2, 0, −1, 1, 1, 1, 1, ·, ·, 0, 1, 0 |
 | p_menores | Hay que prohibir por ley que los menores de 16 años tengan cuentas en redes sociales. | −1 | 2, 2, −1, 1, 0, −1, ·, ·, ·, −1, ·, ·, ·, 1, 1, 1 |
 
 ### Contexto que justifica algunas respuestas
@@ -393,6 +393,7 @@ Ejecuta dos cosas, sin dependencias:
 
 La versión y la fecha se muestran en la metodología de la web (claves `version` y `date` de `public/data/es-2026.json`). Cualquier cambio en preguntas o respuestas de partidos debe subir la versión y anotarse aquí.
 
+- **2.0 (01-11-2026)**: dos preguntas reformuladas para que las referencias puedan puntuarse sin cambiar lo que miden en España. «Habría que prohibir las corridas de toros» pasa a «El Estado debería prohibir los espectáculos que maltratan animales, como las corridas de toros», y se puntúa fuera con lo hecho frente a peleas, circos o delfinarios: Milei (Ley Conan), Bukele (Ley de Bienestar Animal de 2022), Trump (PACT Act y peleas de gallos), Putin (ley de 2018) y Biden (Big Cat Act) a favor; Meloni y Macron neutrales por aplazar o descartar prohibiciones; Maduro y Mujica siguen sin dato. «Ofender a la bandera, a la Corona o a los sentimientos religiosos» pierde la Corona y se puntúa con las leyes de ultraje y blasfemia: Bukele y Meloni a favor por mantenerlas. Las respuestas de los partidos españoles no cambian. Quedan 56 casillas sin dato de 640. Posiciones: Milei 91/26, Bukele 62/13, Meloni 69/25, Biden 25/58, Macron 64/45. Detalle en `docs/referencias-internacionales-2026-11-01.md`.
 - **1.9 (01-11-2026)**: pasada sobre las 60 casillas sin dato de las referencias internacionales buscando declaraciones o promesas documentadas, con tope de ±1 y sin deducir nada por ideología. Se rellenan 12 con fuente: Milei a favor de más religión en la escuela (borrador de Ley de Libertad Educativa de 2025); Maduro a favor de la cadena perpetua (propuesta constitucional de 2024), de la religión en la vida pública (programas a iglesias evangélicas) y de la jornada de 40 horas aplicada en 2013, y en contra del cannabis (declaración de 2025); Trump a favor de desalojar okupas (promesa de 2024), en contra de la eutanasia (Departamento de Estado, 2025), en contra de prohibir el burka (2015) y en contra de vetar las redes a menores (consulta de su embajada en Londres, 2026); Biden a favor de castigar las ofensas a la bandera (ley que presentó en 1989) y en contra de más religión en la escuela (voto de 1984); Meloni a favor de vetar las redes a menores (junio de 2026). Las otras 48 siguen sin dato porque no hay nada que puntuar sin inventar. Cambios de posición: Trump 71/28, Maduro 24/13, Biden 25/60. Detalle en `docs/referencias-internacionales-2026-11-01.md`.
 - **1.8 (01-11-2026)**: dos referencias más para tener los dos grandes partidos de Estados Unidos y el Gobierno francés: Biden (Partido Demócrata, presidencia 2021-2025) y Macron (Renaissance, desde 2017), con el mismo criterio que las demás (solo lo hecho gobernando, fuente por casilla, sin dato donde no aplica). Biden 25/62, cerca del PSOE y en la esquina opuesta a Trump en economía: gasto récord, impuesto mínimo a grandes empresas, salario mínimo por orden ejecutiva, aranceles, matrimonio igualitario por ley, aborto y cambio de sexo registral por declaración. Macron 64/46, en el centro, a 9 puntos de D21 + Cs y 14 del PP: liberal en impuestos y despido, Estado fuerte en EDF y sanidad, restrictivo en policía, laicidad y odio en línea, permisivo en aborto, eutanasia y matrimonio. Detalle en `docs/referencias-internacionales-2026-11-01.md`.
 - **1.7 (01-11-2026)**: se retiran siete afirmaciones que apenas separaban a los partidos o tenían demasiadas casillas sin dato: prostitución (tres partidos en neutral y uno sin dato), fumar en terrazas (tres sin dato, sin votación aún), anonimato en redes (tres sin dato), verificar identidad en webs de adultos (se movía igual que la de menores en redes), legislar por decreto (solo distinguía a las referencias), publicidad de apuestas (poca separación) y mili obligatoria (todos en contra salvo Vox). Quedan **40 afirmaciones, 20 por eje**, y los ámbitos van de 4 a 6 preguntas. Al quitar preguntas de consenso los partidos se separan algo más en libertades: PP 70/34, PSOE 19/65, Vox 86/30, Frente Amplio 6/76, Podemos 8/78, SALF 83/52, D21 + Cs 62/56, Milei 91/27, Bukele 62/12, Trump 71/21, Putin 40/6, Maduro 24/10, Mujica 28/68, Meloni 69/23. Las preguntas retiradas, con sus respuestas y justificaciones, quedan en `docs/preguntas-retiradas-2026-11-01.md` por si se recuperan.

@@ -397,3 +397,21 @@ Regla: solo con declaración pública, voto o promesa documentada de la propia p
 | Meloni | p_menores | +1 | Dijo el 17 de junio de 2026, tras el G7, que no es contraria al veto de redes a menores de 16 aunque dudó de que baste por sí solo. | https://www.lapresse.it/video/2026/06/17/social-media-meloni-divieto-non-basta-serve-coinvolgere-piattaforme/ |
 
 Descartadas por tangenciales: Trump sobre el cifrado (Apple en 2016 y la puerta trasera británica en 2025 hablan de acceso policial a datos, no de escanear mensajes), Maduro sobre TikTok (pide regular contenidos, no vetar cuentas a menores), Putin sobre un impuesto al lujo inmobiliario (no es sobre acumular viviendas), Roskomnadzor sobre menores (identificación y tiempo, no prohibición), Nuevas Ideas sobre no crear impuestos (genérico) y Meloni sobre la legítima defensa (no es facilitar la tenencia de armas).
+
+## Versión 2.0: dos preguntas reformuladas
+
+Para que las referencias puedan puntuarse sin cambiar lo que miden en España: «El Estado debería prohibir los espectáculos que maltratan animales, como las corridas de toros» y «Ofender a la bandera o a los sentimientos religiosos debería seguir siendo delito». Fuera de España se puntúan con lo hecho frente a peleas, circos o delfinarios, y con las leyes de ultraje y blasfemia mantenidas, creadas o derogadas.
+
+| Pregunta | Figura | Valor | Base | Fuente |
+|---|---|---:|---|---|
+| p_toros | Milei | +1 | Respaldó en julio de 2024 la Ley Conan, que multiplica las penas por maltrato animal y tipifica las peleas de animales, aunque el Congreso no la aprobó. | https://eleconomista.com.ar/politica/javier-milei-dio-visto-bueno-comienza-diputados-tratamiento-ley-conan-maltrato-animal-n75162 |
+| p_toros | Bukele | +1 | Sancionó en enero de 2022 la Ley de Bienestar Animal, que prohíbe los espectáculos con peleas de perros y otros animales de compañía, y disolvió su instituto en marzo de 2025. | https://faolex.fao.org/docs/pdf/els216831.pdf |
+| p_toros | Trump | +1 | Firmó en diciembre de 2018 la ley agraria que prohíbe las peleas de gallos en Puerto Rico y en noviembre de 2019 la PACT Act contra la crueldad animal. | https://www.npr.org/2019/11/25/782842651/trump-signs-law-making-cruelty-to-animals-a-federal-crime |
+| p_toros | Putin | +1 | Firmó en diciembre de 2018 la ley de trato responsable de animales, que prohíbe las peleas de animales y los zoos de contacto, pero mantiene circos y delfinarios con licencia. | https://www.themoscowtimes.com/2018/12/31/russia-outlaws-animal-cruelty-a64009 |
+| p_toros | Meloni | 0 | Su mayoría aprobó en mayo de 2025 la ley Brambilla, que endurece las penas por maltrato, pero su Gobierno aplazó en julio de 2025 el fin de los circos con animales. | https://www.open.online/2025/05/29/carcere-maltrattamento-animali-legge-cosa-prevede/ |
+| p_toros | Biden | +1 | Firmó el 20 de diciembre de 2022 la Big Cat Public Safety Act, que prohíbe tener grandes felinos en manos privadas y los espectáculos de contacto con cachorros. | https://aldf.org/article/big-cat-public-safety-act-signed-into-law/ |
+| p_toros | Macron | 0 | Promulgó en noviembre de 2021 la ley que veta animales salvajes en circos y delfinarios, pero en noviembre de 2022 descartó prohibir la corrida. | https://www.publicsenat.fr/actualites/societe/maltraitance-animale-lapplication-de-la-loi-prend-du-retard-denonce-un-rapport-du-senat |
+| p_simb | Bukele | +1 | Su Asamblea reformó el Código Penal en 2022 sin tocar el artículo 296, hasta dos años de cárcel por ofender creencias religiosas, ni la Ley de Símbolos Patrios. | https://end-blasphemy-laws.org/countries/americas/el-salvador/ |
+| p_simb | Meloni | +1 | Mantiene el vilipendio a la bandera y a la religión del Código Penal y su partido registró en mayo de 2024 multas de hasta 5.000 euros por exponer mal la bandera. | https://www.ilfoglio.it/politica/2024/05/21/news/meloni-e-il-tricolore-pulito-fdi-propone-multe-fino-a-5000-euro-per-chi-non-sa-esporre-la-bandiera--101728 |
+
+Siguen sin dato: Maduro y Mujica en espectáculos con animales (solo hay actuaciones del fiscal Saab o leyes de Vázquez) y Mujica en ofensas a símbolos. Macron pasa de en contra a neutral porque la ley de 2021 contra animales salvajes en circos pesa tanto como su negativa a prohibir la corrida.
