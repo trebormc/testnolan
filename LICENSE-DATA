@@ -9,9 +9,8 @@ QUÉ CUBRE ESTA LICENCIA
 Los datos de testnolan.com: las preguntas del test, sus textos de contexto,
 la posición asignada a cada partido o referencia internacional en cada
 pregunta, las frases que justifican cada posición con su fuente, y los
-documentos de verificación de la carpeta docs/. En el código, estos datos están
-en las constantes PARTIES, TOPICS y QUESTIONS y en el bloque JSON «whyData» de
-public/es/index.html.
+documentos de verificación de la carpeta docs/. Estos datos están en el archivo
+public/data/es-2026.json.
 
 El código de la web (HTML, CSS y JavaScript) no se rige por esta licencia sino
 por la licencia MIT del archivo LICENSE.

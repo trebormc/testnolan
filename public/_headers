@@ -9,3 +9,9 @@
 
 /og-image.png
   Cache-Control: public, max-age=86400
+
+/assets/*
+  Cache-Control: public, max-age=300, must-revalidate
+
+/data/*
+  Cache-Control: public, max-age=300, must-revalidate

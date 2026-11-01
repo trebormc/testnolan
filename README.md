@@ -69,10 +69,10 @@ El test **no recomienda votar a nadie**. Muestra afinidad con las posiciones est
 
 ## Estado actual
 
-Existe un prototipo funcional en un único archivo, `index.html`, con todo el CSS y el JavaScript incrustados, más `og-image.png` (imagen fija para Open Graph). Incluye:
+La web está en `public/`: `es/index.html` (marcado), `assets/styles.css`, `assets/app.js` (lógica de la página), `assets/scoring.js` (cálculo puro, compartido con los tests) y `data/es-2026.json` (partidos, ámbitos, preguntas y justificaciones), más `og-image.png` (imagen fija para Open Graph). No hay dependencias ni paso de compilación. Incluye:
 
 - Rombo de Nolan dibujado en SVG con las cinco zonas, la línea media discontinua y los ejes rotulados.
-- **40 preguntas** (20 de economía y 20 de libertades) con escala de 5 puntos. Cada una lleva una etiqueta corta de tema (`k`) y un **contexto en lenguaje llano** (`c`) que se despliega con «¿Qué significa?» justo encima de la escala, a todo el ancho de la pregunta. Debajo de las respuestas de los partidos, otro desplegable, «¿Por qué responde así cada partido?», muestra para cada partido y referencia su posición, una frase con el hecho que la justifica y el enlace a la fuente. Son 560 frases, 14 por pregunta. Están en el bloque `<script type="application/json" id="whyData">` de `index.html`, con la forma `{partido:{pregunta:[frase, url]}}`, y se leen solo al abrir el desplegable.
+- **40 preguntas** (20 de economía y 20 de libertades) con escala de 5 puntos. Cada una lleva una etiqueta corta de tema (`k`) y un **contexto en lenguaje llano** (`c`) que se despliega con «¿Qué significa?» justo encima de la escala, a todo el ancho de la pregunta. Debajo de las respuestas de los partidos, otro desplegable, «¿Por qué responde así cada partido?», muestra para cada partido y referencia su posición, una frase con el hecho que la justifica y el enlace a la fuente. Son 560 frases, 14 por pregunta. Están en `public/data/es-2026.json`, en la clave `why`, con la forma `{partido:{pregunta:[frase, url]}}`.
 - Posición de cada partido calculada a partir de sus respuestas, con el mismo cálculo que el usuario.
 - Punto **"Tú"** que se mueve en el rombo según se responde.
 - **Veredicto** en «Tu posición», basado en la afinidad del partido más cercano (sin las referencias internacionales): 85 % o más, «te representa»; de 75 % a 84 %, «el que más se parece a ti, con matices»; por debajo, «ningún partido te representa del todo» indicando el más cercano. Si el segundo está a 3 puntos o menos se declara empate («te representan por igual X e Y»), y no hay veredicto hasta tener 4 respuestas por eje. Los cuatro umbrales son constantes (`REP_FULL`, `REP_PARTIAL`, `REP_TIE`, `REP_MIN_AXIS`). Calibración: un votante convencido que se desvía un paso en la mitad de las preguntas obtiene ~91 %; responder al azar da ~64 % con el mejor partido; todo neutral da hasta 77 % con los partidos moderados; Frente Amplio y Podemos están al 95 % entre sí, Vox y SALF al 88 %, PSOE y Frente Amplio al 85 %. El veredicto sale también en la franja, en la columna fija, en la imagen compartida y en el texto de compartir.
@@ -370,22 +370,24 @@ La viralidad se busca con una **imagen generada en el navegador** que el usuario
 
 ## Tareas pendientes
 
-### Refactorización del código
+Ninguna. Las pruebas en móviles reales y con lector de pantalla están hechas, y el código está separado en archivos con validación de datos y tests.
 
-- [ ] Separar el archivo único en `index.html`, `styles.css`, `app.js` y un fichero de datos (`data/es-2026.json`).
-- [ ] Validación del fichero de datos al cargar o en CI: cada array de respuestas tiene tantos valores como partidos, todos los valores están entre −2 y +2, `dir` es +1 o −1, los `id` son únicos, cada eje tiene al menos 10 preguntas.
-- [ ] Tests unitarios deterministas para las funciones puras: puntuación por eje, afinidad, zona y conversión a coordenadas del rombo. Deben reproducir la tabla de posiciones de este README.
+### Comprobaciones antes de cada push
 
-### Accesibilidad y calidad
+```
+npm test
+```
 
-- [ ] Probar en móviles reales (Safari iOS y Chrome Android): la Web Share API con imagen, la descarga del PNG, la copia del enlace y la paginación.
-- [ ] Probar la paginación por ámbitos y los atajos de teclado con lector de pantalla.
+Ejecuta dos cosas, sin dependencias:
+
+- `node tests/validate-data.js`: valida `public/data/es-2026.json` (ids únicos, ejes y ámbitos válidos, `dir` ±1, una respuesta por partido entre −2 y +2 o `null`, al menos 10 preguntas por eje, una justificación por partido y pregunta con url válida o vacía) y avisa de frases con punto y coma o paréntesis.
+- `node --test tests/`: tests unitarios de `scoring.js` (proyección en el rombo, zonas, puntuación por eje, afinidad) y una comprobación de que las posiciones calculadas con los datos reales coinciden con la tabla de este README y con la versión de datos.
 
 ---
 
 ## Registro de cambios de los datos
 
-La versión y la fecha se muestran en la metodología de la web (`DATA_VERSION` y `DATA_DATE` en `index.html`). Cualquier cambio en preguntas o respuestas de partidos debe subir la versión y anotarse aquí.
+La versión y la fecha se muestran en la metodología de la web (claves `version` y `date` de `public/data/es-2026.json`). Cualquier cambio en preguntas o respuestas de partidos debe subir la versión y anotarse aquí.
 
 - **1.7 (01-11-2026)**: se retiran siete afirmaciones que apenas separaban a los partidos o tenían demasiadas casillas sin dato: prostitución (tres partidos en neutral y uno sin dato), fumar en terrazas (tres sin dato, sin votación aún), anonimato en redes (tres sin dato), verificar identidad en webs de adultos (se movía igual que la de menores en redes), legislar por decreto (solo distinguía a las referencias), publicidad de apuestas (poca separación) y mili obligatoria (todos en contra salvo Vox). Quedan **40 afirmaciones, 20 por eje**, y los ámbitos van de 4 a 6 preguntas. Al quitar preguntas de consenso los partidos se separan algo más en libertades: PP 70/34, PSOE 19/65, Vox 86/30, Frente Amplio 6/76, Podemos 8/78, SALF 83/52, D21 + Cs 62/56, Milei 91/27, Bukele 62/12, Trump 71/21, Putin 40/6, Maduro 24/10, Mujica 28/68, Meloni 69/23. Las preguntas retiradas, con sus respuestas y justificaciones, quedan en `docs/preguntas-retiradas-2026-11-01.md` por si se recuperan.
 - **1.6 (01-11-2026)**: cada pregunta lleva un desplegable «¿Por qué responde así cada partido?» con una frase por partido o referencia que cita el hecho concreto (voto, ley, programa o declaración) que sostiene su posición, y un enlace a la fuente cuando la hay: 658 frases, 14 por pregunta, guardadas en un bloque JSON dentro de `index.html` que solo se lee al abrir el desplegable. Al redactarlas se detectaron 24 casillas cuyo valor no se sostenía y se corrigen: Vox en contra de subir el salario mínimo y menos contrario a la vivienda pública (Garriga prometió vivienda social masiva), Podemos a favor y no muy a favor en empresa pública y publicidad del juego, seis casillas de SALF que eran inferencias sin hecho (expropiar, empresa pública, grandes tenedores, anonimato y ley trans pasan a en contra, avales a sin dato), D21 + Cs con aranceles, jornada, identidad en webs y tabaco ajustados y okupas a muy a favor por las 48 horas de Ciudadanos, Frente Amplio menos tajante en discursos de odio y sin dato en anonimato, Bukele contra las nacionalizaciones y sin dato en despido, con la religión en a favor, y Milei neutral en IRPF por haber restituido Ganancias y sin dato en prostitución, anonimato y mili. Posiciones: PP 70/37, PSOE 19/54, Vox 86/38, Frente Amplio 6/69, Podemos 8/73, SALF 83/55, D21 + Cs 62/56, Milei 91/32, Bukele 62/11, Trump 71/20, Putin 40/7, Maduro 24/10, Mujica 28/66, Meloni 69/26. Detalle en `docs/justificaciones-2026-11-01.md`.
@@ -405,20 +407,30 @@ La versión y la fecha se muestran en la metodología de la web (`DATA_VERSION` 
 ├── README.md
 ├── LICENSE                  # MIT, para el código
 ├── LICENSE-DATA             # CC BY 4.0, para las preguntas, las posiciones y sus justificaciones
+├── package.json             # solo los scripts de test; sin dependencias
 ├── commit-message.txt       # borrador del siguiente mensaje de commit (no se despliega)
 ├── wrangler.jsonc           # configuración de Cloudflare Workers con static assets
 ├── docs/                    # verificaciones de datos con fuentes (no se despliegan)
+├── tests/
+│   ├── validate-data.js     # valida el fichero de datos
+│   └── scoring.test.js      # tests de cálculo y de la tabla de posiciones
 └── public/                  # lo único que sirve Cloudflare
     ├── _redirects           # / → /es/ (302), /index.html y /es/index.html → /es/ (301)
     ├── _headers             # cabeceras de seguridad y caché
-    ├── 404.html             # página de error
+    ├── 404.html
     ├── robots.txt
     ├── og-image.png         # imagen fija para Open Graph (https://testnolan.com/og-image.png)
+    ├── assets/
+    │   ├── styles.css
+    │   ├── scoring.js       # cálculo puro: rombo, zonas, puntuación, afinidad (window.Scoring en la web, require en Node)
+    │   └── app.js           # lógica de la página; carga /data/es-2026.json y usa scoring.js
+    ├── data/
+    │   └── es-2026.json     # partidos, ámbitos, preguntas, respuestas y justificaciones; version y date
     └── es/
-        └── index.html       # el test completo, un solo archivo
+        └── index.html       # marcado de la página
 ```
 
-Previsto para más adelante: `CONTRIBUTING.md`, una plantilla de issue para proponer correcciones con fuente y separar `assets/` y `data/` si el archivo único se divide.
+Previsto para más adelante: `CONTRIBUTING.md` y una plantilla de issue para proponer correcciones con fuente.
 
 ---
 
