@@ -441,7 +441,7 @@ function paintChart(ctx, ox, oy, size, opts={}){
   const [cx0,cy0]=T(50,50); txt('Centro',cx0,cy0+30*k,fB(11.5),ink2); placed.push({x:cx0-22*k,y:cy0+19*k,w:44*k,h:14*k});
   const axl=(s,x,y,rot)=>{ ctx.save(); ctx.translate(ox+x*k,oy+y*k); ctx.rotate(rot*Math.PI/180); txt(s,0,0,fM(10.5),ink2); ctx.restore(); };
   axl('LIBERTAD ECONÓMICA →',150,152,-45); axl('← LIBERTAD PERSONAL',410,152,45);
-  const items = PARTIES.filter(p=> opts.spainOnly ? !p.ref : !hidden.has(p.id)).map(p=>({p,s:partyScores[p.id]}));
+  const items = PARTIES.filter(p=> opts.allParties ? true : !hidden.has(p.id)).map(p=>({p,s:partyScores[p.id]}));
   const marks = personMarks().filter(m=> (m.id==='you' ? opts.showUser!==false : opts.showGroup!==false));
   items.forEach(({s})=>{ const [x,y]=T(s.E,s.P); placed.push({x:x-7*k,y:y-7*k,w:14*k,h:14*k}); });
   marks.forEach(m=>{ const [x,y]=T(m.E,m.P); m.x=x; m.y=y; placed.push({x:x-11*k,y:y-11*k,w:22*k,h:22*k}); });
@@ -467,7 +467,7 @@ function wrapText(ctx, text, x, y, maxW, lineH){
   for(const w of words){ const test=line?line+' '+w:w; if(ctx.measureText(test).width>maxW && line){ ctx.fillText(line,x,yy); line=w; yy+=lineH; } else line=test; }
   if(line) ctx.fillText(line,x,yy); return yy;
 }
-// imgMode: 'user' (resultado del usuario) u 'og' (imagen genérica para Open Graph)
+// imgMode: 'user' (resultado del usuario, con las referencias que tenga visibles) u 'og' (imagen genérica para Open Graph, con todos los partidos y referencias). La genérica se captura con npm run og.
 async function renderShareImage(imgMode){
   const W=1200, H=630, cv=document.getElementById('shareCanvas'); cv.width=W; cv.height=H;
   const ctx=cv.getContext('2d');
@@ -475,7 +475,7 @@ async function renderShareImage(imgMode){
   const bg=cssVar('--bg'), ink=cssVar('--ink'), muted=cssVar('--muted'), accent=cssVar('--ink'), surface=cssVar('--surface'), soft=cssVar('--soft'), line=cssVar('--line-strong');
   ctx.fillStyle=bg; ctx.fillRect(0,0,W,H);
   ctx.fillStyle=surface; rr(ctx,32,35,560,560,20); ctx.fill(); ctx.strokeStyle=line; ctx.lineWidth=1.5; ctx.stroke();
-  paintChart(ctx, 32, 35, 560, {showUser: imgMode==='user', showGroup: imgMode==='user', spainOnly: imgMode!=='user'});
+  paintChart(ctx, 32, 35, 560, {showUser: imgMode==='user', showGroup: imgMode==='user', allParties: imgMode!=='user'});
   const X=640, COLW=520;
   const t=(s,x,y,font,color,align='left')=>{ ctx.font=font; ctx.fillStyle=color; ctx.textAlign=align; ctx.textBaseline='alphabetic'; ctx.fillText(s,x,y); };
   try{ ctx.letterSpacing='0.08em'; }catch(e){}

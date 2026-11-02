@@ -4,6 +4,7 @@
   "description": "Test de Nolan para las elecciones generales de España del 29N de 2026. Web estática, sin dependencias.",
   "scripts": {
     "validate": "node tests/validate-data.js",
-    "test": "node tests/validate-data.js && node --test tests/"
+    "test": "node tests/validate-data.js && node --test tests/",
+    "og": "bash scripts/og-image.sh"
   }
 }
